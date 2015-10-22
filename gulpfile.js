@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     rename = require('gulp-rename');
 var less = require('gulp-less');
+var jade = require('gulp-jade');
 var browserSync = require('browser-sync');
 
 gulp.task('browser-sync', function() {
@@ -14,6 +15,13 @@ gulp.task('browser-sync', function() {
 
 gulp.task('bs-reload', function () {
   browserSync.reload();
+});
+
+gulp.task('jade', function(){
+  gulp.src(['jade/*.jade'])
+    .pipe(jade())
+    .pipe(gulp.dest('.'))
+    .pipe(browserSync.reload({stream:true}))
 });
 
 gulp.task('styles', function(){
@@ -31,5 +39,6 @@ gulp.task('styles', function(){
 
 gulp.task('default', ['browser-sync'], function(){
   gulp.watch("less/**/*.less", ['styles']);
+  gulp.watch("jade/**/*.jade", ['jade']);
   gulp.watch("*.html", ['bs-reload']);
 });

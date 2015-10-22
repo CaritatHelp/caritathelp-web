@@ -13,6 +13,7 @@
 
 @import "variables";
 @import "mixins";
+@import "login-page";
 
 html, body {
 	height: 100%;
@@ -23,9 +24,7 @@ body {
 }
 
 
-/*
-	STICKY FOOTER
-*/
+/* =================	STICKY FOOTER ================= */
 	.wrapper {
 		min-height: 100%;
 		margin-bottom: -41px;
@@ -44,29 +43,19 @@ body {
 	  }
 	}
 
-.navbar-inverse {
-	background-color: @navbar-green;
-	border-color: @navbar-border;
-	height: @navbar-height;
-	.navbar-brand {
-		color: @navbar-color-logo;
-		font-size: @navbar-fontsize;
+/* =================	BARRE DE NAVIGATION ================= */
+	.navbar {
+		background-color: @navbar-green;
+		border-color: @navbar-border;
+		height: @navbar-height;
+		.navbar-brand {
+			color: @navbar-color-logo;
+			font-size: @navbar-fontsize;
+		}
+		.container {
+			padding: 5px 15px;
+		}
 	}
-	.container {
-		padding: 5px 15px;
-	}
-}
-
-
-.tile {
-	padding: 10px;
-	border: 1px solid @tile-border-color;
-	background: @tile-background-color;
-	border-radius: 4px;
-	// .box-shadow(3px; 3px; 0; @tile-shadow-color);
-}
-
-
 
 
 

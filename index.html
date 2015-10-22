@@ -19,7 +19,7 @@
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -47,20 +47,80 @@
       <div class="container">
         <!-- Example row of columns -->
         <div class="row tile">
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <div class="col-md-6">
+            <h3>Faites un geste, rejoignez<br />
+            CaritatHelp</h3>
           </div>
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-         </div>
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <div class="col-md-6">
+            <h2>Enregistrez vous</h2>
+            <h4>Gratuit pour toujours</h4>
+            <form id="formRegistration">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon" id="UserNom"><i class="fa fa-user"></i></span>
+                    <input type="text" class="form-control" id="inputNom" name="inputNom" required placeholder="Nom" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon" id="UserPrenom"><i class="fa fa-user"></i></span>
+                    <input type="text" name="inputPrenom" id="inputPrenom" class="form-control" required placeholder="Prénom" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon" id="UserEmail"><i class="fa fa-envelope"></i></span>
+                    <input type="email" name="inputEmail" class="form-control" id="inputEmail" required placeholder="Adresse email" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon" id="UserPassword"><i class="fa fa-lock"></i></span>
+                    <input type="password" class="form-control" placeholder="Mot de passe" id="InputPassword" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-9" id="inputNaissance">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    <div class="col-md-4">
+                      <select id="selectJour" class="selectpicker form-control" data-live-search="true" title="Jour">
+                        <option>Jour</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <select id="selectMois" class="selectpicker form-control" data-live-search="true" title="Please select a lunch ...">
+                        <option>Mois</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <select id="selectAnnee" class="selectpicker form-control" data-live-search="true" title="Please select a lunch ...">
+                        <option value="">Année</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3" id="inputGenre">
+                <div class="form-group">
+                  <div class="input-group">
+                    <div id="radioGender" class="btn-group">
+                      <a class="btn btn-primary btn-sm active" data-toggle="inputGender" data-title="Homme"><i class="fa fa-mars"></i></a>
+                      <a class="btn btn-primary btn-sm notActive" data-toggle="inputGender" data-title="Femme"><i class="fa fa-venus"></i></a>
+                    </div>
+                    <input type="hidden" name="inputGender" id="inputGender">
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
   		</div>

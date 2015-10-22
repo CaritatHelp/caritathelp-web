@@ -4,26 +4,67 @@
    LESS Stylesheet
    Created by Nicolas
    ========================================================================== */
+  
+  /* Bootstrap fix for navbar */
+  body {
+		padding-top: 50px;
+		padding-bottom: 20px;
+  }
 
 @import "variables";
+@import "mixins";
 
-
+html, body {
+	height: 100%;
+}
 body {
 	font-family: Roboto;
+	padding-top: @navbar-height + 15px;
 }
 
-.container {
-	width: auto;
-}
+
+/*
+	STICKY FOOTER
+*/
+	.wrapper {
+		min-height: 100%;
+		margin-bottom: -41px;
+		padding-bottom: 15px;
+		&:after {
+			content: "";
+			display: block;
+	  height: 60px;
+		}
+	}
+	.footer {
+	  border-top: 1px solid @navbar-border;
+	  height: 60px;
+	  .container {
+	  	padding: 15px 0;
+	  }
+	}
 
 .navbar-inverse {
 	background-color: @navbar-green;
-	border-color: @navbar-borders;
+	border-color: @navbar-border;
+	height: @navbar-height;
 	.navbar-brand {
 		color: @navbar-color-logo;
+		font-size: @navbar-fontsize;
+	}
+	.container {
+		padding: 5px 15px;
 	}
 }
 
+
+.tile {
+	padding: 10px;
+	border: 1px solid @tile-border-color;
+	background: @tile-background-color;
+	border-radius: 4px;
+	// .box-shadow(3px; 3px; 0; @tile-shadow-color);
+}
 
 
 

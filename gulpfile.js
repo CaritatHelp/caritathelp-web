@@ -39,6 +39,6 @@ gulp.task('styles', function(){
 
 gulp.task('default', ['browser-sync'], function(){
   gulp.watch("less/**/*.less", ['styles']);
-  gulp.watch("jade/**/*.jade", ['jade']);
+  //gulp.watch("jade/**/*.jade", ['jade']);
   gulp.watch("*.html", ['bs-reload']);
 });

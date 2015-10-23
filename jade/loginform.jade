@@ -1,0 +1,55 @@
+.container
+  .row.tile
+    .col-md-6
+      h3 Faites un geste, rejoignez <br /> CaritatHelp
+    .col-md-6
+      h2 Enregistrez vous
+      h4 C'est gratuit, et ça le restera
+      form#formRegistration
+        .col-md-6
+          .form-group
+            .input-group
+              span#userNom.input-group-addon
+                i.fa.fa-user
+              input.form-control#inputNom(type="text", name="inputNom", placeholder="Nom", required)
+        .col-md-6
+          .form-group
+            .input-group
+              span#userPrenom.input-group-addon
+                i.fa.fa-user
+              input.form-control#inputPrenom(type="text", name="inputPrenom", placeholder="Prénom", required)
+        .col-md-12
+          .form-group
+            .input-group
+              span#userEmail.input-group-addon
+                i.fa.fa-envelope
+              input.form-control#inputEmail(type="email", name="inputEmail", placeholder="Email", required)
+        .col-md-12
+          .form-group
+            .input-group
+              span#userPassword.input-group-addon
+                i.fa.fa-lock
+              input.form-control#inputPassword(type="password", name="inputPassword", placeholder="Mot de passe", required)
+        .col-md-9#inputNaissance
+          .form-group
+            .input-group
+              span#userNaissance.input-group-addon
+                i.fa.fa-calendar
+              .col-md-4
+                select#selectJour.selectpicker.form-control(data-live-search="true", title="Jour")
+                  option(value="0") Jour
+              .col-md-4
+                select#selectMois.selectpicker.form-control(data-live-search="true", title="Mois")
+                  option(value="0") Mois
+              .col-md-4
+                select#selectAnnee.selectpicker.form-control(data-live-search="true", title="Année")
+                  option(value="0") Année
+        .col-md-3#inputGenre
+          .form-group
+            .input-group
+              #radioGender.btn-group
+                a.btn.btn-primary.btn-sm.active(data-toggle="inputGender", data-title="Homme")
+                  i.fa.fa-mars
+                a.btn.btn-primary.btn-sm.notActive(data-toggle="inputGender", data-title="Femme")
+                  i.fa.fa-venus
+              input#inputGender(type="hidden", name="inputGender")

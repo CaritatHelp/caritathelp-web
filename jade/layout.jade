@@ -1,7 +1,12 @@
 doctype html
-html(lang="en")
+html
 	head
-		title= CaritatHelp
+		include ./inc/head.jade
+		title= title
 	body
-		h1 Test
-		
+		include ./inc/navbar.jade
+		.wrapper
+		block content
+		footer.footer
+			include ./inc/footer.jade
+		include ./inc/closure.jade

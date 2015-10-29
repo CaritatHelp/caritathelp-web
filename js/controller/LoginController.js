@@ -23,6 +23,7 @@ angular.module('social')
 							login.token = data.token;
 							login.connected = true;
 							login.showUser();
+							console.log(login.token);
 						} else {
 							login.toto = 'ERROR .... . t nul lol ! ';
 						}

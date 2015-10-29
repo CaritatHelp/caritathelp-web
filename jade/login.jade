@@ -1,0 +1,38 @@
+div(ng-controller="LoginController as ctrl")
+	.tile.col-sm-6.col-sm-push-3 
+		//- .col-sm-6
+		//- 	h2 Rejoignez CaritatHelp !
+		form(ng-show="!ctrl.connected")
+			.text-center
+				h2 Connectez vous
+			br
+			.col-sm-12
+				.form-group
+					.input-group
+						span#userEmail.input-group-addon
+							i.fa.fa-envelope
+						input.form-control#inputEmail(type="email", name="inputEmail", placeholder="Email", required, ng-model="email")
+				.form-group
+					.input-group
+						span#userPassword.input-group-addon
+							i.fa.fa-lock
+						input.form-control#inputPassword(type="password", name="inputPassword", placeholder="Mot de passe", required, ng-model="password")
+				.text-right
+					button.btn.btn-success(type="submit" ng-click='ctrl.SignIn()') Connexion
+		div(ng-show="ctrl.connected")
+			.text-center
+				h2 Bienvenue
+			.list-group
+				.list-group-item(ng-repeat="user in ctrl.userList")
+					h4.list-group-item-heading {{user.name}}
+						.small {{'User ' + user.id}}
+					p.list-group-item-text mail: {{user.mail}}
+			.text-right
+				button.btn.btn-danger(type="submit" ng-click="ctrl.SignOut()") Déconnexion
+		.clearfix
+
+	h1 {{ctrl.message}}
+	p.
+		Test login
+		{{email + '....' + password }} <br />
+		{{toto}} 

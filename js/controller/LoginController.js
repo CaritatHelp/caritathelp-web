@@ -1,5 +1,5 @@
 angular.module('social')
-	.controller('LoginController', function($scope, $http){
+	.controller('LoginController', function($http){
 		var login = this;
 
 		login.token = '';
@@ -16,7 +16,7 @@ angular.module('social')
 		}
 
 		this.SignIn = function() {
-			$http.post('http://62.210.115.108:3000/login?user[mail]='+$scope.email+'&user[password]='+$scope.password)
+			$http.post('http://62.210.115.108:3000/login?user[mail]='+login.mail+'&user[password]='+login.pass)
 				.success(function(data) {
 					console.log('Requete login status: ' + data.status);
 						if (data.status == 200) {
@@ -37,6 +37,19 @@ angular.module('social')
 					if (data.status == 200){
 						console.log('Requete logout status: ' + data.status);
 						login.connected = false;
+					}
+				});
+		}
+
+		this.Register = function(){
+			console.log('http://62.210.115.108:3000/users?user[name]='+login.name+'&user[mail]='+login.email+'&user[password]='+login.password);
+			$http.post('http://62.210.115.108:3000/users?user[name]='+login.name+'&user[mail]='+login.email+'&user[password]='+login.password)
+				.success(function(data) {
+					if (data.status == 200){
+						console.log('Requete register status: ' + data.status);
+						login.connected = true;
+						login.token = data.token;
+						login.showUser();
 					}
 				});
 		}

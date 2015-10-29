@@ -1,8 +1,8 @@
-div(ng-controller="LoginController as ctrl")
-	.tile.col-sm-6.col-sm-push-3 
+.tile(ng-controller="LoginController as login")
+	.col-sm-6
 		//- .col-sm-6
 		//- 	h2 Rejoignez CaritatHelp !
-		form(ng-show="!ctrl.connected")
+		form.col-sm-10.col-sm-push-1(ng-show="!login.connected", ng-submit="login.SignIn()")
 			.text-center
 				h2 Connectez vous
 			br
@@ -11,28 +11,51 @@ div(ng-controller="LoginController as ctrl")
 					.input-group
 						span#userEmail.input-group-addon
 							i.fa.fa-envelope
-						input.form-control#inputEmail(type="email", name="inputEmail", placeholder="Email", required, ng-model="email")
+						input.form-control#inputEmail(type="email", name="inputEmail", placeholder="Email", required, ng-model="login.mail")
 				.form-group
 					.input-group
 						span#userPassword.input-group-addon
 							i.fa.fa-lock
-						input.form-control#inputPassword(type="password", name="inputPassword", placeholder="Mot de passe", required, ng-model="password")
+						input.form-control#inputPassword(type="password", name="inputPassword", placeholder="Mot de passe", required, ng-model="login.pass")
 				.text-right
-					button.btn.btn-success(type="submit" ng-click='ctrl.SignIn()') Connexion
-		div(ng-show="ctrl.connected")
+					button.btn.btn-success(type="submit") Connexion
+		form(ng-show="login.connected", ng-submit="login.SignOut()")
 			.text-center
 				h2 Bienvenue
 			.list-group
-				.list-group-item(ng-repeat="user in ctrl.userList")
+				.list-group-item(ng-repeat="user in login.userList")
 					h4.list-group-item-heading {{user.name}}
 						.small {{'User ' + user.id}}
 					p.list-group-item-text mail: {{user.mail}}
 			.text-right
-				button.btn.btn-danger(type="submit" ng-click="ctrl.SignOut()") Déconnexion
-		.clearfix
+				button.btn.btn-danger(type="submit") Déconnexion
+	.col-sm-6 
+		form.col-sm-10.col-sm-push-1(ng-show="!login.connected", ng-submit="login.Register()")
+			.text-center
+				h2 Enregistrez-vous
+			br
+			.form-group
+				.input-group
+					span#userName.input-group-addon
+						i.fa.fa-user
+					input.form-control#inputName(type="text", name="inputName", placeholder="Name", ng-model="login.name", required)
+			.form-group
+				.input-group
+					span#userEmail.input-group-addon
+						i.fa.fa-envelope
+					input.form-control#inputEmail(type="email", name="inputEmail", placeholder="Email", ng-model="login.email", required)
+			.form-group
+				.input-group
+					span#userPassword.input-group-addon
+						i.fa.fa-lock
+					input.form-control#inputPassword(type="password", name="inputPassword", placeholder="Mot de passe", ng-model="login.password", required)
+			.text-right
+				button.btn.btn-success(type="submit") Inscription
+			br
+	.clearfix
 
-	h1 {{ctrl.message}}
-	p.
-		Test login
-		{{email + '....' + password }} <br />
-		{{toto}} 
+h1 {{login.message}}
+p.
+	Test login
+	{{email + '....' + password }} <br />
+	{{toto}} 

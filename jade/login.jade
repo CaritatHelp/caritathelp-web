@@ -20,7 +20,7 @@
 						i.fa.fa-lock
 					input.form-control#inputPassword(type="password", name="inputPassword", placeholder="Mot de passe", ng-model="login.password", required)
 			.text-right
-				button.btn.btn-success(type="submit") Inscription
+				button.btn.button-dft(type="submit") Inscription
 	.col-sm-6
 		//- .col-sm-6
 		//- 	h2 Rejoignez CaritatHelp !
@@ -40,7 +40,7 @@
 							i.fa.fa-lock
 						input.form-control#inputPassword(type="password", name="inputPassword", placeholder="Mot de passe", required, ng-model="login.pass")
 				.text-right
-					button.btn.btn-success(type="submit") Connexion
+					button.btn.button-dft(type="submit") Connexion
 		form(ng-show="login.connected", ng-submit="login.SignOut()")
 			.text-center
 				h2 Bienvenue

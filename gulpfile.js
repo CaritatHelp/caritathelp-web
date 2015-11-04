@@ -6,20 +6,9 @@ var gulp = require('gulp'),
     less = require('gulp-less'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
+    clean  = require('del'),
     runSequence = require('run-sequence'),
     browserSync = require('browser-sync');
-
-gulp.task('browser-sync', function() {
-  browserSync({
-    server: {
-       baseDir: "./public"
-    }
-  });
-});
-
-gulp.task('bs-reload', function () {
-  browserSync.reload();
-});
 
 gulp.task('jade', function(){
   gulp.src(['src/jade/*.jade'])
@@ -51,29 +40,51 @@ gulp.task('scripts', function(){
     .pipe(browserSync.reload({stream:true}))
 });
 
-gulp.task('copyfiles', function(){
+gulp.task('copy', function(){
   gulp.src(['src/fonts/*'])
-    .pipe(changed('public/fonts/**/*'))
+    .pipe(changed('public/fonts/*'))
     .pipe(gulp.dest('public/fonts'))
   gulp.src(['src/img/**/*'])
-    .pipe(changed('public/img/'))
+    .pipe(changed('public/img/**/*'))
     .pipe(gulp.dest('public/img'))
+  gulp.src(['src/libs/**/*'])
+    .pipe(changed('public/**/*'))
+    .pipe(gulp.dest('public/'))
   gulp.src(['src/**/*.html'])
     .pipe(changed('public/**/*.html'))
     .pipe(gulp.dest('public/'))
     .pipe(browserSync.reload({stream:true}));
 });
 
+gulp.task('clean', function() {
+  clean(['public/**/*', '!public']);
+});
+
 gulp.task('build', function() {
-  runSequence(['styles', 'scripts', 'jade', 'copyfiles']);
+  runSequence(['styles', 'scripts', 'jade', 'copy']);
+});
+
+gulp.task('rebuild', function(){
+  //TODO CA MARCHE PAS BIEN!!
+  runSequence(['clean', 'build']);
+});
+
+gulp.task('reload', function () {
+  browserSync.reload();
+});
+
+gulp.task('serve', function() {
+  browserSync({
+    server: {baseDir: "./public"}
+  });
 });
 
 gulp.task('watch', function(){
   gulp.watch("src/less/**/*.less", ['styles']);
   gulp.watch("src/jade/**/*.jade", ['jade']);
   gulp.watch("src/js/**/*.js", ['scripts']);
-  gulp.watch(["src/**/*.html", "src/fonts/*", "src/img/*"], ['copyfiles']);
+  gulp.watch(["src/**/*.html", "src/fonts/**/*", "src/img/**/*", "src/libs/**/*"], ['copyfiles']);
 });
 
-gulp.task('default', ['build', 'browser-sync', 'watch'], function(){
+gulp.task('default', ['build', 'serve', 'watch'], function(){
 });

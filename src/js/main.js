@@ -1,3 +1,9 @@
+if (window.jQuery) {  
+    alert('ok');
+} else {
+    alert('pas ok');
+}
+
 $(document).ready(function(){
 	//Bouton radio page de login
 	$('#radioGender2').click(function(){

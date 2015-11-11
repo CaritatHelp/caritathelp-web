@@ -83,7 +83,7 @@ gulp.task('watch', function(){
   gulp.watch("src/less/**/*.less", ['styles']);
   gulp.watch("src/jade/**/*.jade", ['jade']);
   gulp.watch("src/js/**/*.js", ['scripts']);
-  gulp.watch(["src/**/*.html", "src/fonts/**/*", "src/img/**/*", "src/libs/**/*"], ['copyfiles']);
+  gulp.watch(["src/**/*.html", "src/fonts/**/*", "src/img/**/*", "src/libs/**/*"], ['copy']);
 });
 
 gulp.task('default', ['build', 'serve', 'watch'], function(){

@@ -18,6 +18,7 @@ module.exports = function(config) {
     ],
 
     exclude: [
+    	'src/js/main.js'
     ],
 
     preprocessors: {

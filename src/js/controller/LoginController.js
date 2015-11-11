@@ -29,7 +29,7 @@ angular.module('social')
 						}
 				});
 		}
-//root@root.com
+		//root@root.com
 	
 		this.SignOut = function(){
 			$http.post('http://62.210.115.108:3000/logout?token='+login.token)
@@ -53,13 +53,4 @@ angular.module('social')
 					}
 				});
 		}
-
-		$('#radioGender2').click(function(){
-			$('#radioGender3').addClass("notActive").removeClass('active');
-			$('#radioGender2').addClass("active").removeClass('notActive');
-		})
-		$('#radioGender3').click(function(){
-			$('#radioGender2').addClass("notActive").removeClass('active');
-			$('#radioGender3').addClass("active").removeClass('notActive');
-		})
 });

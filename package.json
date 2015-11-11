@@ -11,6 +11,7 @@
   "devDependencies": {
     "angular": "^1.4.7",
     "angular-mocks": "^1.4.7",
+    "angular-route": "^1.4.7",
     "browser-sync": "^2.9.11",
     "del": "^2.0.2",
     "gulp": "^3.9.0",
@@ -26,8 +27,7 @@
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
     "phantomjs": "^1.9.18",
-    "run-sequence": "^1.1.4",
-    "semantic-ui": "^2.1.6"
+    "run-sequence": "^1.1.4"
   },
   "repository": {
     "type": "git",

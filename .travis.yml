@@ -1,3 +1,5 @@
 language: node_js
 node_js:
   - "4.1"
+notifications:
+  slack: caritathelp:a446oyELBC2H0MyoWfSX46gi

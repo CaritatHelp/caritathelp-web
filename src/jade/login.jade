@@ -1,111 +1,94 @@
-.tile(ng-controller="LoginController as login")
-	.col-sm-6.col-xs-12.inscription
-		.col-md-3.col-sm-1
-		form.col-md-6.col-sm-9.col-xs-10.col-sm-push-1(ng-show="!login.connected", ng-submit="login.Register()")
-			.text-center
-				h2 Enregistrez-vous
-			br
-			.form-group
+.tile.col-sm-10.col-sm-push-1(ng-controller="LoginController as login")
+	section.col-sm-6.col-xs-12.inscription
+		form.clearfix(ng-show="!login.connected", ng-submit="login.Register()")
+			h1.text-center Enregistrez-vous
+			fieldset.col-sm-6.form-group#userFirstName
 				.input-group
-					span#userFirstName.input-group-addon
+					span.input-group-addon
 						i.fa.fa-user
-					input.form-control#inputName(type="text", name="inputName", placeholder="Prénom", ng-model="login.firstname", required)
-			.form-group
+					input.form-control#inputFirstName(type="text", name="inputName", placeholder="Prénom", ng-model="login.firstname", required)
+			fieldset.col-sm-6.form-group#userLastName
 				.input-group
-					span#userLastName.input-group-addon
+					span.input-group-addon
 						i.fa.fa-user
-					input.form-control#inputName(type="text", name="inputName", placeholder="Nom", ng-model="login.lastname", required)
-			br
-			.form-group
+					input.form-control#inputLastName(type="text", name="inputLastName", placeholder="Nom", ng-model="login.lastname", required)
+			fieldset.col-sm-12.form-group#userEmail
 				.input-group
-					span#userEmail.input-group-addon
+					span.input-group-addon
 						i.fa.fa-envelope
 					input.form-control#inputEmail(type="email", name="inputEmail", placeholder="Email", ng-model="login.email", required)
-			br
-			.form-group
+			fieldset.col-sm-12.form-group#userPassword
 				.input-group
-					span#userPassword.input-group-addon
+					span.input-group-addon
 						i.fa.fa-lock
 					input.form-control#inputPassword(type="password", name="inputPassword", placeholder="Mot de passe", ng-model="login.password", required)
-			.form-group
+			fieldset.col-sm-12.form-group#userConfirmation
 				.input-group
-					span#userPassword.input-group-addon
+					span.input-group-addon
 						i.fa.fa-lock
-					input.form-control#inputPassword(type="password", name="inputConfirmPassword", placeholder="Confimation Mot de passe", ng-model="login.confirmPassword", required)
-			br
-			.form-group
+					input.form-control#inputConfirmation(type="password", name="inputConfirmPassword", placeholder="Confimation Mot de passe", ng-model="login.confirmPassword", required)
+			fieldset.col-sm-12.form-group#userNaissance
 				.input-group
-					span#userNaissance.input-group-addon
+					span.input-group-addon
 						i.fa.fa-calendar
-					.col-md-4
-						select#selectJour.selectpicker.form-control(data-live-search="true", title="Jour")
-							option(value="0") Jour
-							option(value="1") 1
-							option(value="2") 2
-							option(value="3") 3
-							option(value="4") 4
-							option(value="5") 5
-							option(value="6") 6
-							option(value="7") 7
-					.col-md-4
-						select#selectMois.selectpicker.form-control(data-live-search="true", title="Mois")
-							option(value="0") Mois
-							option(value="1") Janvier
-							option(value="2") février
-							option(value="3") Mars
-							option(value="4") Avril
-							option(value="5") Mai
-							option(value="6") Juin
-							option(value="7") Juillet
-							option(value="8") Aout
-							option(value="9") Septembre
-							option(value="10") Octobre
-							option(value="11") Novembre
-							option(value="12") Décembre
-					.col-md-4
-						select#selectAnnee.selectpicker.form-control(data-live-search="true", title="Année")
-							option(value="0") Année
-							option(value="1990") 1990
-							option(value="1991") 1991
-							option(value="1992") 1992
-							option(value="1993") 1993
-							option(value="1994") 1994
-							option(value="1995") 1995
-			.form-group
+					select#selectJour.selectpicker.form-control(data-live-search="true", title="Jour")
+						option(value="0") Jour
+						option(value="1") 1
+						option(value="2") 2
+						option(value="3") 3
+						option(value="4") 4
+						option(value="5") 5
+						option(value="6") 6
+						option(value="7") 7
+					select#selectMois.selectpicker.form-control(data-live-search="true", title="Mois")
+						option(value="0") Mois
+						option(value="1") Janvier
+						option(value="2") février
+						option(value="3") Mars
+						option(value="4") Avril
+						option(value="5") Mai
+						option(value="6") Juin
+						option(value="7") Juillet
+						option(value="8") Aout
+						option(value="9") Septembre
+						option(value="10") Octobre
+						option(value="11") Novembre
+						option(value="12") Décembre
+					select#selectAnnee.selectpicker.form-control(data-live-search="true", title="Année")
+						option(value="0") Année
+						option(value="1990") 1990
+						option(value="1991") 1991
+						option(value="1992") 1992
+						option(value="1993") 1993
+						option(value="1994") 1994
+						option(value="1995") 1995
+			fieldset.col-sm-8.form-group
 				.input-group
 					#radioGender.btn-group
 						a#radioGender2.btn.btn-success.btn-sm.active(data-toggle="inputGender", data-title="Homme", ng-model='login.radioGender')
 							b.fa.fa-mars
 						a#radioGender3.btn.btn-success.btn-sm.notActive(data-toggle="inputGender", data-title="Femme", ng-model='login.radioGender2')
 							b.fa.fa-venus
-					
-			.text-center
-				button.ui.green.inverted.button#default(type="submit") Inscription
-	
+			.pull-right.text-center#submitLogin
+				button.ui.green.inverted.button(type="submit") Inscription	
 
-
-
-	.col-sm-6.col-xs-12.connexion
-		//- .col-sm-6
-		//- 	h2 Rejoignez CaritatHelp !
-		form.col-md-6.col-sm-10.col-sm-push-1(ng-show="!login.connected", ng-submit="login.SignIn()")
-			.text-center
-				h2 Connectez vous
-			br
-			.col-sm-12
-				.form-group
-					.input-group
-						span#userEmail.input-group-addon
-							i.fa.fa-envelope
-						input.form-control#inputEmail(type="email", name="inputEmail", placeholder="Email", required, ng-model="login.mail")
-				.form-group
-					.input-group
-						span#userPassword.input-group-addon
-							i.fa.fa-lock
-						input.form-control#inputPassword(type="password", name="inputPassword", placeholder="Mot de passe", required, ng-model="login.pass")
-				br
-				.text-center
-					button.ui.green.inverted.button#default(type="submit") Connexion
+	section.col-sm-6.col-xs-12.connexion
+		form.clearfix(ng-show="!login.connected", ng-submit="login.SignIn()")
+			h1.text-center Connectez vous
+			fieldset.col-sm-12.form-group#userEmail
+				.input-group
+					span.input-group-addon
+						i.fa.fa-envelope
+					input.form-control#inputEmail(type="email", name="inputEmail", placeholder="Email", required, ng-model="login.mail")
+			fieldset.col-sm-12.form-group#userPassword
+				.input-group
+					span.input-group-addon
+						i.fa.fa-lock
+					input.form-control#inputPassword(type="password", name="inputPassword", placeholder="Mot de passe", required, ng-model="login.pass")
+			.text-center.pull-right#submitRegister
+				button.ui.green.inverted.button#default(type="submit") Connexion
+		hr
+		button.ui.blue.inverted.button Connexion avec Facebook
 		form(ng-show="login.connected", ng-submit="login.SignOut()")
 			.text-center
 				h2 Bienvenue
@@ -115,12 +98,6 @@
 						.small {{'User ' + user.id}}
 					p.list-group-item-text mail: {{user.mail}}
 			.text-right
-				button.ui.green.inverted.button#default(type="submit") Connexion
+				button.ui.green.inverted.button(type="submit") Connexion
 			br
 	.clearfix
-
-h1 {{login.message}}
-p.
-	Test login
-	{{email + '....' + password }} <br />
-	{{toto}} 

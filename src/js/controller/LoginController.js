@@ -16,7 +16,7 @@ angular.module('social')
 		}
 
 		this.SignIn = function() {
-			$http.post('http://62.210.115.108:3000/login?user[mail]='+login.mail+'&user[password]='+login.pass)
+			$http.post('http://62.210.115.108:3000/login?mail='+login.mail+'&password='+login.pass)
 				.success(function(data) {
 					console.log('Requete login status: ' + data.status);
 						if (data.status == 200) {
@@ -42,8 +42,7 @@ angular.module('social')
 		}
 
 		this.Register = function(){
-			console.log('http://62.210.115.108:3000/users?user[name]='+login.name+'&user[mail]='+login.email+'&user[password]='+login.password);
-			$http.post('http://62.210.115.108:3000/users?user[name]='+login.name+'&user[mail]='+login.email+'&user[password]='+login.password)
+			$http.post('http://62.210.115.108:3000/users?name='+login.name+'&mail='+login.email+'&password='+login.password)
 				.success(function(data) {
 					if (data.status == 200){
 						console.log('Requete register status: ' + data.status);

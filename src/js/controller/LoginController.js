@@ -7,7 +7,7 @@ angular.module('social')
 	login.message = "It works !";
 	login.error = false;
 	login.errorMessage = "test";
-					login.connected = false;
+	login.connected = false;
 
 	this.SignIn = function() {
 		dsc.login(login.mail, login.password)

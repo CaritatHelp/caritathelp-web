@@ -92,7 +92,7 @@
 				button.ui.green.inverted.button#default(type="submit") Connexion
 		hr
 		button.ui.blue.inverted.button Connexion avec Facebook
-		form(ng-show="register.connected", ng-submit="register.SignOut()")
+		form(ng-show="login.connected", ng-submit="register.SignOut()")
 			.text-center
 				h2 Bienvenue
 			.list-group
@@ -101,6 +101,6 @@
 						.small {{'User ' + user.id}}
 					p.list-group-item-text mail: {{user.mail}}
 			.text-right
-				button.ui.green.inverted.button(type="submit") Connexion
+				a.ui.green.inverted.button(ng-click="login.SignOut()") DeConnexion
 			br
 	.clearfix

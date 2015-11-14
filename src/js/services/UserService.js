@@ -1,8 +1,17 @@
 angular.module('social')
-.factory('UserService', function($http){
+.factory('UserService', function(){
 	var connected = false;
-	var token = "echec assign";
-	var user = null;
+	var token = "";
+	var user = {
+		id: null,
+		mail: "",
+		firstname: "",
+		lastname: "",
+		birthday: "",
+		gender: "",
+		city: "",
+		allowgps: false
+	};
 
 	return {
 		connected: function(){
@@ -14,8 +23,12 @@ angular.module('social')
 		user: function(){
 			return user;
 		},
-		setToken: function(tok){
-			return (token = tok);
+		setToken: function(string){
+			return (token = string);
+		},
+		setConnected: function(value){
+			console.log('Connection status:' + value);
+			return (connected = value);
 		}
 	}
 });

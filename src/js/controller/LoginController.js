@@ -1,23 +1,25 @@
 angular.module('social')
 .controller('LoginController', function(DataService, UserService){
-	var login = this;
+	var login = this,
+			dsc = DataService,
+			usc = UserService;
 
 	login.message = "It works !";
 	login.error = false;
 	login.errorMessage = "test";
-
+					login.connected = false;
 
 	this.SignIn = function() {
-		DataService.login(login.mail, login.password)
+		dsc.login(login.mail, login.password)
 			.success(function(data) {
-				console.log('Requete login status: ' + data.status);
-					if (data.status == 200) {
-						UserService.setToken(data.response.token);
-						console.log(UserService.token());
-					} else {
-						login.error = 'true';
-						login.errorMessage = "Votre compte n'a pas été reconnu. Veuillez vérifier vos informations";
-					}
+				if (data.status == 200) {
+					usc.setConnected(true);
+					usc.setToken(data.response.token);
+					login.connected = true;
+				} else {
+					login.error = 'true';
+					login.errorMessage = "Votre compte n'a pas été reconnu. Veuillez vérifier vos informations";
+				}
 			})
 			.error(function(data) {
 				console.log(data);
@@ -27,11 +29,12 @@ angular.module('social')
 	}
 
 	this.SignOut = function(){
-		$http.post('http://62.210.115.108:3000/logout?token='+login.token)
+		dsc.logout(usc.token())
 			.success(function(data) {
 				if (data.status == 200){
-					console.log('Requete logout status: ' + data.status);
-					UserService.connected = false;
+					usc.setConnected(false);
+					usc.setToken('');
+					login.connected = false;
 				}
 			});
 	}

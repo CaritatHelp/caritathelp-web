@@ -1,55 +1,38 @@
 angular.module('social')
-	.controller('LoginController', function($http){
-		var login = this;
+.controller('LoginController', function(DataService, UserService){
+	var login = this;
 
-		login.token = '';
-		login.connected = false;
-		login.message = "It works !";
-		login.userList = [];
+	login.message = "It works !";
+	login.error = false;
+	login.errorMessage = "test";
 
-		this.showUser = function(){
-			$http.get('http://62.210.115.108:3000/users?token='+login.token)
-				.success(function(data) {
-					console.log('Requete users status: ' + data.status);
-					login.userList = data;
+
+	this.SignIn = function() {
+		DataService.login(login.mail, login.password)
+			.success(function(data) {
+				console.log('Requete login status: ' + data.status);
+					if (data.status == 200) {
+						UserService.setToken(data.response.token);
+						console.log(UserService.token());
+					} else {
+						login.error = 'true';
+						login.errorMessage = "Votre compte n'a pas été reconnu. Veuillez vérifier vos informations";
+					}
+			})
+			.error(function(data) {
+				console.log(data);
+				login.error = 'true';
+				login.errorMessage = "Une erreur s'est produite lors de la connexion. Veuillez réessayer";
 			});
-		}
+	}
 
-		this.SignIn = function() {
-			$http.post('http://62.210.115.108:3000/login?mail='+login.mail+'&password='+login.pass)
-				.success(function(data) {
-					console.log('Requete login status: ' + data.status);
-						if (data.status == 200) {
-							login.token = data.token;
-							login.connected = true;
-							login.showUser();
-							console.log(login.token);
-						} else {
-							login.toto = 'ERROR .... . t nul lol ! ';
-						}
-				});
-		}
-		//root@root.com
-	
-		this.SignOut = function(){
-			$http.post('http://62.210.115.108:3000/logout?token='+login.token)
-				.success(function(data) {
-					if (data.status == 200){
-						console.log('Requete logout status: ' + data.status);
-						login.connected = false;
-					}
-				});
-		}
-
-		this.Register = function(){
-			$http.post('http://62.210.115.108:3000/users?name='+login.name+'&mail='+login.email+'&password='+login.password)
-				.success(function(data) {
-					if (data.status == 200){
-						console.log('Requete register status: ' + data.status);
-						login.connected = true;
-						login.token = data.token;
-						login.showUser();
-					}
-				});
-		}
+	this.SignOut = function(){
+		$http.post('http://62.210.115.108:3000/logout?token='+login.token)
+			.success(function(data) {
+				if (data.status == 200){
+					console.log('Requete logout status: ' + data.status);
+					UserService.connected = false;
+				}
+			});
+	}
 });

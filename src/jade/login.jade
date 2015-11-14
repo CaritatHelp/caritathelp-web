@@ -1,32 +1,32 @@
-.tile.col-sm-10.col-sm-push-1(ng-controller="LoginController as login")
-	section.col-sm-6.col-xs-12.inscription
-		form.clearfix(ng-show="!login.connected", ng-submit="login.Register()")
+.tile.col-sm-10.col-sm-push-1
+	section.col-sm-6.col-xs-12.inscription(ng-controller="RegisterController as register")
+		form.clearfix(novalidate, name="registerForm", ng-submit="register.Register()")
 			h1.text-center Enregistrez-vous
 			fieldset.col-sm-6.form-group#userFirstName
 				.input-group
 					span.input-group-addon
 						i.fa.fa-user
-					input.form-control#inputFirstName(type="text", name="inputName", placeholder="Prénom", ng-model="login.firstname", required)
+					input.form-control#inputFirstName(type="text", name="inputName", placeholder="Prénom", ng-model="register.firstname", required)
 			fieldset.col-sm-6.form-group#userLastName
 				.input-group
 					span.input-group-addon
 						i.fa.fa-user
-					input.form-control#inputLastName(type="text", name="inputLastName", placeholder="Nom", ng-model="login.lastname", required)
+					input.form-control#inputLastName(type="text", name="inputLastName", placeholder="Nom", ng-model="register.lastname", required)
 			fieldset.col-sm-12.form-group#userEmail
 				.input-group
 					span.input-group-addon
 						i.fa.fa-envelope
-					input.form-control#inputEmail(type="email", name="inputEmail", placeholder="Email", ng-model="login.email", required)
+					input.form-control#inputEmail(type="email", name="inputEmail", placeholder="Email", ng-model="register.email", required)
 			fieldset.col-sm-12.form-group#userPassword
 				.input-group
 					span.input-group-addon
 						i.fa.fa-lock
-					input.form-control#inputPassword(type="password", name="inputPassword", placeholder="Mot de passe", ng-model="login.password", required)
+					input.form-control#inputPassword(type="password", name="inputPassword", placeholder="Mot de passe", ng-model="register.password", required)
 			fieldset.col-sm-12.form-group#userConfirmation
 				.input-group
 					span.input-group-addon
 						i.fa.fa-lock
-					input.form-control#inputConfirmation(type="password", name="inputConfirmPassword", placeholder="Confimation Mot de passe", ng-model="login.confirmPassword", required)
+					input.form-control#inputConfirmation(type="password", name="inputConfirmPassword", placeholder="Confimation Mot de passe", ng-model="register.confirmPassword", required)
 			fieldset.col-sm-12.form-group#userNaissance
 				.input-group
 					span.input-group-addon
@@ -65,35 +65,38 @@
 			fieldset.col-sm-8.form-group
 				.input-group
 					#radioGender.btn-group
-						a#radioGender2.btn.btn-success.btn-sm.active(data-toggle="inputGender", data-title="Homme", ng-model='login.radioGender')
+						a#radioGender2.btn.btn-success.btn-sm.active(data-toggle="inputGender", data-title="Homme", ng-model='register.radioGender')
 							b.fa.fa-mars
-						a#radioGender3.btn.btn-success.btn-sm.notActive(data-toggle="inputGender", data-title="Femme", ng-model='login.radioGender2')
+						a#radioGender3.btn.btn-success.btn-sm.notActive(data-toggle="inputGender", data-title="Femme", ng-model='register.radioGender2')
 							b.fa.fa-venus
 			.pull-right.text-center#submitLogin
 				button.ui.green.inverted.button(type="submit") Inscription	
 
-	section.col-sm-6.col-xs-12.connexion
-		form.clearfix(ng-show="!login.connected", ng-submit="login.SignIn()")
+	section.col-sm-6.col-xs-12.connexion(ng-controller="LoginController as login")
+		form.clearfix(novalidate, name="loginForm", ng-submit="login.SignIn()")
 			h1.text-center Connectez vous
+			div.alert.alert-danger(role="alert", ng-show="login.error") {{login.errorMessage}}
 			fieldset.col-sm-12.form-group#userEmail
 				.input-group
 					span.input-group-addon
 						i.fa.fa-envelope
 					input.form-control#inputEmail(type="email", name="inputEmail", placeholder="Email", required, ng-model="login.mail")
+				p.help-block(ng-show="loginForm.$submitted || loginForm.inputEmail.$touched") Votre adresse e-mail doit être valide
 			fieldset.col-sm-12.form-group#userPassword
 				.input-group
 					span.input-group-addon
 						i.fa.fa-lock
-					input.form-control#inputPassword(type="password", name="inputPassword", placeholder="Mot de passe", required, ng-model="login.pass")
+					input.form-control#inputPassword(type="password", name="inputPassword", placeholder="Mot de passe", required, ng-model="login.password", min="6")
+				p.help-block(ng-show="loginForm.inputPassword.$error.min") Votre mot de passe doit avoir plus de 6 caractères
 			.text-center.pull-right#submitRegister
 				button.ui.green.inverted.button#default(type="submit") Connexion
 		hr
 		button.ui.blue.inverted.button Connexion avec Facebook
-		form(ng-show="login.connected", ng-submit="login.SignOut()")
+		form(ng-show="register.connected", ng-submit="register.SignOut()")
 			.text-center
 				h2 Bienvenue
 			.list-group
-				.list-group-item(ng-repeat="user in login.userList")
+				.list-group-item(ng-repeat="user in register.userList")
 					h4.list-group-item-heading {{user.name}}
 						.small {{'User ' + user.id}}
 					p.list-group-item-text mail: {{user.mail}}

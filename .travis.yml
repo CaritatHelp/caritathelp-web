@@ -3,3 +3,6 @@ node_js:
   - "4.1"
 notifications:
   slack: caritathelp:a446oyELBC2H0MyoWfSX46gi
+branches:
+  only:
+    - master

@@ -1,5 +1,5 @@
 angular.module('social')
-.controller('LoginController', function(DataService, UserService){
+.controller('LoginController', function(DataService, UserService, $location){
 	var login = this,
 			dsc = DataService,
 			usc = UserService;
@@ -7,7 +7,7 @@ angular.module('social')
 	login.message = "It works !";
 	login.error = false;
 	login.errorMessage = "test";
-	login.connected = false;
+	login.connected = usc.connected;
 
 	this.SignIn = function() {
 		dsc.login(login.mail, login.password)
@@ -16,7 +16,7 @@ angular.module('social')
 					usc.setConnected(true);
 					usc.setToken(data.response.token);
 					login.connected = true;
-					location.path(home);
+					$location.path('/home');
 				} else {
 					login.error = 'true';
 					login.errorMessage = "Votre compte n'a pas été reconnu. Veuillez vérifier vos informations";
@@ -36,6 +36,7 @@ angular.module('social')
 					usc.setConnected(false);
 					usc.setToken('');
 					login.connected = false;
+					$location.path('/');
 				}
 			});
 	}

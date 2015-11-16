@@ -6,6 +6,10 @@ app.config(function($routeProvider){
 			templateUrl: "view/login2.html",
 			controller: "LoginController"
 		})
+		.when("/home", {
+			templateUrl: "view/home.html",
+			controller: "LoginController"
+		})
 		.when("logout", {
 
 		})

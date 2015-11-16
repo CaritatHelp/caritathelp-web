@@ -45,9 +45,9 @@
 			h2 S'inscrire
 			hr
 			form#registerForm.clearfix(
-				novalidate, 
-				name="registerForm", 
-				ng-submit="register.Register()"
+					novalidate, 
+					name="registerForm", 
+					ng-submit="register.Register()"
 				)
 				fieldset#userFirstName.col-sm-6.form-group
 					label.control-label(for="inputFirstName") Prénom
@@ -95,7 +95,7 @@
 							type="password",
 							name="inputPassword",
 							placeholder="Mot de passe",
-							ng-model="register.lastname",
+							ng-model="register.password",
 							required
 						)
 				fieldset#userConfirm.form-group
@@ -116,18 +116,15 @@
 						span.input-group-addon
 							i.fa.fa-calendar
 						.col-sm-3
-							select#selectDay.selectpicker.form-control(data-live-search="true", title="selectDay")
-								option(value="0") Jour
+							select#selectDay.form-control(title="selectDay", ng-model="register.day")
 								option(value="1") 1
 								option(value="2") 2
 						.col-sm-5
-							select#selectMonth.selectpicker.form-control(data-live-search="true", title="selectMonth")
-								option(value="0") Mois
+							select#selectMonth.form-control(title="selectMonth", ng-model="register.month")
 								option(value="1") Janvier
 								option(value="2") février
 						.col-sm-4
-							select#selectYear.selectpicker.form-control(data-live-search="true", title="selectYear")
-								option(value="0") Année
+							select#selectYear.form-control(title="selectYear", ng-model="register.year")
 								option(value="1990") 1990
 								option(value="1991") 1991
 				fieldset#userGender.form-group
@@ -135,11 +132,13 @@
 					.input-group
 						.form-radio.col-sm-6
 							.form-radio#inputGenderMan
-								#[input(type="radio", name="radioGender", id="radioMan", value="Homme")]
+								#[input(type="radio", name="radioGender", id="radioMan", value="femme", ng-model="register.gender")]
 								label(for="radioMan") Homme
 						.form-radio.col-sm-6
 							.form-radio#inputGenderWoman
-								#[input(type="radio", name="radioGender", id="radioWoman", value="Femme")]
+								#[input(type="radio", name="radioGender", id="radioWoman", value="homme", ng-model="register.gender")]
 								label(for="radioWoman") Femme
+				code {{register}}
 				button.ui.huge.right.floated.green.inverted.button(type="submit") S'enregistrer
+
 

@@ -16,6 +16,7 @@ angular.module('social')
 					usc.setConnected(true);
 					usc.setToken(data.response.token);
 					login.connected = true;
+					location.path(home);
 				} else {
 					login.error = 'true';
 					login.errorMessage = "Votre compte n'a pas été reconnu. Veuillez vérifier vos informations";

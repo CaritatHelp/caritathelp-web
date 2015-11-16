@@ -1,0 +1,144 @@
+.container
+	.row
+		section.col-md-4.col-md-push-1.clearfix(ng-controller="LoginController as login")
+			h2 Se connecter
+			hr
+			form#loginForm.clearfix(
+				novalidate, 
+				name="loginForm", 
+				ng-submit="login.SignIn()"
+				)
+				fieldset.form-group#userMail
+					label.control-label(for="inputMail") Adresse e-mail
+					.input-group
+						span.input-group-addon
+							i.fa.fa-envelope
+						input.form-control#inputMail(
+							type="mail",
+							name="inputMail",
+							placeholder="Adresse e-mail",
+							ng-model="login.mail",
+							required
+						)
+				fieldset.form-group#userPassword
+					label.control-label(for="inputPassword") Mot de passe
+					.input-group
+						span.input-group-addon
+							i.fa.fa-lock
+						input.form-control#inputPassword(
+							type="password",
+							name="inputPassword",
+							placeholder="Mot de passe",
+							ng-model="login.password",
+							required
+						)
+				.pull-right
+					button.ui.huge.right.floated.green.inverted.button(type="submit") Connexion
+			hr
+			.text-center
+				button#connectFacebook.ui.huge.facebook.button.
+					#[i.fa.fa-facebook] Connexion avec Facebook
+				button#connectGoogle.ui.huge.google.plus.button.
+					#[i.fa.fa-google-plus] Connexion avec Google +
+		div.col-md-1.col-md-push-1
+		section.col-md-5.col-md-push-1.clearfix(ng-controller="RegisterController as register")
+			h2 S'inscrire
+			hr
+			form#registerForm.clearfix(
+				novalidate, 
+				name="registerForm", 
+				ng-submit="register.Register()"
+				)
+				fieldset#userFirstName.col-sm-6.form-group
+					label.control-label(for="inputFirstName") Prénom
+					.input-group
+						span.input-group-addon
+							i.fa.fa-user
+						input.form-control#inputFirstName(
+							type="text",
+							name="inputName",
+							placeholder="Prénom",
+							ng-model="register.firstname",
+							required
+						)
+				fieldset#userLastName.col-sm-6.form-group
+					label.control-label(for="inputLastName") Nom
+					.input-group
+						span.input-group-addon
+							i.fa.fa-user
+						input.form-control#inputLastName(
+							type="text",
+							name="inputLastName",
+							placeholder="Nom",
+							ng-model="register.lastname",
+							required
+						)
+				.clearfix
+				fieldset#userMail.form-group
+					label.control-label(for="inputMail") Adresse e-mail
+					.input-group
+						span.input-group-addon
+							i.fa.fa-envelope
+						input#inputMail.form-control(
+							type="mail",
+							name="inputMail",
+							placeholder="Adresse e-mail",
+							ng-model="register.mail",
+							required
+						)
+				fieldset#userPassword.form-group
+					label.control-label(for="inputPassword") Mot de passe
+					.input-group
+						span.input-group-addon
+							i.fa.fa-lock
+						input#inputPassword.form-control(
+							type="password",
+							name="inputPassword",
+							placeholder="Mot de passe",
+							ng-model="register.lastname",
+							required
+						)
+				fieldset#userConfirm.form-group
+					label.control-label(for="inputConfirmPassword") Confirmation
+					.input-group
+						span.input-group-addon
+							i.fa.fa-lock
+						input.form-control#inputConfirmPassword(
+							type="password",
+							name="inputConfirmPassword",
+							placeholder="Confirmation",
+							ng-model="register.confirmPassword",
+							required
+						)
+				fieldset#userBirthdate.form-group
+					label.control-label(for="inputBirthdate") Date de naissance
+					.input-group
+						span.input-group-addon
+							i.fa.fa-calendar
+						.col-sm-3
+							select#selectDay.selectpicker.form-control(data-live-search="true", title="selectDay")
+								option(value="0") Jour
+								option(value="1") 1
+								option(value="2") 2
+						.col-sm-5
+							select#selectMonth.selectpicker.form-control(data-live-search="true", title="selectMonth")
+								option(value="0") Mois
+								option(value="1") Janvier
+								option(value="2") février
+						.col-sm-4
+							select#selectYear.selectpicker.form-control(data-live-search="true", title="selectYear")
+								option(value="0") Année
+								option(value="1990") 1990
+								option(value="1991") 1991
+				fieldset#userGender.form-group
+					label.control-label(for="inputGender") Sexe
+					.input-group
+						.form-radio.col-sm-6
+							.form-radio#inputGenderMan
+								#[input(type="radio", name="radioGender", id="radioMan", value="Homme")]
+								label(for="radioMan") Homme
+						.form-radio.col-sm-6
+							.form-radio#inputGenderWoman
+								#[input(type="radio", name="radioGender", id="radioWoman", value="Femme")]
+								label(for="radioWoman") Femme
+				button.ui.huge.right.floated.green.inverted.button(type="submit") S'enregistrer

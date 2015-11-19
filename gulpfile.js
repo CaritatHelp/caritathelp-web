@@ -13,7 +13,7 @@ var gulp = require('gulp'),
 gulp.task('jade', function(){
   gulp.src(['src/jade/*.jade'])
     .pipe(changed('public/view/', {extension: '.html'}))
-    .pipe(jade())
+    .pipe(jade({pretty:true}))
     .pipe(gulp.dest('public/view/'))
     .pipe(browserSync.reload({stream:true}))
 });

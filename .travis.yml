@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "4.1"
 notifications:
-  slack: caritathelp:a446oyELBC2H0MyoWfSX46gi
+  slack: caritathelp:DV2P72d3gRLq2iF212hbaPA8
 branches:
   only:
     - master

@@ -1,55 +1,107 @@
-.tile {
-	padding: 10px;
-	border: 1px solid @tile-border-color;
-	//background: @tile-background-color;
-	border-radius: 4px;
-	 //.box-shadow(3px; 3px; 0; @tile-shadow-color);
-	 padding-top: 100px;		
-
-}
-.inscription{
-	 border-right: 2px solid @tile-shadow-color;
+/* Rebooot */
+#loginView {
+	border: 5px solid @main-green;
+	border-radius: 10px;
+	section {
+		@media (min-width: 768px) {
+			padding: 7%;
+			&:first-of-type {border-right: 2px dotted @main-green;}
+		}
 	}
-
-.connexion{
-	padding-top: 100px;
-}
-.tile form {
-
+	.input-group {
+		width: 100%;
+	}
 	span.input-group-addon {
-		font-size: 15px;
-		/* Fix pour aligner les icones dans le formulaire d'enregistrement */
-		max-width: 36px;
-		min-width: 36px;
+		width: 36px;
 	}
-	.col-md-6 {
-		/* Très sale mais ça gère le padding */
-		&:first-of-type {padding-right: 5px;}
-		&:nth-of-type(2) {padding-left: 5px;}
+}
+
+#userMail, #loginMail{
+	.input-group-addon {
+		padding: 6px 10.5px;
 	}
-	#inputNaissance {
-		padding-right: 10px; 
-		.input-group > div {
-			padding: 0;
+} 
+#connectFacebook {
+	margin-bottom: 15px;
+}
+
+#registerForm div[class*="col-"] {
+	padding: 0;
+}
+#userLastName {
+	padding: 0;
+	@media (min-width: 768px) {padding-left: 15px;}
+}
+#userFirstName {
+	padding: 0;
+	@media (min-width: 768px) {padding-right: 15px;}
+}
+#selectDay {
+	@media (max-width: 768px) {border-top-right-radius: 4px;}
+}
+#selectYear {
+	border-bottom-right-radius: 4px;
+	@media (min-width: 768px) {border-top-right-radius: 4px;}
+}
+
+.form-radio {
+	div {
+		clear: both;
+		overflow: hidden;
+	}
+	label {
+		width: 100%;
+		border-radius: 3px;
+		font-weight: normal;
+		margin-top: 0;
+	}
+	#inputGenderMan {
+		padding-right: 3%;
+		@media (min-width: 768px){padding-right: 15px;}
+	}
+	#inputGenderWoman {
+		padding-left: 3%;
+		@media (min-width: 768px){padding-left: 15px;}
+	}
+	input[type="radio"], input[type="checkbox"] {
+		&:empty {
+			display: none;
+			~ label {
+				position: relative;
+				text-indent: 48px;
+				cursor: pointer;
+				user-select: none;
+				border: 1px solid #ccc;
+				padding: 6px 0;
+				&:before {
+					position: absolute;
+					display: block;
+					top: 0;
+					bottom: 0;
+					content: '';
+					width: 36px;
+					background: #eee;
+					border-right: 1px solid #ccc;
+					border-radius: 3px 0 0 3px;
+					padding: 6px 12px;
+    			text-indent: 12px;
+					font-family: FontAwesome;
+					color: #000;
+					padding: 6px 1px;
+				}
+				&[for="radioMan"]:before {
+					content: '\f222';
+				}
+				&[for="radioWoman"]:before {
+					content: '\f221';
+				}
+			}
 		}
-	}
-	#inputGenre {
-		.form-group {
-			margin-bottom: 0;
+		&:checked ~ label {
+			&:before {
+				color: #fff;
+				background-color: #2ECC40;
+			}
 		}
-		a {
-			height: 40px;
-			font-size: 20px;
-		}
-	}
-	.form-group {
-		margin-bottom: 10px;
-	}
-	.form-control {
-		height: 40px;
-	}
-	#radioGender .notActive{
-    color: #3276b1;
-    background-color: #fff;
 	}
 }

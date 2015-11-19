@@ -1,6 +1,5 @@
-.container
-	.row
-		section.col-md-4.col-md-push-1.clearfix(ng-controller="LoginController as login")
+.row#loginView
+		section.col-md-6(ng-controller="LoginController as login")
 			h2 Se connecter
 			hr
 			form#loginForm.clearfix(
@@ -8,7 +7,7 @@
 				name="loginForm", 
 				ng-submit="login.SignIn()"
 				)
-				fieldset.form-group#userMail
+				fieldset.form-group#loginMail
 					label.control-label(for="inputMail") Adresse e-mail
 					.input-group
 						span.input-group-addon
@@ -20,7 +19,7 @@
 							ng-model="login.mail",
 							required
 						)
-				fieldset.form-group#userPassword
+				fieldset.form-group#loginPassword
 					label.control-label(for="inputPassword") Mot de passe
 					.input-group
 						span.input-group-addon
@@ -33,21 +32,20 @@
 							required
 						)
 				.pull-right
-					button.ui.huge.right.floated.green.inverted.button(type="submit") Connexion
+					button.ui.right.floated.green.inverted.button(type="submit") Connexion
 			hr
 			.text-center
-				button#connectFacebook.ui.huge.facebook.button.
+				button#connectFacebook.ui.facebook.button.
 					#[i.fa.fa-facebook] Connexion avec Facebook
-				button#connectGoogle.ui.huge.google.plus.button.
+				button#connectGoogle.ui.google.plus.button.
 					#[i.fa.fa-google-plus] Connexion avec Google +
-		div.col-md-1.col-md-push-1
-		section.col-md-5.col-md-push-1.clearfix(ng-controller="RegisterController as register")
+		section.col-md-6(ng-controller="RegisterController as register")
 			h2 S'inscrire
 			hr
 			form#registerForm.clearfix(
-					novalidate, 
-					name="registerForm", 
-					ng-submit="register.Register()"
+				novalidate, 
+				name="registerForm", 
+				ng-submit="register.Register()"
 				)
 				fieldset#userFirstName.col-sm-6.form-group
 					label.control-label(for="inputFirstName") Prénom
@@ -115,30 +113,30 @@
 					.input-group
 						span.input-group-addon
 							i.fa.fa-calendar
-						.col-sm-3
+						.col-xs-3
 							select#selectDay.form-control(title="selectDay", ng-model="register.day")
 								option(value="1") 1
 								option(value="2") 2
-						.col-sm-5
+						.col-xs-5
 							select#selectMonth.form-control(title="selectMonth", ng-model="register.month")
 								option(value="1") Janvier
 								option(value="2") février
-						.col-sm-4
+						.col-xs-4
 							select#selectYear.form-control(title="selectYear", ng-model="register.year")
 								option(value="1990") 1990
 								option(value="1991") 1991
 				fieldset#userGender.form-group
 					label.control-label(for="inputGender") Sexe
 					.input-group
-						.form-radio.col-sm-6
+						.form-radio.col-xs-6
 							.form-radio#inputGenderMan
-								#[input(type="radio", name="radioGender", id="radioMan", value="femme", ng-model="register.gender")]
+								input(type="radio", name="radioGender", id="radioMan", value="homme", ng-model="register.gender")
 								label(for="radioMan") Homme
-						.form-radio.col-sm-6
+						.form-radio.col-xs-6
 							.form-radio#inputGenderWoman
-								#[input(type="radio", name="radioGender", id="radioWoman", value="homme", ng-model="register.gender")]
+								input(type="radio", name="radioGender", id="radioWoman", value="femme", ng-model="register.gender")
 								label(for="radioWoman") Femme
 				code {{register}}
-				button.ui.huge.right.floated.green.inverted.button(type="submit") S'enregistrer
+				button.ui.right.floated.green.inverted.button(type="submit") S'enregistrer
 
 

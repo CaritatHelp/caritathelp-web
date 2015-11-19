@@ -40,11 +40,11 @@ body {
 
 /* =================	BARRE DE NAVIGATION ================= */
 	.navbar {
-color: #90b182;
-border-bottom: 1px solid #5d7e4f;
-background: #90b182;
-.background-gradient(#90b182, #5d7e4f);
+		color: #90b182;
+		background: #90b182;
+		.background-gradient(#90b182, #5d7e4f);
 		height: @navbar-height;
+		border-bottom: 1px solid @main-green;
 		.navbar-header {
 			height: 100%;
 		}
@@ -54,6 +54,10 @@ background: #90b182;
 			padding: 0;
 			height: 100%;
 			img {height: 60px;}
+		}
+		&.slim {
+			height: 50px;
+			img {height: 50px;}
 		}
 	}
 
@@ -65,30 +69,41 @@ background: #90b182;
 
 
 /* =================	PROFILE PAGE ================= */
-#imgCover {
-	height: 200px;
-	background: url(../img/cover/skyline.jpg);
-	background-size: cover;
-	background-position-y: 85%;
-}
-#secondaryNav {
-	text-align: center;
-	background: @main-green;
-.background-gradient(#5d7e4f, #90b182);
-	height: 44px;
-	ul {
-		display: inline-block;
-		li {
-			float: left;
-			font-size: 30px;
-			a {
-				padding: 1px 10px;
-				color: #000000;
-				&:hover {
-					background: transparent;
-					font-size: 32px;
+	#imgCover {
+		height: 200px;
+		background: url(../img/cover/skyline.jpg);
+		background-size: cover;
+		background-position-y: 85%;
+		position: fixed;
+		width: 100%;
+		&.slim {height: 140px;}
+	}
+	#secondaryNav {
+		text-align: center;
+		background: @main-green;
+		.background-gradient(#5d7e4f, #90b182);
+		height: 44px;
+		border-top: 1px solid @main-green;
+		margin-top: 200px;
+		position: fixed;
+		width: 100%;
+		&.slim{margin-top:140px;}
+		ul {
+			display: inline-block;
+			li {
+				float: left;
+				font-size: 30px;
+				a {
+					padding: 0 10px 2px;
+					color: #000000;
+					&:hover {
+						background: transparent;
+						font-size: 32px;
+					}
 				}
 			}
 		}
 	}
-}
+	#pageContent {
+		margin-top: 244px;
+	}

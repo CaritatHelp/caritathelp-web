@@ -1,11 +1,21 @@
-.row(ng-controller="LoginController as login")
-	section(ng-show="login.connected", ng-submit="login.SignOut()")
-		.text-center
-			h2 Bienvenue
-		.list-group
-			.list-group-item(ng-repeat="user in register.userList")
-				h4.list-group-item-heading {{user.name}}
-					.small {{'User ' + user.id}}
-				p.list-group-item-text mail: {{user.mail}}
-		.text-right
-			a.ui.green.inverted.button(ng-click="login.SignOut()") DeConnexion
+.container-fluid
+	.row#imgCover
+	nav#secondaryNav.row
+		ul.nav
+			li.active
+				a(href="#")
+					i.fa.fa-user
+			li
+				a(href="#")
+					i.fa.fa-calendar
+	.row(ng-controller="LoginController as login")
+		section(ng-show="login.connected", ng-submit="login.SignOut()")
+			.text-center
+				h2 Bienvenue
+			.list-group
+				.list-group-item(ng-repeat="user in register.userList")
+					h4.list-group-item-heading {{user.name}}
+						.small {{'User ' + user.id}}
+					p.list-group-item-text mail: {{user.mail}}
+			.text-right
+				a.ui.green.inverted.button(ng-click="login.SignOut()") DeConnexion

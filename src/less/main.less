@@ -40,8 +40,10 @@ body {
 
 /* =================	BARRE DE NAVIGATION ================= */
 	.navbar {
-		background-color: @navbar-green;
-		border-bottom: 1px solid @main-green;
+color: #90b182;
+border-bottom: 1px solid #5d7e4f;
+background: #90b182;
+.background-gradient(#90b182, #5d7e4f);
 		height: @navbar-height;
 		.navbar-header {
 			height: 100%;
@@ -62,6 +64,31 @@ body {
 	}
 
 
-
-
-	
+/* =================	PROFILE PAGE ================= */
+#imgCover {
+	height: 200px;
+	background: url(../img/cover/skyline.jpg);
+	background-size: cover;
+	background-position-y: 85%;
+}
+#secondaryNav {
+	text-align: center;
+	background: @main-green;
+.background-gradient(#5d7e4f, #90b182);
+	height: 44px;
+	ul {
+		display: inline-block;
+		li {
+			float: left;
+			font-size: 30px;
+			a {
+				padding: 1px 10px;
+				color: #000000;
+				&:hover {
+					background: transparent;
+					font-size: 32px;
+				}
+			}
+		}
+	}
+}

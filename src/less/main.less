@@ -5,13 +5,6 @@
    Created by Nicolas
    ========================================================================== */
  
- 
-  /* Bootstrap fix for navbar */
-  body {
-		padding-top: 50px;
-		padding-bottom: 20px;
-  }
-
 @import "variables";
 @import "mixins";
 @import "login-page";
@@ -22,7 +15,7 @@ html, body {
 }
 body {
 	font-family: Roboto;
-	padding-top: @navbar-height + 15px;
+	padding-top: @navbar-height;
 }
 
 
@@ -48,20 +41,23 @@ body {
 /* =================	BARRE DE NAVIGATION ================= */
 	.navbar {
 		background-color: @navbar-green;
-		border-color: @navbar-border;
+		border-bottom: 1px solid @main-green;
 		height: @navbar-height;
+		.navbar-header {
+			height: 100%;
+		}
 		.navbar-brand {
 			color: @navbar-color-logo;
 			font-size: @navbar-fontsize;
-		}
-		.container {
-			padding: 5px 15px;
+			padding: 0;
+			height: 100%;
+			img {height: 60px;}
 		}
 	}
 
 	.ui.button {
+		.border-radius(6px);
 		font-size: 12px;
-		border-radius: 6px;
 		text-align:center;
 	}
 

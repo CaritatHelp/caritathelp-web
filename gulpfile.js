@@ -56,6 +56,7 @@ gulp.task('copy', function(){
     .pipe(browserSync.reload({stream:true}));
 });
 
+
 gulp.task('clean', function() {
   clean(['public/**/*', '!public']);
 });

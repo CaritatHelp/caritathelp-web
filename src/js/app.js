@@ -3,7 +3,7 @@ var app = angular.module('social', ['ngRoute']);
 app.config(function($routeProvider){
 	$routeProvider
 		.when("/", {
-			templateUrl: "view/login2.html",
+			templateUrl: "view/login.html",
 			controller: "LoginController"
 		})
 		.when("/home", {

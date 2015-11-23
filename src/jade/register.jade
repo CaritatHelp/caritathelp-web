@@ -1,0 +1,106 @@
+.page-wrapper
+	.container
+		section.logo
+			img.img-responsive(src="img/logo.png", alt="CaritatHelp")
+		section.page-content
+			h1.h2 Inscription
+			hr
+			form#registerForm.clearfix(
+				novalidate, 
+				name="registerForm", 
+				ng-submit="register.Register()"
+				)
+				fieldset#userFirstName.col-sm-6.form-group
+					label.control-label(for="inputFirstName") Prénom
+					.input-group
+						span.input-group-addon
+							i.fa.fa-user
+						input.form-control#inputFirstName(
+							type="text",
+							name="inputName",
+							placeholder="Prénom",
+							ng-model="register.firstname",
+							required
+						)
+				fieldset#userLastName.col-sm-6.form-group
+					label.control-label(for="inputLastName") Nom
+					.input-group
+						span.input-group-addon
+							i.fa.fa-user
+						input.form-control#inputLastName(
+							type="text",
+							name="inputLastName",
+							placeholder="Nom",
+							ng-model="register.lastname",
+							required
+						)
+				.clearfix
+				fieldset#userMail.form-group
+					label.control-label(for="inputMail") Adresse e-mail
+					.input-group
+						span.input-group-addon
+							i.fa.fa-envelope
+						input#inputMail.form-control(
+							type="mail",
+							name="inputMail",
+							placeholder="Adresse e-mail",
+							ng-model="register.mail",
+							required
+						)
+				fieldset#userPassword.form-group
+					label.control-label(for="inputPassword") Mot de passe
+					.input-group
+						span.input-group-addon
+							i.fa.fa-lock
+						input#inputPassword.form-control(
+							type="password",
+							name="inputPassword",
+							placeholder="Mot de passe",
+							ng-model="register.password",
+							required
+						)
+				fieldset#userConfirm.form-group
+					label.control-label(for="inputConfirmPassword") Confirmation
+					.input-group
+						span.input-group-addon
+							i.fa.fa-lock
+						input.form-control#inputConfirmPassword(
+							type="password",
+							name="inputConfirmPassword",
+							placeholder="Confirmation",
+							ng-model="register.confirmPassword",
+							required
+						)
+				fieldset#userBirthdate.form-group
+					label.control-label(for="inputBirthdate") Date de naissance
+					.input-group
+						span.input-group-addon
+							i.fa.fa-calendar
+						.col-xs-3
+							select#selectDay.form-control(title="selectDay", ng-model="register.day")
+								option(value="1") 1
+								option(value="2") 2
+						.col-xs-5
+							select#selectMonth.form-control(title="selectMonth", ng-model="register.month")
+								option(value="1") Janvier
+								option(value="2") février
+						.col-xs-4
+							select#selectYear.form-control(title="selectYear", ng-model="register.year")
+								option(value="1990") 1990
+								option(value="1991") 1991
+				fieldset#userGender.form-group
+					label.control-label(for="inputGender") Sexe
+					.input-group
+						.form-radio.col-xs-6
+							.form-radio#inputGenderMan
+								input(type="radio", name="radioGender", id="radioMan", value="homme", ng-model="register.gender")
+								label(for="radioMan") Homme
+						.form-radio.col-xs-6
+							.form-radio#inputGenderWoman
+								input(type="radio", name="radioGender", id="radioWoman", value="femme", ng-model="register.gender")
+								label(for="radioWoman") Femme
+				pre {{register}}
+				hr
+				a(href="#/login") Déjà un compte ?
+				.pull-right
+					button.btn.btn-primary(type="submit") S'enregistrer

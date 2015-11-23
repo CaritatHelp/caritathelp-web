@@ -1,52 +1,28 @@
-/* Rebooot */
-#loginView {
-	margin-top: 15px;
-	border: 5px solid @main-green;
-	border-radius: 10px;
-	section {
-		@media (min-width: 768px) {
-			padding: 7%;
-			&:first-of-type {
-				border-right: 2px dotted @main-green;
-			}
-		}
-	}
-	.input-group {
+.page-wrapper {
+	background-color: #436435 ;
+	height: 100vh;
+	@media(min-width: 768px) {
+		display: flex;
+		align-items:center;
+		justify-content:center;
 		width: 100%;
+		.container {width: 600px;}
 	}
-	span.input-group-addon {
-		width: 36px;
+	.logo img{
+		margin: auto;
+		margin-bottom: 1rem;
+	}
+	.page-content {
+		background-color: #B6D7A8 ;
+		padding: 15px 30px;
+		border-radius: 2em;
+		.h2 {text-align: center;}
+		hr {margin: 15px 0 15px;}
+		.input-group {width: 100%;}
 	}
 }
 
-#userMail, #loginMail{
-	.input-group-addon {
-		padding: 6px 10.5px;
-	}
-} 
-#connectFacebook {
-	margin-bottom: 15px;
-}
-
-#registerForm div[class*="col-"] {
-	padding: 0;
-}
-#userLastName {
-	padding: 0;
-	@media (min-width: 768px) {padding-left: 15px;}
-}
-#userFirstName {
-	padding: 0;
-	@media (min-width: 768px) {padding-right: 15px;}
-}
-#selectDay {
-	@media (max-width: 768px) {border-top-right-radius: 4px;}
-}
-#selectYear {
-	border-bottom-right-radius: 4px;
-	@media (min-width: 768px) {border-top-right-radius: 4px;}
-}
-
+/* Login & Register Page */
 .form-radio {
 	div {
 		clear: both;
@@ -57,6 +33,7 @@
 		border-radius: 3px;
 		font-weight: normal;
 		margin-top: 0;
+		background-color: #fff;
 	}
 	#inputGenderMan {
 		padding-right: 3%;
@@ -107,4 +84,29 @@
 			}
 		}
 	}
+}
+
+#userMail, #loginMail{
+	.input-group-addon {
+		padding: 6px 10.5px;
+	}
+} 
+
+#registerForm div[class*="col-"] {
+	padding: 0;
+}
+#userLastName {
+	padding: 0;
+	@media (min-width: 768px) {padding-left: 15px;}
+}
+#userFirstName {
+	padding: 0;
+	@media (min-width: 768px) {padding-right: 15px;}
+}
+#selectDay {
+	@media (max-width: 768px) {border-top-right-radius: 4px;}
+}
+#selectYear {
+	border-bottom-right-radius: 4px;
+	@media (min-width: 768px) {border-top-right-radius: 4px;}
 }

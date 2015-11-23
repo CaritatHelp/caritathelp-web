@@ -1,5 +1,5 @@
 angular.module('social')
-.factory('DataService', ['$http', function($http){
+.factory('DataService', function($http){
 	var urlBase = 'http://62.210.115.108:3000/';
 	var DataService = {};
 	var logEnabled = true;
@@ -31,4 +31,4 @@ angular.module('social')
 	}
 
 	return DataService;
-}])
+});

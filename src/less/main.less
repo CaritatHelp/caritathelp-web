@@ -9,34 +9,17 @@
 @import "mixins";
 @import "login-page";
 @import "buttons";
+@import "button-social";
 
 html, body {
 	height: 100%;
 }
 body {
 	font-family: Roboto;
-	padding-top: @navbar-height;
 }
 
-
-/* =================	STICKY FOOTER ================= */
-	.wrapper {
-		min-height: 100%;
-		margin-bottom: -41px;
-		padding-bottom: 15px;
-		&:after {
-			content: "";
-			display: block;
-	  height: 60px;
-		}
-	}
-	.footer {
-	  border-top: 1px solid @navbar-border;
-	  height: 60px;
-	  .container {
-	  	padding: 15px 0;
-	  }
-	}
+h1, h2, h3, .h1, .h2, .h3 {margin:0;}
+span.input-group-addon {width: 36px;}
 
 /* =================	BARRE DE NAVIGATION ================= */
 	.navbar {

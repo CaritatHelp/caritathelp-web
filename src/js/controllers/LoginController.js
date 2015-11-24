@@ -9,7 +9,23 @@ angular.module('social')
 	login.errorMessage = "test";
 	login.connected = usc.connected;
 
+	function verif() {
+		var result = true;
+    if (!/[a-zA-Z]/.test(login.password)) {
+    	login.errorMessage += "Vote mot de passe doit contenir au moins une lettre.\n";
+    	result = false;
+    } else if (!/\d/.test(login.password)) {
+    	login.errorMessage += "Vote mot de passe doit contenir au moins un chiffre.\n";
+    	result = false;
+    } else if (login.password.length < 8) {
+    	login.errorMessage += "Vote mot de passe doit faire au moins 8 caracteres.\n";
+    	result = false;
+    }
+    return result;
+	}
+
 	this.SignIn = function() {
+		if (!verif()) {login.error = true;return;}
 		dsc.login(login.mail, login.password)
 			.success(function(data) {
 				if (data.status == 200) {

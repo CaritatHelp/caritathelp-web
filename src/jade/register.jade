@@ -13,6 +13,7 @@
 				name="registerForm", 
 				ng-submit="register.Register()"
 				)
+				.alert.alert-danger(role="alert", ng-show="register.error", ng-bind-html="register.errorMessage")
 				fieldset#userFirstName.col-sm-6.form-group
 					label.control-label(for="inputFirstName") Prénom
 					.input-group
@@ -107,4 +108,4 @@
 				hr
 				a(href="#/login") Déjà un compte ?
 				.pull-right
-					button.btn.btn-primary(type="submit") S'enregistrer
+					button#buttonRegister.btn.btn-primary(type="submit") S'enregistrer

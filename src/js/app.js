@@ -1,4 +1,4 @@
-var app = angular.module('social', ['ngRoute', 'LocalStorageModule']);
+var app = angular.module('social', ['ngRoute', 'ngSanitize', 'LocalStorageModule']);
 
 app.config(function($routeProvider, localStorageServiceProvider){
 	//Configuration localStorage

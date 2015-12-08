@@ -11,9 +11,7 @@
 				name="loginForm", 
 				ng-submit="login.SignIn()"
 				)
-				.alert.alert-danger(role="alert", ng-show="login.error").
-					#[strong Oops! ]
-					{{login.errorMessage}}
+				.alert.alert-danger(role="alert", ng-show="login.error") {{login.errorMessage}}
 				fieldset.form-group#loginMail
 					label.control-label(for="inputMail") Adresse e-mail
 					.input-group
@@ -41,9 +39,6 @@
 				a(href="#/register") Pas de compte ?
 				.pull-right
 					button#buttonConnect.btn.btn-primary(type="submit") Connexion
-					button#buttonLoad.btn.btn-primary(disabled, style="display: none").
-						#[i.fa.fa-spinner.fa-spin]
-						Connexion
 			hr
 			.text-center
 				button#connectFacebook.btn.btn-social.btn-facebook.

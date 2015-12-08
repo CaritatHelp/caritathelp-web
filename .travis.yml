@@ -7,5 +7,5 @@ branches:
   only:
     - master
 before_script:
-	- npm install -g gulp
+  - npm install -g gulp
 script: gulp build

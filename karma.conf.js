@@ -6,11 +6,12 @@ module.exports = function(config) {
 
 	basePath: '',
 
-	frameworks: ['jasmine'],
+	frameworks: ['browserify', 'jasmine'],
 
 	files: [
-    'public/js/app.min.js',
+		'node_modules/angular/angular.js',
 		'node_modules/angular-mocks/angular-mocks.js',
+    'src/js/app.js',
     'tests/**/*.js'
 	],
 
@@ -19,7 +20,14 @@ module.exports = function(config) {
 	],
 
 	preprocessors: {
+		'src/js/**/*.js': ['browserify']
 	},
+
+	plugins: [
+		'karma-jasmine',
+		'karma-browserify',
+		'karma-phantomjs-launcher'
+	],
 
 	reporters: ['progress'],
 

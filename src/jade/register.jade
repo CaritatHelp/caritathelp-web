@@ -1,5 +1,8 @@
+- var months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+
 .page-wrapper
 	.container
+		div(debug="")
 		section.logo
 			img.img-responsive(src="img/logo.png", alt="CaritatHelp")
 		section.page-content
@@ -78,16 +81,18 @@
 							i.fa.fa-calendar
 						.col-xs-3
 							select#selectDay.form-control(title="selectDay", ng-model="register.day")
-								option(value="1") 1
-								option(value="2") 2
+								- var i = 1
+								while i < 32
+									option(value="#{i}")= i++
 						.col-xs-5
 							select#selectMonth.form-control(title="selectMonth", ng-model="register.month")
-								option(value="1") Janvier
-								option(value="2") février
+								each month, i in months
+									option(value="#{(i+1)}") #{month}
 						.col-xs-4
 							select#selectYear.form-control(title="selectYear", ng-model="register.year")
-								option(value="1990") 1990
-								option(value="1991") 1991
+								- var i = 2015
+								while i > 1904
+									option(value="#{i}")= i--
 				fieldset#userGender.form-group
 					label.control-label(for="inputGender") Sexe
 					.input-group
@@ -99,7 +104,6 @@
 							.form-radio#inputGenderWoman
 								input(type="radio", name="radioGender", id="radioWoman", value="femme", ng-model="register.gender")
 								label(for="radioWoman") Femme
-				pre {{register}}
 				hr
 				a(href="#/login") Déjà un compte ?
 				.pull-right

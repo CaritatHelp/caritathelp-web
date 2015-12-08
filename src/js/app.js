@@ -1,6 +1,10 @@
-var app = angular.module('social', ['ngRoute']);
+var app = angular.module('social', ['ngRoute', 'LocalStorageModule']);
 
-app.config(function($routeProvider){
+app.config(function($routeProvider, localStorageServiceProvider){
+	//Configuration localStorage
+	localStorageServiceProvider.setPrefix('caritathelp').setNotify(true, true);
+	
+	//Routing
 	$routeProvider
 		.when("/", {
 			redirectTo: '/login'
@@ -12,15 +16,13 @@ app.config(function($routeProvider){
 		})
 		.when("/home", {
 			templateUrl: "view/home.html",
-			controller: "LoginController"
+			controller: "HomeController",
+			controllerAs: "home"
 		})
 		.when("/register", {
 			templateUrl: "view/register.html",
 			controller: "RegisterController",
 			controllerAs: "register"
-		})
-		.when("logout", {
-
 		})
 		.otherwise({redirectTo: '/'});
 });

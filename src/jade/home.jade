@@ -10,9 +10,9 @@ div(navbar="")
 				a(href="#")
 					i.fa.fa-calendar
 	.row#pageContent(ng-controller="LoginController as login")
-		section(ng-show="login.connected", ng-submit="login.SignOut()")
+		section(ng-show="home.connected")
 			.text-center
-				h2 Bienvenue
+				h2 Bienvenue {{home.currentUser.mail}}
 			.list-group
 				.list-group-item(ng-repeat="user in register.userList")
 					h4.list-group-item-heading {{user.name}}

@@ -1,0 +1,46 @@
+
+	.nav>li>a:focus, .nav>li>a:hover {background: none;}
+/* =================	BARRE DE NAVIGATION ================= */
+	.navbar {
+		color: #90b182;
+		background: #90b182;
+		.background-gradient(#90b182, #5d7e4f);
+		height: @navbar-height;
+		border-bottom: 1px solid @main-green;
+		margin-bottom: 0;
+		.navbar-header {
+			height: 100%;
+		}
+		.navbar-brand {
+			color: @navbar-color-logo;
+			font-size: @navbar-fontsize;
+			padding: 0;
+			height: 100%;
+			img {height: 60px;}
+		}
+		&.slim {
+			height: 50px;
+			img {height: 50px;}
+		}
+		.navbar-center {
+			text-align: center;
+			padding-top: 10px;
+			position: relative;
+			font-weight: bold;
+			font-size: 30px;
+			a {
+				color: #000000;
+				padding: 0 10px 2px;
+				&:hover{
+					color: #3A3A3A;
+				}
+			}
+			.navbar-right {
+				position: absolute;
+				top: 0;
+				right: 0;
+				padding: 15px 20px;
+				margin: 0;
+			}
+		}
+	}

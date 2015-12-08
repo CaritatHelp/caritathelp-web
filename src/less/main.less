@@ -10,6 +10,8 @@
 @import "login-page";
 @import "buttons";
 @import "button-social";
+@import "navbar";
+@import url(https://fonts.googleapis.com/css?family=Roboto);
 
 html, body {
 	height: 100%;
@@ -20,30 +22,7 @@ body {
 
 h1, h2, h3, .h1, .h2, .h3 {margin:0;}
 span.input-group-addon {width: 36px;}
-
-/* =================	BARRE DE NAVIGATION ================= */
-	.navbar {
-		color: #90b182;
-		background: #90b182;
-		.background-gradient(#90b182, #5d7e4f);
-		height: @navbar-height;
-		border-bottom: 1px solid @main-green;
-		margin-bottom: 0;
-		.navbar-header {
-			height: 100%;
-		}
-		.navbar-brand {
-			color: @navbar-color-logo;
-			font-size: @navbar-fontsize;
-			padding: 0;
-			height: 100%;
-			img {height: 60px;}
-		}
-		&.slim {
-			height: 50px;
-			img {height: 50px;}
-		}
-	}
+a:focus, a:hover {background: 0 0;text-decoration: none;outline: none;}
 
 	.ui.button {
 		.border-radius(6px);
@@ -91,3 +70,14 @@ span.input-group-addon {width: 36px;}
 	#pageContent {
 		margin-top: 244px;
 	}
+
+#debugConsole {
+	p {
+		margin-bottom: 8px;
+		font-weight: bold;
+		text-align: center;
+	}
+	position: fixed;
+	left: 5%;
+	max-width: 250px;
+}

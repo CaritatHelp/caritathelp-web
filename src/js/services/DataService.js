@@ -1,14 +1,16 @@
 angular.module('social')
 .factory('DataService', function($http){
-	var urlBase = 'http://62.210.115.108:3000/';
+	var urlBase = 'http://52.31.151.160:3000/';
 	var DataService = {};
 	var logEnabled = true;
 
 	function buildUrl(route, identifier, parameters) {
 		var url = urlBase + route + (identifier ? '/' + identifier : '')+ '?' + parameters;
-		if (logEnabled) {console.log(url);}
+		if (logEnabled) {console.log("API call: " + url);}
 		return url;
 	}
+
+//Login - Logout - Register (POSTVolunteer)
 
 	DataService.login = function(mail, password) {
 		var parameters = 'mail=' + mail + '&password=' + password;
@@ -20,14 +22,21 @@ angular.module('social')
 		return $http.post(buildUrl('logout', null, parameters));
 	}
 
-	DataService.getUsers = function(token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('users', null, parameters));
+	DataService.register = function(mail, password, firstname, lastname, birthday, gender) {
+		var parameters = 'mail=' + mail + '&password=' + password + '&firstname=' + firstname + '&lastname=' + lastname + '&birthday=' + birthday + '&gender=' + gender;
+		return $http.post(buildUrl('volunteers', null, parameters));
 	}
 
-	DataService.getUser = function(id, token) {
+//Volunteers
+
+	DataService.getVolunteers = function(token) {
 		var parameters = 'token=' + token;
-		return $http.get(buildUrl('users', id, parameters));
+		return $http.get(buildUrl('volunteers', null, parameters));
+	}
+
+	DataService.getVolunteer = function(id, token) {
+		var parameters = 'token=' + token;
+		return $http.get(buildUrl('volunteers', id, parameters));
 	}
 
 	return DataService;

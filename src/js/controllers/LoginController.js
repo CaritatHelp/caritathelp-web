@@ -1,59 +1,43 @@
 angular.module('social')
 .controller('LoginController', function(DataService, UserService, $location){
-	var login = this,
+	var _this = this,
 			dsc = DataService,
 			usc = UserService;
 
-	login.message = "It works !";
-	login.error = false;
-	login.errorMessage = "test";
-	login.connected = usc.connected;
-
-	function verif() {
-		var result = true;
-    if (!/[a-zA-Z]/.test(login.password)) {
-    	login.errorMessage += "Vote mot de passe doit contenir au moins une lettre.\n";
-    	result = false;
-    } else if (!/\d/.test(login.password)) {
-    	login.errorMessage += "Vote mot de passe doit contenir au moins un chiffre.\n";
-    	result = false;
-    } else if (login.password.length < 8) {
-    	login.errorMessage += "Vote mot de passe doit faire au moins 8 caracteres.\n";
-    	result = false;
-    }
-    return result;
-	}
+	//variables d'erreur locales
+	_this.error = false;
+	_this.errorMessage = "";
 
 	this.SignIn = function() {
-		if (!verif()) {login.error = true;return;}
-		dsc.login(login.mail, login.password)
+		if (_this.mail === undefined || _this.password === undefined) {_this.error = true;return;}
+		else {
+		//Spinner du bouton de connection
+		angular.element("#buttonConnect").hide();
+		angular.element("#buttonLoad").show();
+
+		//Requete de login
+		dsc.login(_this.mail, _this.password)
 			.success(function(data) {
 				if (data.status == 200) {
-					usc.setConnected(true);
-					usc.setToken(data.response.token);
-					login.connected = true;
+					//On remplit le service USC
+					usc.connect(data.response);
 					$location.path('/home');
 				} else {
-					login.error = 'true';
-					login.errorMessage = "Votre compte n'a pas été reconnu. Veuillez vérifier vos informations";
+					//Mdp ou email invalide
+					_this.error = 'true';
+					_this.errorMessage = "Votre compte n'a pas été reconnu. Veuillez vérifier vos informations";
 				}
 			})
 			.error(function(data) {
-				console.log(data);
-				login.error = 'true';
-				login.errorMessage = "Une erreur s'est produite lors de la connexion. Veuillez réessayer";
+				//erreur client
+				_this.error = 'true';
+				_this.errorMessage = "Impossible de joindre le serveur, veuillez réessayer dans quelques minutes.";
+			})
+			.finally(function() {
+				// On enlève l'animation sur le bouton de connection
+				angular.element("#buttonConnect").show();
+				angular.element("#buttonLoad").hide();
 			});
-	}
-
-	this.SignOut = function(){
-		dsc.logout(usc.token())
-			.success(function(data) {
-				if (data.status == 200){
-					usc.setConnected(false);
-					usc.setToken('');
-					login.connected = false;
-					$location.path('/');
-				}
-			});
+		}
 	}
 });

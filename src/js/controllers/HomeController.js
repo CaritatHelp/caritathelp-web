@@ -1,13 +1,9 @@
 angular.module('social')
-	.controller('HomeController', function($http){
-		var vm = this;
-		vm.userList = [];
+.controller('HomeController', function(DataService, UserService, localStorageService, $location){
+	var vm = this,
+			dsc = DataService,
+			usc = UserService;
 
-		this.showUser = function(){
-			$http.get('http://62.210.115.108:3000/users?token='+login.token)
-				.success(function(data) {
-					console.log('Requete users status: ' + data.status);
-					vm.userList = data;
-			});
-		}
-	});
+	vm.currentUser = usc.user();
+	vm.connected = usc.connected();
+});

@@ -9,19 +9,13 @@ module.exports = function(config) {
 	frameworks: ['jasmine'],
 
 	files: [
-		'node_modules/jquery/dist/jquery.min.js',
-		'node_modules/angular/angular.js',
-		'node_modules/angular-route/angular-route.js',
-		'node_modules/angular-sanitize/angular-sanitize.js',
-		'node_modules/angular-local-storage/dist/angular-local-storage.js',
+    'public/js/app.min.js',
 		'node_modules/angular-mocks/angular-mocks.js',
-    'src/js/app.js',
-    'src/js/**/*.js',
     'tests/**/*.js'
 	],
 
 	exclude: [
-		'src/js/main.js'
+		'src/js/**/index.js'
 	],
 
 	preprocessors: {

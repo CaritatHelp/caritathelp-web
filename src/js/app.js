@@ -1,6 +1,6 @@
 'use strict';
 
-global.jQuery = require('jQuery');
+global.jQuery = require('jquery');
 require('bootstrap');
 
 var angular = require('angular');

@@ -1,5 +1,5 @@
-angular.module('social')
-.controller('RegisterController', function(DataService, UserService, $location){
+'use strict';
+module.exports = /*@ngInject*/ function(DataService, UserService, $location){
 	var _this = this,
 			dsc = DataService,
 			usc = UserService;
@@ -67,4 +67,4 @@ angular.module('social')
 				});
 		}
 	}
-});
+};

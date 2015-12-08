@@ -1,5 +1,6 @@
-angular.module('social')
-.factory('UserService', function(localStorageService){
+'use strict';
+
+module.exports = /*@ngInject*/ function(localStorageService){
 	var ls = localStorageService;
 
 	if (ls.get('connected')) {
@@ -51,4 +52,4 @@ angular.module('social')
 			console.log('User disconnected');
 		}
 	}
-});
+};

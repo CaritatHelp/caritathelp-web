@@ -1,4 +1,18 @@
+'use strict';
+
+global.jQuery = require('jQuery');
+require('bootstrap');
+
+var angular = require('angular');
+require('angular-route');
+require('angular-sanitize');
+require('angular-local-storage');
+
 var app = angular.module('social', ['ngRoute', 'ngSanitize', 'LocalStorageModule']);
+
+require('./services');
+require('./directives');
+require('./controllers');
 
 app.config(function($routeProvider, localStorageServiceProvider){
 	//Configuration localStorage

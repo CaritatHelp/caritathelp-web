@@ -1,33 +1,35 @@
-var gulp = require('gulp'),
-    plumber = require('gulp-plumber'),
-    rename = require('gulp-rename'),
-    changed = require('gulp-changed'),
-    jade = require('gulp-jade'),
-    less = require('gulp-less'),
-    autoprefixer = require('gulp-autoprefixer'),
-    minifycss = require('gulp-minify-css'),
-    clean  = require('del'),
-    runSequence = require('run-sequence'),
-    browserSync = require('browser-sync');
+var gulp = require('gulp');
+var plugins = require('gulp-load-plugins')({
+      pattern: ['gulp-*', 'gulp.*'],
+      replaceString: /\bgulp[\-.]/
+    });
+var runSequence = require('run-sequence'),
+    clean = require('del'),
+    browserSync = require('browser-sync'),
+    browserify = require('browserify'),
+    buffer = require('vinyl-buffer'),
+    source = require('vinyl-source-stream'),
+    ngAnnotate = require('gulp-ng-annotate'),
+    minifycss = require('gulp-minify-css');
 
 gulp.task('jade', function(){
   gulp.src(['src/jade/*.jade'])
-    .pipe(changed('public/view/', {extension: '.html'}))
-    .pipe(jade({pretty:true}))
+    .pipe(plugins.changed('public/view/', {extension: '.html'}))
+    .pipe(plugins.jade({pretty:true}))
     .pipe(gulp.dest('public/view/'))
     .pipe(browserSync.reload({stream:true}))
 });
 
 gulp.task('styles', function(){
   gulp.src(['src/less/main.less'])
-    .pipe(plumber({
+    .pipe(plugins.plumber({
       errorHandler: function (error) {
         console.log(error.message);
         this.emit('end');
     }}))
-    .pipe(less())
-    .pipe(autoprefixer('last 2 versions'))
-    .pipe(rename({suffix: '.min'}))
+    .pipe(plugins.less())
+    .pipe(plugins.autoprefixer('last 2 versions'))
+    .pipe(plugins.rename({suffix: '.min'}))
     .pipe(minifycss())
     .pipe(gulp.dest('public/css/'))
     .pipe(browserSync.reload({stream:true}))
@@ -35,23 +37,37 @@ gulp.task('styles', function(){
 
 gulp.task('scripts', function(){
   gulp.src(['src/js/**/*.js'])
-    .pipe(changed('public/js/'))
+    .pipe(plugins.changed('public/js/'))
     .pipe(gulp.dest('public/js/'))
     .pipe(browserSync.reload({stream:true}))
 });
 
+gulp.task('browserify', function(){
+  return browserify({
+      entries: 'src/js/app.js',
+      debug: true
+    })
+    .bundle()
+    .pipe(source('app.js'))
+    .pipe(buffer())
+    .pipe(plugins.rename({suffix: '.min'}))
+    .pipe(ngAnnotate())
+    .pipe(plugins.uglify())
+    .pipe(gulp.dest('public/js/'));
+});
+
 gulp.task('copy', function(){
   gulp.src(['src/fonts/*'])
-    .pipe(changed('public/fonts/*'))
+    .pipe(plugins.changed('public/fonts/*'))
     .pipe(gulp.dest('public/fonts'))
   gulp.src(['src/img/**/*'])
-    .pipe(changed('public/img/**/*'))
+    .pipe(plugins.changed('public/img/**/*'))
     .pipe(gulp.dest('public/img'))
-  gulp.src(['src/libs/**/*'])
-    .pipe(changed('public/**/*'))
+  gulp.src(['src/libs/**/*.css'])
+    .pipe(plugins.changed('public/**/*'))
     .pipe(gulp.dest('public/'))
   gulp.src(['src/**/*.html'])
-    .pipe(changed('public/**/*.html'))
+    .pipe(plugins.changed('public/**/*.html'))
     .pipe(gulp.dest('public/'))
     .pipe(browserSync.reload({stream:true}));
 });
@@ -62,7 +78,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('build', function() {
-  runSequence(['styles', 'scripts', 'jade', 'copy']);
+  runSequence(['styles', 'browserify', 'jade', 'copy']);
 });
 
 gulp.task('rebuild', function(){
@@ -83,7 +99,7 @@ gulp.task('serve', function() {
 gulp.task('watch', function(){
   gulp.watch("src/less/**/*.less", ['styles']);
   gulp.watch("src/jade/**/*.jade", ['jade']);
-  gulp.watch("src/js/**/*.js", ['scripts']);
+  gulp.watch("src/js/**/*.js", ['browserify']);
   gulp.watch(["src/**/*.html", "src/fonts/**/*", "src/img/**/*", "src/libs/**/*"], ['copy']);
 });
 

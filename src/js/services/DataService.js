@@ -1,5 +1,6 @@
-angular.module('social')
-.factory('DataService', function($http){
+'use strict';
+
+module.exports = /*@ngInject*/ function($http){
 	var urlBase = 'http://52.31.151.160:3000/';
 	var DataService = {};
 	var logEnabled = true;
@@ -40,4 +41,4 @@ angular.module('social')
 	}
 
 	return DataService;
-});
+};

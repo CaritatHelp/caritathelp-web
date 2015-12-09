@@ -11,22 +11,33 @@
 			form#registerForm.clearfix(
 				novalidate, 
 				name="registerForm", 
-				ng-submit="register.Register()"
+				ng-submit="registerForm.$valid && register.Register()"
 				)
 				.alert.alert-danger(role="alert", ng-show="register.error", ng-bind-html="register.errorMessage")
-				fieldset#userFirstName.col-sm-6.form-group
+				
+				//- UserName
+				fieldset#userFirstName.col-sm-6.form-group(
+					ng-class="{'has-error': (registerForm.$submitted || registerForm.inputFirstName.$touched) && registerForm.inputFirstName.$invalid}"
+					)
 					label.control-label(for="inputFirstName") Prénom
 					.input-group
 						span.input-group-addon
 							i.fa.fa-user
 						input.form-control#inputFirstName(
 							type="text",
-							name="inputName",
+							name="inputFirstName",
 							placeholder="Prénom",
 							ng-model="register.firstname",
-							required
+							ng-minlength="3",
+							required=""
 						)
-				fieldset#userLastName.col-sm-6.form-group
+					.help-block(ng-messages="registerForm.inputFirstName.$error" ng-show="(registerForm.$submitted || registerForm.inputFirstName.$touched) && registerForm.inputFirstName.$invalid")
+						p(ng-message="minlength") Minimum 3 caractères
+						p(ng-message="required") Ce champs est requis
+
+				//- Lastname
+				fieldset#userLastName.col-sm-6.form-group(
+					ng-class="{'has-error': (registerForm.$submitted || registerForm.inputLastName.$touched) && registerForm.inputLastName.$invalid }")
 					label.control-label(for="inputLastName") Nom
 					.input-group
 						span.input-group-addon
@@ -36,22 +47,36 @@
 							name="inputLastName",
 							placeholder="Nom",
 							ng-model="register.lastname",
-							required
+							ng-minlength="3",
+							required=""
 						)
+					.help-block(ng-messages="registerForm.inputLastName.$error" ng-show="(registerForm.$submitted || registerForm.inputLastName.$touched) && registerForm.inputLastName.$invalid")
+						p(ng-message="minlength") Minimum 3 caractères
+						p(ng-message="required") Ce champs est requis
 				.clearfix
-				fieldset#userMail.form-group
+
+
+				//- Adresse email
+				fieldset#userMail.form-group(
+					ng-class="{'has-error': (registerForm.$submitted || registerForm.inputMail.$touched) && registerForm.inputMail.$invalid }")
 					label.control-label(for="inputMail") Adresse e-mail
 					.input-group
 						span.input-group-addon
 							i.fa.fa-envelope
 						input#inputMail.form-control(
-							type="mail",
+							type="email",
 							name="inputMail",
 							placeholder="Adresse e-mail",
 							ng-model="register.mail",
-							required
+							required=""
 						)
-				fieldset#userPassword.form-group
+					.help-block(ng-messages="registerForm.inputMail.$error" ng-show="(registerForm.$submitted || registerForm.inputMail.$touched) && registerForm.inputMail.$invalid")
+						p(ng-message="required") Ce champs est requis
+						p(ng-message="email") L'adresse entrée n'est pas valide
+
+				//- Mot  de passe
+				fieldset#userPassword.form-group(
+					ng-class="{'has-error': (registerForm.$submitted || registerForm.inputPassword.$touched) && registerForm.inputPassword.$invalid }")
 					label.control-label(for="inputPassword") Mot de passe
 					.input-group
 						span.input-group-addon
@@ -61,9 +86,17 @@
 							name="inputPassword",
 							placeholder="Mot de passe",
 							ng-model="register.password",
+							ng-minlength="8",
+							ng-pattern="/^(?=.*[a-zA-z])(?=.*\d).+$/"
 							required
 						)
-				fieldset#userConfirm.form-group
+					.help-block(ng-messages="registerForm.inputPassword.$error", ng-show="(registerForm.$submitted || registerForm.inputPassword.$touched) && registerForm.inputPassword.$invalid", ng-messages-multiple="")
+						p(ng-message="required") Ce champs est requis
+						p(ng-message="minlength", multiple="") Le mot de passe doit contenir 8 caractères
+						p(ng-message="pattern", multiple="") Le mot de passe doit contenir au moins un chiffre ET une lettre
+
+				fieldset#userConfirm.form-group(
+					ng-class="{'has-error': (registerForm.$submitted || registerForm.inputConfirmPassword.$touched) && registerForm.inputConfirmPassword.$invalid }")
 					label.control-label(for="inputConfirmPassword") Confirmation
 					.input-group
 						span.input-group-addon
@@ -73,38 +106,56 @@
 							name="inputConfirmPassword",
 							placeholder="Confirmation",
 							ng-model="register.confirmPassword",
-							required
+							required,
+							compare-to="register.password"
 						)
-				fieldset#userBirthdate.form-group
+					.help-block(ng-messages="registerForm.inputConfirmPassword.$error", ng-show="(registerForm.$submitted || registerForm.inputConfirmPassword.$touched) && registerForm.inputConfirmPassword.$invalid")
+						p(ng-message="required") Ce champs est requis
+						p(ng-message="compareTo") Les mots de passe ne correspondent pas
+
+				//- Birthday
+				fieldset#userBirthdate.form-group(
+					ng-class="{'has-error': register.checkBirthdate(registerForm)}")
 					label.control-label(for="inputBirthdate") Date de naissance
 					.input-group
 						span.input-group-addon
 							i.fa.fa-calendar
 						.col-xs-3
-							select#selectDay.form-control(title="selectDay", ng-model="register.day")
+							select#selectDay.form-control(name="selectDay", ng-model="register.day", required="")
+								option(disabled="", selected="", hidden="", value="") Jour
 								- var i = 1
 								while i < 32
 									option(value="#{i}")= i++
 						.col-xs-5
-							select#selectMonth.form-control(title="selectMonth", ng-model="register.month")
+							select#selectMonth.form-control(name="selectMonth", ng-model="register.month", required="")
+								option(disabled="", selected="", hidden="", value="") Mois
 								each month, i in months
 									option(value="#{(i+1)}") #{month}
 						.col-xs-4
-							select#selectYear.form-control(title="selectYear", ng-model="register.year")
+							select#selectYear.form-control(name="selectYear", ng-model="register.year", required="")
+								option(disabled="", selected="", hidden="", value="") Année
 								- var i = 2015
 								while i > 1904
 									option(value="#{i}")= i--
-				fieldset#userGender.form-group
+					.help-block(ng-show="register.checkBirthdate(registerForm)")
+						p Ce champs est requis
+
+				//- Sexe
+				fieldset#userGender.form-group(
+					ng-class="{'has-error': registerForm.$submitted && registerForm.radioGender.$untouched }")
 					label.control-label(for="inputGender") Sexe
 					.input-group
 						.form-radio.col-xs-6
 							.form-radio#inputGenderMan
-								input(type="radio", name="radioGender", id="radioMan", value="homme", ng-model="register.gender")
+								input(type="radio", name="radioGender", id="radioMan", value="homme", ng-model="register.gender", required="")
 								label(for="radioMan") Homme
 						.form-radio.col-xs-6
 							.form-radio#inputGenderWoman
 								input(type="radio", name="radioGender", id="radioWoman", value="femme", ng-model="register.gender")
 								label(for="radioWoman") Femme
+					.help-block(ng-show="registerForm.$submitted && registerForm.radioGender.$untouched")
+						p Ce champs est requis
+
 				hr
 				a(href="#/login") Déjà un compte ?
 				.pull-right

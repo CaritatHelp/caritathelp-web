@@ -8,6 +8,13 @@ module.exports = /*@ngInject*/ function(DataService, UserService, $location){
 	_this.error = false;
 	_this.errorMessage = "";
 
+	this.checkBirthdate = function(rf) {
+		if (rf.$submitted || (rf.selectDay.$touched && rf.selectMonth.$touched && rf.selectYear.$touched))
+			if (rf.selectDay.$invalid || rf.selectMonth.$invalid || rf.selectYear.$invalid)
+				return true;
+		return false;
+	}
+
 	function verif() {
 		var result = true;
     if (!/[a-zA-Z]/.test(_this.password)) {

@@ -53,7 +53,8 @@ gulp.task('browserify', function(){
     .pipe(plugins.rename({suffix: '.min'}))
     .pipe(ngAnnotate())
     .pipe(plugins.uglify())
-    .pipe(gulp.dest('public/js/'));
+    .pipe(gulp.dest('public/js/'))
+    .pipe(browserSync.reload({stream:true}));
 });
 
 gulp.task('copy', function(){

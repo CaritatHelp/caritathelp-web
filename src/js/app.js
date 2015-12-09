@@ -6,9 +6,10 @@ require('bootstrap');
 var angular = require('angular');
 require('angular-route');
 require('angular-sanitize');
+require('angular-messages');
 require('angular-local-storage');
 
-var app = angular.module('social', ['ngRoute', 'ngSanitize', 'LocalStorageModule']);
+var app = angular.module('social', ['ngRoute', 'ngSanitize', 'ngMessages', 'LocalStorageModule']);
 
 require('./services');
 require('./directives');

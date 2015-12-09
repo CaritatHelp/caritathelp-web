@@ -7,9 +7,9 @@
 			h1.h2 Connexion
 			hr
 			form#loginForm.clearfix(
-				novalidate, 
-				name="loginForm", 
-				ng-submit="login.SignIn()"
+					novalidate="", 
+					name="loginForm", 
+					ng-submit="login.SignIn()"
 				)
 				.alert.alert-danger(role="alert", ng-show="login.error") {{login.errorMessage}}
 				fieldset.form-group#loginMail
@@ -18,7 +18,7 @@
 						span.input-group-addon
 							i.fa.fa-envelope
 						input.form-control#inputMail(
-							type="mail",
+							type="email",
 							name="inputMail",
 							placeholder="Adresse e-mail",
 							ng-model="login.mail",

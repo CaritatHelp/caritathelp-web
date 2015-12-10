@@ -17,29 +17,28 @@ module.exports = /*@ngInject*/ function(DataService, UserService, $location){
 
 	function verif() {
 		var result = true;
-    if (!/[a-zA-Z]/.test(_this.password)) {
-    	_this.errorMessage += "Vote mot de passe doit contenir au moins une lettre.<br/>";
-    	result = false;
-    } 
-    if (!/\d/.test(_this.password)) {
-    	_this.errorMessage += "Vote mot de passe doit contenir au moins un chiffre.<br/>";
-    	result = false;
-    } 
-    if (_this.password == undefined || _this.password.length < 8) {
-    	_this.errorMessage += "Vote mot de passe doit faire au moins 8 caracteres.<br/>";
-    	result = false;
-    }
-    if (_this.password != _this.confirmPassword) {
-    	_this.errorMessage += "Les mots de passe ne correspondent pas.<br/>";
-    	result = false;
-    }
-    return result;
+		if (!/[a-zA-Z]/.test(_this.password)) {
+			_this.errorMessage += "Votre mot de passe doit contenir au moins une lettre.<br/>";
+			result = false;
+		} 
+		if (!/\d/.test(_this.password)) {
+			_this.errorMessage += "Votre mot de passe doit contenir au moins un chiffre.<br/>";
+			result = false;
+		} 
+		if (_this.password == undefined || _this.password.length < 8) {
+			_this.errorMessage += "Votre mot de passe doit faire au moins 8 caracteres.<br/>";
+			result = false;
+		}
+		if (_this.password != _this.confirmPassword) {
+			_this.errorMessage += "Les mots de passe ne correspondent pas.<br/>";
+			result = false;
+		}
+		return result;
 	}
 
 	function	cleanup() {
 		_this.gender = _this.gender == 'homme' ? 'm' : 'f';
 		_this.birthday = "" + _this.year + '-' + _this.month + '-' + _this.day;
-		return true;
 	}
 	function	reset() {
 		_this.error = false;
@@ -47,8 +46,8 @@ module.exports = /*@ngInject*/ function(DataService, UserService, $location){
 	}
 
 	this.Register = function(){
-		reset();
-		if (!verif() || !cleanup()) {_this.error=true;return;}
+		reset(); cleanup();
+		if (!verif()) {_this.error=true;return;}
 		else {
 			angular.element("#buttonRegister").prepend('<i class="fa fa-spin fa-spinner"></i> ').attr('disabled', true);
 

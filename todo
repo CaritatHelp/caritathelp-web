@@ -1,0 +1,18 @@
+navbar
+	search
+
+chat
+
+page
+	homepage
+		secondbar
+		newsfeed
+	profil
+		secondbar
+		ownnews
+		calendar
+		list-display (friends, associations)
+	association
+		secondbar
+		ownnews
+	settings

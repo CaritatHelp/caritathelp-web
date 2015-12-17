@@ -93,7 +93,8 @@ gulp.task('reload', function () {
 
 gulp.task('serve', function() {
   browserSync({
-    server: {baseDir: "./public"}
+    server: {baseDir: "./public"},
+    online: false
   });
 });
 

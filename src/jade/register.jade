@@ -87,7 +87,6 @@
 							placeholder="Mot de passe",
 							ng-model="register.password",
 							ng-minlength="8",
-							ng-pattern="/^(?=.*[a-zA-z])(?=.*\d).+$/"
 							required
 						)
 					.help-block(ng-messages="registerForm.inputPassword.$error", ng-show="(registerForm.$submitted || registerForm.inputPassword.$touched) && registerForm.inputPassword.$invalid", ng-messages-multiple="")

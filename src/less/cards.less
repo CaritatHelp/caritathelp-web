@@ -1,0 +1,128 @@
+.card {
+	margin-bottom: 22px;
+	background-color: #ffffff;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+	border-color: #D5E7CF;
+	.content {
+		padding: 1rem;
+	}
+}
+
+.card-profil:extend(.card) {
+	margin-bottom: 30px !important;
+	.cover {
+		height: 150px;
+		background-size: cover;
+		padding: 10px 1rem;
+		border-bottom: 1px solid transparent;
+		border-top-right-radius: 3px;
+		border-top-left-radius: 3px;
+	}
+	.name {
+		margin-bottom: 5px;
+		font-size: 16px;
+		margin-top: 0;
+	}
+	.picture {
+		max-width: 100px; 
+		margin-top: -70px;
+		margin-bottom: 5px;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+	}
+	.text {
+		margin-bottom: 30px;
+	}
+	.stats {
+		list-style: none;
+		padding: 0;
+	}
+	.stat {
+		display: inline-block;
+    padding: 0 10px;
+    border-right: 1px solid #d4dbe0;
+    &:last-child {
+    	border-right: none;
+    }
+	}
+	.link {
+		color:inherit;
+		text-decoration: inherit;
+	}
+	.nb {margin:0;}
+}
+
+.card-timeline:extend(.card) {
+	padding-left: 0;
+	list-style: none;
+	.element {
+		padding: 20px;
+		margin-top: 0;
+		position: relative;
+		display: block;
+		margin-bottom: -1px;
+		background-color: #ffffff;
+		border: 1px solid #d3e0e9;
+		&:first-child {
+			border-top-right-radius: 4px;
+			border-top-left-radius: 4px;
+		}
+		&.new {
+			.btn {
+				color: #536570;
+				background-color: #ffffff;
+				border-color: #d4dbe0;
+				&:hover, &:focus, &:active {
+					color: #536570;
+					background-color: #e6e6e6;
+					border-color: #b0bdc6;
+					text-decoration: none;
+				}
+			}
+		}
+		&.post {
+			hr {margin-bottom: 15px;}
+			.avatar {
+				display: table-cell;
+				vertical-align: top;
+				padding-right: 10px;
+				img {
+					width: 60px;
+					margin-right: 5px;
+					border-radius: 50%;
+				}
+			}
+			.body {
+				zoom: 1;
+				overflow: visible;
+				display: table-cell;
+				vertical-align: top;
+				width: 10000px;
+				.infos {
+					margin-bottom: 5px;
+					h5 {margin:0;}
+				}
+				.time {
+					color: #9da9b0;
+					float: right;
+					margin-top: -3px;
+				}
+				.comments {
+					list-style: none;
+					padding-left: 0;
+					margin-bottom: 20px;
+					.comment {
+						margin-top: 15px;
+						&:first-child {margin-top: 0;}
+						.avatar img {width: 40px;}
+					}
+				}
+			}
+		}
+	}
+}
+
+.card-events:extend(.card) {
+	
+}

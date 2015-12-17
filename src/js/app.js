@@ -1,6 +1,7 @@
 'use strict';
 
 global.jQuery = require('jquery');
+//global.Tether = require('tether');
 require('bootstrap');
 
 var angular = require('angular');
@@ -14,6 +15,7 @@ var app = angular.module('social', ['ngRoute', 'ngSanitize', 'ngMessages', 'Loca
 require('./services');
 require('./directives');
 require('./controllers');
+require('./navbar');
 
 app.config(function($routeProvider, localStorageServiceProvider){
 	//Configuration localStorage
@@ -38,6 +40,11 @@ app.config(function($routeProvider, localStorageServiceProvider){
 			templateUrl: "view/register.html",
 			controller: "RegisterController",
 			controllerAs: "register"
+		})
+		.when("/test", {
+			templateUrl: "view/view/home.html",
+			controller: "HomeController",
+			controllerAs: "home"
 		})
 		.otherwise({redirectTo: '/'});
 });

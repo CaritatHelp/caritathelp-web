@@ -10,7 +10,10 @@
 @import "login-page";
 @import "buttons";
 @import "button-social";
-@import "navbar";
+@import "bootstrap-toolkit";
+@import "modules/navbar";
+@import "cards";
+@import "boutons";
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
 html, body {
@@ -18,6 +21,9 @@ html, body {
 }
 body {
 	font-family: Roboto;
+}
+body, .ct {
+	background-color: #E4F7DD;
 }
 
 h1, h2, h3, .h1, .h2, .h3 {margin:0;}
@@ -32,6 +38,19 @@ a:focus, a:hover {background: 0 0;text-decoration: none;outline: none;}
 		text-align:center;
 	}
 
+.text-center {
+	text-align: center;
+}
+.float-right {
+	float: right !important;
+}
+
+.content-wrapper{
+	padding-top: 50px;
+	.container.main {
+		padding-top: 30px;
+	}
+}
 
 /* =================	PROFILE PAGE ================= */
 	#imgCover {

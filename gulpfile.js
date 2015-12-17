@@ -13,8 +13,8 @@ var runSequence = require('run-sequence'),
     minifycss = require('gulp-minify-css');
 
 gulp.task('jade', function(){
-  gulp.src(['src/jade/*.jade'])
-    .pipe(plugins.changed('public/view/', {extension: '.html'}))
+  gulp.src(['src/jade/**/*.jade'])
+    // .pipe(plugins.changed('public/view/', {extension: '.html'}))
     .pipe(plugins.jade({pretty:true}))
     .pipe(gulp.dest('public/view/'))
     .pipe(browserSync.reload({stream:true}))

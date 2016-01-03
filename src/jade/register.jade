@@ -9,12 +9,12 @@
 			h1.h2 Inscription
 			hr
 			form#registerForm.clearfix(
-				novalidate, 
-				name="registerForm", 
+				novalidate,
+				name="registerForm",
 				ng-submit="registerForm.$valid && register.Register()"
 				)
 				.alert.alert-danger(role="alert", ng-show="register.error", ng-bind-html="register.errorMessage")
-				
+
 				//- UserName
 				fieldset#userFirstName.col-sm-6.form-group(
 					ng-class="{'has-error': (registerForm.$submitted || registerForm.inputFirstName.$touched) && registerForm.inputFirstName.$invalid}"

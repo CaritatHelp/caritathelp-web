@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var plugins = require('gulp-load-plugins')({
+var g = require('gulp-load-plugins')({
       pattern: ['gulp-*', 'gulp.*'],
       replaceString: /\bgulp[\-.]/
     });
@@ -14,22 +14,22 @@ var runSequence = require('run-sequence'),
 
 gulp.task('jade', function(){
   gulp.src(['src/jade/**/*.jade'])
-    // .pipe(plugins.changed('public/view/', {extension: '.html'}))
-    .pipe(plugins.jade({pretty:true}))
+    // .pipe(g.changed('public/view/', {extension: '.html'}))
+    .pipe(g.jade({pretty:true}))
     .pipe(gulp.dest('public/view/'))
     .pipe(browserSync.reload({stream:true}))
 });
 
 gulp.task('styles', function(){
   gulp.src(['src/less/main.less'])
-    .pipe(plugins.plumber({
+    .pipe(g.plumber({
       errorHandler: function (error) {
         console.log(error.message);
         this.emit('end');
     }}))
-    .pipe(plugins.less())
-    .pipe(plugins.autoprefixer('last 2 versions'))
-    .pipe(plugins.rename({suffix: '.min'}))
+    .pipe(g.less())
+    .pipe(g.autoprefixer('last 2 versions'))
+    .pipe(g.rename({suffix: '.min'}))
     .pipe(minifycss())
     .pipe(gulp.dest('public/css/'))
     .pipe(browserSync.reload({stream:true}))
@@ -37,7 +37,7 @@ gulp.task('styles', function(){
 
 gulp.task('scripts', function(){
   gulp.src(['src/js/**/*.js'])
-    .pipe(plugins.changed('public/js/'))
+    .pipe(g.changed('public/js/'))
     .pipe(gulp.dest('public/js/'))
     .pipe(browserSync.reload({stream:true}))
 });
@@ -50,25 +50,25 @@ gulp.task('browserify', function(){
     .bundle()
     .pipe(source('app.js'))
     .pipe(buffer())
-    .pipe(plugins.rename({suffix: '.min'}))
+    .pipe(g.rename({suffix: '.min'}))
     .pipe(ngAnnotate())
-    .pipe(plugins.uglify())
+    .pipe(g.uglify())
     .pipe(gulp.dest('public/js/'))
     .pipe(browserSync.reload({stream:true}));
 });
 
 gulp.task('copy', function(){
   gulp.src(['src/fonts/*'])
-    .pipe(plugins.changed('public/fonts/*'))
+    .pipe(g.changed('public/fonts/*'))
     .pipe(gulp.dest('public/fonts'))
   gulp.src(['src/img/**/*'])
-    .pipe(plugins.changed('public/img/**/*'))
+    .pipe(g.changed('public/img/**/*'))
     .pipe(gulp.dest('public/img'))
   gulp.src(['src/libs/**/*.css'])
-    .pipe(plugins.changed('public/**/*'))
+    .pipe(g.changed('public/**/*'))
     .pipe(gulp.dest('public/'))
   gulp.src(['src/**/*.html'])
-    .pipe(plugins.changed('public/**/*.html'))
+    .pipe(g.changed('public/**/*.html'))
     .pipe(gulp.dest('public/'))
     .pipe(browserSync.reload({stream:true}));
 });

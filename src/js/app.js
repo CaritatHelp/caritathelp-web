@@ -46,6 +46,11 @@ app.config(function($routeProvider, localStorageServiceProvider){
 			controller: "HomeController",
 			controllerAs: "home"
 		})
+		.when("/profile", {
+			templateUrl: "view/view/profile.html",
+			controller: "ProfileController",
+			controllerAs: "profile"
+		})
 		.otherwise({redirectTo: '/'});
 });
 

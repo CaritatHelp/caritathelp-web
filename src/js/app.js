@@ -20,7 +20,7 @@ require('./navbar');
 app.config(function($routeProvider, localStorageServiceProvider){
 	//Configuration localStorage
 	localStorageServiceProvider.setPrefix('caritathelp').setNotify(true, true);
-	
+
 	//Routing
 	$routeProvider
 		.when("/", {
@@ -42,12 +42,12 @@ app.config(function($routeProvider, localStorageServiceProvider){
 			controllerAs: "register"
 		})
 		.when("/test", {
-			templateUrl: "view/view/home.html",
+			templateUrl: "view/test.html",
 			controller: "HomeController",
 			controllerAs: "home"
 		})
 		.when("/profile", {
-			templateUrl: "view/view/profile.html",
+			templateUrl: "view/profile.html",
 			controller: "ProfileController",
 			controllerAs: "profile"
 		})

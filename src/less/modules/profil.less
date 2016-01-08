@@ -1,0 +1,21 @@
+.profil-display {
+	background: none;
+	position: relative;
+	.background {
+		background: url(../img/cover/skyline.jpg);
+		background-size: cover;
+		background-position-y: 80%;
+		.abso-center();
+	}
+	.infos {
+		text-align: center;
+		filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5));
+		text-shadow: 1px 1px #000;
+    color: #fff;
+		.name {margin-top: 20px;}
+		p {font-size: 16px}
+		.picture {
+			@media(min-width: 768px) {width: 110px;}
+		}
+	}
+}

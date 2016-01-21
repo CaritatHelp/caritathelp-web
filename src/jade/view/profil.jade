@@ -1,0 +1,42 @@
+.content-wrapper
+	.jumbotron.profil-display
+		.background
+		.infos
+			img.img-circle.picture(src="img/robert.png", alt="")
+			h3.name Prénom Nom
+			p Lorem Ipsum sit dolor tu quoque mi fili
+		nav.anw.profil-nav
+			ul.nav.ol
+				li(ng-class="{active:profil.isSelected(1)}")
+					a(ng-click="profil.selectTab(1)") Timeline
+				li(ng-class="{active:profil.isSelected(2)}")
+					a(ng-click="profil.selectTab(2)") Calendrier
+				li(ng-class="{active:profil.isSelected(3)}")
+					a(ng-click="profil.selectTab(3)") Settings
+	.container
+		.timeline-tab(
+			ng-show="profil.isSelected(1)")
+			p Ceci est un test
+		.calendar-tab(
+			ng-show="profil.isSelected(2)")
+			.calendar.card.col-md-12
+				table
+					thead
+						tr
+							each val in ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']
+								th.day.name.card= val
+					tbody
+						- var i=0
+						while i < 35
+							if (i % 7 == 0)
+								tr
+							td.day.card(class=((i==0||i>30) ? 'disabled':''))=i++
+		.settings-tab(
+			ng-show="profil.isSelected(3)")
+			.settings.card.col-md-12
+				.col-md-2.settings-sidebar
+					ul
+						li General
+						li Security
+				.col-md-10
+					h5 Paramètres du compte

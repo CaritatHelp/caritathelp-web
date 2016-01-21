@@ -16,6 +16,7 @@ require('./services');
 require('./directives');
 require('./controllers');
 require('./navbar');
+require('./calendar');
 
 app.config(function($routeProvider, localStorageServiceProvider){
 	//Configuration localStorage
@@ -28,28 +29,28 @@ app.config(function($routeProvider, localStorageServiceProvider){
 		})
 		.when("/login", {
 			templateUrl: "view/login.html",
-			controller: "LoginController",
+			controller: "loginController",
 			controllerAs: "login"
 		})
 		.when("/home", {
 			templateUrl: "view/home.html",
-			controller: "HomeController",
+			controller: "homeController",
 			controllerAs: "home"
 		})
 		.when("/register", {
 			templateUrl: "view/register.html",
-			controller: "RegisterController",
+			controller: "registerController",
 			controllerAs: "register"
 		})
 		.when("/test", {
 			templateUrl: "view/test.html",
-			controller: "HomeController",
+			controller: "homeController",
 			controllerAs: "home"
 		})
-		.when("/profile", {
-			templateUrl: "view/profile.html",
-			controller: "ProfileController",
-			controllerAs: "profile"
+		.when("/profil", {
+			templateUrl: "view/profil.html",
+			controller: "profilController",
+			controllerAs: "profil"
 		})
 		.otherwise({redirectTo: '/'});
 });

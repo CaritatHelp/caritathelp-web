@@ -18,4 +18,26 @@
 			@media(min-width: 768px) {width: 110px;}
 		}
 	}
+	.profil-nav {
+		right: 0;
+		left: 0;
+		bottom: 0;
+		position: absolute;
+		ul {
+			display: flex;
+			justify-content: center;
+		}
+	}
 }
+
+.settings {
+	display: flex;
+	min-height: 50vh;
+	padding: .9375rem;
+	.settings-sidebar {
+		flex-grow: 1;
+		border-right: 1px solid #c1c1c1;
+	}
+}
+
+@import "calendar";

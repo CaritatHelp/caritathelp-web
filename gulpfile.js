@@ -102,6 +102,7 @@ gulp.task('watch', function(){
   gulp.watch("src/less/**/*.less", ['styles']);
   gulp.watch("src/jade/**/*.jade", ['jade']);
   gulp.watch("src/js/**/*.js", ['browserify']);
+  gulp.watch("src/js/**/*.html", ['copy']);
   gulp.watch(["src/**/*.html", "src/fonts/**/*", "src/img/**/*", "src/libs/**/*"], ['copy']);
 });
 

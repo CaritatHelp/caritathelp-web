@@ -4,3 +4,4 @@ semantic
 semantic.json
 carita.sublime*
 src/modules
+*.log

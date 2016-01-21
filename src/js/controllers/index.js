@@ -2,6 +2,7 @@
 
 var app = require('angular').module('social');
 
-app.controller('LoginController', require('./LoginController'));
-app.controller('HomeController', require('./HomeController'));
-app.controller('RegisterController', require('./RegisterController'));
+app.controller('LlginController', require('./loginController'));
+app.controller('H=homeController', require('./homeController'));
+app.controller('registerController', require('./registerController'));
+app.controller('profilController', require('./profilController'));

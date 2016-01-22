@@ -14,29 +14,27 @@
 				li(ng-class="{active:profil.isSelected(3)}")
 					a(ng-click="profil.selectTab(3)") Settings
 	.container
-		.timeline-tab(
+		.timeline-tab.card.col-md-12(
 			ng-show="profil.isSelected(1)")
 			p Ceci est un test
-		.calendar-tab(
+		.calendar-tab.card.col-md-12(
 			ng-show="profil.isSelected(2)")
-			.calendar.card.col-md-12
-				table
-					thead
-						tr
-							each val in ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']
-								th.day.name.card= val
-					tbody
-						- var i=0
-						while i < 35
-							if (i % 7 == 0)
-								tr
-							td.day.card(class=((i==0||i>30) ? 'disabled':''))=i++
-		.settings-tab(
+			table
+				thead
+					tr
+						each val in ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']
+							th.day.name.card= val
+				tbody
+					- var i=0
+					while i < 35
+						if (i % 7 == 0)
+							tr
+						td.day.card(class=((i==0||i>30) ? 'disabled':''))=i++
+		.settings-tab.card.col-md-12(
 			ng-show="profil.isSelected(3)")
-			.settings.card.col-md-12
-				.col-md-2.settings-sidebar
-					ul
-						li General
-						li Security
-				.col-md-10
-					h5 Paramètres du compte
+			.col-md-2.settings-sidebar
+				ul.list-unstyled
+					li General
+					li Security
+			.col-md-10
+				h5 Paramètres du compte

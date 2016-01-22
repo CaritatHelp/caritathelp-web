@@ -4,7 +4,7 @@ describe('[LoginController]', function() {
 	var $controller;
 
 	beforeEach(inject(function(_$controller_){
-		controller = _$controller_('LoginController', {});
+		controller = _$controller_('loginController', {});
 	}));
 
 	describe('[Test components]', function() {

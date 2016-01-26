@@ -9,3 +9,7 @@ Vert bloc: #b6d7a8
 
 ##Polices:
 Titres: Roboto
+
+#Supported:
+IE11+
+Edge, Chrome, Firefox, Safari, Opera

@@ -29,7 +29,10 @@ module.exports = /*@ngInject*/ function(localStorageService){
 			user.birthday = datas.birthday;
 			user.gender = datas.gender;
 			user.city = datas.city;
+			user.latitude = datas.latitude;
+			user.longitude = datas.longitude;
 			user.allowgps = datas.allowgps;
+			user.notifications = datas.notifications;
 			ls.set('currentUser', user);
 
 			//Sauvegarde du token

@@ -17,6 +17,7 @@ require('./directives');
 require('./controllers');
 require('./navbar');
 require('./calendar');
+require('./settings');
 
 app.config(function($routeProvider, localStorageServiceProvider){
 	//Configuration localStorage
@@ -41,11 +42,6 @@ app.config(function($routeProvider, localStorageServiceProvider){
 			templateUrl: "view/register.html",
 			controller: "registerController",
 			controllerAs: "register"
-		})
-		.when("/test", {
-			templateUrl: "view/test.html",
-			controller: "homeController",
-			controllerAs: "home"
 		})
 		.when("/profil", {
 			templateUrl: "view/profil.html",

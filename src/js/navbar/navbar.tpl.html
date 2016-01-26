@@ -13,13 +13,13 @@
 		</div>
 		<div class="navbar-menu" id="navbar-collapse-main">
 			<ul class="nav navbar-nav">
-				<li class="active">
-					<a href="#/test">Accueil</a>
+				<li ng-class="{active:nav.isSelected(1)}">
+					<a href="#/home">Accueil</a>
 				</li>
-				<li>
+				<li ng-class="{active:nav.isSelected(2)}">
 					<a href="#/profil">{{nav.user.firstname}} {{nav.user.lastname}}Profil</a>
 				</li>
-				<li>
+				<li ng-class="{active:nav.isSelected(3)}">
 					<a data-toggle="modal" href="#msgModal">Messagerie</a>
 				</li>
 			</ul>

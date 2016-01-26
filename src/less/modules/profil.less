@@ -1,5 +1,5 @@
 .profil-display {
-	background: none;
+	background: rgba(0,0,0,.5);
 	position: relative;
 	.background {
 		background: url(../img/cover/skyline.jpg);
@@ -26,14 +26,52 @@
 		ul {
 			display: flex;
 			justify-content: center;
+			border-bottom: 0;
+			> li {
+				cursor: pointer;
+				> a {
+					padding: 0 10px 10px;
+					font-size: 16px;
+					color: rgba(255, 255, 255, 0.5);
+					transition: color 0.2s ease-in-out;
+					&:focus, &:hover {
+						color: #fff;
+						background: transparent;
+						border-color: transparent;
+					}
+				}
+				&.active {
+					> a {
+						color: #fff;
+						background: transparent;
+						border-color: transparent;
+					}
+					&:after {
+						position: absolute;
+						bottom: 0;
+						left: 50%;
+						content: '';
+						margin-left: -10px;
+						border-left: 10px solid transparent;
+						border-right: 10px solid transparent;
+						border-bottom: 10px solid #f5f8fa;
+					}
+				}
+			}
 		}
 	}
 }
-[".*-tab"] {
+.profil-tabs {
 	display: flex;
-	min-height: 50vh;
-	padding: .9375rem;
+	flex-grow: 1;
+	width: 100%;
+	> div {
+		display: flex;
+		flex-grow: 1;
+		padding: .9375rem;
+	}
 }
+
 
 .settings-tab {
 	.settings-sidebar {
@@ -43,3 +81,4 @@
 }
 
 @import "calendar";
+@import "settings";

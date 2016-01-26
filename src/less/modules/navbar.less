@@ -1,33 +1,13 @@
-
 .app-navbar {
-  min-height: 50px;
-  margin-bottom: 0;
-  border: 1px solid transparent;
-	background: #53A634;
-	border-color: #30A01C;
-	top: 0;
-	position: fixed;
+	.container {display: flex;}
 	right: 0;
 	left: 0;
-	z-index: 1030;
-	border-width: 0 0 1px;
-	height: 50px;
-	li {
-		&.active a {
-			color: #eee;
-		}
-		a {
-			font-size: 16px;
-			color: rgba(255, 255, 255, 0.8);
-			&:focus, &:hover {
-				color: #eee;
-				background-color: transparent;
-			}
-			&.linkon {padding: 12px 15px;}
-		}
-		.fa {font-size: 22px;}
-	}
-	.container {display: flex;}
+	position: fixed;
+	z-index: 1000;
+	min-height: 50px;
+	border-bottom: 1px solid transparent;
+	border-color: @navbar-border;
+	background: @navbar-green;
 	.navbar-logo {
 		margin-right: 15px;
 		margin-top: -1px;
@@ -42,17 +22,24 @@
 			display: flex;
 			align-items: center;
 		}
-	}
-	.search-bar {
-		width: auto;
-		border: 0;
-		box-shadow: none;
-		.search-input {
-			@media (min-width: 768px) {
-				display: inline-block;
-				margin-bottom: 0;
-				vertical-align: middle;
+		li {
+			&.active a {
+				color: @navbar-hover;
 			}
+			a {
+				font-size: 16px;
+				color: @navbar-text;
+				&:focus, &:hover {
+					color: @navbar-hover;
+					background-color: transparent;
+				}
+				&.linkon {
+					adding: 12px 15px;
+					font-size: 22px;
+				}
+			}
+		}
+		.search-bar {
 		}
 	}
 }

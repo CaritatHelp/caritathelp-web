@@ -7,7 +7,6 @@
 
 @import "variables";
 @import "mixins";
-@import "bootstrap-toolkit";
 @import "boutons";
 @import "modules/login-register";
 @import "modules/navbar";
@@ -17,31 +16,33 @@
 
 html, body {
 	height: 100%;
+	font-size: 14px;
 }
-* {font-family: Roboto, sans-serif;}
-body, .ct {
-	background-color: #E4F7DD;
+* {
+	font-family: Roboto, sans-serif;
+}
+body {background-color: #E4F7DD;}
+
+
+h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {margin:0;}
+//Reset bootstrap pour les icones collés aux inputs
+span.input-group-addon {width: 36px;}
+a {
+	color:inherit;
+	text-decoration: inherit;
+	&:focus, &:hover {
+		background: none;
+		text-decoration: none;
+		outline: none;
+	}
 }
 
-h1, h2, h3, .h1, .h2, .h3 {margin:0;}
-span.input-group-addon {width: 36px;}
-a:focus, a:hover {background: 0 0;text-decoration: none;outline: none;}
+//Bloc d'aide register form
 .help-block, .help-block p {margin-bottom: 0;}
+//couleur texte message d'erreur register/login
 .has-error .control-label, .has-success .control-label {color: #333;}
 
-	.ui.button {
-		.border-radius(6px);
-		font-size: 12px;
-		text-align:center;
-	}
-
-.text-center {
-	text-align: center;
-}
-.float-right {
-	float: right !important;
-}
-
+//Wrapper pour toutes les pages sauf login/register
 .content-wrapper{
 	flex-grow: 1;
 	display: flex;
@@ -51,55 +52,4 @@ a:focus, a:hover {background: 0 0;text-decoration: none;outline: none;}
 	.container.main {
 		padding-top: 30px;
 	}
-}
-
-/* =================	PROFILE PAGE ================= */
-	#imgCover {
-		height: 200px;
-		background: url(../img/cover/skyline.jpg);
-		background-size: cover;
-		background-position-y: 85%;
-		position: fixed;
-		width: 100%;
-		&.slim {height: 140px;}
-	}
-	#secondaryNav {
-		text-align: center;
-		background: @main-green;
-		.background-gradient(#5d7e4f, #90b182);
-		height: 44px;
-		border-top: 1px solid @main-green;
-		margin-top: 200px;
-		position: fixed;
-		width: 100%;
-		&.slim{margin-top:140px;}
-		ul {
-			display: inline-block;
-			li {
-				float: left;
-				font-size: 30px;
-				a {
-					padding: 0 10px 2px;
-					color: #000000;
-					&:hover {
-						background: transparent;
-						font-size: 32px;
-					}
-				}
-			}
-		}
-	}
-	#pageContent {
-		margin-top: 244px;
-	}
-
-#debugConsole {
-	p {
-		margin-bottom: 8px;
-		font-weight: bold;
-		text-align: center;
-	}
-	position: fixed;
-	left: 5%;
-	max-width: 250px;
 }

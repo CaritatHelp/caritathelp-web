@@ -17,29 +17,43 @@
 	}
 	.navbar-menu {
 		flex-grow: 1;
+		display: flex;
+		.navbar-left {flex-grow: 1;}
 		.navbar-right {
-			float: right;
 			display: flex;
 			align-items: center;
 		}
-		li {
-			&.active a {
-				color: @navbar-hover;
-			}
-			a {
-				font-size: 16px;
-				color: @navbar-text;
-				&:focus, &:hover {
-					color: @navbar-hover;
-					background-color: transparent;
-				}
-				&.linkon {
-					adding: 12px 15px;
-					font-size: 22px;
+		ul.nav {
+			display: flex;
+			align-items: center;
+			> li {
+				&.active a{color: @navbar-hover;}
+				> a {
+					font-size: 16px;
+					color: @navbar-text;
+					padding: 16px 15px;
+					&:focus, &:hover {
+						color: @navbar-hover;
+						background-color: transparent;
+					}
+					&.linkon {
+						adding: 12px 15px;
+						font-size: 22px;
+					}
 				}
 			}
 		}
 		.search-bar {
+		}
+		.avatar {
+			padding: 0;
+			border: 0;
+			background: transparent;
+			margin: 7px 0;
+			cursor: pointer;
+			img {
+				height: 40px;
+			}
 		}
 	}
 }

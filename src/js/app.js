@@ -16,7 +16,6 @@ require('./services');
 require('./directives');
 require('./controllers');
 require('./navbar');
-require('./calendar');
 require('./settings');
 
 app.config(function($routeProvider, localStorageServiceProvider){

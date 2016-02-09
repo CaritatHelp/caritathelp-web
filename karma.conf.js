@@ -16,7 +16,7 @@ module.exports = function(config) {
 	],
 
 	preprocessors: {
-		'src/js/**/*.js': ['browserify']
+		'src/js/app.js': ['browserify']
 	},
 
 	plugins: [

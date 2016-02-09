@@ -10,7 +10,7 @@ var runSequence = require('run-sequence'),
     buffer = require('vinyl-buffer'),
     source = require('vinyl-source-stream'),
     ngAnnotate = require('gulp-ng-annotate'),
-    minifycss = require('gulp-minify-css');
+    minifycss = require('gulp-cssnano');
 
 gulp.task('jade', function(){
   gulp.src(['src/jade/view/**/*.jade'])

@@ -15,10 +15,6 @@ module.exports = function(config) {
     'tests/**/*.js'
 	],
 
-	exclude: [
-		'src/js/**/index.js'
-	],
-
 	preprocessors: {
 		'src/js/**/*.js': ['browserify']
 	},

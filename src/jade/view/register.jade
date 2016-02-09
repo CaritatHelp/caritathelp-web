@@ -1,9 +1,10 @@
-extends ../layout/fullpage
+extends ../layout/landing
 
 block content
 	- var months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
-	h1.h2 Inscription
-	hr
+	header.sign-box
+		h1.h2 Inscription
+		hr
 	form#registerForm.clearfix(
 		novalidate,
 		name="registerForm",

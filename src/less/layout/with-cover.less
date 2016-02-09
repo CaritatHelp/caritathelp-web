@@ -1,0 +1,113 @@
+.covered {
+	.cover {
+		background: rgba(0,0,0,.5);
+		position: relative;
+		.background {
+			background: url(../img/cover/skyline.jpg);
+			background-size: cover;
+			background-position-y: 80%;
+			.abso-center();
+		}
+		.infos {
+			text-align: center;
+			filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5));
+			text-shadow: 1px 1px #000;
+	    color: #fff;
+			.name {margin-top: 20px;}
+			p {font-size: 16px}
+			.picture {
+				@media(min-width: 768px) {width: 110px;}
+			}
+		}
+		.navigation {
+			right: 0;
+			left: 0;
+			bottom: 0;
+			position: absolute;
+			ul {
+				display: flex;
+				justify-content: center;
+				border-bottom: 0;
+				> li {
+					cursor: pointer;
+					> a {
+						display: block;
+						padding: 0 10px 10px;
+						font-size: 16px;
+						color: rgba(255, 255, 255, 0.5);
+						transition: color 0.2s ease-in-out;
+						&:focus, &:hover {
+							color: #fff;
+							background: transparent;
+							border-color: transparent;
+						}
+					}
+					&.active {
+						> a {
+							color: #fff;
+							background: transparent;
+							border-color: transparent;
+						}
+						&:after {
+							position: absolute;
+							bottom: 0;
+							left: 50%;
+							content: '';
+							margin-left: -10px;
+							border-left: 10px solid transparent;
+							border-right: 10px solid transparent;
+							border-bottom: 10px solid #f5f8fa;
+						}
+					}
+				}
+			}
+		}
+	}
+	.tabs {
+		display: flex;
+		flex-grow: 1;
+		width: 100%;
+		> div {
+			display: flex;
+			flex-grow: 1;
+			padding: .9375rem;
+		}
+		.sidebar {
+			flex-grow: 1;
+			border-right: 1px solid #c1c1c1;
+			padding: 0;
+			padding-right: .9375rem;
+			ul {
+				list-style: none;
+				padding: 0;
+				& > li {
+					& > a {
+						display: block;
+						padding: 4px 10px;
+						cursor: pointer;
+						color: #30A01C;
+						&:hover {
+							background: #eee;
+						}
+					}
+					&.active {
+						& > a {
+							font-weight: bold;
+							background: #53A634;
+							color: #fff;
+						}
+					}
+				}
+			}
+		}
+		.body {
+			padding: 0;
+			padding-left: .9375rem;
+			h5 {
+				font-weight: bold;
+				margin: 0;
+				font-size: 1.5em;
+			}
+		}
+	}
+}

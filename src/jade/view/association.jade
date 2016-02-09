@@ -1,0 +1,35 @@
+extends ../layout/with-cover
+
+block jumbotron
+	.background
+	.infos
+		img.img-circle.picture(src="img/robert.png", alt="")
+		h3.name {{nav.user.firstname}} {{nav.user.lastname}}
+		p Lorem Ipsum sit dolor tu quoque mi fili
+	nav.navigation
+		ul.nav
+			li(ng-class="{active:asso.isSelected(1)}")
+				a(ng-click="asso.selectTab(1)") Timeline
+			li(ng-class="{active:asso.isSelected(2)}")
+				a(ng-click="asso.selectTab(2)") Calendrier
+			li(ng-class="{active:asso.isSelected(3)}")
+				a(ng-click="asso.selectTab(3)") Settings
+
+block tabs
+	.create-tab.card.col-md-12(
+		ng-show="asso.isSelected(1)")
+		p Test
+	.timeline-tab.card.col-md-12(
+		ng-show="asso.isSelected(2)")
+		include ../module/timeline.jade
+	.settings-tab.card.col-md-12(
+		ng-show="asso.isSelected(3)",
+		ng-controller="settingsController as settings")
+		.col-md-2.sidebar
+			ul
+				li.active
+					a(ng-click="settings.selectTab(1)") General
+				li
+					a(ng-click="settings.selectTab(2)") Security
+		.col-md-10.body
+			h5 Paramètres du compte

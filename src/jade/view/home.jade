@@ -1,11 +1,14 @@
 extends ../layout/default
 
 block left-column
-	include ../module/profil.jade
+	.card.currentUser
+		include ../module/profil.jade
 	//- include ../module/about.jade
 
 block center-column
-	include ../module/timeline.jade
+	.card.timeline
+		include ../module/timeline.jade
 
 block right-column
-	include ../module/events.jade
+	.card.events
+		include ../module/events.jade

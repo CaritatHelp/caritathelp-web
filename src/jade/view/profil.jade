@@ -1,43 +1,45 @@
-.content-wrapper
-	.jumbotron.profil-display
-		.background
-		.infos
-			img.img-circle.picture(src="img/robert.png", alt="")
-			h3.name {{nav.user.firstname}} {{nav.user.lastname}}
-			p Lorem Ipsum sit dolor tu quoque mi fili
-		nav.profil-nav
-			ul.nav
-				li(ng-class="{active:profil.isSelected(1)}")
-					a(ng-click="profil.selectTab(1)") Timeline
-				li(ng-class="{active:profil.isSelected(2)}")
-					a(ng-click="profil.selectTab(2)") Calendrier
-				li(ng-class="{active:profil.isSelected(3)}")
-					a(ng-click="profil.selectTab(3)") Settings
-	.container.profil-tabs
-		.timeline-tab.card.col-md-12(
-			ng-show="profil.isSelected(1)")
-			p Ceci est un test
-		.calendar-tab.card.col-md-12(
-			ng-show="profil.isSelected(2)")
-			table
-				thead
-					tr
-						each val in ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']
-							th.day.name.card= val
-				tbody
-					- var i=0
-					while i < 35
-						if (i % 7 == 0)
-							tr
-						td.day.card(class=((i==0||i>30) ? 'disabled':''))=i++
-		.settings-tab.card.col-md-12(
-			ng-show="profil.isSelected(3)",
-			ng-controller="settingsController as settings")
-			.col-md-2.settings-sidebar
-				ul
-					li.active
-						a(ng-click="settings.selectTab(1)") General
-					li
-						a(ng-click="settings.selectTab(2)") Security
-			.col-md-10.settings-body
-				h5 Paramètres du compte
+extends ../layout/with-cover
+
+block jumbotron
+	.background
+	.infos
+		img.img-circle.picture(src="img/robert.png", alt="")
+		h3.name {{nav.user.firstname}} {{nav.user.lastname}}
+		p Lorem Ipsum sit dolor tu quoque mi fili
+	nav.navigation
+		ul.nav
+			li(ng-class="{active:profil.isSelected(1)}")
+				a(ng-click="profil.selectTab(1)") Timeline
+			li(ng-class="{active:profil.isSelected(2)}")
+				a(ng-click="profil.selectTab(2)") Calendrier
+			li(ng-class="{active:profil.isSelected(3)}")
+				a(ng-click="profil.selectTab(3)") Settings
+
+block tabs
+	.timeline-tab.card.timeline.col-md-12(
+		ng-show="profil.isSelected(1)")
+		include ../module/timeline.jade
+	.calendar-tab.card.col-md-12(
+		ng-show="profil.isSelected(2)")
+		table
+			thead
+				tr
+					each val in ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']
+						th.day.name.card= val
+			tbody
+				- var i=0
+				while i < 35
+					if (i % 7 == 0)
+						tr
+					td.day.card(class=((i==0||i>30) ? 'disabled':''))=i++
+	.settings-tab.card.col-md-12(
+		ng-show="profil.isSelected(3)",
+		ng-controller="settingsController as settings")
+		.col-md-2.sidebar
+			ul
+				li.active
+					a(ng-click="settings.selectTab(1)") General
+				li
+					a(ng-click="settings.selectTab(2)") Security
+		.col-md-10.body
+			h5 Paramètres du compte

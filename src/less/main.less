@@ -7,11 +7,17 @@
 
 @import "variables";
 @import "mixins";
-@import "boutons";
-@import "modules/login-register";
+
+@import "layout/with-cover";
+@import "layout/default";
+@import "layout/landing";
+
 @import "modules/navbar";
-@import "modules/profil";
-@import "cards";
+@import "modules/summary";
+@import "modules/timeline";
+@import "modules/calendar";
+@import "modules/login-register";
+
 //@import url(https://fonts.googleapis.com/css?family=Roboto);
 
 html, body {
@@ -51,5 +57,36 @@ a {
 	min-height: 100vh;
 	.container.main {
 		padding-top: 30px;
+	}
+}
+
+//cartes pour afficher les éléments
+.card {
+	margin-bottom: 22px;
+	background-color: #ffffff;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+	border-color: #D5E7CF;
+	.content {
+		padding: 1rem;
+	}
+}
+
+//Affichage des boutons
+.btn {
+  padding: 6px 12px;
+  line-height: 1.6;
+}
+.btn-primary {
+	background-color: @button-color;
+	border-color: @button-color;
+	&.active,
+	&:active,
+	&:hover,
+	&.focus,
+	&:focus {
+		background-color: @button-hover;
+		border-color: @button-hover;
 	}
 }

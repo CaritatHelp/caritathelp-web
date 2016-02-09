@@ -47,6 +47,11 @@ app.config(function($routeProvider, localStorageServiceProvider){
 			controller: "profilController",
 			controllerAs: "profil"
 		})
+		.when("/association", {
+			templateUrl: "view/association.html",
+			controller: "associationController",
+			controllerAs: "asso"
+		})
 		.otherwise({redirectTo: '/'});
 });
 

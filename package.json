@@ -5,12 +5,12 @@
   "keywords": [
     "caritahelp"
   ],
-  "homepage": "https://github.com/chypriote/caritahelp-wet#readme",
+  "homepage": "https://github.com/chypriote/caritahelp-web#readme",
   "author": "Nicolas",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chypriote/caritahelp-wet.git"
+    "url": "git+https://github.com/chypriote/caritahelp-web.git"
   },
   "main": "gulpfile.js",
   "dependencies": {
@@ -54,6 +54,6 @@
     "test": "./node_modules/.bin/karma start karma.conf.js"
   },
   "bugs": {
-    "url": "https://github.com/chypriote/caritahelp-wet/issues"
+    "url": "https://github.com/chypriote/caritahelp-web/issues"
   }
 }

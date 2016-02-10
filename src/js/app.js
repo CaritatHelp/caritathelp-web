@@ -10,7 +10,7 @@ require('angular-sanitize');
 require('angular-messages');
 require('angular-local-storage');
 
-var app = angular.module('social', ['ngRoute', 'ngSanitize', 'ngMessages', 'LocalStorageModule']);
+var app = angular.module('caritathelp', ['ngRoute', 'ngSanitize', 'ngMessages', 'LocalStorageModule']);
 
 require('./services');
 require('./directives');

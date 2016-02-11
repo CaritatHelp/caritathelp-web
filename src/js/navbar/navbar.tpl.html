@@ -11,17 +11,32 @@
 				<img src="img/logo.png" alt="CaritatHelp" class="img-responsive">
 			</a>
 		</div>
-		<div class="navbar-left hidden-sm-down">
-			<a href="#/home" ng-class="{active:nav.isSelected(1)}">Accueil</a>
-			<a href="#/profil" ng-class="{active:nav.isSelected(2)}">{{nav.user.firstname}} {{nav.user.lastname}}Profil</a>
-			<a href="#/association" ng-class="{active:nav.isSelected(3)}">Associations</a>
-			<a data-toggle="modal" href="#msgModal" ng-class="{active:nav.isSelected(4)}">Messagerie</a>
-		</div>
-		<div class="navbar-left hidden-md-up">
-			<a href="#/home" class="icon"><i class="fa fa-home"></i></a>
-			<a href="#/profil" class="icon"><i class="fa fa-user"></i></a>
-			<a href="#/association" class="icon"><i class="fa fa-coffee"></i></a>
-			<a href="#/messages" class="icon"><i class="fa fa-envelope"></i></a>
+		<div class="navbar-left">
+			<a href="#/home"
+				ng-class="{active:nav.isSet(1)}"
+				ng-click="nav.setView(1)">
+					<span>Accueil</span>
+					<i class="fa fa-home"></i>
+			</a>
+			<a href="#/profil"
+				ng-class="{active:nav.isSet(2)}"
+				ng-click="nav.setView(2)">
+					<span>{{nav.user.firstname}} {{nav.user.lastname}}Profil</span>
+					<i class="fa fa-user"></i>
+			</a>
+			<a href="#/association"
+				ng-class="{active:nav.isSet(3)}"
+				ng-click="nav.setView(3)">
+					<span>Associations</span>
+					<i class="fa fa-coffee"></i>
+			</a>
+			<a data-toggle="modal"
+				href="#msgModal"
+				ng-class="{active:nav.isSet(4)}"
+				ng-click="nav.setView(4)">
+					<span>Messagerie</span>
+					<i class="fa fa-envelope"></i>
+			</a>
 		</div>
 		<div class="navbar-right">
 			<a href="#" class="icon hidden-md-up"><i class="fa fa-search"></i></a>

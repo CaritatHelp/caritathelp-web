@@ -4,15 +4,19 @@ module.exports = /*@ngInject*/ function(dataService, userService, $location){
 			dsc = dataService,
 			usc = userService;
 
-	_this.route = 1;
 	_this.user = usc.user();
+	_this.view = 1;
+
 	this.SignOut = function(){
 		dsc.logout(usc.token());
 		usc.disconnect();
 		//$location.path('/');
 	}
 
-	this.isSelected = function(route) {
-		return this.route === route;
+	this.setView = function(activeView) {
+		this.view = activeView;
+	}
+	this.isSet = function(view) {
+		return this.view === view;
 	}
 };

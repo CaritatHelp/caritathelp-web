@@ -16,6 +16,8 @@
 		align-items: center;
 		flex-grow: 1;
 		a {padding: .5rem 1rem;}
+		span {@media (max-width: 767px){display: none!important;}}
+		i {@media (min-width: 768px){display: none!important;}}
 	}
 	.navbar-right {
 		display: flex;
@@ -24,7 +26,8 @@
 	a {
 		font-size: 1.2em;
 		color: @navbar-text;
-		&.icon {font-size: 1.5em;padding: 0 1rem;}
+		&.icon {padding: 0 1rem;}
+		.fa {font-size: 1.5em}
 		&.active {color: @navbar-hover;}
 		&.hover, &.focus, &.active, &:focus, &:active, &:hover {color: @navbar-hover;}
 	}

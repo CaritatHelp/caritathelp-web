@@ -1,0 +1,11 @@
+table
+	thead
+		tr
+			each val in ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']
+				th.day.name.card= val
+	tbody
+		- var i=0
+		while i < 35
+			if (i % 7 == 0)
+				tr
+			td.day.card(class=((i==0||i>30) ? 'disabled':''))=i++

@@ -3,14 +3,12 @@
 	a(href="/profil")
 		img.picture.img-circle.img-thumbnail(src="img/robert.png", alt="")
 	h5.name
-		a.link(href="/profil") Bobby LeKing
+		a.link(href="/profil") Bobby Pony
 	p.text Texte d'exemple
-	ul.stats
-		li.stat
-			a.link(href="#friendsModal", data-toggle="modal").
-				Amis
-				#[h5.nb 25]
-		li.stat
-			a.link(href="#associationsModal", data-toggle="modal").
-				Assos
-				#[h5.nb 5]
+	.stats
+		a.stat(href="#friendsModal", data-toggle="modal").
+			Amis
+			#[h5.nb 25]
+		a.stat(href="#associationsModal", data-toggle="modal").
+			Assos
+			#[h5.nb 5]

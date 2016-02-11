@@ -17,28 +17,11 @@ block jumbotron
 block tabs
 	.timeline-tab.card.timeline.col-md-12(
 		ng-show="profil.isSet(1)")
-		include ../module/timeline.jade
+		include ../module/timeline
 	.calendar-tab.card.col-md-12(
 		ng-show="profil.isSet(2)")
-		table
-			thead
-				tr
-					each val in ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']
-						th.day.name.card= val
-			tbody
-				- var i=0
-				while i < 35
-					if (i % 7 == 0)
-						tr
-					td.day.card(class=((i==0||i>30) ? 'disabled':''))=i++
+		include ../module/calendar
 	.settings-tab.card.col-md-12(
 		ng-show="profil.isSet(3)",
 		ng-controller="settingsController as settings")
-		.col-md-2.sidebar
-			ul
-				li.active
-					a(ng-click="settings.setTab(1)") General
-				li
-					a(ng-click="settings.setTab(2)") Security
-		.col-md-10.body
-			h5 Paramètres du compte
+		include ../module/settings

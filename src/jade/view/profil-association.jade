@@ -1,0 +1,34 @@
+extends ../layout/with-cover
+
+block jumbotron
+	.background(style="background-image:url(img/cover/fuzeria.jpg)")
+	.infos
+		img.img-circle.picture(src="img/mlp.jpg", alt="")
+		h3.name Association des poneys
+		p Lorem Ipsum sit dolor tu quoque mi fili
+	nav.navigation
+		a(ng-click="asso.setTab(1)"
+			ng-class="{active:asso.isSet(1)}") Timeline
+		a(ng-click="asso.setTab(2)"
+			ng-class="{active:asso.isSet(2)}") Membres
+		a(ng-click="asso.setTab(3)"
+			ng-class="{active:asso.isSet(3)}") Evenements
+
+block tabs
+	.create-tab.card.col-md-12(
+		ng-show="asso.isSet(1)")
+		p Test
+	.timeline-tab.card.col-md-12(
+		ng-show="asso.isSet(2)")
+		include ../module/timeline.jade
+	.settings-tab.card.col-md-12(
+		ng-show="asso.isSet(3)",
+		ng-controller="settingsController as settings")
+		.col-md-2.sidebar
+			ul
+				li.active
+					a(ng-click="settings.selectTab(1)") General
+				li
+					a(ng-click="settings.selectTab(2)") Security
+		.col-md-10.body
+			h5 Paramètres du compte

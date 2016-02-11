@@ -1,5 +1,5 @@
 describe('[RegisterController]', function () {
-	beforeEach(module('social'));
+	beforeEach(module('caritathelp'));
 
 	var $controller;
 

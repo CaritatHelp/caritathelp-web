@@ -1,5 +1,5 @@
 describe('[LoginController]', function () {
-	beforeEach(module('social'));
+	beforeEach(module('caritathelp'));
 
 	var $controller;
 

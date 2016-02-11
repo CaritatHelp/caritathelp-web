@@ -1,8 +1,8 @@
 'use strict';
-module.exports = /*@ngInject*/ function(DataService, UserService, $location){
+module.exports = /*@ngInject*/ function(dataService, userService, $location){
 	var _this = this,
-			dsc = DataService,
-			usc = UserService;
+			dsc = dataService,
+			usc = userService;
 
 	//variables d'erreur locales
 	_this.error = false;

@@ -2,5 +2,5 @@
 
 var app = require('angular').module('caritathelp');
 
-app.factory('DataService', require('./DataService'));
-app.factory('UserService', require('./UserService'));
+app.factory('dataService', require('./dataService'));
+app.factory('userService', require('./userService'));

@@ -1,8 +1,8 @@
 'use strict';
-module.exports = /*@ngInject*/ function(DataService, UserService, localStorageService, $location){
+module.exports = /*@ngInject*/ function(dataService, userService, localStorageService, $location){
 	var vm = this,
-			dsc = DataService,
-			usc = UserService;
+			dsc = dataService,
+			usc = userService;
 
 	vm.currentUser = usc.user();
 	vm.connected = usc.connected();

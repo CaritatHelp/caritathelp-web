@@ -62,7 +62,6 @@ gulp.task('copy', function(){
     .pipe(g.changed('public/fonts/*'))
     .pipe(gulp.dest('public/fonts'))
   gulp.src(['src/img/**/*'])
-    .pipe(g.changed('public/img/**/*'))
     .pipe(gulp.dest('public/img'))
   gulp.src(['src/libs/**/*.css'])
     .pipe(g.changed('public/**/*'))

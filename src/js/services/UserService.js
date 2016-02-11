@@ -1,29 +1,32 @@
 'use strict';
 
-module.exports = /*@ngInject*/ function(localStorageService){
+module.exports = /*@ngInject*/ function (localStorageService) {
 	var ls = localStorageService;
+	var connected = false;
+	var token = null;
+	var user = null;
 
 	if (ls.get('connected')) {
-		var connected = true,
-				token = ls.get('token'),
-				user = ls.get('currentUser');
+		connected = true;
+		token = ls.get('token');
+		user = ls.get('currentUser');
 	}
 
 	return {
-		connected: function(){
+		connected: function () {
 			return connected;
 		},
-		token: function(){
+		token: function () {
 			return token;
 		},
-		user: function(){
+		user: function () {
 			return user;
 		},
-		connect: function(datas) {
+		connect: function (datas) {
 			//sauvegarde de l'user
 			user = {};
 			user.id = datas.id;
-			user.mail = datas.mail
+			user.mail = datas.mail;
 			user.firstname = datas.firstname;
 			user.lastname = datas.lastname;
 			user.birthday = datas.birthday;
@@ -44,9 +47,9 @@ module.exports = /*@ngInject*/ function(localStorageService){
 			ls.set('connected', true);
 			console.log('User connected: ' + user.mail);
 		},
-		disconnect: function() {
+		disconnect: function () {
 			user = null;
-			token = "";
+			token = '';
 			connected = false;
 
 			ls.remove('token');
@@ -54,5 +57,5 @@ module.exports = /*@ngInject*/ function(localStorageService){
 			ls.remove('connected');
 			console.log('User disconnected');
 		}
-	}
+	};
 };

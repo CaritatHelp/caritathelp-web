@@ -18,39 +18,44 @@ require('./controllers');
 require('./navbar');
 require('./settings');
 
-app.config(function($routeProvider, localStorageServiceProvider){
+app.config(function ($routeProvider, localStorageServiceProvider) {
 	//Configuration localStorage
 	localStorageServiceProvider.setPrefix('caritathelp').setNotify(true, true);
 
 	//Routing
 	$routeProvider
-		.when("/", {
+		.when('/', {
 			redirectTo: '/login'
 		})
-		.when("/login", {
-			templateUrl: "view/login.html",
-			controller: "loginController",
-			controllerAs: "login"
+		.when('/login', {
+			templateUrl: 'view/login.html',
+			controller: 'loginController',
+			controllerAs: 'login'
 		})
-		.when("/home", {
-			templateUrl: "view/home.html",
-			controller: "homeController",
-			controllerAs: "home"
+		.when('/home', {
+			templateUrl: 'view/home.html',
+			controller: 'homeController',
+			controllerAs: 'home'
 		})
-		.when("/register", {
-			templateUrl: "view/register.html",
-			controller: "registerController",
-			controllerAs: "register"
+		.when('/register', {
+			templateUrl: 'view/register.html',
+			controller: 'registerController',
+			controllerAs: 'register'
 		})
-		.when("/profil", {
-			templateUrl: "view/profil.html",
-			controller: "profilController",
-			controllerAs: "profil"
+		.when('/profil', {
+			templateUrl: 'view/profil.html',
+			controller: 'profilController',
+			controllerAs: 'profil'
 		})
-		.when("/association", {
-			templateUrl: "view/association.html",
-			controller: "associationController",
-			controllerAs: "asso"
+		.when('/association', {
+			templateUrl: 'view/association.html',
+			controller: 'associationController',
+			controllerAs: 'asso'
+		})
+		.when('/association/:name', {
+			templateUrl: 'view/profil-association.html',
+			controller: 'associationController',
+			controllerAs: 'asso'
 		})
 		.otherwise({redirectTo: '/'});
 });

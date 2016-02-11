@@ -1,8 +1,8 @@
 // Karma configuration
 // Generated on Wed Nov 11 2015 19:21:12 GMT+0800 (Chine)
 
-module.exports = function(config) {
-  config.set({
+module.exports = function (config) {
+  																config.set({
 
 	basePath: '',
 
@@ -11,8 +11,8 @@ module.exports = function(config) {
 	files: [
 		'node_modules/angular/angular.js',
 		'node_modules/angular-mocks/angular-mocks.js',
-    'src/js/app.js',
-    'tests/**/*.js'
+    																																'src/js/app.js',
+    																																'tests/**/*.js'
 	],
 
 	exclude: [
@@ -40,5 +40,5 @@ module.exports = function(config) {
 
 	singleRun: true,
 	concurrency: Infinity
-  })
-}
+  });
+};

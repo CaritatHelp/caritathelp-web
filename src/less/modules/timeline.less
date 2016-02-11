@@ -1,22 +1,29 @@
 .timeline {
-	ul {
-		padding-left: 0;
-		list-style: none;
-		margin: 0;
-	}
+	&.card{border:none;}
 	.element {
-		padding: 20px;
-		margin-top: 0;
-		position: relative;
-		display: block;
-		margin-bottom: -1px;
-		background-color: #ffffff;
+		padding: .9375rem;
+		margin-bottom: -1px; //fix pour la bordure collapsed
 		border: 1px solid #d3e0e9;
 		&:first-child {
-			border-top-right-radius: 4px;
-			border-top-left-radius: 4px;
+			border-top-right-radius: @card-radius;
+			border-top-left-radius: @card-radius;
 		}
 		&.new {
+			// Fix for bootstrap input-group using flexbox
+			.input-group {
+				display: flex;
+				input {
+					flex-grow: 1;
+					float: none;
+					width: auto;
+				}
+				.input-group-btn {
+					width: auto;
+					display: block;
+					&:focus{outline: none;}
+					.btn {height: 36px;}
+				}
+			}
 			.btn {
 				color: #536570;
 				background-color: #ffffff;
@@ -30,42 +37,58 @@
 			}
 		}
 		&.post {
-			hr {margin-bottom: 15px;}
-			.avatar {
-				display: table-cell;
-				vertical-align: top;
-				padding-right: 10px;
-				img {
-					width: 60px;
-					margin-right: 5px;
-					border-radius: 50%;
-				}
+			display: flex;
+			.avatar img {
+				width: 4rem;
+				border-radius: 50%;
 			}
 			.body {
-				zoom: 1;
-				overflow: visible;
-				display: table-cell;
-				vertical-align: top;
-				width: 10000px;
+				padding-left: .5rem;
+				flex-grow: 1;
 				.infos {
-					margin-bottom: 5px;
-				}
-				.time {
-					color: #9da9b0;
-					float: right;
-					margin-top: -3px;
-				}
-				.comments {
-					list-style: none;
-					padding-left: 0;
-					margin-bottom: 20px;
-					.comment {
-						margin-top: 15px;
-						&:first-child {margin-top: 0;}
-						.avatar img {width: 40px;}
+					display: flex;
+					margin-bottom: .25rem;
+					.name {flex-grow: 1;}
+					.time {
+						color: #9da9b0;
+						margin-top: -.5rem;
 					}
+				}
+				p {
+					margin: 0;
+					line-height: 1.4;
 				}
 			}
 		}
+		.comments {
+			margin-top: .5rem;
+			border-top: 1px solid #d4dbe0;
+			padding-top: .5rem;
+			.comment:not(:last-child) .body {
+				border-bottom: 1px solid #d4dbe0;
+				padding-bottom: .5rem;
+			}
+			.comment {
+				display: flex;
+				margin-bottom: .5rem;
+				.avatar img {
+					width: 2.5rem;
+				}
+			}
+		}
+	}
+}
+
+.timeline.card {
+	background-color: transparent;
+	.element {
+		background-color: #fff;
+		margin-bottom: 1rem;
+	}
+}
+
+.covered .tabs {
+	.timeline-tab {
+		padding: 0;
 	}
 }

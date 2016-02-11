@@ -1,6 +1,6 @@
 'use strict';
 
-var app = require('angular').module('social');
+var app = require('angular').module('caritathelp');
 
 app.controller('loginController', require('./loginController'));
 app.controller('homeController', require('./homeController'));

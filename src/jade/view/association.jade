@@ -4,26 +4,25 @@ block jumbotron
 	.background
 	.infos
 		img.img-circle.picture(src="img/robert.png", alt="")
-		h3.name {{nav.user.firstname}} {{nav.user.lastname}}
+		h3.name Association des poneys
 		p Lorem Ipsum sit dolor tu quoque mi fili
 	nav.navigation
-		ul.nav
-			li(ng-class="{active:asso.isSelected(1)}")
-				a(ng-click="asso.selectTab(1)") Timeline
-			li(ng-class="{active:asso.isSelected(2)}")
-				a(ng-click="asso.selectTab(2)") Calendrier
-			li(ng-class="{active:asso.isSelected(3)}")
-				a(ng-click="asso.selectTab(3)") Settings
+		a(ng-click="asso.setTab(1)"
+			ng-class="{active:asso.isSet(1)}") Timeline
+		a(ng-click="asso.setTab(2)"
+			ng-class="{active:asso.isSet(2)}") Membres
+		a(ng-click="asso.setTab(3)"
+			ng-class="{active:asso.isSet(3)}") Evenements
 
 block tabs
 	.create-tab.card.col-md-12(
-		ng-show="asso.isSelected(1)")
+		ng-show="asso.isSet(1)")
 		p Test
 	.timeline-tab.card.col-md-12(
-		ng-show="asso.isSelected(2)")
+		ng-show="asso.isSet(2)")
 		include ../module/timeline.jade
 	.settings-tab.card.col-md-12(
-		ng-show="asso.isSelected(3)",
+		ng-show="asso.isSet(3)",
 		ng-controller="settingsController as settings")
 		.col-md-2.sidebar
 			ul

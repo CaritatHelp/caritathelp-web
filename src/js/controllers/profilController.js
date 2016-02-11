@@ -8,10 +8,10 @@ module.exports = /*@ngInject*/ function(DataService, UserService, $location){
 	vm.connected = usc.connected();
 	vm.tab = 1;
 
-	this.selectTab = function(activeTab) {
+	this.setTab = function(activeTab) {
 		this.tab = activeTab;
 	}
-	this.isSelected = function(tab) {
+	this.isSet = function(tab) {
 		return this.tab === tab;
 	}
 };

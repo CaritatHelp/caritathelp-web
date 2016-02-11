@@ -12,13 +12,14 @@
 @import "layout/default";
 @import "layout/landing";
 
-@import "modules/navbar";
-@import "modules/summary";
 @import "modules/timeline";
 @import "modules/calendar";
 @import "modules/login-register";
+@import "modules/navbar";
+@import "modules/summary";
+@import "modules/settings";
 
-//@import url(https://fonts.googleapis.com/css?family=Roboto);
+//@import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,700italic,700,300,300italic);
 
 html, body {
 	height: 100%;
@@ -42,6 +43,20 @@ a {
 		outline: none;
 	}
 }
+//reset des listes 
+ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+//reset des containers bootstrap
+.container {
+	@media (min-width: 544px) {max-width: 720px;}
+	@media (min-width: 768px) {max-width: 900px;}
+	@media (min-width: 992px) {max-width: 1140px;}
+	@media (min-width: 1200px) {max-width: 1140px;}
+}
+
 
 //Bloc d'aide register form
 .help-block, .help-block p {margin-bottom: 0;}
@@ -56,20 +71,30 @@ a {
 	padding-top: 50px;
 	min-height: 100vh;
 	.container.main {
-		padding-top: 30px;
+		padding-top: 2rem;
 	}
 }
 
 //cartes pour afficher les éléments
 .card {
-	margin-bottom: 22px;
-	background-color: #ffffff;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-	border-color: #D5E7CF;
+	border: 1px solid #D5E7CF;
+	display: flex;
+	flex-direction: column;
+	border-radius: @card-radius;
+	.title {
+		background-color: @button-color;
+		color: @navbar-hover;
+		font-weight: bold;
+		padding: .2rem .5rem;
+		flex-grow: 1;
+		.fa {
+			border-right: 1px solid white;
+			padding-right: .4rem;
+			margin-right: .3rem;
+		}
+	}
 	.content {
-		padding: 1rem;
+		padding: .75rem;
 	}
 }
 

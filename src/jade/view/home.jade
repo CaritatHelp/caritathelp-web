@@ -3,6 +3,10 @@ extends ../layout/default
 block left-column
 	.card.currentUser
 		include ../module/profil.jade
+	.card
+		a.title(href="#").
+			#[i.fa.fa-pencil]
+			Modifier profil
 	//- include ../module/about.jade
 
 block center-column

@@ -1,49 +1,33 @@
 .app-navbar {
-	.container {display: flex;}
-	right: 0;
-	left: 0;
+	.container {display: flex;padding: 0;}
+	width: 100%;
 	position: fixed;
 	z-index: 1000;
 	min-height: 50px;
-	border-bottom: 1px solid transparent;
-	border-color: @navbar-border;
+	border-bottom: 1px solid @navbar-border;
 	background: @navbar-green;
 	.navbar-logo {
-		margin-right: 15px;
-		margin-top: -1px;
 		.navbar-toggle {display: none;}
 		a {display: block;}
 		img {height: 50px;}
 	}
-	.navbar-menu {
-		flex-grow: 1;
+	.navbar-left {
 		display: flex;
-		.navbar-left {flex-grow: 1;}
-		.navbar-right {
-			display: flex;
-			align-items: center;
-		}
-		ul.nav {
-			display: flex;
-			align-items: center;
-			> li {
-				display: flex;
-				&.active a{color: @navbar-hover;}
-				> a {
-					font-size: 16px;
-					color: @navbar-text;
-					padding: 9px 15px;
-					&:focus, &:hover {
-						color: @navbar-hover;
-						background-color: transparent;
-					}
-					&.linkon {
-						adding: 12px 15px;
-						font-size: 22px;
-					}
-				}
-			}
-		}
+		align-items: center;
+		flex-grow: 1;
+		a {padding: .5rem 1rem;}
+	}
+	.navbar-right {
+		display: flex;
+		align-items: center;
+	}
+	a {
+		font-size: 1.2em;
+		color: @navbar-text;
+		&.icon {font-size: 1.5em;padding: 0 1rem;}
+		&.active {color: @navbar-hover;}
+		&.hover, &.focus, &.active, &:focus, &:active, &:hover {color: @navbar-hover;}
+	}
 		.search-bar {
 		}
 		.avatar {
@@ -56,5 +40,4 @@
 				height: 40px;
 			}
 		}
-	}
 }

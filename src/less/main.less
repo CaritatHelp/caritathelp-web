@@ -1,9 +1,9 @@
 /* ==========================================================================
-   CARITATHELP
+	 CARITATHELP
 
-   LESS Stylesheet
-   Created by Nicolas
-   ========================================================================== */
+	 LESS Stylesheet
+	 Created by Nicolas
+	 ========================================================================== */
 
 @import "variables";
 @import "mixins";
@@ -21,45 +21,50 @@
 @import "modules/recommendations";
 @import "modules/associations";
 
-//@import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,700italic,700,300,300italic);
-
-html, body {
-	height: 100%;
-	font-size: 14px;
-}
-* {
-	font-family: Roboto, sans-serif;
-}
+html, body {height: 100%;font-size: 14px;}
+* {font-family: Roboto, sans-serif;}
 body {background-color: #E4F7DD;}
 
-
-h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {margin:0;}
-//Reset bootstrap pour les icones collés aux inputs
-span.input-group-addon {width: 36px;}
-a {
-	color:inherit;
-	text-decoration: inherit;
-	&:focus, &:hover {
-		background: none;
-		text-decoration: none;
-		outline: none;
+//Headings
+	h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
+		margin:0;
+		line-height: 1.2;
+		font-weight: 600;
 	}
-}
+	h4, .h4 {font-size: 1.3em;}
+	h5, .h5 {font-size: 1.2em;}
+//Reset bootstrap pour les icones collés aux inputs
+	span.input-group-addon {width: 36px;}
+//Settings des liens
+	a {
+		color: inherit;
+		text-decoration: inherit;
+		&:focus, &:hover {
+			background: none;
+			text-decoration: none;
+			outline: none;
+			color:@link-color;
+		}
+	}
 //reset des listes
-ul {
-	padding: 0;
-	margin: 0;
-	list-style: none;
-}
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
 //reset des containers bootstrap
-.container {
-	width: 100%;
-	@media (min-width: 544px) {max-width: 720px;}
-	@media (min-width: 768px) {max-width: 900px;}
-	@media (min-width: 992px) {max-width: 1140px;}
-	@media (min-width: 1200px) {max-width: 1140px;}
-}
-
+	.container {
+		width: 100%;
+		@media (min-width: 544px) {max-width: 720px;}
+		@media (min-width: 768px) {max-width: 900px;}
+		@media (min-width: 992px) {max-width: 1140px;}
+		@media (min-width: 1200px) {max-width: 1140px;}
+	}
+//reset labels
+ label {
+		max-width: 100%;
+		font-weight: bold;
+ }
 
 //Bloc d'aide register form
 .help-block, .help-block p {margin-bottom: 0;}
@@ -97,32 +102,32 @@ ul {
 }
 
 //Affichage des boutons
-.btn {
-  padding: 6px 12px;
-  line-height: 1.6;
-}
-.btn-primary {
-	background-color: @button-color;
-	border-color: @button-color;
-	&.active,
-	&:active,
-	&:hover,
-	&.focus,
-	&:focus {
-		background-color: @button-hover;
-		border-color: @button-hover;
+	.btn {
+		padding: 6px 12px;
+		line-height: 1.6;
 	}
-}
-.btn-inversed {
-	background-color: #fff;
-	border-color: @button-color;
-	color: @button-color;
-	&.active,
-	&:active,
-	&:hover,
-	&.focus,
-	&:focus {
-		background-color: @button-hover;
-		color: #fff;
+	.btn-primary {
+		background-color: @button-color;
+		border-color: @button-color;
+		&.active,
+		&:active,
+		&:hover,
+		&.focus,
+		&:focus {
+			background-color: @button-hover;
+			border-color: @button-hover;
+		}
 	}
-}
+	.btn-inversed {
+		background-color: #fff;
+		border-color: @button-color;
+		color: @button-color;
+		&.active,
+		&:active,
+		&:hover,
+		&.focus,
+		&:focus {
+			background-color: @button-hover;
+			color: #fff;
+		}
+	}

@@ -1,11 +1,7 @@
 extends ../layout/two-columns
 
 block sidebar-column
-	include ../module/profil
-	.card
-		a.link.inversed(href="#").
-			#[i.fa.fa-pencil]
-			Modifier profil
+	include ../module/currentuser
 	//- include ../module/about.jade
 	include ../module/friends
 

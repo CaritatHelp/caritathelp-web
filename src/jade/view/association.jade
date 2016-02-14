@@ -1,11 +1,7 @@
 extends ../layout/two-columns
 
 block main-column
-	.card
-		.content(ng-show="!asso.list.length")
-			h4 Rejoignez une association
-		.content(ng-show="asso.list.length")
-			h4 Actualités de vos associations
+	include ../module/associations
 
 block sidebar-column
 	include ../module/currentuser

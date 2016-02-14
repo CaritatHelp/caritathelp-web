@@ -1,0 +1,28 @@
+.card.associations
+	.content(ng-show="!asso.list.length")
+		header
+			h4 Rejoignez une association
+		section
+			.alert.alert-warning(role="alert").
+				Rejoignez une association pour commencer à utiliser
+				#[strong Caritathelp].
+				#[br]
+				Voici quelques associations proches de vous
+			.col-md-4.element
+				a(href="#/association/poney")
+					img(src="img/mlp.jpg", alt="Asso des Poneys" class="img-circle")
+					span.name Association des poneys
+			.col-md-4.element
+				a(href="#/association/poney")
+					img(src="img/mlp.jpg", alt="Asso des Poneys" class="img-circle")
+					span.name Association des poneys
+			.col-md-4.element
+				a(href="#/association/poney")
+					img(src="img/mlp.jpg", alt="Asso des Poneys" class="img-circle")
+					span.name Association des poneys
+			.col-md-4.element
+				a(href="#/association/poney")
+					img(src="img/mlp.jpg", alt="Asso des Poneys" class="img-circle")
+					span.name Association des poneys
+	.content(ng-show="asso.list.length")
+		h4 Actualités de vos associations

@@ -1,18 +1,16 @@
-extends ../layout/default
+extends ../layout/two-columns
 
-block left-column
-	.card.currentUser
-		include ../module/profil.jade
+block sidebar-column
+	include ../module/profil
 	.card
-		a.title(href="#").
+		a.link.inversed(href="#").
 			#[i.fa.fa-pencil]
 			Modifier profil
 	//- include ../module/about.jade
+	include ../module/friends
 
-block center-column
-	.card.timeline
-		include ../module/timeline.jade
+block main-column
+	include ../module/timeline
 
-block right-column
-	.card.events
-		include ../module/events.jade
+//- block right-column
+	include ../module/events.jade

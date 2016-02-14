@@ -15,13 +15,13 @@ block jumbotron
 			ng-class="{active:profil.isSet(3)}") Settings
 
 block tabs
-	.timeline-tab.card.timeline.col-md-12(
+	.timeline-tab.col-md-12(
 		ng-show="profil.isSet(1)")
 		include ../module/timeline
-	.calendar-tab.card.col-md-12(
+	.calendar-tab.col-md-12(
 		ng-show="profil.isSet(2)")
 		include ../module/calendar
-	.settings-tab.card.col-md-12(
+	.settings-tab.col-md-12(
 		ng-show="profil.isSet(3)",
 		ng-controller="settingsController as settings")
 		include ../module/settings

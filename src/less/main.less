@@ -18,6 +18,7 @@
 @import "modules/navbar";
 @import "modules/summary";
 @import "modules/settings";
+@import "modules/recommendations";
 
 //@import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,700italic,700,300,300italic);
 
@@ -82,7 +83,7 @@ ul {
 	display: flex;
 	flex-direction: column;
 	border-radius: @card-radius;
-	.title {
+	.link.inversed {
 		background-color: @button-color;
 		color: @navbar-hover;
 		font-weight: bold;
@@ -96,6 +97,13 @@ ul {
 	}
 	.content {
 		padding: .75rem;
+	}
+	.title {
+		padding-bottom: .75rem;
+		a:hover, a:active, a:focus {
+			text-decoration: underline;
+			color: @link-color;
+		}
 	}
 }
 
@@ -114,5 +122,18 @@ ul {
 	&:focus {
 		background-color: @button-hover;
 		border-color: @button-hover;
+	}
+}
+.btn-inversed {
+	background-color: #fff;
+	border-color: @button-color;
+	color: @button-color;
+	&.active,
+	&:active,
+	&:hover,
+	&.focus,
+	&:focus {
+		background-color: @button-hover;
+		color: #fff;
 	}
 }

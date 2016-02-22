@@ -5,10 +5,11 @@ block jumbotron
 	.infos
 		img.img-circle.picture(src="img/robert.png", alt="")
 		h3.name {{nav.user.firstname}} {{nav.user.lastname}} Bobby Pony
-		p Lorem Ipsum sit dolor tu quoque mi fili
 	nav.navigation
 		a(ng-click="profil.setTab(1)"
 			ng-class="{active:profil.isSet(1)}") Timeline
+		a(ng-click="profil.setTab(4)"
+			ng-class="{active:profil.isSet(4)}") Amis
 		a(ng-click="profil.setTab(2)"
 			ng-class="{active:profil.isSet(2)}") Calendrier
 		a(ng-click="profil.setTab(3)"
@@ -17,10 +18,24 @@ block jumbotron
 block tabs
 	.timeline-tab(ng-show="profil.isSet(1)")
 		.col-md-4
-			include ../module/friends
+			include ../module/summary
+			include ../module/list-friends
 		.col-md-8
 			include ../module/timeline
+	.friends-tab(ng-show="profil.isSet(4)")
+		.col-md-4
+			include ../module/summary
+		.col-md-4
+			include ../module/summary
+		.col-md-4
+			include ../module/summary
+		.col-md-4
+			include ../module/summary
 	.calendar-tab(ng-show="profil.isSet(2)")
-		include ../module/calendar
+		.col-md-4
+		.col-md-8
+			include ../module/calendar
 	.settings-tab(ng-show="profil.isSet(3)")
-		include ../module/settings
+		.col-md-4
+		.col-md-8
+			include ../module/settings

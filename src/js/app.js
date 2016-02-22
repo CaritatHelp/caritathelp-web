@@ -43,7 +43,7 @@ app.config(function ($routeProvider, localStorageServiceProvider) {
 			controllerAs: 'register'
 		})
 		.when('/profil', {
-			templateUrl: 'view/profil.html',
+			templateUrl: 'view/profil-user.html',
 			controller: 'profilController',
 			controllerAs: 'profil'
 		})

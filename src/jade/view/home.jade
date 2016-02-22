@@ -1,12 +1,15 @@
 extends ../layout/two-columns
 
 block sidebar-column
-	include ../module/currentuser
-	//- include ../module/about.jade
-	include ../module/friends
+	//- Module summary sert à resumer les infos sur l'utilisateur en cours
+	include ../module/summary
+	//- Actions que l'utilisateur pourrait vouloir faire depuis l'accueil
+	include ../module/actions
+	//- Liste d'amis recommandés
+	include ../module/reco-friends
+	//- Liste d'assos recommandées
+	include ../module/reco-assos
 
 block main-column
+	//- La timeline avec les dernières news de l'utilisateur en cours
 	include ../module/timeline
-
-//- block right-column
-	include ../module/events.jade

@@ -1,22 +1,41 @@
+.friends, .assos {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 .recommendations {
-	.friend, .asso {
+	.elements {
 		display: flex;
-		margin-bottom: 1rem;
-		.avatar img {
-			width: 60px;
-		}
-		.infos {
-			flex-grow: 1;
-			padding-left: .75rem;
-			.name {
-				font-weight: bold;
-				padding-bottom: .2rem;
+		flex-wrap: wrap;
+		& > div {
+			display: flex;
+			margin-bottom: 1rem;
+			padding: 0 .5rem;
+			.avatar img {
+				width: 50px;
 			}
-			.btn {
-				padding: 5px 10px;
-				line-height: 1.5;
-				font-size: .9em;
+			.infos {
+				flex-grow: 1;
+				padding-left: .75rem;
+				.name {
+					font-weight: bold;
+					padding-bottom: .2rem;
+				}
+				.btn {
+					padding: 5px 10px;
+					line-height: 1.5;
+					font-size: .9em;
+				}
 			}
 		}
+	}
+}
+
+.listing {
+	.friend {
+		max-width: 25%;
+		padding: 0 .5em 1em;
+	}
+	.avatar {
 	}
 }

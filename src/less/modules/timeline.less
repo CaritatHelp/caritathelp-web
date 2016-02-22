@@ -1,49 +1,50 @@
 .timeline {
-	&.card{border:none;}
+	&.card{
+		border:none;
+		background-color: transparent;
+		.element {
+			background-color: #fff;
+			margin-bottom: 1rem;
+		}
+	}
+	.input-group {
+		display: flex;
+		input {
+			flex-grow: 1;
+			float: none;
+			width: auto;
+		}
+		.input-group-btn {
+			width: auto;
+			display: block;
+			&:focus{outline: none;}
+			.btn {height: 36px;}
+		}
+	}
+	.btn {
+		color: #536570;
+		background-color: #ffffff;
+		border-color: #d4dbe0;
+		&:hover, &:focus, &:active {
+			color: #536570;
+			background-color: #e6e6e6;
+			border-color: #b0bdc6;
+			text-decoration: none;
+		}
+	}
 	.element {
 		padding: .9375rem;
 		margin-bottom: -1px; //fix pour la bordure collapsed
 		border: 1px solid #d3e0e9;
-		&:first-child {
-			border-top-right-radius: @card-radius;
-			border-top-left-radius: @card-radius;
-		}
-		&.new {
-			// Fix for bootstrap input-group using flexbox
-			.input-group {
-				display: flex;
-				input {
-					flex-grow: 1;
-					float: none;
-					width: auto;
-				}
-				.input-group-btn {
-					width: auto;
-					display: block;
-					&:focus{outline: none;}
-					.btn {height: 36px;}
-				}
-			}
-			.btn {
-				color: #536570;
-				background-color: #ffffff;
-				border-color: #d4dbe0;
-				&:hover, &:focus, &:active {
-					color: #536570;
-					background-color: #e6e6e6;
-					border-color: #b0bdc6;
-					text-decoration: none;
-				}
-			}
-		}
 		.post {
 			display: flex;
 			.avatar img {
-				width: 4rem;
+				min-width: 60px;
+				max-width: 60px;
 				border-radius: 50%;
 			}
 			.body {
-				padding-left: .5rem;
+				padding-left: 1rem;
 				flex-grow: 1;
 				.infos {
 					display: flex;
@@ -62,17 +63,14 @@
 		}
 		.comments {
 			margin-top: .5rem;
-			border-top: 1px solid #d4dbe0;
 			padding-top: .5rem;
-			.comment:not(:last-child) .body {
-				border-bottom: 1px solid #d4dbe0;
-				padding-bottom: .5rem;
-			}
 			.comment {
+				border-top: 1px solid #d4dbe0;
 				display: flex;
-				margin-bottom: .5rem;
+				padding: .5rem 0;
 				.avatar img {
-					width: 2.5rem;
+					min-width: 45px;
+					max-width: 45px;
 				}
 			}
 		}
@@ -80,23 +78,20 @@
 			margin: .9375rem -.9375rem -.9375rem;
 			padding: .9375rem;
 			background-color: #EFEBEB;
+			display: flex;
+			align-items: center;
+			.avatar img {
+				min-width: 45px;
+				max-width: 45px;
+				border-radius: 50%;
+			}
+			.input-group {
+				padding-left: 1em;
+				flex-grow: 1;
+			}
 			.btn {
 				&:hover {box-shadow: inset 0 0 1px #000;}
 			}
 		}
-	}
-}
-
-.timeline.card {
-	background-color: transparent;
-	.element {
-		background-color: #fff;
-		margin-bottom: 1rem;
-	}
-}
-
-.covered .tabs {
-	.timeline-tab {
-		padding: 0;
 	}
 }

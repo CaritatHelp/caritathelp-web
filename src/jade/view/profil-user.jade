@@ -33,9 +33,13 @@ block tabs
 			include ../module/summary
 	.calendar-tab(ng-show="profil.isSet(2)")
 		.col-md-4
+			include ../module/calendar-list
 		.col-md-8
-			include ../module/calendar
-	.settings-tab(ng-show="profil.isSet(3)")
+			include ../module/calendar-main
+	.settings-tab(
+		ng-show="profil.isSet(3)",
+		ng-controller="settingsController as settings")
 		.col-md-4
+			include ../module/settings-list
 		.col-md-8
-			include ../module/settings
+			include ../module/settings-main

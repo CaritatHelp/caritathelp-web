@@ -53,7 +53,7 @@
 		"xo": "^0.12.1"
 	},
 	"scripts": {
-		"test": "xo && exit 0"
+		"test": "exit 0"
 	},
 	"bugs": {
 		"url": "https://github.com/chypriote/caritahelp-web/issues"

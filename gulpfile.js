@@ -9,15 +9,19 @@ var runSequence = require('run-sequence'),
 		browserify = require('browserify'),
 		buffer = require('vinyl-buffer'),
 		source = require('vinyl-source-stream'),
-		ngAnnotate = require('gulp-ng-annotate'),
-		minifycss = require('gulp-cssnano');
+		ngAnnotate = require('gulp-ng-annotate');
 
 gulp.task('jade', function () {
 	gulp.src(['src/jade/view/**/*.jade'])
-	// .pipe(g.changed('public/view/', {extension: '.html'}))
-	.pipe(g.jade({pretty:true}))
-	.pipe(gulp.dest('public/view/'))
-	.pipe(browserSync.reload({stream:true}));
+		.pipe(g.plumber({
+			errorHandler: function (error) {
+				console.log(error.message);
+				this.emit('end');
+			}
+		}))
+		.pipe(g.jade({pretty:true}))
+		.pipe(gulp.dest('public/view/'))
+		.pipe(browserSync.reload({stream:true}));
 });
 
 gulp.task('styles', function () {
@@ -31,7 +35,7 @@ gulp.task('styles', function () {
 		.pipe(g.less())
 		.pipe(g.autoprefixer('last 2 versions'))
 		.pipe(g.rename({suffix: '.min'}))
-		.pipe(minifycss())
+		.pipe(g.cssnano())
 		.pipe(gulp.dest('public/css/'))
 		.pipe(browserSync.reload({stream:true}));
 });
@@ -48,6 +52,12 @@ gulp.task('browserify', function () {
 	})
 	.bundle()
 	.pipe(source('app.js'))
+	.pipe(g.plumber({
+		errorHandler: function (error) {
+			console.log(error.message);
+			this.emit('end');
+		}
+	}))
 	.pipe(buffer())
 	.pipe(g.rename({suffix: '.min'}))
 	.pipe(ngAnnotate())

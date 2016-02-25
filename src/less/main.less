@@ -63,46 +63,48 @@ body {background-color: #E4F7DD;}
 		@media (min-width: 1200px) {max-width: 1140px;}
 	}
 //reset labels
- label {
-		max-width: 100%;
-		font-weight: bold;
- }
+	 label {
+			max-width: 100%;
+			font-weight: bold;
+	 }
 img {max-width: 100%;}
-
+button.btn {
+	&:focus, &:hover, &:active {outline:none;}
+}
 
 //Bloc d'aide register form
-.help-block, .help-block p {margin-bottom: 0;}
+	.help-block, .help-block p {margin-bottom: 0;}
 //couleur texte message d'erreur register/login
-.has-error .control-label, .has-success .control-label {color: #333;}
+	.has-error .control-label, .has-success .control-label {color: #333;}
 
 //Wrapper pour toutes les pages sauf login/register
-.content-wrapper{
-	flex-grow: 1;
-	display: flex;
-	flex-direction: column;
-	padding-top: 50px;
-	min-height: 100vh;
-	.container.main {
-		padding-top: 2rem;
-	}
-}
-
-//cartes pour afficher les éléments
-.card {
-	border: 1px solid #D5E7CF;
-	display: flex;
-	flex-direction: column;
-	border-radius: @card-radius;
-	padding: .75rem;
-	&.no-padding {padding:0;}
-	.title {
-		padding-bottom: .75rem;
-		a:hover, a:active, a:focus {
-			text-decoration: underline;
-			color: @link-color;
+	.content-wrapper{
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		padding-top: 50px;
+		min-height: 100vh;
+		.container.main {
+			padding-top: 2rem;
 		}
 	}
-}
+
+//cartes pour afficher les éléments
+	.card {
+		border: 1px solid #D5E7CF;
+		display: flex;
+		flex-direction: column;
+		border-radius: @card-radius;
+		padding: .75rem;
+		&.no-padding {padding:0;}
+		.title {
+			padding-bottom: .75rem;
+			a:hover, a:active, a:focus {
+				text-decoration: underline;
+				color: @link-color;
+			}
+		}
+	}
 
 //Affichage des boutons
 	.btn {
@@ -134,3 +136,7 @@ img {max-width: 100%;}
 			color: #fff;
 		}
 	}
+
+.members-tab, .friends-tab {
+	flex-wrap: wrap;
+}

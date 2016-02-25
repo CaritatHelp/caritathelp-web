@@ -22,26 +22,21 @@ block tabs
 			include ../module/timeline.jade
 	.members-tab(
 		ng-show="asso.isSet(2)")
-		.col-md-4
+		.col-md-3
 			include ../module/summary.jade
-		.col-md-4
+		.col-md-3
 			include ../module/summary.jade
-		.col-md-4
+		.col-md-3
 			include ../module/summary.jade
-		.col-md-4
+		.col-md-3
 			include ../module/summary.jade
-		.col-md-4
+		.col-md-3
 			include ../module/summary.jade
-		.col-md-4
+		.col-md-3
 			include ../module/summary.jade
-	.settings-tab.card.col-md-12(
-		ng-show="asso.isSet(3)",
-		ng-controller="settingsController as settings")
-		.col-md-2.sidebar
-			ul
-				li.active
-					a(ng-click="settings.selectTab(1)") General
-				li
-					a(ng-click="settings.selectTab(2)") Security
-		.col-md-10.body
-			h5 Paramètres du compte
+	.settings-tab(
+		ng-show="asso.isSet(3)")
+		.col-md-4
+			include ../module/calendar-list
+		.col-md-8
+			include ../module/calendar-main

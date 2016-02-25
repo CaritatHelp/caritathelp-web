@@ -1,5 +1,27 @@
 .card.associations
-	.no-asso(ng-show="!asso.list.length")
+	.create-asso
+		header
+			h4 Créer une association
+		section
+			form
+				fieldset.form-group
+					label(for="inputNameAsso") Nom de l'association
+					input.form-control(
+						type="text",
+						id="inputNameAsso"
+					)
+				fieldset.form-group
+					label(for="inputDescriptionAsso") Description
+					textarea.form-control(id="inputDescriptionAsso")
+				fieldset.form-group
+					label(for="inputLocationAsso") Ville
+					input.form-control(
+						type="text",
+						id="inputLocationAsso"
+					)
+				fieldset.form-group
+					button.btn.btn-primary(type="submit", style="float:right") Enregistrer
+	.no-asso(ng-show="asso.list.length")
 		header
 			h4 Rejoignez une association
 		section

@@ -1,0 +1,31 @@
+.col-md-4
+	.card.calendar
+		h5.title A propos
+		.text-list
+			.link(ng-class="{active:calendar.isSet(1)}")
+				i.fa.fa-home
+				a(ng-click="calendar.setTab(1)") General
+			.link(ng-class="{active:calendar.isSet(2)}")
+				i.fa.fa-lock
+				a(ng-click="calendar.setTab(2)") Sécurité
+			.link(ng-class="{active:calendar.isSet(3)}")
+				i.fa.fa-calendar
+				a(ng-click="calendar.setTab(3)") Calendar
+			.link(ng-class="{active:calendar.isSet(4)}")
+				i.fa.fa-users
+				a(ng-click="calendar.setTab(4)") Amis
+
+.col-md-8
+	.card.calendar
+		h5.title Vos évènements à venir
+		table
+			thead
+				tr
+					each val in ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']
+						th.day.name.card= val
+			tbody
+				- var i=0
+				while i < 35
+					if (i % 7 == 0)
+						tr
+					td.day.card(class=((i==0||i>30) ? 'disabled':''))=i++

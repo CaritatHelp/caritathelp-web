@@ -15,28 +15,14 @@ block jumbotron
 
 block tabs
 	.timeline-tab(
-		ng-show="asso.isSet(1)")
-		.col-md-4
-			include ../module/summary.jade
-		.col-md-8
-			include ../module/timeline.jade
+		ng-show="asso.isSet(1)"
+	)
+		include ../tabs/user-timeline
 	.members-tab(
-		ng-show="asso.isSet(2)")
-		.col-md-3
-			include ../module/summary.jade
-		.col-md-3
-			include ../module/summary.jade
-		.col-md-3
-			include ../module/summary.jade
-		.col-md-3
-			include ../module/summary.jade
-		.col-md-3
-			include ../module/summary.jade
-		.col-md-3
-			include ../module/summary.jade
+		ng-show="asso.isSet(2)"
+	)
+		include ../tabs/user-friends
 	.settings-tab(
-		ng-show="asso.isSet(3)")
-		.col-md-4
-			include ../module/calendar-list
-		.col-md-8
-			include ../module/calendar-main
+		ng-show="asso.isSet(3)"
+	)
+		include ../tabs/asso-calendar

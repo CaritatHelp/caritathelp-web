@@ -1,7 +1,6 @@
 'use strict';
 
 global.jQuery = require('jquery');
-//global.Tether = require('tether');
 require('bootstrap');
 
 var angular = require('angular');

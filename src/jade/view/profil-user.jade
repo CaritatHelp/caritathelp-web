@@ -17,31 +17,14 @@ block jumbotron
 
 block tabs
 	.timeline-tab(ng-show="profil.isSet(1)")
-		.col-md-4
-			include ../module/summary
-			include ../module/list-friends
-		.col-md-8
-			include ../module/timeline
-	.friends-tab(ng-show="profil.isSet(4)")
-		.col-md-3
-			include ../module/summary
-		.col-md-3
-			include ../module/summary
-		.col-md-3
-			include ../module/summary
-		.col-md-3
-			include ../module/summary
-		.col-md-3
-			include ../module/summary
-	.calendar-tab(ng-show="profil.isSet(2)")
-		.col-md-4
-			include ../module/calendar-list
-		.col-md-8
-			include ../module/calendar-main
+		include ../tabs/user-timeline
+	.friends-tab(
+		ng-show="profil.isSet(4)")
+			include ../tabs/user-friends
+	.calendar-tab(
+		ng-show="profil.isSet(2)")
+			include ../tabs/user-calendar
 	.settings-tab(
 		ng-show="profil.isSet(3)",
 		ng-controller="settingsController as settings")
-		.col-md-4
-			include ../module/settings-list
-		.col-md-8
-			include ../module/settings-main
+			include ../tabs/user-settings

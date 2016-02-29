@@ -7,33 +7,32 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="" href="#/">
+			<a href="#/">
 				<img src="img/logo.png" alt="CaritatHelp" class="img-responsive">
 			</a>
 		</div>
 		<div class="navbar-left">
 			<a href="#/home"
-				ng-class="{active:nav.isSet(1)}"
-				ng-click="nav.setView(1)">
+				ng-class="{active:nav.isSet('home')}"
+				ng-click="nav.setView('home')">
 					<span>Accueil</span>
 					<i class="fa fa-home"></i>
 			</a>
 			<a href="#/profil"
-				ng-class="{active:nav.isSet(2)}"
-				ng-click="nav.setView(2)">
-					<span>{{nav.user.firstname}} {{nav.user.lastname}}Profil</span>
+				ng-class="{active:nav.isSet('profil')}"
+				ng-click="nav.setView('profil')">
+					<span ng-if="nav.user">{{nav.user.firstname}} {{nav.user.lastname}}</span>
+					<span ng-if="!nav.user">Profil</span>
 					<i class="fa fa-user"></i>
 			</a>
 			<a href="#/association"
-				ng-class="{active:nav.isSet(3)}"
-				ng-click="nav.setView(3)">
+				ng-class="{active:nav.isSet('asso')}"
+				ng-click="nav.setView('asso')">
 					<span>Associations</span>
 					<i class="fa fa-coffee"></i>
 			</a>
 			<a data-toggle="modal"
-				href="#msgModal"
-				ng-class="{active:nav.isSet(4)}"
-				ng-click="nav.setView(4)">
+				href="#msgModal">
 					<span>Messagerie</span>
 					<i class="fa fa-envelope"></i>
 			</a>
@@ -42,11 +41,13 @@
 			<a href="#" class="icon hidden-md-up"><i class="fa fa-search"></i></a>
 			<form class="search-bar hidden-sm-down" role="search">
 				<div class="search-input">
-					<input type="text" class="form-control" data-action="grow" placeholder="Search">
+					<input type="text" class="form-control" placeholder="Search">
 				</div>
 			</form>
 			<a class="icon" href="#/notifications"><i class="fa fa-bell"></i></a>
-			<a href="#" class="avatar"><img class="img-responsive img-circle" src="img/robert.png"></a>
+			<a href="#" class="avatar">
+				<img class="img-responsive img-circle" src="img/robert.png">
+			</a>
 		</div>
 <!-- TODO: mobile navigation
 			<ul class="nav navbar-nav st su sv">

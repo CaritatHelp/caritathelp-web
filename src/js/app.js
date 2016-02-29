@@ -14,8 +14,11 @@ var app = angular.module('caritathelp', ['ngRoute', 'ngSanitize', 'ngMessages', 
 require('./services');
 require('./directives');
 require('./controllers');
-require('./navbar');
 require('./settings');
+
+require('./navbar');
+require('./timeline');
+require('./recommendation');
 
 app.config(function ($routeProvider, localStorageServiceProvider) {
 	//Configuration localStorage

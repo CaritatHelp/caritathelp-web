@@ -20,7 +20,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $location) {
 		return true;
 	}
 
-	this.login = function () {
+	_this.login = function () {
 		if (!verif()) {
 			_this.error = true;
 			_this.errorMessage = 'Veuillez entrer votre addresse mail et votre mot de passe.';

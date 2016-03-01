@@ -28,7 +28,7 @@ app.config(function ($routeProvider, localStorageServiceProvider) {
 	//Routing
 	$routeProvider
 		.when('/', {
-			redirectTo: '/login'
+			redirectTo: '/home'
 		})
 		.when('/login', {
 			templateUrl: 'view/login.html',

@@ -23,6 +23,19 @@
 		display: flex;
 		align-self: center;
 		padding-bottom: .7em;
+		.active {
+			color: #fff;
+			&:after {
+				position: absolute;
+				bottom: -.6em;
+				left: 50%;
+				margin-left: -10px;
+				border-right: 10px solid transparent;
+				border-bottom: 10px solid #f5f8fa;
+				border-left: 10px solid transparent;
+				content: '';
+			}
+		}
 		a {
 			position: relative;
 			padding: 0 .5em;
@@ -31,19 +44,6 @@
 			cursor: pointer;
 			transition: color 0.2s ease-in-out;
 			&:active, &:focus, &:hover {color: #fff;}
-			&.active {
-				color: #fff;
-				&:after {
-					position: absolute;
-					bottom: -.6em;
-					left: 50%;
-					margin-left: -10px;
-					border-right: 10px solid transparent;
-					border-bottom: 10px solid #f5f8fa;
-					border-left: 10px solid transparent;
-					content: '';
-				}
-			}
 		}
 	}
 }

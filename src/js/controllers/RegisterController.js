@@ -40,7 +40,8 @@ module.exports = /*@ngInject*/ function (dataService, userService, $location) {
 	}
 
 	this.register = function () {
-		reset(); cleanup();
+		reset();
+		cleanup();
 		if (verif()) {
 			_this.error = true;
 			return;

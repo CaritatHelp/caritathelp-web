@@ -64,7 +64,7 @@
 		"rules": {
 			"one-var": [2, "never"],
 			"block-scoped-var": 0,
-			"spaced-comment": [2, "never"],
+			"spaced-comment": 0,
 			"no-mixed-spaces-and-tabs": [2, "smart-tabs"],
 			"linebreak-style": 0
 		}

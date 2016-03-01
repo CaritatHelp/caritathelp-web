@@ -13,12 +13,14 @@
 		</div>
 		<div class="navbar-left">
 			<a href="#/home"
+				class="nav-item"
 				ng-class="{active:nav.isSet('home')}"
 				ng-click="nav.setView('home')">
 					<span>Accueil</span>
 					<i class="fa fa-home"></i>
 			</a>
 			<a href="#/profil"
+				class="nav-item"
 				ng-class="{active:nav.isSet('profil')}"
 				ng-click="nav.setView('profil')">
 					<span ng-if="nav.user">{{nav.user.firstname}} {{nav.user.lastname}}</span>
@@ -26,12 +28,14 @@
 					<i class="fa fa-user"></i>
 			</a>
 			<a href="#/association"
+				class="nav-item"
 				ng-class="{active:nav.isSet('asso')}"
 				ng-click="nav.setView('asso')">
 					<span>Associations</span>
 					<i class="fa fa-coffee"></i>
 			</a>
 			<a data-toggle="modal"
+				class="nav-item"
 				href="#msgModal">
 					<span>Messagerie</span>
 					<i class="fa fa-envelope"></i>
@@ -44,7 +48,7 @@
 					<input type="text" class="form-control" placeholder="Search">
 				</div>
 			</form>
-			<a class="icon" href="#/notifications"><i class="fa fa-bell"></i></a>
+			<a class="nav-item" href="#/notifications"><i class="fa fa-bell"></i></a>
 			<a href="#" class="avatar">
 				<img class="img-responsive img-circle" src="img/robert.png">
 			</a>

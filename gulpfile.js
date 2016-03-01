@@ -32,6 +32,10 @@ gulp.task('styles', function () {
 				this.emit('end');
 			}
 		}))
+		.pipe(g.recess({
+			noIDs: false
+		}))
+		.pipe(g.recess.reporter())
 		.pipe(g.less())
 		.pipe(g.autoprefixer('last 2 versions'))
 		.pipe(g.rename({suffix: '.min'}))
@@ -43,16 +47,16 @@ gulp.task('styles', function () {
 /* scripts */
 gulp.task('lint', function () {
 	gulp.src(['src/js/**/*.js'])
-		.pipe(g.xo())
 		.pipe(g.plumber({
 			errorHandler: function (error) {
 				console.log(error.message);
 				this.emit('end');
 			}
 		}))
+		.pipe(g.xo())
 		.pipe(browserSync.reload({stream:true}));
 });
-gulp.task('browserify', function () {
+gulp.task('browserify', ['lint'], function () {
 	return browserify({
 		entries: 'src/js/app.js',
 		debug: true
@@ -68,7 +72,7 @@ gulp.task('browserify', function () {
 	.pipe(buffer())
 	.pipe(gulp.dest('public/js/'));
 });
-gulp.task('uglify', ['browserify'], function() {
+gulp.task('scripts', ['browserify'], function() {
 	gulp.src('public/js/app.js')
 		.pipe(g.plumber({
 			errorHandler: function (error) {
@@ -94,7 +98,6 @@ gulp.task('copy', function () {
 		.pipe(g.changed('public/**/*'))
 		.pipe(gulp.dest('public/'));
 	gulp.src(['src/**/*.html'])
-		.pipe(g.changed('public/**/*.html'))
 		.pipe(gulp.dest('public/'))
 		.pipe(browserSync.reload({stream:true}));
 });
@@ -105,12 +108,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('build', function () {
-	runSequence(['styles', 'browserify', 'jade', 'copy']);
-});
-
-gulp.task('rebuild', function () {
-  //TODO CA MARCHE PAS BIEN!!
-	runSequence(['clean', 'build']);
+	runSequence(['styles', 'scripts', 'jade', 'copy']);
 });
 
 gulp.task('reload', function () {
@@ -127,8 +125,8 @@ gulp.task('serve', function () {
 gulp.task('watch', function () {
 	gulp.watch('src/less/**/*.less', ['styles']);
 	gulp.watch('src/jade/**/*.jade', ['jade']);
-	gulp.watch('src/js/**/*.js', ['browserify']);
-	gulp.watch('src/js/**/*.html', ['copy']);
+	gulp.watch('src/js/**/*.js', ['scripts']);
+	gulp.watch('src/js/**/*.tpl.html', ['copy']);
 	gulp.watch(['src/**/*.html', 'src/fonts/**/*', 'src/img/**/*', 'src/libs/**/*'], ['copy']);
 });
 

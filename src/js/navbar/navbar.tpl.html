@@ -1,4 +1,4 @@
-<nav class="app-navbar">
+<nav class="app-navbar" ng-show="nav.user !== null">
 	<div class="container">
 		<div class="navbar-logo">
 			<button type="button" class="navbar-toggle">
@@ -40,7 +40,7 @@
 					<span>Messagerie</span>
 					<i class="fa fa-envelope"></i>
 			</a>
-			<a class="nav-item" ng-click="nav.SignOut()"><span>Logout</span></a>
+			<a class="nav-item" ng-click="nav.logout()"><span>Logout</span></a>
 		</div>
 		<div class="navbar-right">
 			<a href="#" class="icon hidden-md-up"><i class="fa fa-search"></i></a>

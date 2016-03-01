@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, userService) {
+module.exports = /*@ngInject*/ function ($location, dataService, userService) {
 	var _this = this;
 	var dsc = dataService;
 	var usc = userService;
@@ -7,10 +7,10 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 	_this.user = usc.user();
 	_this.view = 1;
 
-	this.SignOut = function () {
+	this.logout = function () {
 		dsc.logout(usc.token());
 		usc.disconnect();
-		//$location.path('/');
+		$location.path('/login');
 	};
 
 	this.setView = function (activeView) {

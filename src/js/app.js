@@ -50,13 +50,13 @@ app.config(function ($routeProvider, localStorageServiceProvider) {
 			controller: 'profilController',
 			controllerAs: 'profil'
 		})
+		.when('/user/:id', {
+			templateUrl: 'view/profil-user.html',
+			controller: 'profilController',
+			controllerAs: 'profil'
+		})
 		.when('/association', {
 			templateUrl: 'view/association.html',
-			controller: 'associationController',
-			controllerAs: 'asso'
-		})
-		.when('/association/ponay', {
-			templateUrl: 'view/profil-association.html',
 			controller: 'associationController',
 			controllerAs: 'asso'
 		})

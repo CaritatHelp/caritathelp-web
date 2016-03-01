@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = /*@ngInject*/ function (localStorageService) {
+module.exports = /*@ngInject*/ function ($location, localStorageService) {
 	var ls = localStorageService;
 	var connected = false;
 	var token = null;
@@ -10,6 +10,10 @@ module.exports = /*@ngInject*/ function (localStorageService) {
 		connected = true;
 		token = ls.get('token');
 		user = ls.get('currentUser');
+	}
+
+	if (user === null) {
+		$location.path('/login');
 	}
 
 	return {

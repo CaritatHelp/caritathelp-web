@@ -7,7 +7,7 @@ module.exports = /*@ngInject*/ function ($http) {
 	var logEnabled = true;
 
 	function buildUrl(route, identifier, subroute, parameters) {
-		var url = urlBase + route + (identifier ? '/' + identifier : '') + (subroute ? '/' + subroute : '') +'?' + parameters;
+		var url = urlBase + route + (identifier ? '/' + identifier : '') + (subroute ? '/' + subroute : '') + '?' + parameters;
 		if (logEnabled) {
 			console.log('API call: ' + url);
 		}
@@ -20,38 +20,62 @@ module.exports = /*@ngInject*/ function ($http) {
 		var parameters = 'mail=' + mail + '&password=' + password;
 		return $http.post(buildUrl('login', null, null, parameters));
 	};
-
 	DataService.logout = function (token) {
 		var parameters = 'token=' + token;
 		return $http.post(buildUrl('logout', null, null, parameters));
 	};
-
 	DataService.register = function (mail, password, firstname, lastname, birthday, gender) {
 		var parameters = 'mail=' + mail + '&password=' + password + '&firstname=' + firstname + '&lastname=' + lastname + '&birthday=' + birthday + '&gender=' + gender;
 		return $http.post(buildUrl('volunteers', null, null, parameters));
 	};
 
 //Volunteers
-
 	DataService.getVolunteers = function (token) {
 		var parameters = 'token=' + token;
 		return $http.get(buildUrl('volunteers', null, null, parameters));
 	};
-
 	DataService.getVolunteer = function (id, token) {
 		var parameters = 'token=' + token;
 		return $http.get(buildUrl('volunteers', id, null, parameters));
 	};
-
+	DataService.updateVolunteer = function (id, mail, password, firstname, lastname, birthday, gender) {
+		var parameters = 'mail=' + mail + '&password=' + password + '&firstname=' + firstname + '&lastname=' + lastname + '&birthday=' + birthday + '&gender=' + gender;
+		return $http.put(buildUrl('volunteers', id, null, parameters));
+	};
+	DataService.searchVolunteer = function (research, token) {
+		var parameters = 'token=' + token + '&research=' + research;
+		return $http.get(buildUrl('volunteers', null, 'search', parameters));
+	};
 	DataService.getFriends = function (id, token) {
 		var parameters = 'token=' + token;
-		return $http.get(buildUrl('volunteers', id, 'friends', parameters))
-	}
-
+		return $http.get(buildUrl('volunteers', id, 'friends', parameters));
+	};
 	DataService.getAssos = function (id, token) {
 		var parameters = 'token=' + token;
-		return $http.get(buildUrl('volunteers', id, 'associations', parameters))
-	}
+		return $http.get(buildUrl('volunteers', id, 'associations', parameters));
+	};
+	DataService.getNotifs = function (id, token) {
+		var parameters = 'token=' + token;
+		return $http.get(buildUrl('volunteers', id, 'notifications', parameters));
+	};
+	DataService.getEvents = function (id, token) {
+		var parameters = 'token=' + token;
+		return $http.get(buildUrl('volunteers', id, 'events', parameters));
+	};
+
+//Friendship
+	DataService.addFriend = function (id, token) {
+		var parameters = 'token=' + token + '&volunteers_id=' + id;
+		return $http.post(buildUrl('friendship', null, 'add', parameters));
+	};
+	DataService.replyFriend = function (id, acceptance, token) {
+		var parameters = 'token=' + token + '&notif_id=' + id + '&acceptance=' + acceptance;
+		return $http.post(buildUrl('friendship', null, 'reply', parameters));
+	};
+	DataService.removeFriend = function (id, token) {
+		var parameters = 'token=' + token + '&id=' + id;
+		return $http.delete(buildUrl('friendship', null, 'remove', parameters));
+	};
 
 	return DataService;
 };

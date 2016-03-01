@@ -5,7 +5,7 @@ module.exports = /*@ngInject*/ function (userService) {
 
 	vm.currentUser = usc.user();
 	vm.connected = usc.connected();
-	vm.tab = 1;
+	vm.tab = 3;
 
 	this.setTab = function (activeTab) {
 		this.tab = activeTab;

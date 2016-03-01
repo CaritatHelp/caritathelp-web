@@ -3,17 +3,14 @@
 		h5.title A propos
 		.text-list
 			.link(ng-class="{active:calendar.isSet(1)}")
-				i.fa.fa-home
-				a(ng-click="calendar.setTab(1)") General
-			.link(ng-class="{active:calendar.isSet(2)}")
-				i.fa.fa-lock
-				a(ng-click="calendar.setTab(2)") Sécurité
-			.link(ng-class="{active:calendar.isSet(3)}")
 				i.fa.fa-calendar
-				a(ng-click="calendar.setTab(3)") Calendar
-			.link(ng-class="{active:calendar.isSet(4)}")
-				i.fa.fa-users
-				a(ng-click="calendar.setTab(4)") Amis
+				a(ng-click="calendar.setTab(1)") Tous les évènements
+			.link(ng-class="{active:calendar.isSet(2)}")
+				i.fa.fa-calendar-check-o
+				a(ng-click="calendar.setTab(2)") Participations
+			.link(ng-class="{active:calendar.isSet(3)}")
+				i.fa.fa-calendar-plus-o
+				a(ng-click="calendar.setTab(3)") Créer un évenement
 
 .col-md-8
 	.card.calendar

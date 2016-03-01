@@ -11,6 +11,19 @@ module.exports = /*@ngInject*/ function (localStorageService) {
 		token = ls.get('token');
 		user = ls.get('currentUser');
 	}
+	/* Mock datas */
+	if (user == null) {
+		user = {};
+		user.id = 1;
+		user.mail = "test@caritathelp.fr";
+		user.firstname = "Firstname";
+		user.lastname = "Lastname";
+		user.birthday = "datas";
+		user.gender = "M";
+		user.city = "Ville";
+		user.allowgps = true;
+		user.notifications = true;
+	}
 
 	return {
 		connected: function () {

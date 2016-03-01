@@ -3,8 +3,8 @@ module.exports = /*@ngInject*/ function () {
 	return {
 		restrict: 'E',
 		replace: true,
-		templateUrl: 'js/navbar/navbar.tpl.html',
-		controller: 'navbarController',
-		controllerAs: 'nav'
+		templateUrl: 'js/cusummary/cusummary.tpl.html',
+		controller: 'cuSummaryController',
+		controllerAs: 'cusc'
 	};
 };

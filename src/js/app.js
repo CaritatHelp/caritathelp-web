@@ -19,6 +19,7 @@ require('./settings');
 require('./navbar');
 require('./timeline');
 require('./recommendation');
+require('./cusummary');
 
 app.config(function ($routeProvider, localStorageServiceProvider) {
 	//Configuration localStorage

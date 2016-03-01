@@ -4,7 +4,8 @@ block jumbotron
 	.background(style="background-image:url(img/cover/skyline.jpg)")
 	.infos
 		img.img-circle.picture(src="img/robert.png", alt="")
-		h3.name {{nav.user.firstname}} {{nav.user.lastname}} Bobby Pony
+		h3.name(ng-if="nav.user") {{nav.user.firstname}} {{nav.user.lastname}}
+		h3.name(ng-if="!nav.user") Test test
 	nav.navigation
 		a(ng-click="profil.setTab(1)"
 			ng-class="{active:profil.isSet(1)}") Timeline

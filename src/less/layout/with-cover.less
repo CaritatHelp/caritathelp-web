@@ -1,97 +1,73 @@
-.covered {
-	.cover {
-		background: rgba(0,0,0,.5);
-		position: relative;
+.cover {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: 5em 0 0;
+	margin-bottom: 1.5rem;
+	color: #fff;
+	text-shadow: 1px 1px #000;
+	background: rgba(0,0,0,.5);
+	.background {
+		.abso-center();
+		background: url(../img/cover/skyline.jpg);
+		background-size: cover;
+		background-position-y: 80%;
+	}
+	.infos {
+		text-align: center;
+		filter: drop-shadow(0 0 10px rgba(0,0,0,.5));
+		.name {margin-top: .5em;}
+		.picture {width: 8em;}
+	}
+	.navigation {
 		display: flex;
-		flex-direction: column;
-		padding: 4rem 2rem 0;
-		text-shadow: 1px 1px #000;
-		color: #fff;
-		margin-bottom: 1.5rem;
-		.background {
-			background: url(../img/cover/skyline.jpg);
-			background-size: cover;
-			background-position-y: 80%;
-			.abso-center();
-		}
-		.infos {
-			filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5));
-			text-align: center;
-			.name {margin-top: .75rem;}
-			p {font-size: 1.2em}
-			.picture {width: 7rem;}
-		}
-		.navigation {
-			align-self: center;
-			display: flex;
-			a {
-				font-size: 1.2em;
-				padding: 0 .75rem .75rem;
-				cursor: pointer;
-				color: rgba(255, 255, 255, 0.5);
-				transition: color 0.2s ease-in-out;
-				position: relative;
-				&:active, &:focus, &:hover {color: #fff;}
-				&.active {
-					color: #fff;
-					&:after {
-						position: absolute;
-						bottom: 0;
-						left: 50%;
-						content: '';
-						margin-left: -10px;
-						border-left: 10px solid transparent;
-						border-right: 10px solid transparent;
-						border-bottom: 10px solid #f5f8fa;
-					}
+		align-self: center;
+		padding-bottom: .7em;
+		a {
+			position: relative;
+			padding: 0 .5em;
+			font-size: 1.2em;
+			color: rgba(255, 255, 255, 0.5);
+			cursor: pointer;
+			transition: color 0.2s ease-in-out;
+			&:active, &:focus, &:hover {color: #fff;}
+			&.active {
+				color: #fff;
+				&:after {
+					position: absolute;
+					bottom: -.6em;
+					left: 50%;
+					margin-left: -10px;
+					border-right: 10px solid transparent;
+					border-bottom: 10px solid #f5f8fa;
+					border-left: 10px solid transparent;
+					content: '';
 				}
 			}
 		}
 	}
-	.tabs {
+}
+.tabs {
+	display: flex;
+	flex-grow: 1;
+	width: 100%;
+	> div {
 		display: flex;
 		flex-grow: 1;
-		width: 100%;
-		> div {
-			display: flex;
-			flex-grow: 1;
-			padding: .9375rem;
-		}
-		.sidebar {
-			flex-grow: 1;
-			border-right: 1px solid #c1c1c1;
-			padding: 0;
-			padding-right: .9375rem;
-			ul {
-				list-style: none;
-				padding: 0;
-				& > li {
-					& > a {
-						display: block;
-						padding: 4px 10px;
-						cursor: pointer;
-						color: #30A01C;
-						&:hover {
-							background: #eee;
-						}
-					}
-					&.active {
-						& > a {
-							font-weight: bold;
-							background: #53A634;
-							color: #fff;
-						}
-					}
-				}
-			}
-		}
-		.body {
-			padding: 0;
-			padding-left: .9375rem;
-			h5 {
-				font-weight: bold;
-				margin: 0;
-			}
+		padding: .9375em;
+	}
+	.sidebar {
+		flex-grow: 1;
+		padding: 0;
+		padding-right: .9375em;
+		border-right: 1px solid #c1c1c1;
+	}
+	.body {
+		padding: 0;
+		padding-left: .9375em;
+		h5 {
+			margin: 0;
+			font-weight: bold;
 		}
 	}
 }

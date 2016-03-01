@@ -1,10 +1,10 @@
 .timeline {
 	&.card{
-		border:none;
 		background-color: transparent;
+		border:none;
 		.element {
+			margin-bottom: 1em;
 			background-color: #fff;
-			margin-bottom: 1rem;
 		}
 	}
 	.input-group {
@@ -15,8 +15,8 @@
 			width: auto;
 		}
 		.input-group-btn {
-			width: auto;
 			display: block;
+			width: auto;
 			&:focus{outline: none;}
 			.btn {height: 36px;}
 		}
@@ -27,32 +27,31 @@
 		border-color: #d4dbe0;
 		&:hover, &:focus, &:active {
 			color: #536570;
+			text-decoration: none;
 			background-color: #e6e6e6;
 			border-color: #b0bdc6;
-			text-decoration: none;
 		}
 	}
 	.element {
-		padding: .9375rem;
-		margin-bottom: -1px; //fix pour la bordure collapsed
+		padding: .9375em;
 		border: 1px solid #d3e0e9;
 		.post {
 			display: flex;
 			.avatar img {
-				min-width: 60px;
 				max-width: 60px;
+				min-width: 60px;
 				border-radius: 50%;
 			}
 			.body {
-				padding-left: 1rem;
 				flex-grow: 1;
+				padding-left: 1em;
 				.infos {
 					display: flex;
-					margin-bottom: .25rem;
+					margin-bottom: .25em;
 					.name {flex-grow: 1;}
 					.time {
+						margin-top: -.5em;
 						color: #9da9b0;
-						margin-top: -.5rem;
 					}
 				}
 				p {
@@ -62,32 +61,32 @@
 			}
 		}
 		.comments {
-			margin-top: .5rem;
-			padding-top: .5rem;
+			padding-top: .6em;
+			margin-top: .6em;
 			.comment {
-				border-top: 1px solid #d4dbe0;
 				display: flex;
-				padding: .5rem 0;
+				padding: .6em 0;
+				border-top: 1px solid #d4dbe0;
 				.avatar img {
-					min-width: 45px;
 					max-width: 45px;
+					min-width: 45px;
 				}
 			}
 		}
 		footer {
-			margin: .9375rem -.9375rem -.9375rem;
-			padding: .9375rem;
-			background-color: #EFEBEB;
 			display: flex;
 			align-items: center;
+			padding: .9375em;
+			margin: .9375em -.9375em -.9375em;
+			background-color: #EFEBEB;
 			.avatar img {
-				min-width: 45px;
 				max-width: 45px;
+				min-width: 45px;
 				border-radius: 50%;
 			}
 			.input-group {
-				padding-left: 1em;
 				flex-grow: 1;
+				padding-left: 1em;
 			}
 		}
 	}

@@ -9,22 +9,20 @@
 		flex-wrap: wrap;
 		& > div {
 			display: flex;
-			margin-bottom: 1rem;
 			padding: 0 .5rem;
-			.avatar img {
-				width: 50px;
-			}
+			margin-bottom: 1rem;
+			.avatar img {width: 50px;}
 			.infos {
 				flex-grow: 1;
 				padding-left: .75rem;
 				.name {
-					font-weight: bold;
 					padding-bottom: .2rem;
+					font-weight: bold;
 				}
 				.btn {
 					padding: 5px 10px;
-					line-height: 1.5;
 					font-size: .9em;
+					line-height: 1.5;
 				}
 			}
 		}
@@ -41,11 +39,11 @@
 		cursor: pointer;
 		&:hover i {color: @link-color;}
 		i {
-			color: #9da9b0;
-			font-size: 1.2em;
 			width: 1.2em;
-			text-align: center;
 			margin-right: .5em;
+			font-size: 1.2em;
+			color: #9da9b0;
+			text-align: center;
 		}
 	}
 }

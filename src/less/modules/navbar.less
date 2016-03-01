@@ -1,11 +1,11 @@
 .app-navbar {
-	.container {display: flex;padding: 0;}
-	width: 100%;
 	position: fixed;
 	z-index: 1000;
+	width: 100%;
 	min-height: 50px;
-	border-bottom: 1px solid @navbar-border;
 	background: @navbar-green;
+	border-bottom: 1px solid @navbar-border;
+	.container {display: flex;padding: 0;}
 	.navbar-logo {
 		.navbar-toggle {display: none;}
 		a {display: block;}
@@ -35,10 +35,10 @@
 		}
 		.avatar {
 			padding: 0;
-			border: 0;
-			background: transparent;
 			margin: 7px 0;
 			cursor: pointer;
+			background: transparent;
+			border: 0;
 			img {
 				height: 40px;
 			}

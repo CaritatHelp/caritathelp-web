@@ -1,23 +1,23 @@
 .calendar {
 	flex-grow: 1;
 	flex-wrap: wrap;
-	.day {
-		margin: .5rem;
-		width: 100%;
-		&:not(.name) {
-			min-height: 100px;
-			padding: .3rem .5rem;
-		}
-		&.name {
-			text-align: center;
-			color: #f5f5f5;
-			background-color: #53A634;
-		}
-		&.disabled {
-			background-color: #ddd;
-			border: 1px solid #c1c1c1;
-		}
-	}
 	table {width: 100%;}
 	tr {display: flex;}
+}
+.day {
+	width: 100%;
+	margin: .5rem;
+	&:not(.name) {
+		min-height: 100px;
+		padding: .3rem .5rem;
+	}
+	&.name {
+		color: #f5f5f5;
+		text-align: center;
+		background-color: #53A634;
+	}
+	.disabled {
+		background-color: #ddd;
+		border: 1px solid #c1c1c1;
+	}
 }

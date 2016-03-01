@@ -23,29 +23,32 @@
 @import "modules/settings";
 @import "modules/associations";
 
-html, body {height: 100%;font-size: 14px;}
-* {font-family: Roboto, sans-serif;}
-body {background-color: #E4F7DD;}
+html, body {height: 100%;}
+body {
+	font-family: Roboto, sans-serif;
+	font-size: 14px;
+	background-color: #E4F7DD;
+}
 
 //Headings
 	h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 		margin:0;
-		line-height: 1.2;
 		font-weight: 600;
+		line-height: 1.2;
 	}
 	h4, .h4 {font-size: 1.3em;}
 	h5, .h5 {font-size: 1.2em;}
 //Reset bootstrap pour les icones collés aux inputs
-	span.input-group-addon {width: 36px;}
+	.input-group-addon {width: 36px;}
 //Settings des liens
 	a {
 		color: inherit;
 		text-decoration: inherit;
 		&:focus, &:hover {
-			background: none;
-			text-decoration: none;
-			outline: none;
 			color:@link-color;
+			text-decoration: none;
+			background: none;
+			outline: none;
 		}
 	}
 //reset des listes
@@ -68,9 +71,7 @@ body {background-color: #E4F7DD;}
 			font-weight: bold;
 	 }
 img {max-width: 100%;}
-button.btn {
-	&:focus, &:hover, &:active {outline:none;}
-}
+.btn {&:focus, &:hover, &:active {outline:none;}}
 
 //Bloc d'aide register form
 	.help-block, .help-block p {margin-bottom: 0;}
@@ -79,32 +80,30 @@ button.btn {
 
 //Wrapper pour toutes les pages sauf login/register
 	.content-wrapper{
-		flex-grow: 1;
 		display: flex;
 		flex-direction: column;
-		padding-top: 50px;
+		flex-grow: 1;
 		min-height: 100vh;
-		.container.main {
-			padding-top: 2rem;
-		}
+		padding-top: 50px;
+		.main {padding-top: 2rem;}
 	}
 
 //cartes pour afficher les éléments
 	.card {
-		border: 1px solid #D5E7CF;
 		display: flex;
 		flex-direction: column;
-		border-radius: @card-radius;
 		padding: .75rem;
-		&.no-padding {padding:0;}
+		border: 1px solid #D5E7CF;
+		border-radius: @card-radius;
 		.title {
 			padding-bottom: .75rem;
 			a:hover, a:active, a:focus {
-				text-decoration: underline;
 				color: @link-color;
+				text-decoration: underline;
 			}
 		}
 	}
+	.no-padding {padding:0;}
 
 //Affichage des boutons
 	.btn {
@@ -114,26 +113,22 @@ button.btn {
 	.btn-primary {
 		background-color: @button-color;
 		border-color: @button-color;
-		&.active,
 		&:active,
 		&:hover,
-		&.focus,
 		&:focus {
 			background-color: @button-hover;
 			border-color: @button-hover;
 		}
 	}
 	.btn-inversed {
+		color: @button-color;
 		background-color: #fff;
 		border-color: @button-color;
-		color: @button-color;
-		&.active,
 		&:active,
 		&:hover,
-		&.focus,
 		&:focus {
-			background-color: @button-hover;
 			color: #fff;
+			background-color: @button-hover;
 		}
 	}
 

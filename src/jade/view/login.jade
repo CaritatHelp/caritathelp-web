@@ -2,7 +2,7 @@ extends ../layout/landing
 
 block content
 	header.sign-box
-		h1.h2 Connexion
+		h2 Connexion
 		hr
 	form#loginForm.clearfix(
 			novalidate="",
@@ -13,7 +13,7 @@ block content
 		fieldset.form-group#loginMail
 			label.control-label(for="inputMail") Adresse e-mail
 			.input-group
-				span.input-group-addon
+				span.input-group-addon.input-mail
 					i.fa.fa-envelope
 				input.form-control#inputMail(
 					type="email",

@@ -3,14 +3,18 @@ extends ../layout/landing
 block content
 	- var months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
 	header.sign-box
-		h1.h2 Inscription
+		h2 Inscription
 		hr
 	form#registerForm.clearfix(
-		novalidate,
+		novalidate="",
 		name="registerForm",
-		ng-submit="registerForm.$valid && register.Register()"
+		ng-submit="registerForm.$valid && register.register()"
 		)
-		.alert.alert-danger(role="alert", ng-show="register.error", ng-bind-html="register.errorMessage")
+		//- Messages d'erreur
+		.alert.alert-danger(
+			role="alert",
+			ng-show="register.error",
+			ng-bind-html="register.errorMessage")
 
 		//- UserName
 		fieldset#userFirstName.col-sm-6.form-group(
@@ -58,7 +62,7 @@ block content
 			ng-class="{'has-error': (registerForm.$submitted || registerForm.inputMail.$touched) && registerForm.inputMail.$invalid }")
 			label.control-label(for="inputMail") Adresse e-mail
 			.input-group
-				span.input-group-addon
+				span.input-group-addon.input-mail
 					i.fa.fa-envelope
 				input#inputMail.form-control(
 					type="email",
@@ -137,8 +141,7 @@ block content
 				p Ce champs est requis
 
 		//- Sexe
-		fieldset#userGender.form-group(
-			ng-class="{'has-error': registerForm.$submitted && registerForm.radioGender.$untouched }")
+		fieldset#userGender.form-group
 			label.control-label(for="inputGender") Sexe
 			.input-group
 				.form-radio.col-xs-6
@@ -149,8 +152,7 @@ block content
 					.form-radio#inputGenderWoman
 						input(type="radio", name="radioGender", id="radioWoman", value="femme", ng-model="register.gender")
 						label(for="radioWoman") Femme
-			.help-block(ng-show="registerForm.$submitted && registerForm.radioGender.$untouched")
-				p Ce champs est requis
+
 
 		hr
 		a(href="#/login") Déjà un compte ?

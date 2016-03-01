@@ -1,86 +1,86 @@
 .sign-box {
-	.h2 {text-align: center;}
-	hr {margin: 15px 0 15px;}
-	.input-group {width: 100%;}
+	text-align: center;
+	hr {margin: 1em 0;}
 }
-/* Login & Register Form */
-	.form-radio {
-		div {
-			overflow: hidden;
-			clear: both;
-		}
-		label {
-			width: 100%;
-			margin-top: 0;
-			font-weight: normal;
-			background-color: #fff;
-			border-radius: 3px;
-		}
-		#inputGenderMan {
-			padding-right: 3%;
-			@media (min-width: 768px){padding-right: 15px;}
-		}
-		#inputGenderWoman {
-			padding-left: 3%;
-			@media (min-width: 768px){padding-left: 15px;}
-		}
-		input[type="radio"], input[type="checkbox"] {
-			&:empty {
-				display: none;
-				~ label {
-					position: relative;
-					padding: 6px 0;
-					text-indent: 48px;
-					cursor: pointer;
-					border: 1px solid #ccc;
-					user-select: none;
-					&:before {
-						position: absolute;
-						top: 0;
-						bottom: 0;
-						display: block;
-						width: 36px;
-						padding: 6px 1px;
-						font-family: FontAwesome;
-						color: #000;
-	    			text-indent: 12px;
-						background: #eee;
-						border-right: 1px solid #ccc;
-						border-radius: 3px 0 0 3px;
-						content: '';
-					}
-					&[for="radioMan"]:before {content: '\f222';}
-					&[for="radioWoman"]:before {content: '\f221';}
-				}
-			}
-			&:checked ~ label {
+.form-radio {
+	div {
+		overflow: hidden;
+		clear: both;
+	}
+	label {
+		width: 100%;
+		margin-top: 0;
+		font-weight: normal;
+		background-color: #fff;
+		border-radius: 3px;
+	}
+	#inputGenderMan {
+		padding-right: 3%;
+		@media (min-width: 768px){padding-right: 15px;}
+	}
+	#inputGenderWoman {
+		padding-left: 3%;
+		@media (min-width: 768px){padding-left: 15px;}
+	}
+	input[type="radio"], input[type="checkbox"] {
+		&:empty {
+			display: none;
+			~ label {
+				position: relative;
+				padding: 6px 0;
+				text-indent: 48px;
+				cursor: pointer;
+				border: 1px solid #ccc;
+				user-select: none;
 				&:before {
-					color: #fff;
-					background-color: #2ECC40;
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					display: block;
+					width: 36px;
+					padding: 6px 1px;
+					font-family: FontAwesome;
+					color: #000;
+    			text-indent: 12px;
+					background: #eee;
+					border-right: 1px solid #ccc;
+					border-radius: 3px 0 0 3px;
+					content: '';
 				}
+				&[for="radioMan"]:before {content: '\f222';}
+				&[for="radioWoman"]:before {content: '\f221';}
+			}
+		}
+		&:checked ~ label {
+			&:before {
+				color: @button-text;
+				background-color: @button-color;
 			}
 		}
 	}
+}
 
-	#userMail, #loginMail{
-		.input-group-addon {padding: 6px 10.5px;}
-	}
+.input-mail {padding: 6px 10.5px;}
 
-	#registerForm div[class*="col-"] {padding: 0;}
-	#userLastName {
-		padding: 0;
-		@media (min-width: 768px) {padding-left: 15px;}
-	}
-	#userFirstName {
-		padding: 0;
-		@media (min-width: 768px) {padding-right: 15px;}
-	}
-	#selectDay {
-		@media (min-width: 768px) {border-right: none;}
-		@media (max-width: 768px) {border-top-right-radius: 4px;}
-	}
-	#selectYear {
-		border-bottom-right-radius: 4px;
-		@media (min-width: 768px) {border-left: none;}
-		@media (min-width: 768px) {border-top-right-radius: 4px;}
-	}
+.help-block {color: #a94442;}
+
+#registerForm div[class*="col-"] {padding: 0;}
+#userLastName {
+	padding: 0;
+	@media (min-width: 768px) {padding-left: 15px;}
+}
+#userFirstName {
+	padding: 0;
+	@media (min-width: 768px) {padding-right: 15px;}
+}
+#userBirthdate .input-group {min-width: 75%;}
+#selectDay {
+	@media (min-width: 768px) {border-right: none;}
+	@media (max-width: 768px) {border-top-right-radius: 4px;}
+}
+#selectYear {
+	border-bottom-right-radius: 4px;
+	@media (min-width: 768px) {border-left: none;}
+	@media (min-width: 768px) {border-top-right-radius: 4px;}
+}
+#userGender .input-group {min-width: 75%;}

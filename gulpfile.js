@@ -40,11 +40,18 @@ gulp.task('styles', function () {
 		.pipe(browserSync.reload({stream:true}));
 });
 
+/* scripts */
 gulp.task('lint', function () {
 	gulp.src(['src/js/**/*.js'])
 		.pipe(g.xo())
-})
-
+		.pipe(g.plumber({
+			errorHandler: function (error) {
+				console.log(error.message);
+				this.emit('end');
+			}
+		}))
+		.pipe(browserSync.reload({stream:true}));
+});
 gulp.task('browserify', function () {
 	return browserify({
 		entries: 'src/js/app.js',
@@ -59,11 +66,22 @@ gulp.task('browserify', function () {
 		}
 	}))
 	.pipe(buffer())
-	.pipe(g.rename({suffix: '.min'}))
-	.pipe(ngAnnotate())
-	.pipe(g.uglify())
-	.pipe(gulp.dest('public/js/'))
-	.pipe(browserSync.reload({stream:true}));
+	.pipe(gulp.dest('public/js/'));
+});
+gulp.task('uglify', ['browserify'], function() {
+	gulp.src('public/js/app.js')
+		.pipe(g.plumber({
+			errorHandler: function (error) {
+				console.log(error.message);
+				this.emit('end');
+			}
+		}))
+		.pipe(g.rename({suffix: '.min'}))
+		.pipe(ngAnnotate())
+		.pipe(g.uglify())
+		.pipe(gulp.dest('public/js/'))
+		.pipe(browserSync.reload({stream:true}));
+	clean('public/js/app.js');
 });
 
 gulp.task('copy', function () {

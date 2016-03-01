@@ -14,5 +14,4 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 	this.isSet = function (tab) {
 		return this.tab === tab;
 	};
-
 };

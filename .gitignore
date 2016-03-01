@@ -1,7 +1,6 @@
 node_modules/
 public/
-semantic
-semantic.json
 carita.sublime*
 src/modules
 *.log
+todo

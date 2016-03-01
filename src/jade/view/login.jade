@@ -7,7 +7,7 @@ block content
 	form#loginForm.clearfix(
 			novalidate="",
 			name="loginForm",
-			ng-submit="login.SignIn()"
+			ng-submit="login.login()"
 		)
 		.alert.alert-danger(role="alert", ng-show="login.error") {{login.errorMessage}}
 		fieldset.form-group#loginMail

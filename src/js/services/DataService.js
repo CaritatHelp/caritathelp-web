@@ -77,5 +77,11 @@ module.exports = /*@ngInject*/ function ($http) {
 		return $http.delete(buildUrl('friendship', null, 'remove', parameters));
 	};
 
+//Association
+	DataService.getAsso = function (id, token) {
+		var parameters = 'token=' + token;
+		return $http.get(buildUrl('associations', id, null, parameters));
+	};
+
 	return DataService;
 };

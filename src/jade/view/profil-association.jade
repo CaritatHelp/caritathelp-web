@@ -4,7 +4,7 @@ block jumbotron
 	.background(style="background-image:url(img/cover/fuzeria.jpg)")
 	.infos
 		img.img-circle.picture(src="img/mlp.jpg", alt="")
-		h3.name Association des poneys
+		h3.name {{asso.asso.name}}
 	nav.navigation
 		a(ng-click="asso.setTab(1)"
 			ng-class="{active:asso.isSet(1)}") Timeline

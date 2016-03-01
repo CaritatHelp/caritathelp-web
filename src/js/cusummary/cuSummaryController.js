@@ -1,23 +1,23 @@
 'use strict';
 module.exports = /*@ngInject*/ function (dataService, userService) {
-	var _this = this;
+	var vm = this;
 	var usc = userService;
 	var dsc = dataService;
 
-	_this.user = usc.user();
-	_this.friends = friends();
-	_this.assos = assos();
+	vm.user = usc.user();
+	vm.friends = friends();
+	vm.assos = assos();
 
 	function friends() {
-		dsc.getFriends(_this.user.id, usc.token())
+		dsc.getFriends(vm.user.id, usc.token())
 			.success(function (data) {
-				_this.friends = data.response;
+				vm.friends = data.response;
 			});
 	}
 	function assos() {
-		dsc.getAssos(_this.user.id, usc.token())
+		dsc.getAssos(vm.user.id, usc.token())
 			.success(function (data) {
-				_this.assos = data.response;
+				vm.assos = data.response;
 			});
 	}
 };

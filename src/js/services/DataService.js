@@ -1,13 +1,14 @@
 'use strict';
 
 module.exports = /*@ngInject*/ function ($http) {
-	//var urlBase = 'http://52.31.151.160/';
-	var urlBase = 'http://localhost:3000/';
+	var servurl = 'https://52.31.151.160:3000/';
+
+	// var urlBase = 'http://localhost:3000/';
 	var DataService = {};
 	var logEnabled = true;
 
 	function buildUrl(route, identifier, subroute, parameters) {
-		var url = urlBase + route + (identifier ? '/' + identifier : '') + (subroute ? '/' + subroute : '') + '?' + parameters;
+		var url = servurl + route + (identifier ? '/' + identifier : '') + (subroute ? '/' + subroute : '') + '?' + parameters + '/';
 		if (logEnabled) {
 			console.log('API call: ' + url);
 		}

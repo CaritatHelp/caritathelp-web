@@ -3,5 +3,7 @@ module.exports = /*@ngInject*/ function (userService) {
 	var vm = this;
 	var usc = userService;
 
-	vm.currentUser = usc.user();
+	vm.user = usc.user();
+
+	vm.assos = vm.user.assos;
 };

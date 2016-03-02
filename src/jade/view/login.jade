@@ -1,39 +1,4 @@
 extends ../layout/landing
 
 block content
-	header.sign-box
-		h2 Connexion
-		hr
-	form#loginForm.clearfix(
-			novalidate="",
-			name="loginForm",
-			ng-submit="login.login()"
-		)
-		.alert.alert-danger(role="alert", ng-show="login.error") {{login.errorMessage}}
-		fieldset.form-group#loginMail
-			label.control-label(for="inputMail") Adresse e-mail
-			.input-group
-				span.input-group-addon.input-mail
-					i.fa.fa-envelope
-				input.form-control#inputMail(
-					type="email",
-					name="inputMail",
-					placeholder="Adresse e-mail",
-					ng-model="login.mail",
-					required
-				)
-		fieldset.form-group#loginPassword
-			label.control-label(for="inputPassword") Mot de passe
-			.input-group
-				span.input-group-addon
-					i.fa.fa-lock
-				input.form-control#inputPassword(
-					type="password",
-					name="inputPassword",
-					placeholder="Mot de passe",
-					ng-model="login.password",
-					required
-				)
-		a(href="#/register") Pas de compte ?
-		.pull-right
-			button#buttonConnect.btn.btn-primary(type="submit") Connexion
+	login-box

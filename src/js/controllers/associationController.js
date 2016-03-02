@@ -5,7 +5,6 @@ module.exports = /*@ngInject*/ function ($location, $routeParams, dataService, u
 	var dsc = dataService;
 
 	vm.currentUser = usc.user();
-	vm.connected = usc.connected();
 
 	vm.tab = 1;
 	vm.asso = asso();

@@ -1,22 +1,22 @@
 'use strict';
 module.exports = /*@ngInject*/ function ($location, dataService, userService) {
-	var _this = this;
+	var vm = this;
 	var dsc = dataService;
 	var usc = userService;
 
-	_this.user = usc.user();
-	_this.view = 1;
+	vm.user = usc.user();
+	vm.view = 1;
 
-	this.logout = function () {
+	vm.logout = function () {
 		dsc.logout(usc.token());
 		usc.disconnect();
 		$location.path('/login');
 	};
 
-	this.setView = function (activeView) {
-		this.view = activeView;
+	vm.setView = function (activeView) {
+		vm.view = activeView;
 	};
-	this.isSet = function (view) {
-		return this.view === view;
+	vm.isSet = function (view) {
+		return vm.view === view;
 	};
 };

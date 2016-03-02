@@ -1,25 +1,34 @@
 'use strict';
 
-module.exports = /*@ngInject*/ function ($location, localStorageService) {
+module.exports = /*@ngInject*/ function (localStorageService, dataService) {
 	var ls = localStorageService;
-	var connected = false;
+	var dsc = dataService;
 	var token = null;
 	var user = null;
 
 	if (ls.get('connected')) {
-		connected = true;
 		token = ls.get('token');
 		user = ls.get('currentUser');
 	}
 
-	if (user === null) {
-		$location.path('/login');
+	function fillUser(datas) {
+		user = {};
+		user.id = datas.id;
+		user.mail = datas.mail;
+		user.firstname = datas.firstname;
+		user.lastname = datas.lastname;
+		user.birthday = datas.birthday;
+		user.gender = datas.gender;
+		user.city = datas.city;
+		user.latitude = datas.latitude;
+		user.longitude = datas.longitude;
+		user.allowgps = datas.allowgps;
+		user.notifications = datas.notifications;
+
+		return user;
 	}
 
 	return {
-		connected: function () {
-			return connected;
-		},
 		token: function () {
 			return token;
 		},
@@ -27,35 +36,33 @@ module.exports = /*@ngInject*/ function ($location, localStorageService) {
 			return user;
 		},
 		connect: function (datas) {
-			//sauvegarde de l'user
-			user = {};
-			user.id = datas.id;
-			user.mail = datas.mail;
-			user.firstname = datas.firstname;
-			user.lastname = datas.lastname;
-			user.birthday = datas.birthday;
-			user.gender = datas.gender;
-			user.city = datas.city;
-			user.latitude = datas.latitude;
-			user.longitude = datas.longitude;
-			user.allowgps = datas.allowgps;
-			user.notifications = datas.notifications;
-			ls.set('currentUser', user);
-
 			//Sauvegarde du token
 			token = datas.token;
 			ls.set('token', token);
 
+			//sauvegarde de l'user
+			user = fillUser(datas);
+			//Récupération des assos et amis de l'user
+			dsc.getFriends(datas.id, datas.token)
+				.success(function (data) {
+					user.friends = data.response;
+					ls.set('currentUser', user);
+				});
+			dsc.getAssos(datas.id, datas.token)
+				.success(function (data) {
+					user.assos = data.response;
+					ls.set('currentUser', user);
+				});
+
 			//Variable connected pour les checks (pas forcément utile mais osef)
-			connected = true;
 			ls.set('connected', true);
 			console.log('User connected: ' + user.mail);
 		},
 		disconnect: function () {
 			user = null;
 			token = '';
-			connected = false;
 
+			//On retire les cookies du localhost
 			ls.remove('token');
 			ls.remove('currentUser');
 			ls.remove('connected');

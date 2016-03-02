@@ -1,0 +1,9 @@
+.card.listing
+	.content
+		h5.title
+			a(href='#') Associsson
+		.associations
+			.association(ng-repeat="asso in list.assos")
+				a.avatar(href="#/association/{{asso.id}}", title="{{asso.name}}")
+					img(src="img/mlp.jpg", alt="", class="img-circle")
+				a.name(href="#/association/{{asso.id}}") {{asso.name}}

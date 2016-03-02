@@ -16,10 +16,14 @@ require('./directives');
 require('./controllers');
 require('./settings');
 
-require('./navbar');
+require('./components/login_box');
+require('./components/navbar');
+require('./components/user_summary');
+require('./components/friends_list');
+require('./components/assos_list');
+
 require('./timeline');
 require('./recommendation');
-require('./cusummary');
 
 app.config(function ($routeProvider, localStorageServiceProvider) {
 	//Configuration localStorage

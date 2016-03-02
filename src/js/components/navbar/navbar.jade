@@ -1,0 +1,36 @@
+nav.app-navbar
+	.container
+		.navbar-logo
+			button.navbar-toggle
+				.sr-only Toggle navigation
+				span.icon-bar
+				span.icon-bar
+				span.icon-bar
+			a(href="#/")
+				img.img-responsive(src="img/logo.png", alt="CaritatHelp")
+		.navbar-left
+			a.nav-item(href="#/home", ng-class="{active:nav.isSet('home')}", ng-click="nav.setView('home')")
+				span Accueil
+				i.fa.fa-home
+			a.nav-item(href="#/profil", ng-class="{active:nav.isSet('profil')}", ng-click="nav.setView('profil')")
+				span {{nav.user.firstname}} {{nav.user.lastname}}
+				i.fa.fa-user
+			a.nav-item(href="#/association", ng-class="{active:nav.isSet('asso')}", ng-click="nav.setView('asso')")
+				span Associations
+				i.fa.fa-coffee
+			a.nav-item(href="#msgModal", data-toggle="modal")
+				span Messagerie
+				i.fa.fa-envelope
+			a.nav-item(href="#/login", ng-click="nav.logout()")
+				span Logout
+				i.fa.fa-power-off
+		.navbar-right
+			a.icon.hidden-md-up(href="#")
+				i.fa.fa-search
+			form.search-bar.hidden-sm-down(role="search")
+				.search-input
+					input.form-control(type="text", placeholder="Rechercher")
+			a.nav-item(href="#notifModal", data-toggle="modal")
+				i.fa.fa-bell
+			a.avatar(href="#/home")
+				img.img-responsive.img-circle(src="img/robert.png", alt="")

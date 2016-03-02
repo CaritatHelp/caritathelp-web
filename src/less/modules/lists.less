@@ -49,9 +49,16 @@
 }
 
 .listing {
-	.friend {
-		max-width: 25%;
-		padding: 0 .5em 1em;
+	.friend, .association {
+		display: flex;
+		align-items: center;
+		.avatar {max-width: 20%;}
+		.name {
+			flex-grow: 1;
+			padding: 0 1em;
+			font-size: 1.2em;
+			font-weight: bold;
+		}
 	}
 	.avatar {
 	}

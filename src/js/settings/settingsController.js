@@ -4,7 +4,6 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 	var usc = userService;
 
 	vm.user = usc.user();
-	vm.connected = usc.connected();
 
 	vm.tab = 1;
 

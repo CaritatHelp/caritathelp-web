@@ -1,15 +1,21 @@
 'use strict';
-module.exports = /*@ngInject*/ function (userService) {
+module.exports = /*@ngInject*/ function ($scope, userService, $routeParams, dataService) {
 	var vm = this;
 	var usc = userService;
+	var dsc = dataService;
 
-	vm.currentUser = usc.user();
+	vm.displayUser = {};
+
 	vm.tab = 1;
+	dsc.getVolunteer($routeParams.id, usc.token())
+		.success(function (data) {
+			vm.displayUser = data.response;
+		});
 
-	this.setTab = function (activeTab) {
-		this.tab = activeTab;
+	vm.setTab = function (activeTab) {
+		vm.tab = activeTab;
 	};
-	this.isSet = function (tab) {
-		return this.tab === tab;
+	vm.isSet = function (tab) {
+		return vm.tab === tab;
 	};
 };

@@ -32,7 +32,7 @@ app.config(function ($routeProvider, localStorageServiceProvider) {
 	//Routing
 	$routeProvider
 		.when('/', {
-			redirectTo: '/home'
+			redirectTo: '/login'
 		})
 		.when('/login', {
 			templateUrl: 'view/login.html',

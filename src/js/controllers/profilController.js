@@ -11,6 +11,10 @@ module.exports = /*@ngInject*/ function ($scope, userService, $routeParams, data
 		.success(function (data) {
 			vm.displayUser = data.response;
 		});
+	dsc.getFriends($routeParams.id, usc.token())
+		.success(function (data) {
+			vm.displayUser.friends = data.response;
+		});
 
 	vm.setTab = function (activeTab) {
 		vm.tab = activeTab;

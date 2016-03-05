@@ -4,6 +4,6 @@
 			a(href='#') Amis
 		.friends
 			.friend(ng-repeat="friend in friendlist.friends")
-				a.avatar(href="#/profil/{{friend.id}}", title="{{friend.firstname}} {{friend.lastname}}")
+				a.avatar(href="#/user/{{friend.id}}", title="{{friend.firstname}} {{friend.lastname}}")
 					img(src="img/jeremy.jpg", alt="", class="img-circle")
-				a.name(href="#/profil/{{friend.id}}") {{friend.firstname}} {{friend.lastname}}
+				a.name(href="#/user/{{friend.id}}") {{friend.firstname}} {{friend.lastname}}

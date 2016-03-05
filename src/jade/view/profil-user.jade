@@ -21,7 +21,8 @@ block tabs
 		include ../tabs/user-timeline
 	.friends-tab(
 		ng-show="profil.isSet(4)")
-			include ../tabs/user-friends
+		.col-md-3(ng-repeat="friend in profil.displayUser.friends")
+			user-summary(user-id="friend.id")
 	.calendar-tab(
 		ng-show="profil.isSet(2)")
 			include ../tabs/user-calendar

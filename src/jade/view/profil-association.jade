@@ -21,7 +21,8 @@ block tabs
 	.members-tab(
 		ng-show="asso.isSet(2)"
 	)
-		include ../tabs/user-friends
+		.col-md-3(ng-repeat="friend in profil.displayUser.friends")
+			user-summary(user-id="friend.id")
 	.settings-tab(
 		ng-show="asso.isSet(3)"
 	)

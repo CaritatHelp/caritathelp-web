@@ -7,10 +7,13 @@ module.exports = /*@ngInject*/ function ($routeParams, userService, dataService)
 
 	if (vm.userId) {
 		getUser(vm.userId);
+		vm.link = "#/user/" + vm.userId;
 	} else if ($routeParams.id) {
 		getUser($routeParams.id);
+		vm.link = "#/user/" + $routeParams.id;
 	} else {
 		vm.user = usc.user();
+		vm.link = "#/profil";
 	}
 
 	function getUser(id) {

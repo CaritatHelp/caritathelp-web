@@ -21,8 +21,8 @@ require('./components/navbar');
 require('./components/user_summary');
 require('./components/friends_list');
 require('./components/assos_list');
+require('./components/timeline');
 
-require('./timeline');
 require('./recommendation');
 
 app.config(function ($routeProvider, localStorageServiceProvider) {

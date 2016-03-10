@@ -1,0 +1,24 @@
+.timeline__actu
+	.actu__main
+		.actu__aside
+			a.actu__picture(href="#")
+				img(src="img/user3.png", alt="")
+		.actu__body
+			header.infos
+				a.name(href="") Denis la Malice
+				.time 25mn
+			.actu__text Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+			.actu__comments
+				comment
+				comment
+	.actu__reply
+		a.reply__picture(href="#")
+			img(src="img/user2.png", alt="")
+		.input-group
+			input.form-control(
+				type="text",
+				placeholder="Poster un commentaire",
+				ng-model="timeline.test")
+			.input-group-btn
+				button.btn
+					i.fa.fa-play

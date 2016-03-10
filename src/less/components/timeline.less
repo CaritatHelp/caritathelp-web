@@ -1,0 +1,78 @@
+.timeline {
+	.input-group {
+		display: flex;
+		input {
+			flex-grow: 1;
+			float: none;
+			width: auto;
+		}
+		.input-group-btn {
+			display: block;
+			width: auto;
+		}
+	}
+	.btn {
+		color: #536570;
+		background-color: #ffffff;
+		border-color: #d4dbe0;
+		&:hover, &:focus, &:active {
+			color: #536570;
+			text-decoration: none;
+			background-color: #e6e6e6;
+			border-color: #b0bdc6;
+		}
+	}
+}
+.timeline__new:extend(.card) {}
+.timeline__actu:extend(.card) {}
+
+//Un element de la timeline
+	.actu__main {
+		display: flex;
+		.actu__picture img:extend(.img-avatar) {width: 12em;}
+	}
+	.actu__aside {
+		display: flex;
+		flex-direction: column;
+	}
+	.actu__body {
+		padding-left: 1em;
+		.infos {
+			display: flex;
+			padding-bottom: .25em;
+			.name {
+				flex-grow: 1;
+				font-size: 1.2em;
+				font-weight: bold;
+				line-height: 1.2;
+			}
+			.time {
+				margin-top: -.5em;
+				font-size: 80%;
+				font-weight: 400;
+				color: #9da9b0;
+			}
+		}
+	}
+//Commentaires sur l'élément
+.actu__comments {padding-top: 1em;}
+.actu__comment {
+	display: flex;
+	padding: .5em 0;
+	border-top: 1px solid #d4dbe0;
+}
+.comment__body {padding: 0 .5em;}
+.comment__picture img:extend(.img-avatar) {width: 3em;}
+//Input de réponse
+.actu__reply {
+	display: flex;
+	align-items: center;
+	padding: 1em;
+	margin: .5em -1em -1em;
+	background-color: #EFEBEB;
+	.input-group {
+		flex-grow: 1;
+		padding-left: 1em;
+	}
+}
+.reply__picture img:extend(.img-avatar) {width: 3em;}

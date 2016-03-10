@@ -20,34 +20,19 @@
 @import "components/actions";
 @import "components/navbar";
 @import "components/connect";
+@import "components/timeline";
 
 //Deja en directive
 @import "modules/lists";
 //Directive à faire
-@import "modules/timeline";
 @import "modules/calendar";
 @import "modules/settings";
 @import "modules/associations";
 
-html, body {height: 100%;}
+@import "pages/profil";
+
 body {
 	font-family: Roboto, sans-serif;
 	font-size: 14px;
 	background-color: #E4F7DD;
-}
-
-//Headings
-	h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
-		margin:0;
-		font-weight: 600;
-		line-height: 1.2;
-	}
-	h4, .h4 {font-size: 1.3em;}
-	h5, .h5 {font-size: 1.2em;}
-
-//couleur texte message d'erreur register/login
-	.has-error .control-label, .has-success .control-label {color: #333;}
-
-.members-tab, .friends-tab {
-	flex-wrap: wrap;
 }

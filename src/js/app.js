@@ -23,6 +23,8 @@ require('./components/user_summary');
 require('./components/friends_list');
 require('./components/assos_list');
 require('./components/timeline');
+require('./components/news');
+require('./components/comment');
 
 require('./recommendation');
 

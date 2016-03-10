@@ -1,36 +1,35 @@
-nav.app-navbar
+nav.navbar
 	.container
-		.navbar-logo
-			button.navbar-toggle
+		.navbar__logo
+			button.toggle
 				.sr-only Toggle navigation
-				span.icon-bar
-				span.icon-bar
-				span.icon-bar
+				span-bar
+				span-bar
+				span-bar
 			a(href="#/")
-				img.img-responsive(src="img/logo.png", alt="CaritatHelp")
-		.navbar-left
-			a.nav-item(href="#/home", ng-class="{active:nav.isSet('home')}", ng-click="nav.setView('home')")
+				img(src="img/logo.png", alt="CaritatHelp")
+		.navbar__menu
+			a.navbar__item(href="#/home", ng-class="{active:nav.isSet('home')}", ng-click="nav.setView('home')")
 				span Accueil
 				i.fa.fa-home
-			a.nav-item(href="#/profil", ng-class="{active:nav.isSet('profil')}", ng-click="nav.setView('profil')")
+			a.navbar__item(href="#/profil", ng-class="{active:nav.isSet('profil')}", ng-click="nav.setView('profil')")
 				span Profil
 				i.fa.fa-user
-			a.nav-item(href="#/association", ng-class="{active:nav.isSet('asso')}", ng-click="nav.setView('asso')")
+			a.navbar__item(href="#/association", ng-class="{active:nav.isSet('asso')}", ng-click="nav.setView('asso')")
 				span Associations
 				i.fa.fa-coffee
-			a.nav-item(href="#msgModal", data-toggle="modal")
+			a.navbar__item(href="#msgModal", data-toggle="modal")
 				span Messagerie
 				i.fa.fa-envelope
-			a.nav-item(href="#/login", ng-click="nav.logout()")
+			a.navbar__item(href="#/login", ng-click="nav.logout()")
 				span Logout
 				i.fa.fa-power-off
-		.navbar-right
-			a.icon.hidden-md-up(href="#")
+		.navbar__right
+			a.navbar__item.hidden-lg-up(href="#")
 				i.fa.fa-search
-			form.search-bar.hidden-sm-down(role="search")
-				.search-input
-					input.form-control(type="text", placeholder="Rechercher")
-			a.nav-item(href="#notifModal", data-toggle="modal")
+			form.hidden-md-down(role="search")
+				input.form-control(type="text", placeholder="Rechercher")
+			a.navbar__item(href="#notifModal", data-toggle="modal")
 				i.fa.fa-bell
-			a.avatar(href="#/home")
-				img.img-responsive.img-circle(src="img/robert.png", alt="")
+			a.navbar__picture(href="#/home")
+				img(src="img/user2.png", alt="")

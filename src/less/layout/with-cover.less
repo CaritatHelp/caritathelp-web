@@ -1,73 +1,61 @@
-.cover {
+.with-cover .cover {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	padding: 5em 0 0;
-	margin-bottom: 1.5rem;
+	padding: 3em 0 0;
 	color: #fff;
 	text-shadow: 1px 1px #000;
 	background: rgba(0,0,0,.5);
-	.background {
-		.abso-center();
-		background: url(../img/cover/skyline.jpg);
-		background-size: cover;
-		background-position-y: 80%;
-	}
-	.infos {
-		text-align: center;
-		filter: drop-shadow(0 0 10px rgba(0,0,0,.5));
-		.name {margin-top: .5em;}
-		.picture {width: 8em;}
-	}
-	.navigation {
-		display: flex;
-		align-self: center;
-		padding-bottom: .7em;
-		.active {
-			color: #fff;
-			&:after {
-				position: absolute;
-				bottom: -.6em;
-				left: 50%;
-				margin-left: -10px;
-				border-right: 10px solid transparent;
-				border-bottom: 10px solid #f5f8fa;
-				border-left: 10px solid transparent;
-				content: '';
-			}
-		}
-		a {
-			position: relative;
-			padding: 0 .5em;
-			font-size: 1.2em;
-			color: rgba(255, 255, 255, 0.5);
-			cursor: pointer;
-			transition: color 0.2s ease-in-out;
-			&:active, &:focus, &:hover {color: #fff;}
-		}
+}
+.cover__background {
+	.abso-center();
+	background: url(../img/cover/skyline.jpg);
+	background-size: cover;
+	background-position-y: 80%;
+}
+.cover__navigation {
+	display: flex;
+	align-self: center;
+	padding-bottom: .7em;
+}
+.cover__navigation a {
+	position: relative;
+	padding: 0 .5em;
+	font-size: 1.2em;
+	color: rgba(255, 255, 255, 0.5);
+	cursor: pointer;
+	transition: color 0.2s ease-in-out;
+	&:active, &:focus, &:hover {color: #fff;}
+}
+.cover__navigation .active {
+	color: #fff;
+	&:after {
+		position: absolute;
+		bottom: -.6em;
+		left: 50%;
+		margin-left: -10px;
+		border-right: 10px solid transparent;
+		border-bottom: 10px solid #f5f8fa;
+		border-left: 10px solid transparent;
+		content: '';
 	}
 }
-.tabs {
+.cover__infos {
+	padding-bottom: 1em;
+	text-align: center;
+	filter: drop-shadow(0 0 10px rgba(0,0,0,.5));
+	.name {
+		padding-top: .5em;
+		font-size: 2em;
+	}
+	.picture:extend(.img-avatar) {width: 8em;}
+}
+.with-cover .tabs {
 	display: flex;
 	flex-grow: 1;
 	width: 100%;
 	> div {
-		display: flex;
-		flex-grow: 1;
-		padding: .9375em;
-	}
-	.sidebar {
-		flex-grow: 1;
-		padding: 0;
-		padding-right: .9375em;
-		border-right: 1px solid #c1c1c1;
-	}
-	.body {
-		padding: 0;
-		padding-left: .9375em;
-		h5 {
-			margin: 0;
-			font-weight: bold;
-		}
+		margin-right: -.9375rem;
+    margin-left: -.9375rem;
 	}
 }

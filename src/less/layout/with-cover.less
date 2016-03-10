@@ -7,12 +7,25 @@
 	text-shadow: 1px 1px #000;
 	background: rgba(0,0,0,.5);
 }
+//couverture de l'utilisateur
 .cover__background {
 	.abso-center();
-	background: url(../img/cover/skyline.jpg);
+	background: url(../img/cover/skyline.jpg); //doit être modifiée dynamiquement par le controller
 	background-size: cover;
 	background-position-y: 80%;
 }
+//Informations sur l'user
+.cover__infos {
+	padding-bottom: 1em;
+	text-align: center;
+	filter: drop-shadow(0 0 10px rgba(0,0,0,.5));
+	.name {
+		padding-top: .5em;
+		font-size: 2em;
+	}
+	.picture:extend(.img-avatar) {width: 8em;}
+}
+//Menu de navigation
 .cover__navigation {
 	display: flex;
 	align-self: center;
@@ -40,21 +53,12 @@
 		content: '';
 	}
 }
-.cover__infos {
-	padding-bottom: 1em;
-	text-align: center;
-	filter: drop-shadow(0 0 10px rgba(0,0,0,.5));
-	.name {
-		padding-top: .5em;
-		font-size: 2em;
-	}
-	.picture:extend(.img-avatar) {width: 8em;}
-}
+
 .with-cover .tabs {
 	display: flex;
 	flex-grow: 1;
 	width: 100%;
-	> div {
+	> div { //.row de bootstrap, repris pour pas ajouter de classe
 		margin-right: -.9375rem;
     margin-left: -.9375rem;
 	}

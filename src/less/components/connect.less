@@ -28,14 +28,14 @@
 		margin-top: 0;
 		font-weight: normal;
 		background-color: #fff;
-		border-radius: 3px;
+		border-radius: @card-radius;
 	}
 	input[type="radio"], input[type="checkbox"] {
 		&:empty {
 			display: none;
 			~ label {
 				position: relative;
-				padding: 6px 0;
+				padding: .5em 0;
 				text-indent: 48px;
 				cursor: pointer;
 				border: 1px solid #ccc;
@@ -46,13 +46,12 @@
 					bottom: 0;
 					display: block;
 					width: 36px;
-					padding: 6px 1px;
+					padding: .5em 0;
 					font-family: FontAwesome;
-					color: #000;
     			text-indent: 12px;
 					background: #eee;
 					border-right: 1px solid #ccc;
-					border-radius: 3px 0 0 3px;
+					border-radius: @card-radius 0 0 @card-radius;
 					content: '';
 				}
 				&[for="radioMan"]:before {content: '\f222';}

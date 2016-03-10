@@ -14,8 +14,8 @@
 		flex-direction: column;
 		padding: 1em;
 		margin-bottom: 1em;
-		background-color: #fff;
-		border: 1px solid #D5E7CF;
+		background-color: @card-background;
+		border: 1px solid @card-shadow;
 		border-radius: @card-radius;
 	}
 	.card__title {
@@ -27,8 +27,8 @@
 	.no-padding {padding:0;}
 
 .img-avatar {
-	background-color: #fff;
-	border: 1px solid #ddd;
+	background-color: @card-background;
+	border: 1px solid @card-border;
 	border-radius: 50%;
 }
 
@@ -50,24 +50,31 @@
 		line-height: 1.6;
 	}
 	.btn-primary {
+		color: @button-text;
 		background-color: @button-color;
-		border-color: @button-color;
+		border-color: @button-border;
 		&:active,
 		&:hover,
-		&:focus {
+		&:focus,
+		&:active:hover,
+		&:active:focus {
+			color: @button-text;
 			background-color: @button-hover;
-			border-color: @button-hover;
+			border-color: @button-border;
 		}
 	}
 	.btn-inversed {
 		color: @button-color;
-		background-color: #fff;
-		border-color: @button-color;
+		background-color: transparent;
+		border-color: @button-border;
 		&:active,
 		&:hover,
-		&:focus {
-			color: #fff;
+		&:focus,
+		&:active:hover,
+		&:active:focus {
+			color: @button-text;
 			background-color: @button-hover;
+			border-color: @button-border;
 		}
 	}
 

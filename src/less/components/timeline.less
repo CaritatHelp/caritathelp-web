@@ -13,13 +13,12 @@
 	}
 	.btn {
 		color: #536570;
-		background-color: #ffffff;
-		border-color: #d4dbe0;
+		background-color: @card-background;
+		border-color: #ccc;
 		&:hover, &:focus, &:active {
 			color: #536570;
 			text-decoration: none;
-			background-color: #e6e6e6;
-			border-color: #b0bdc6;
+			background-color: @card-inverse-bg;
 		}
 	}
 }
@@ -59,7 +58,7 @@
 .actu__comment {
 	display: flex;
 	padding: .5em 0;
-	border-top: 1px solid #d4dbe0;
+	border-top: 1px solid @card-border;
 }
 .comment__body {padding: 0 .5em;}
 .comment__picture img:extend(.img-avatar) {width: 3em;}
@@ -69,7 +68,7 @@
 	align-items: center;
 	padding: 1em;
 	margin: .5em -1em -1em;
-	background-color: #EFEBEB;
+	background-color: @card-inverse-bg;
 	.input-group {
 		flex-grow: 1;
 		padding-left: 1em;

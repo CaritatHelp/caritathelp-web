@@ -1,9 +1,8 @@
 .card.listing
-	.content
-		h5.title
-			a(href='#') Amis
-		.friends
-			.friend(ng-repeat="friend in friendlist.friends")
-				a.avatar(href="#/user/{{friend.id}}", title="{{friend.firstname}} {{friend.lastname}}")
-					img(src="img/jeremy.jpg", alt="", class="img-circle")
-				a.name(href="#/user/{{friend.id}}") {{friend.firstname}} {{friend.lastname}}
+	.card__title
+		a(href='#') Amis
+	.friends
+		.friend(ng-repeat="friend in friendlist.friends")
+			a.avatar(href="#/user/{{friend.id}}", title="{{friend.firstname}} {{friend.lastname}}")
+				img(src="img/jeremy.jpg", alt="", class="img-circle")
+			a.name(href="#/user/{{friend.id}}") {{friend.firstname}} {{friend.lastname}}

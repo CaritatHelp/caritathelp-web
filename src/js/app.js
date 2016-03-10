@@ -17,6 +17,7 @@ require('./controllers');
 require('./settings');
 
 require('./components/login_box');
+require('./components/register_box');
 require('./components/navbar');
 require('./components/user_summary');
 require('./components/friends_list');

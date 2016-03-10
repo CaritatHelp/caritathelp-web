@@ -1,0 +1,25 @@
+.action {
+	margin-bottom: .5em;
+	border: 1px solid #D5E7CF;
+	border-radius: @card-radius;
+}
+.action a {
+	display: block;
+	padding: .25em .5em;
+	font-weight: bold;
+	color: @navbar-hover;
+	background-color: @button-color;
+	transition: background .25s ease-in;
+	.fa {
+		width: 21px;
+		padding-right: .5rem;
+		margin-right: .4rem;
+		text-align: center;
+		border-right: 1px solid white;
+	}
+	&:hover {
+		color: @link-color;
+		background-color: #fff;
+		.fa {border-right: 1px solid @button-color;}
+	}
+}

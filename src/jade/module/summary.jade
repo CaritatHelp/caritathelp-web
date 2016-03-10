@@ -1,10 +1,9 @@
 .card.summary.no-padding
-	.cover(style="background-image:url(img/cover/black.jpg)")
-	a(href="/profil")
-		img.picture.img-circle.img-thumbnail(src="img/robert.png", alt="")
-	h3.name
-		a.link(href="/profil") Bobby Pony
-	.stats
+	.summary__cover(style="background-image:url(img/cover/black.jpg)")
+	a.summary__picture(href="/profil")
+		img(src="img/robert.png", alt="")
+	a.summary__name(href="/profil") Bobby Pony
+	.summary__stats
 		a.stat(href="#friendsModal", data-toggle="modal").
 			Location
 			#[h5.nb Paris]

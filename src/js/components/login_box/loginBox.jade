@@ -1,8 +1,6 @@
-.card
-	header.sign-box
-		h2 Connexion
-		hr
-	form#loginForm.clearfix(
+.card.login
+	h1.connect__header Connexion
+	form.connect__form#loginForm(
 			novalidate="",
 			name="loginForm",
 			ng-submit="login.login()"
@@ -33,5 +31,4 @@
 					required
 				)
 		a(href="#/register") Pas de compte ?
-		.pull-right
-			button#buttonConnect.btn.btn-primary(type="submit") Connexion
+		button#buttonConnect.btn.btn-primary.pull-right(type="submit") Connexion

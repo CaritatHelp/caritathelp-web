@@ -1,8 +1,24 @@
-.sign-box {
+.connect__header {
+	padding-bottom: .5em;
+	margin-bottom: .5em;
+	font-size: 1.75rem;
+	font-weight: bold;
+	line-height: 1.2;
 	text-align: center;
-	hr {margin: 1em 0;}
+	border-bottom: 1px solid rgba(0,0,0,.1);
 }
-.form-radio {
+.help-block {color: #a94442;}
+.connect__form {
+	.col-sm-6, .col-xs-6 {
+		padding: 0;
+		@media (min-width: 768px) {
+			&:nth-of-type(odd) {padding-right: 15px;}
+			&:nth-of-type(even) {padding-left: 15px;}
+		}
+	}
+	.col-xs-3, .col-xs-4, .col-xs-5 {padding: 0;}
+}
+.connect__radio {
 	div {
 		overflow: hidden;
 		clear: both;
@@ -13,14 +29,6 @@
 		font-weight: normal;
 		background-color: #fff;
 		border-radius: 3px;
-	}
-	#inputGenderMan {
-		padding-right: 3%;
-		@media (min-width: 768px){padding-right: 15px;}
-	}
-	#inputGenderWoman {
-		padding-left: 3%;
-		@media (min-width: 768px){padding-left: 15px;}
 	}
 	input[type="radio"], input[type="checkbox"] {
 		&:empty {
@@ -60,27 +68,4 @@
 	}
 }
 
-.input-mail {padding: 6px 10.5px;}
-
-.help-block {color: #a94442;}
-
-#registerForm div[class*="col-"] {padding: 0;}
-#userLastName {
-	padding: 0;
-	@media (min-width: 768px) {padding-left: 15px;}
-}
-#userFirstName {
-	padding: 0;
-	@media (min-width: 768px) {padding-right: 15px;}
-}
-#userBirthdate .input-group {min-width: 75%;}
-#selectDay {
-	@media (min-width: 768px) {border-right: none;}
-	@media (max-width: 768px) {border-top-right-radius: 4px;}
-}
-#selectYear {
-	border-bottom-right-radius: 4px;
-	@media (min-width: 768px) {border-left: none;}
-	@media (min-width: 768px) {border-top-right-radius: 4px;}
-}
-#userGender .input-group {min-width: 75%;}
+.radio__group {min-width: 75%;}

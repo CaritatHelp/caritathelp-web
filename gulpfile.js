@@ -34,7 +34,6 @@ gulp.task('styles', function () {
 		}))
 		.pipe(g.recess({
 			noIDs: false,
-			noUniversalSelectors: false,
 			noUnderscores: false
 		}))
 		.pipe(g.recess.reporter())

@@ -1,11 +1,11 @@
 extends ../layout/with-cover
 
 block jumbotron
-	.background(style="background-image:url(img/cover/fuzeria.jpg)")
-	.infos
+	.cover__background(style="background-image:url(img/cover/fuzeria.jpg)")
+	.cover__infos
 		img.img-circle.picture(src="img/mlp.jpg", alt="")
-		h3.name {{asso.asso.name}}
-	nav.navigation
+		h31.name {{asso.asso.name}}
+	nav.cover__navigation
 		a(ng-click="asso.setTab(1)"
 			ng-class="{active:asso.isSet(1)}") Timeline
 		a(ng-click="asso.setTab(2)"

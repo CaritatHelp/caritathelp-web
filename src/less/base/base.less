@@ -1,0 +1,42 @@
+//Wrapper pour toutes les pages sauf login/register
+	.content-wrapper{
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		min-height: 100vh;
+		padding-top: 55px;
+		& > .container {padding-top: 2em;}
+	}
+
+//cartes pour afficher les éléments
+	.card {
+		display: flex;
+		flex-direction: column;
+		padding: 1em;
+		border: 1px solid #D5E7CF;
+		border-radius: @card-radius;
+	}
+	.card__title {
+		padding-bottom: .5em;
+		font-size: 1.2em;
+		font-weight: bold;
+		line-height: 1.2;
+	}
+
+.img-avatar {
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 50%;
+}
+
+//Settings des liens
+	a {
+		color: inherit;
+		text-decoration: inherit;
+		transition: color .25s ease;
+		&:focus, &:hover {
+			color:@link-color;
+			text-decoration: none;
+			background: none;
+		}
+	}

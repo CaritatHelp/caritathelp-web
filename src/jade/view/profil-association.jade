@@ -14,16 +14,10 @@ block jumbotron
 			ng-class="{active:asso.isSet(3)}") Evenements
 
 block tabs
-	.timeline-tab(
-		ng-show="asso.isSet(1)"
-	)
+	.timeline-tab(ng-show="asso.isSet(1)")
 		timeline
-	.members-tab(
-		ng-show="asso.isSet(2)"
-	)
-		.col-md-3(ng-repeat="friend in profil.displayUser.friends")
-			user-summary(user-id="friend.id")
-	.settings-tab(
-		ng-show="asso.isSet(3)"
-	)
+	.members-tab(ng-show="asso.isSet(2)")
+		.col-md-3(ng-repeat="member in asso.asso.members")
+			user-summary(user-id="member.id")
+	.settings-tab(ng-show="asso.isSet(3)")
 		include ../tabs/asso-calendar

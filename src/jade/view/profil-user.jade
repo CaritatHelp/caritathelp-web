@@ -4,8 +4,8 @@ block jumbotron
 	.cover__background(style="background-image:url(img/cover/skyline.jpg)")
 	.cover__infos
 		img.picture(src="img/user3.png", alt="")
-		h1.name(ng-if="profil.usc.user()") {{profil.displayUser.firstname}} {{profil.displayUser.lastname}}
-		h1.name(ng-if="!profil.usc.user()") Test test
+		h1.name(ng-if="profil.user") {{profil.user.firstname}} {{profil.user.lastname}}
+		h1.name(ng-if="!profil.user") Test test
 	nav.cover__navigation
 		a(ng-click="profil.setTab(1)"
 			ng-class="{active:profil.isSet(1)}") Timeline
@@ -19,14 +19,10 @@ block jumbotron
 block tabs
 	.timeline-tab(ng-show="profil.isSet(1)")
 		include ../tabs/user-timeline
-	.friends-tab(
-		ng-show="profil.isSet(4)")
-		.col-md-3(ng-repeat="friend in profil.displayUser.friends")
+	.friends-tab(ng-show="profil.isSet(4)")
+		.col-md-3(ng-repeat="friend in profil.user.friends")
 			user-summary(user-id="friend.id")
-	.calendar-tab(
-		ng-show="profil.isSet(2)")
+	.calendar-tab(ng-show="profil.isSet(2)")
 			include ../tabs/user-calendar
-	.settings-tab(
-		ng-show="profil.isSet(3)",
-		ng-controller="settingsController as settings")
+	.settings-tab(ng-show="profil.isSet(3)", ng-controller="settingsController as settings")
 			include ../tabs/user-settings

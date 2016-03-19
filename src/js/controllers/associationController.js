@@ -7,14 +7,16 @@ module.exports = /*@ngInject*/ function ($location, $routeParams, dataService, u
 	vm.currentUser = usc.user();
 
 	vm.tab = 1;
-	vm.asso = asso();
+	vm.asso = {};
 
-	function asso() {
-		dsc.getAsso($routeParams.id, usc.token())
-			.success(function (data) {
-				return data.response;
-			});
-	}
+	dsc.getAsso($routeParams.id, usc.token())
+		.success(function (data) {
+			vm.asso = data.response;
+		});
+	dsc.getMembers($routeParams.id, usc.token())
+		.success(function (data) {
+			vm.asso.members = data.response;
+		});
 
 	this.setTab = function (activeTab) {
 		this.tab = activeTab;

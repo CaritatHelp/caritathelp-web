@@ -4,17 +4,22 @@ module.exports = /*@ngInject*/ function (userService, $routeParams, dataService)
 	var usc = userService;
 	var dsc = dataService;
 
+	vm.currentUser = usc.user();
 	vm.user = {};
 
 	vm.tab = 1;
-	dsc.getVolunteer($routeParams.id, usc.token())
-		.success(function (data) {
-			vm.user = data.response;
-		});
-	dsc.getFriends($routeParams.id, usc.token())
-		.success(function (data) {
-			vm.user.friends = data.response;
-		});
+	if ($routeParams.id) {
+		dsc.getVolunteer($routeParams.id, usc.token())
+			.success(function (data) {
+				vm.user = data.response;
+			});
+		dsc.getFriends($routeParams.id, usc.token())
+			.success(function (data) {
+				vm.user.friends = data.response;
+			});
+	} else {
+		vm.user = vm.currentUser;
+	}
 
 	vm.setTab = function (activeTab) {
 		vm.tab = activeTab;

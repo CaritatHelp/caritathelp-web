@@ -88,5 +88,15 @@ module.exports = /*@ngInject*/ function ($http) {
 		return $http.get(buildUrl('associations', id, 'members', parameters));
 	};
 
+//News
+	DataService.getNews = function (token) {
+		var parameters = 'token=' + token;
+		return $http.get(buildUrl('news', null, null, parameters));
+	};
+	DataService.postVolunteerNews = function (content, token) {
+		var parameters = 'token=' + token + '&content=' + content;
+		return $http.post(buildUrl('news', null, 'volunteer_status', parameters));
+	};
+
 	return DataService;
 };

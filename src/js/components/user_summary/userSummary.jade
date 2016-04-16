@@ -7,9 +7,9 @@
 		a.stat(href="#friendsModal", data-toggle="modal", ng-if="cusc.user.city").
 			Location
 			#[h5.nb {{cusc.user.city}}]
-		a.stat(href="#friendsModal", data-toggle="modal").
+		a.stat(href="{{cusc.link}}", data-toggle="modal").
 			Amis
 			#[h5.nb {{cusc.user.friends.length}}]
-		a.stat(href="#associationsModal", data-toggle="modal").
+		a.stat(href="{{cusc.link}}", data-toggle="modal").
 			Assos
 			#[h5.nb {{cusc.user.assos.length}}]

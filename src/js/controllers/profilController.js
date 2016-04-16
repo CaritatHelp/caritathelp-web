@@ -7,6 +7,8 @@ module.exports = /*@ngInject*/ function (userService, $routeParams, dataService)
 	vm.currentUser = usc.user();
 	vm.user = {};
 
+	vm.isCurrent = false;
+
 	vm.tab = 1;
 	if ($routeParams.id) {
 		dsc.getVolunteer($routeParams.id, usc.token())
@@ -19,6 +21,7 @@ module.exports = /*@ngInject*/ function (userService, $routeParams, dataService)
 			});
 	} else {
 		vm.user = vm.currentUser;
+		vm.isCurrent = true;
 	}
 
 	vm.setTab = function (activeTab) {

@@ -13,16 +13,22 @@ block jumbotron
 			ng-class="{active:profil.isSet(4)}") Amis
 		a(ng-click="profil.setTab(2)"
 			ng-class="{active:profil.isSet(2)}") Calendrier
-		a(ng-click="profil.setTab(3)"
+		a(
+			ng-if="profil.isCurrent",
+			ng-click="profil.setTab(3)"
 			ng-class="{active:profil.isSet(3)}") Settings
 
 block tabs
 	.timeline-tab(ng-show="profil.isSet(1)")
 		include ../tabs/user-timeline
 	.friends-tab(ng-show="profil.isSet(4)")
-		.col-md-3(ng-repeat="friend in profil.user.friends")
+		.col-md-4(ng-repeat="friend in profil.user.friends")
 			user-summary(user-id="friend.id")
 	.calendar-tab(ng-show="profil.isSet(2)")
 			include ../tabs/user-calendar
-	.settings-tab(ng-show="profil.isSet(3)", ng-controller="settingsController as settings")
+	.settings-tab(
+		ng-if="profil.isCurrent",
+		ng-show="profil.isSet(3)",
+		ng-controller="settingsController as settings"
+	)
 			include ../tabs/user-settings

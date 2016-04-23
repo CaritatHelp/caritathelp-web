@@ -20,9 +20,18 @@ block jumbotron
 
 block tabs
 	.timeline-tab(ng-show="profil.isSet(1)")
-		include ../tabs/user-timeline
+		.col-md-4
+			user-summary
+			.action(ng-if="!profil.isCurrent")
+				a(ng-click="profil.addFriend()").
+					#[i.fa.fa-plus]
+					Ajouter en ami
+			friend-list
+			asso-list
+		.col-md-8
+			timeline
 	.friends-tab(ng-show="profil.isSet(4)")
-		.col-md-4(ng-repeat="friend in profil.user.friends")
+		.col-md-3(ng-repeat="friend in profil.user.friends")
 			user-summary(user-id="friend.id")
 	.calendar-tab(ng-show="profil.isSet(2)")
 			include ../tabs/user-calendar

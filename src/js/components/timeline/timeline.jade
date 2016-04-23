@@ -15,7 +15,9 @@
 				.input-group-btn
 					button.btn(type="submit")
 						i.fa.fa-play
-	section.news
-		news
 	section.news(ng-repeat="actu in timeline.news")
-		news(news-id="actu.id")
+		news(
+			news-id="actu.id",
+			user-id="actu.volunteer_id",
+			content="actu.content"
+		)

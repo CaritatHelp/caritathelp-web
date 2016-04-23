@@ -1,17 +1,16 @@
 .timeline__actu
-	.actu__main
+	.actu__main(data-id="{{news.newsId}}")
 		.actu__aside
 			a.actu__picture(href="#")
 				img(src="img/user3.png", alt="")
 		.actu__body
 			header.infos
-				a.name(href="") Denis la Malice
+				a.name(href="") {{news.username}}
 				.time 25mn
-			.actu__text Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-			.actu__comments
+			.actu__text {{news.content}}
+			.actu__comments(ng-repeat="comment in news.comments")
 				comment
-				comment
-	.actu__reply
+	.actu__reply(ng-show="news.isReplying()")
 		a.reply__picture(href="#")
 			img(src="img/user2.png", alt="")
 		.input-group

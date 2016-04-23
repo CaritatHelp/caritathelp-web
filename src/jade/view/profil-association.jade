@@ -15,7 +15,13 @@ block jumbotron
 
 block tabs
 	.timeline-tab(ng-show="asso.isSet(1)")
-		timeline
+		.col-md-4
+			.action
+				a(href="#").
+					#[i.fa.fa-plus]
+					Rejoindre l'association
+		.col-md-8
+			timeline
 	.members-tab(ng-show="asso.isSet(2)")
 		.col-md-3(ng-repeat="member in asso.asso.members")
 			user-summary(user-id="member.id")

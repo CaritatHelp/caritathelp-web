@@ -5,7 +5,9 @@ module.exports = /*@ngInject*/ function () {
 		controllerAs: 'news',
 		templateUrl: 'js/news/news.html',
 		bindToController: {
-			newsId: '='
+			newsId: '=',
+			userId: '=',
+			content: '='
 		}
 	};
 };

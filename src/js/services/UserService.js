@@ -32,8 +32,9 @@ module.exports = /*@ngInject*/ function (localStorageService, dataService) {
 		token: function () {
 			return token;
 		},
+		// check si l'user est logged
 		user: function () {
-			return user;
+			return (user) ? user : false;
 		},
 		connect: function (datas) {
 			//Sauvegarde du token

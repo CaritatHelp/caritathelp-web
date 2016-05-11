@@ -5,13 +5,17 @@ module.exports = /*@ngInject*/ function ($location, dataService, userService) {
 	var usc = userService;
 
 	vm.user = usc.user();
-	vm.view = 1;
+	vm.view = 'home';
 
 	vm.logout = function () {
 		dsc.logout(usc.token());
 		usc.disconnect();
 		$location.path('/login');
 	};
+
+	vm.isConnected = function () {
+		return usc.user();
+	}
 
 	vm.setView = function (activeView) {
 		vm.view = activeView;

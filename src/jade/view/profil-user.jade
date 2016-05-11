@@ -22,7 +22,7 @@ block tabs
 	.timeline-tab(ng-show="profil.isSet(1)")
 		.col-md-4
 			user-summary
-			.action(ng-if="!profil.isCurrent")
+			.action(ng-if="!profil.isCurrent && profil.")
 				a(ng-click="profil.addFriend()").
 					#[i.fa.fa-plus]
 					Ajouter en ami

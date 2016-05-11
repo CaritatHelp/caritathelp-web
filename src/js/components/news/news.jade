@@ -1,17 +1,17 @@
-.timeline__actu
-	.actu__main(data-id="{{news.newsId}}")
-		.actu__aside
-			a.actu__picture(href="#")
+.timeline--actu
+	.actu--main(data-id="{{news.newsId}}")
+		.actu--aside
+			a.actu--picture(href="#")
 				img(src="img/user3.png", alt="")
-		.actu__body
+		.actu--body
 			header.infos
 				a.name(href="") {{news.username}}
 				.time 25mn
-			.actu__text {{news.content}}
-			.actu__comments(ng-repeat="comment in news.comments")
+			.actu--text {{news.content}}
+			.actu--comments(ng-repeat="comment in news.comments")
 				comment
-	.actu__reply(ng-show="news.isReplying()")
-		a.reply__picture(href="#")
+	.actu--reply(ng-show="news.isReplying()")
+		a.reply--picture(href="#")
 			img(src="img/user2.png", alt="")
 		.input-group
 			input.form-control(

@@ -8,14 +8,14 @@
 	background: rgba(0,0,0,.5);
 }
 //couverture de l'utilisateur
-.cover__background {
+.cover--background {
 	.abso-center();
 	background: url(../img/cover/skyline.jpg); //doit être modifiée dynamiquement par le controller
 	background-size: cover;
 	background-position-y: 80%;
 }
 //Informations sur l'user
-.cover__infos {
+.cover--infos {
 	padding-bottom: 1em;
 	text-align: center;
 	filter: drop-shadow(0 0 10px rgba(0,0,0,.5));
@@ -26,12 +26,12 @@
 	.picture:extend(.img-avatar) {width: 8em;}
 }
 //Menu de navigation
-.cover__navigation {
+.cover--navigation {
 	display: flex;
 	align-self: center;
 	padding-bottom: .7em;
 }
-.cover__navigation a {
+.cover--navigation a {
 	position: relative;
 	padding: 0 .6em;
 	font-size: 1.2em;
@@ -40,7 +40,7 @@
 	transition: color 0.2s ease-in-out;
 	&:active, &:focus, &:hover {color: #fff;}
 }
-.cover__navigation .active {
+.cover--navigation .active {
 	color: #fff;
 	&:after {
 		position: absolute;

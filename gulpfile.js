@@ -33,8 +33,7 @@ gulp.task('styles', function () {
 			}
 		}))
 		.pipe(g.recess({
-			noIDs: false,
-			noUnderscores: false
+			noIDs: false
 		}))
 		.pipe(g.recess.reporter())
 		.pipe(g.less())

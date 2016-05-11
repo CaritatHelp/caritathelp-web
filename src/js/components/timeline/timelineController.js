@@ -13,7 +13,6 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 			.success(function (data) {
 				if (data.status === 200) {
 					vm.news = data.response.news;
-					console.log(vm.news);
 				}
 			});
 	};

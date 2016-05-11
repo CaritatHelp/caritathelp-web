@@ -1,6 +1,6 @@
 nav.navbar(ng-if="nav.isConnected()")
 	.container
-		.navbar__logo
+		.navbar--logo
 			button.toggle
 				.sr-only Toggle navigation
 				span-bar
@@ -8,28 +8,28 @@ nav.navbar(ng-if="nav.isConnected()")
 				span-bar
 			a(href="#/")
 				img(src="img/logo.png", alt="CaritatHelp")
-		.navbar__menu
-			a.navbar__item(href="#/home", ng-class="{active:nav.isSet('home')}", ng-click="nav.setView('home')")
+		.navbar--menu
+			a.navbar--item(href="#/home", ng-class="{active:nav.isSet('home')}", ng-click="nav.setView('home')")
 				span Accueil
 				i.fa.fa-home
-			a.navbar__item(href="#/profil", ng-class="{active:nav.isSet('profil')}", ng-click="nav.setView('profil')")
+			a.navbar--item(href="#/profil", ng-class="{active:nav.isSet('profil')}", ng-click="nav.setView('profil')")
 				span Profil
 				i.fa.fa-user
-			a.navbar__item(href="#/association", ng-class="{active:nav.isSet('asso')}", ng-click="nav.setView('asso')")
+			a.navbar--item(href="#/association", ng-class="{active:nav.isSet('asso')}", ng-click="nav.setView('asso')")
 				span Associations
 				i.fa.fa-coffee
-			a.navbar__item(href="#msgModal", data-toggle="modal")
+			a.navbar--item(href="#msgModal", data-toggle="modal")
 				span Messagerie
 				i.fa.fa-envelope
-			a.navbar__item(href="#/login", ng-click="nav.logout()")
+			a.navbar--item(href="#/login", ng-click="nav.logout()")
 				span Logout
 				i.fa.fa-power-off
-		.navbar__right
-			a.navbar__item.hidden-lg-up(href="#")
+		.navbar--right
+			a.navbar--item.hidden-lg-up(href="#")
 				i.fa.fa-search
 			form.hidden-md-down(role="search")
 				input.form-control(type="text", placeholder="Rechercher")
-			a.navbar__item(href="#notifModal", data-toggle="modal")
+			a.navbar--item(href="#notifModal", data-toggle="modal")
 				i.fa.fa-bell
-			a.navbar__picture(href="#/home")
+			a.navbar--picture(href="#/home")
 				img(src="img/user2.png", alt="")

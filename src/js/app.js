@@ -84,11 +84,15 @@ app.config(function ($routeProvider, localStorageServiceProvider) {
 // On vérifie que l'utilisateur est bien login, sinon on le redirige vers la page de login
 app.run(['$rootScope', '$location', 'userService', function ($rootScope, $location, userService) {
 	$rootScope.$on('$routeChangeStart', function (event) {
-		if (userService.user()) {
-			return;
-		} else if ($location.path() !== '/login') {
+		var path = $location.path();
+		if (userService.user() && (path === '/login' || path === '/register')) {
+			event.preventDefault();
+			$location.path('/home');
+		} else if (!userService.user() && (path !== '/login' && path !== '/register')) {
 			event.preventDefault();
 			$location.path('/login');
+		} else {
+			return;
 		}
 	});
 }]);

@@ -1,11 +1,8 @@
-extends ../layout/two-columns
-
-block sidebar-column
-	//- Module summary sert à resumer les infos sur l'utilisateur en cours
-	user-summary
-	//- Actions que l'utilisateur pourrait vouloir faire depuis l'accueil
-	include ../module/actions
-
-block main-column
-	//- La timeline avec les dernières news de l'utilisateur en cours
-	timeline
+.content-wrapper
+	.container
+		.row
+			.col-sm-4
+				user-summary
+				include ../module/actions
+			.col-sm-8
+				timeline

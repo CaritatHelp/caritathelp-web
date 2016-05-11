@@ -1,6 +1,6 @@
 .timeline
-	section.timeline__new
-		form.timeline__post#postNews(
+	section.timeline--new
+		form.timeline--post#postNews(
 			novalidate="",
 			name="postNews",
 			ng-submit="timeline.postNews()"
@@ -17,7 +17,7 @@
 						i.fa.fa-play
 	section.news(ng-repeat="actu in timeline.news")
 		news(
-			news-id="actu.id",
-			user-id="actu.volunteer_id",
-			content="actu.content"
+			news-id="actu.object.id",
+			user-id="actu.object.volunteer_id",
+			content="actu.object.content"
 		)

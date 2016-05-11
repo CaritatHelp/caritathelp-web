@@ -1,12 +1,12 @@
 extends ../layout/with-cover
 
 block jumbotron
-	.cover__background(style="background-image:url(img/cover/skyline.jpg)")
-	.cover__infos
+	.coverstatebackground(style="background-image:url(img/cover/skyline.jpg)")
+	.cover--infos
 		img.picture(src="img/user3.png", alt="")
 		h1.name(ng-if="profil.user") {{profil.user.firstname}} {{profil.user.lastname}}
 		h1.name(ng-if="!profil.user") Test test
-	nav.cover__navigation
+	nav.cover--navigation
 		a(ng-click="profil.setTab(1)"
 			ng-class="{active:profil.isSet(1)}") Timeline
 		a(ng-click="profil.setTab(4)"
@@ -22,7 +22,7 @@ block tabs
 	.timeline-tab(ng-show="profil.isSet(1)")
 		.col-md-4
 			user-summary
-			.action(ng-if="!profil.isCurrent && profil.")
+			.action(ng-if="!profil.isCurrent")
 				a(ng-click="profil.addFriend()").
 					#[i.fa.fa-plus]
 					Ajouter en ami

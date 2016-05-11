@@ -21,6 +21,6 @@ module.exports = /*@ngInject*/ function ($routeParams, userService, dataService)
 					.success(function (data) {
 						vm.assos = data.response;
 					});
-			})
+			});
 	}
 };

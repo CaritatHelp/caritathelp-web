@@ -22,19 +22,19 @@
 		}
 	}
 }
-.timeline__new:extend(.card) {}
-.timeline__actu:extend(.card) {}
+.timeline--new:extend(.card) {}
+.timeline--actu:extend(.card) {}
 
 //Un element de la timeline
-	.actu__main {
+	.actu--main {
 		display: flex;
-		.actu__picture img:extend(.img-avatar) {width: 5em;}
+		.actu--picture img:extend(.img-avatar) {width: 5em;}
 	}
-	.actu__aside {
+	.actu--aside {
 		display: flex;
 		flex-direction: column;
 	}
-	.actu__body {
+	.actu--body {
 		flex-grow: 1;
 		padding-left: 1em;
 		.infos {
@@ -55,16 +55,16 @@
 		}
 	}
 //Commentaires sur l'élément
-.actu__comments {padding-top: 1em;}
-.actu__comment {
+.actu--comments {padding-top: 1em;}
+.actu--comment {
 	display: flex;
 	padding: .5em 0;
 	border-top: 1px solid @card-border;
 }
-.comment__body {padding: 0 .5em;}
-.comment__picture img:extend(.img-avatar) {width: 3em;}
+.comment--body {padding: 0 .5em;}
+.comment--picture img:extend(.img-avatar) {width: 3em;}
 //Input de réponse
-.actu__reply {
+.actu--reply {
 	display: flex;
 	align-items: center;
 	padding: 1em;
@@ -75,4 +75,4 @@
 		padding-left: 1em;
 	}
 }
-.reply__picture img:extend(.img-avatar) {width: 3em;}
+.reply--picture img:extend(.img-avatar) {width: 3em;}

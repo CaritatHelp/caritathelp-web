@@ -1,9 +1,9 @@
 .card.summary.no-padding
-	.summary__cover(style="background-image:url(img/cover/skyline.jpg)")
-	a.summary__picture(href="{{cusc.link}}")
+	.summary--cover(style="background-image:url(img/cover/skyline.jpg)")
+	a.summary--picture(href="{{cusc.link}}")
 		img(src="img/user2.png", alt="{{cusc.user.firstname}} {{cusc.user.lastname}}")
-	a.summary__name(href="{{cusc.link}}") {{cusc.user.firstname}} {{cusc.user.lastname}}
-	.summary__stats
+	a.summary--name(href="{{cusc.link}}") {{cusc.user.firstname}} {{cusc.user.lastname}}
+	.summary--stats
 		a.stat(href="#friendsModal", data-toggle="modal", ng-if="cusc.user.city").
 			Location
 			#[h5.nb {{cusc.user.city}}]

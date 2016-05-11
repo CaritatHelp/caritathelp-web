@@ -1,7 +1,7 @@
 - var months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
 .card.register
-	h1.connect__header Inscription
-	form.connect__form#registerForm(
+	h1.connect--header Inscription
+	form.connect--form#registerForm(
 		novalidate="",
 		name="registerForm",
 		ng-submit="registerForm.$valid && register.register()"
@@ -139,11 +139,11 @@
 		//- Sexe
 		fieldset#userGender.form-group
 			label.control-label(for="inputGender") Sexe
-			.input-group.radio__group
-				.connect__radio.col-xs-6#inputGenderMan
+			.input-group.radio--group
+				.connect--radio.col-xs-6#inputGenderMan
 					input(type="radio", name="radioGender", id="radioMan", value="homme", ng-model="register.gender", required="")
 					label(for="radioMan") Homme
-				.connect__radio.col-xs-6#inputGenderWoman
+				.connect--radio.col-xs-6#inputGenderWoman
 					input(type="radio", name="radioGender", id="radioWoman", value="femme", ng-model="register.gender")
 					label(for="radioWoman") Femme
 

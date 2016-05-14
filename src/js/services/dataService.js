@@ -87,6 +87,10 @@ module.exports = /*@ngInject*/ function ($http) {
 		var parameters = 'token=' + token;
 		return $http.get(buildUrl('associations', id, 'members', parameters));
 	};
+	DataService.searchAssociation = function (research, token) {
+		var parameters = 'token=' + token + '&research=' + research;
+		return $http.get(buildUrl('associations', null, 'search', parameters));
+	};
 
 //News
 	DataService.getNews = function (token) {

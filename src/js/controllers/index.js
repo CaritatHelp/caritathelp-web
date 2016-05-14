@@ -7,3 +7,4 @@ app.controller('homeController', require('./homeController'));
 app.controller('registerController', require('./registerController'));
 app.controller('profilController', require('./profilController'));
 app.controller('associationController', require('./associationController'));
+app.controller('searchController', require('./searchController'));

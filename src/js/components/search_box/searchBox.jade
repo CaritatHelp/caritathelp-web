@@ -1,0 +1,13 @@
+.search-box
+	a.navbar--item.hidden-lg-up(href="#")
+		i.fa.fa-search
+	form.hidden-md-down(
+		role="search",
+		name="searchForm",
+		ng-submit="search.search()"
+		)
+		input.form-control(
+			type="text",
+			placeholder="Rechercher",
+			ng-model="search.research"
+		)

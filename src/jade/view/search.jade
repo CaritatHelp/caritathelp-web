@@ -1,0 +1,25 @@
+.content-wrapper
+	.container
+		.row
+			.col-sm-4
+				user-summary
+				include ../module/actions
+			.col-sm-8
+				h1 Recherche de "{{search.research}}"
+				section.search--results
+					.card--title
+						a(href='#') Résultats dans les volontaires
+					.card.listing(ng-repeat="user in search.resUser")
+						.friends
+							.friend
+								a.avatar(href="#/user/{{user.id}}", title="{{user.firstname}} {{user.lastname}}")
+									img(src="img/user1.png", alt="", class="img-circle")
+								a.name(href="#/user/{{user.id}}") {{user.firstname}} {{user.lastname}}
+				section.search--results
+					.card--title
+						a(href='#') Résultats dans les associssons
+					.card.listing(ng-repeat="asso in search.resAsso")
+						.association
+							a.avatar(href="#/association/{{asso.id}}", title="{{asso.name}}")
+								img(src="img/mlp.jpg", alt="", class="img-circle")
+							a.name(href="#/association/{{asso.id}}") {{asso.name}}

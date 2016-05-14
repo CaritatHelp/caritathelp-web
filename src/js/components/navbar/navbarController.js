@@ -23,4 +23,7 @@ module.exports = /*@ngInject*/ function ($location, dataService, userService) {
 	vm.isSet = function (view) {
 		return vm.view === view;
 	};
+	vm.search = function () {
+		$location.path('/search/'+vm.research);
+	}
 };

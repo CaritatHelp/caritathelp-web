@@ -78,6 +78,11 @@ app.config(function ($routeProvider, localStorageServiceProvider) {
 			controller: 'associationController',
 			controllerAs: 'asso'
 		})
+		.when('/search/:search', {
+			templateUrl: 'view/search.html',
+			controller: 'searchController',
+			controllerAs: 'search'
+		})
 		.otherwise({redirectTo: '/'});
 });
 

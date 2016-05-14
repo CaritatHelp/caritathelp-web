@@ -25,10 +25,19 @@ nav.navbar(ng-if="nav.isConnected()")
 				span Logout
 				i.fa.fa-power-off
 		.navbar--right
+			.search-box
 			a.navbar--item.hidden-lg-up(href="#")
 				i.fa.fa-search
-			form.hidden-md-down(role="search")
-				input.form-control(type="text", placeholder="Rechercher")
+			form.hidden-md-down(
+				role="search",
+				name="searchForm",
+				ng-submit="nav.search()"
+				)
+				input.form-control(
+					type="text",
+					placeholder="Rechercher",
+					ng-model="nav.research"
+				)
 			a.navbar--item(href="#notifModal", data-toggle="modal")
 				i.fa.fa-bell
 			a.navbar--picture(href="#/home")

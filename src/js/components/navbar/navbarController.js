@@ -7,6 +7,8 @@ module.exports = /*@ngInject*/ function ($location, dataService, userService) {
 	vm.user = usc.user();
 	vm.view = 'home';
 
+	getNotifs();
+
 	vm.logout = function () {
 		dsc.logout(usc.token());
 		usc.disconnect();
@@ -25,5 +27,16 @@ module.exports = /*@ngInject*/ function ($location, dataService, userService) {
 	};
 	vm.search = function () {
 		$location.path('/search/'+vm.research);
+	}
+
+	function getNotifs() {
+		dsc.getNotifs(vm.user.id, usc.token())
+			.success(function (data) {
+				vm.notifications = data.response;
+				if (!vm.notifications.add_friend.length && !vm.notifications.assoc_invite.length && !vm.notifications.event_invite.length) {
+					vm.errorNotif = 'Pas de notifications récentes';
+				}
+				console.log(vm.notifications);
+			});
 	}
 };

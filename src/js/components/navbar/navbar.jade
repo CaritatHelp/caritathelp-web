@@ -42,3 +42,23 @@ nav.navbar(ng-if="nav.isConnected()")
 				i.fa.fa-bell
 			a.navbar--picture(href="#/home")
 				img(src="img/user2.png", alt="")
+
+.modal.fade#notifModal(tabindex="-1", role="dialog")
+	.modal-dialog
+		.modal-content
+			.modal-header
+				button.close(type="button", data-dismiss="modal", aria-label="Close")
+					span(aria-hidden="true")
+						i.fa.fa-times
+				h4.modal-title Notifications
+			.modal-header
+				<a href="#/user/1">Test Name</a> vous a ajouté en ami.
+			.modal-header
+				<a href="#/user/1">Test Name</a> vous a invité dans l'associations <a href="#/asso/2">Les Restos de l'Estomac</a>.
+			.modal-header(ng-hide="nav.errorNotif", ng-repeat="notif in nav.notifications.add_friend")
+				<a href="#/user/{{notif.id}}">{{notif.firstname}} {{notif.lastname}}</a> vous a ajouté en ami.
+			.modal-header
+				<a href="#/user/1">Test Name</a> vous a invité à l'évenement <a href="#/event/2">Aidage de gens</a>.
+			.modal-header(ng-show="nav.errorNotif") {{nav.errorNotif}}
+			.modal-footer
+				button.btn.btn-primary(type="button") Close

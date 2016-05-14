@@ -12,7 +12,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $routeParams)
 			if (data.status === 200) {
 				vm.resUser = data.response;
 				if (!vm.resUser.length) {
-					vm.errorUser = "Pas de résultat";
+					vm.errorUser = 'Pas de résultat';
 				}
 			}
 		});
@@ -21,7 +21,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $routeParams)
 			if (data.status === 200) {
 				vm.resAsso = data.response;
 				if (!vm.resAsso.length) {
-					vm.errorAsso = "Pas de résultat";
+					vm.errorAsso = 'Pas de résultat';
 				}
 			}
 		});

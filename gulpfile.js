@@ -120,7 +120,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('build', function () {
-	runSequence(['styles', 'scripts', 'jade', 'copy']);
+	runSequence(['styles', 'scripts', 'components', 'jade', 'copy']);
 });
 
 gulp.task('reload', function () {

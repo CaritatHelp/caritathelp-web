@@ -12,18 +12,42 @@ block jumbotron
 			ng-class="{active:asso.isSet(2)}") Membres
 		a(ng-click="asso.setTab(3)"
 			ng-class="{active:asso.isSet(3)}") Evenements
+		a(ng-click="asso.setTab(4)"
+			ng-class="{active:asso.isSet(4)}") Administration
 
 block tabs
 	.timeline-tab(ng-show="asso.isSet(1)")
 		.col-md-4
-			.action
+			//-Bloc d'informations latéral
+			.card
+				section(ng-if="!asso.asso.rights").
+					Vous n'êtes pas membre de cette association
+				section(ng-if="asso.asso.rights == 'member'").
+					Vous êtes membre de cette association
+				section(ng-if="asso.asso.rights == 'admin'").
+					Vous n'êtes pas membre de cette association
+				section(ng-if="asso.asso.rights == 'owner'").
+					Vous êtes le créateur de cette association
+			//- Actions possibles pour l'utilisateur
+			.action(ng-if="!asso.asso.rights")
 				a(href="#").
 					#[i.fa.fa-plus]
 					Rejoindre l'association
+			.action(ng-if="asso.asso.rights && asso.asso.rights != 'owner'")
+				a(href="#").
+					#[i.fa.fa-minus]
+					Quitter l'association
+			.action(ng-if="asso.asso.rights == 'owner'")
+				a(href="#").
+					#[i.fa.fa-minus]
+					Supprimer l'association
+			//- Timeline de l'association
 		.col-md-8
 			timeline
 	.members-tab(ng-show="asso.isSet(2)")
 		.col-md-3(ng-repeat="member in asso.asso.members")
 			user-summary(user-id="member.id")
-	.settings-tab(ng-show="asso.isSet(3)")
+	.calendar-tab(ng-show="asso.isSet(3)")
+		include ../tabs/asso-calendar
+	.settings-tab(ng-show="asso.isSet(4)")
 		include ../tabs/asso-calendar

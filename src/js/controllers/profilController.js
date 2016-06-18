@@ -22,7 +22,6 @@ module.exports = /*@ngInject*/ function (userService, $routeParams, dataService)
 		dsc.getEvents($routeParams.id, usc.token())
 			.success(function (data) {
 				vm.user.events = data.response;
-				console.log(vm.user.events);
 			});
 	} else {
 		vm.isCurrent = true;

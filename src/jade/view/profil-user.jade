@@ -34,7 +34,10 @@ block tabs
 		.col-md-3(ng-repeat="friend in profil.user.friends")
 			user-summary(user-id="friend.id")
 	.calendar-tab(ng-show="profil.isSet(2)")
-			include ../tabs/user-calendar
+		calendar(
+			cal-id="profil.user.id",
+			cal-type="'volunteer'"
+		)
 	.settings-tab(
 		ng-if="profil.isCurrent",
 		ng-show="profil.isSet(3)",

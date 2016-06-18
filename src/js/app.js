@@ -28,6 +28,7 @@ require('./components/asso_create');
 require('./components/timeline');
 require('./components/news');
 require('./components/comment');
+require('./components/calendar');
 
 app.config(function ($routeProvider, localStorageServiceProvider) {
 	//Configuration localStorage

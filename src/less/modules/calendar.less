@@ -4,6 +4,12 @@
 	table {width: 100%;}
 	tr {display: flex;}
 }
+.calendar--main {
+	.title {margin-bottom: .5em;}
+}
+.calendar--nav {
+	.title {margin-bottom: .5em;}
+}
 .day {
 	width: 100%;
 	margin: .5em;
@@ -20,4 +26,29 @@
 .disabled-day {
 	background-color: #ddd;
 	border: 1px solid #c1c1c1;
+}
+
+
+.event {
+	header {
+		display: flex;
+		margin-bottom: .75em;
+		border-bottom: 1px solid #ccc;
+	}
+	.event--title {
+		flex-grow: 1;
+		font-weight: bold;
+	}
+	.event--creator {
+		font-size: .9em;
+	}
+	footer {
+		display: flex;
+		padding-top: .25em;
+		margin-top: .75em;
+		border-top: 1px solid #ccc;
+	}
+	.event--status {
+		flex-grow: 1;
+	}
 }

@@ -23,7 +23,6 @@ module.exports = /*@ngInject*/ function ($location, $routeParams, dataService, u
 	dsc.getAsso($routeParams.id, usc.token())
 		.success(function (data) {
 			vm.asso = data.response;
-			console.log(vm.asso);
 			//Récupération des membres
 			dsc.getAssoMembers($routeParams.id, usc.token())
 				.success(function (data) {

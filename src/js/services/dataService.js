@@ -127,5 +127,11 @@ module.exports = /*@ngInject*/ function ($http) {
 		return $http.post(buildUrl('news', null, 'volunteer_status', parameters));
 	};
 
+//Events
+	DataService.getEventList = function (token) {
+		var parameters = 'token=' + token;
+		return $http.get(buildUrl('events', null, null, parameters));
+	};
+
 	return DataService;
 };

@@ -18,9 +18,14 @@ module.exports = /*@ngInject*/ function (localStorageService, dataService, $inte
 				user.friends = data.response;
 				ls.set('currentUser', user);
 			});
-		dsc.getUserAssos(user.id, token)
+		dsc.getAssos(user.id, token)
 			.success(function (data) {
 				user.assos = data.response;
+				ls.set('currentUser', user);
+			});
+		dsc.getEvents(user.id, user.token)
+			.success(function (data) {
+				user.events = data.response;
 				ls.set('currentUser', user);
 			});
 	}, 300000);
@@ -64,9 +69,14 @@ module.exports = /*@ngInject*/ function (localStorageService, dataService, $inte
 					user.friends = data.response;
 					ls.set('currentUser', user);
 				});
-			dsc.getUserAssos(datas.id, datas.token)
+			dsc.getAssos(datas.id, datas.token)
 				.success(function (data) {
 					user.assos = data.response;
+					ls.set('currentUser', user);
+				});
+			dsc.getEvents(datas.id, datas.token)
+				.success(function (data) {
+					user.events = data.response;
 					ls.set('currentUser', user);
 				});
 

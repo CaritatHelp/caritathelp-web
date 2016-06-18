@@ -17,7 +17,7 @@ module.exports = /*@ngInject*/ function ($routeParams, userService, dataService)
 		dsc.getVolunteer(id, usc.token())
 			.success(function (data) {
 				vm.user = data.response;
-				dsc.getUserAssos(id, usc.token())
+				dsc.getAssos(id, usc.token())
 					.success(function (data) {
 						vm.assos = data.response;
 					});

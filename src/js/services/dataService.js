@@ -51,7 +51,7 @@ module.exports = /*@ngInject*/ function ($http) {
 		var parameters = 'token=' + token;
 		return $http.get(buildUrl('volunteers', id, 'friends', parameters));
 	};
-	DataService.getUserAssos = function (id, token) {
+	DataService.getAssos = function (id, token) {
 		var parameters = 'token=' + token;
 		return $http.get(buildUrl('volunteers', id, 'associations', parameters));
 	};

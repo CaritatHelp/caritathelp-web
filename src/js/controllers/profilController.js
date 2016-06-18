@@ -9,7 +9,7 @@ module.exports = /*@ngInject*/ function (userService, $routeParams, dataService)
 
 	vm.isCurrent = false;
 
-	vm.tab = 1;
+	vm.tab = 2;
 	if ($routeParams.id) {
 		dsc.getVolunteer($routeParams.id, usc.token())
 			.success(function (data) {
@@ -19,7 +19,13 @@ module.exports = /*@ngInject*/ function (userService, $routeParams, dataService)
 			.success(function (data) {
 				vm.user.friends = data.response;
 			});
+		dsc.getEvents($routeParams.id, usc.token())
+			.success(function (data) {
+				vm.user.events = data.response;
+				console.log(vm.user.events);
+			});
 	} else {
+		vm.isCurrent = true;
 		vm.user = vm.currentUser;
 	}
 

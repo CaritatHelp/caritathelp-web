@@ -24,7 +24,7 @@ module.exports = /*@ngInject*/ function ($routeParams, userService, dataService)
 					.success(function (data) {
 						vm.user.friends = data.response;
 					});
-				dsc.getUserAssos(id, usc.token())
+				dsc.getAssos(id, usc.token())
 					.success(function (data) {
 						vm.user.assos = data.response;
 					});

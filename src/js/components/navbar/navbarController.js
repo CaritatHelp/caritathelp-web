@@ -33,10 +33,9 @@ module.exports = /*@ngInject*/ function ($location, dataService, userService) {
 		dsc.getNotifs(vm.user.id, usc.token())
 			.success(function (data) {
 				vm.notifications = data.response;
-				if (!vm.notifications.add_friend.length && !vm.notifications.assoc_invite.length && !vm.notifications.event_invite.length) {
+				if (!vm.notifications.length || (!vm.notifications.add_friend.length && !vm.notifications.assoc_invite.length && !vm.notifications.event_invite.length)) {
 					vm.errorNotif = 'Pas de notifications récentes';
 				}
-				console.log(vm.notifications);
 			});
 	}
 };

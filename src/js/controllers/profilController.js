@@ -21,7 +21,6 @@ module.exports = /*@ngInject*/ function (userService, $routeParams, dataService)
 			});
 	} else {
 		vm.user = vm.currentUser;
-		vm.isCurrent = true;
 	}
 
 	vm.setTab = function (activeTab) {

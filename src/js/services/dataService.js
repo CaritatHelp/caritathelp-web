@@ -3,7 +3,7 @@
 module.exports = /*@ngInject*/ function ($http) {
 	// var servurl = 'https://52.31.151.160:3000/';
 
-	var servurl = 'http://localhost:3000/';
+	var servurl = 'http://api.caritathelp.me/';
 	var DataService = {};
 	var logEnabled = true;
 

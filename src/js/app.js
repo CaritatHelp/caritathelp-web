@@ -24,6 +24,7 @@ require('./components/navbar');
 require('./components/user_summary');
 require('./components/friends_list');
 require('./components/assos_list');
+require('./components/asso_create');
 require('./components/timeline');
 require('./components/news');
 require('./components/comment');
@@ -70,7 +71,7 @@ app.config(function ($routeProvider, localStorageServiceProvider) {
 		.when('/association', {
 			templateUrl: 'view/association.html',
 			controller: 'associationController',
-			controllerAs: 'asso'
+			controllerAs: 'association'
 		})
 		// Affichage d'une asso
 		.when('/association/:id', {

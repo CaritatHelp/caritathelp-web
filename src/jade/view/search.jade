@@ -3,7 +3,14 @@
 		.row
 			.col-sm-4
 				user-summary
-				include ../module/actions
+				.action
+					a(href="#").
+						#[i.fa.fa-pencil]
+						Modifier profil
+				.action
+					a(href="#").
+						#[i.fa.fa-lock]
+						Sécurité
 			.col-sm-8
 				h1 Recherche de "{{search.research}}"
 				section.search--results

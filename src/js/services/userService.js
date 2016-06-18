@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = /*@ngInject*/ function (localStorageService, dataService) {
+module.exports = /*@ngInject*/ function (localStorageService, dataService, $interval) {
 	var ls = localStorageService;
 	var dsc = dataService;
 	var token = null;
@@ -11,6 +11,21 @@ module.exports = /*@ngInject*/ function (localStorageService, dataService) {
 		user = ls.get('currentUser');
 	}
 
+	//Refresh de la liste d'amis et des assos totues les 5 minutes
+	$interval(function () {
+		dsc.getFriends(user.id, token)
+			.success(function (data) {
+				user.friends = data.response;
+				ls.set('currentUser', user);
+			});
+		dsc.getUserAssos(user.id, token)
+			.success(function (data) {
+				user.assos = data.response;
+				ls.set('currentUser', user);
+			});
+	}, 300000);
+
+	//Sauvegarde des données de l'utilisateur
 	function fillUser(datas) {
 		user = {};
 		user.id = datas.id;
@@ -49,7 +64,7 @@ module.exports = /*@ngInject*/ function (localStorageService, dataService) {
 					user.friends = data.response;
 					ls.set('currentUser', user);
 				});
-			dsc.getAssos(datas.id, datas.token)
+			dsc.getUserAssos(datas.id, datas.token)
 				.success(function (data) {
 					user.assos = data.response;
 					ls.set('currentUser', user);

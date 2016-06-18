@@ -51,7 +51,7 @@ module.exports = /*@ngInject*/ function ($http) {
 		var parameters = 'token=' + token;
 		return $http.get(buildUrl('volunteers', id, 'friends', parameters));
 	};
-	DataService.getAssos = function (id, token) {
+	DataService.getUserAssos = function (id, token) {
 		var parameters = 'token=' + token;
 		return $http.get(buildUrl('volunteers', id, 'associations', parameters));
 	};
@@ -82,6 +82,27 @@ module.exports = /*@ngInject*/ function ($http) {
 	DataService.getAsso = function (id, token) {
 		var parameters = 'token=' + token;
 		return $http.get(buildUrl('associations', id, null, parameters));
+	};
+	DataService.getAssoList = function (token) {
+		var parameters = 'token=' + token;
+		return $http.get(buildUrl('associations', null, null, parameters));
+	};
+	DataService.createAsso = function (name, description, birthday, city, latitude, longitude, token) {
+		var parameters = 'name=' + name + '&description=' + description;
+		if (birthday) {
+			parameters = parameters + '&birthday=' + birthday;
+		}
+		if (city) {
+			parameters = parameters + '&city=' + city;
+		}
+		if (latitude) {
+			parameters = parameters + '&latitude=' + city;
+		}
+		if (longitude) {
+			parameters = parameters + '&longitude=' + city;
+		}
+		parameters = parameters + '&token=' + token;
+		return $http.post(buildUrl('associations', null, null, parameters));
 	};
 	DataService.getMembers = function (id, token) {
 		var parameters = 'token=' + token;

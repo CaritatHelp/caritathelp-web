@@ -1,9 +1,66 @@
 extends ../layout/two-columns
 
 block main-column
-	include ../module/associations
+	asso-create(ng-show="association.creating")
+	//-Message si l'utilisateur n'est membre d'aucune association
+	.card.associations(ng-if="!association.currentUser.assos", ng-show="!association.creating")
+		section.
+			Vous n'êtes membre d'aucune association ! <br> Vous pouvez en créer une en cliquant sur le bouton situé dans la barre de navigation à gauche, ou bien en rejoindre une déjà existante en la séléctionnant dans la liste ci-dessous.
+	//-Associations dont l'utilisateur est membre
+	.card.associations(ng-if="association.currentUser.assos", ng-show="!association.creating")
+		header
+			h5 Vos associations
+		section
+			.table-responsive
+				table.table.table-hover
+					thead
+						tr
+							th Nom
+							th Ville
+							th Membres
+							th Status
+					tbody
+						tr(ng-repeat="assoc in association.currentUser.assos")
+							td
+								a(href="#/association/{{assoc.id}}") {{assoc.name}}
+							td(ng-if="assoc.city") {{assoc.city}}
+							td(ng-if="!assoc.city") Non renseigné
+							td {{assoc.nb_friends_members}}
+							td {{assoc.rights}}
+	//-Liste de toutes les assos moins celles dont l'user est membre
+	.card.associations(ng-show="!association.creating")
+		.no-asso
+			header
+				h5 Toutes les associations
+			section
+				.table-responsive
+					table.table.table-hover
+						thead
+							tr
+								th Nom
+								th Ville
+								th Amis membres
+						tbody
+							tr(ng-repeat="assoc in association.assos", ng-show="!assoc.rights")
+								td
+									a(href="#/association/{{assoc.id}}") {{assoc.name}}
+								td(ng-if="assoc.city") {{assoc.city}}
+								td(ng-if="!assoc.city") Non renseigné
+								td {{assoc.nb_friends_members}}
+		.asso(ng-show="association.list.length")
+			h4 Actualités de vos associations
 
 block sidebar-column
-	include ../module/summary
-	include ../module/reco-friends
-	include ../module/events
+	user-summary
+	.action
+		a(href="#").
+			#[i.fa.fa-pencil]
+			Modifier profil
+	.action
+		a(href="#").
+			#[i.fa.fa-lock]
+			Sécurité
+	.action
+		a(ng-click="association.startCreating()").
+			#[i.fa.fa-plus]
+			Créer une association

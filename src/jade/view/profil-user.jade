@@ -3,9 +3,11 @@ extends ../layout/with-cover
 block jumbotron
 	.coverstatebackground(style="background-image:url(img/cover/skyline.jpg)")
 	.cover--infos
-		img.picture(src="img/user3.png", alt="")
-		h1.name(ng-if="profil.user") {{profil.user.firstname}} {{profil.user.lastname}}
-		h1.name(ng-if="!profil.user") Test test
+		//- Image de profil (défaut si l'user n'en a pas)
+		img.picture(ng-if="profil.user.picture", src="{{profil.user.picture}}", alt="{{profil.user.firstname}} {{profil.user.lastname}}")
+		img.picture(ng-if="!profil.user.picture && profil.user.gender == 'f'", src="img/user1.png", alt="{{profil.user.firstname}} {{profil.user.lastname}}")
+		img.picture(ng-if="!profil.user.picture", src="img/user2.png", alt="{{profil.user.firstname}} {{profil.user.lastname}}")
+		h1.name {{profil.user.firstname}} {{profil.user.lastname}}
 	nav.cover--navigation
 		a(ng-click="profil.setTab(1)"
 			ng-class="{active:profil.isSet(1)}") Timeline
@@ -22,22 +24,21 @@ block tabs
 	.timeline-tab(ng-show="profil.isSet(1)")
 		.col-md-4
 			user-summary
-			.action(ng-if="!profil.user.friendship")
+			.action(ng-if="!profil.isCurrent && !profil.user.friendship")
 				a(ng-click="profil.addFriend()").
 					#[i.fa.fa-plus]
 					Ajouter en ami
 			friend-list
 			asso-list
-		.col-md-8
+		.col-md-8(ng-if="profil.isCurrent")
 			timeline
+		.col-md-8(ng-if="!profil.isCurrent")
+			timeline(tl-type="user", tl-id="profil.user.id")
 	.friends-tab(ng-show="profil.isSet(4)")
 		.col-md-3(ng-repeat="friend in profil.user.friends")
 			user-summary(user-id="friend.id")
 	.calendar-tab(ng-show="profil.isSet(2)")
-		calendar(
-			cal-id="profil.user.id",
-			cal-type="'volunteer'"
-		)
+		calendar(cal-type="'volunteer'", cal-id="profil.user.id")
 	.settings-tab(
 		ng-if="profil.isCurrent",
 		ng-show="profil.isSet(3)",

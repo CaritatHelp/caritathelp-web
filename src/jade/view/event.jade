@@ -7,7 +7,7 @@ block jumbotron
 		h1.name {{vm.event.title}}
 	nav.cover--navigation
 		a(ng-click="vm.setTab(1)"
-			ng-class="{active:vm.isSet(1)}") Timeline
+			ng-class="{active:vm.isSet(1)}") Informations
 		a(ng-click="vm.setTab(2)"
 			ng-class="{active:vm.isSet(2)}") Participants
 		a(
@@ -16,28 +16,41 @@ block jumbotron
 			ng-class="{active:vm.isSet(3)}") Paramètres
 
 block tabs
-	.timeline-tab(ng-show="profil.isSet(1)")
+	.timeline-tab(ng-show="vm.isSet(1)")
 		.col-md-4
-			user-summary
-			.action(ng-if="!profil.user.friendship")
-				a(ng-click="profil.addFriend()").
+			.card.event
+				header
+					h5 Description par l'hôte
+				section
+					.event--description {{vm.event.description}}
+			//- Membre
+			.action(ng-if="vm.event.rights == 'members'")
+				a(ng-click="vm.joinEvent()").
+					#[i.fa.fa-check]
+					Vous participez à cet évenement
+			//- Invité
+			.action(ng-if="vm.event.rights == 'invited'")
+				a(ng-click="vm.joinEvent()").
+					#[i.fa.fa-check]
+					Vous avez été invité à cet évenement
+			//- Invité
+			.action(ng-if="vm.event.rights == 'waiting'")
+				a(ng-click="vm.joinEvent()").
+					#[i.fa.fa-check]
+					Vous avez demandé à participer à cet évenement
+			//- Non membre
+			.action(ng-if="vm.event.rights == 'none'")
+				a(ng-click="vm.joinEvent()").
 					#[i.fa.fa-plus]
-					Ajouter en ami
-			friend-list
-			asso-list
+					Participer à cet évenement
 		.col-md-8
 			timeline
-	.friends-tab(ng-show="profil.isSet(4)")
-		.col-md-3(ng-repeat="friend in profil.user.friends")
+	.friends-tab(ng-show="vm.isSet(4)")
+		.col-md-3(ng-repeat="friend in vm.user.friends")
 			user-summary(user-id="friend.id")
-	.calendar-tab(ng-show="profil.isSet(2)")
-		calendar(
-			cal-id="profil.user.id",
-			cal-type="'volunteer'"
-		)
 	.settings-tab(
-		ng-if="profil.isCurrent",
-		ng-show="profil.isSet(3)",
+		ng-if="vm.event.rights == 'host' || vm.event.rights == 'admin'",
+		ng-show="vm.isSet(3)",
 		ng-controller="settingsController as settings"
 	)
 			include ../tabs/user-settings

@@ -44,7 +44,13 @@ module.exports = /*@ngInject*/ function (localStorageService, dataService, $inte
 		user.longitude = datas.longitude;
 		user.allowgps = datas.allowgps;
 		user.notifications = datas.notifications;
-
+		if (datas.thumb_path) {
+			user.picture = 'http://api.caritathelp.me' + datas.thumb_path;
+		} else if (user.gender === 'f') {
+			user.picture = 'img/user1.png';
+		} else {
+			user.picture = 'img/user2.png';
+		}
 		return user;
 	}
 

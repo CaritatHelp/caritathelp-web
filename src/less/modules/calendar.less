@@ -9,6 +9,10 @@
 }
 .calendar--nav {
 	.title {margin-bottom: .5em;}
+	.active {
+		color: @link-color;
+		i {color:@link-color;}
+	}
 }
 .day {
 	width: 100%;
@@ -44,6 +48,7 @@
 	}
 	footer {
 		display: flex;
+		align-items: flex-end;
 		padding-top: .25em;
 		margin-top: .75em;
 		border-top: 1px solid #ccc;

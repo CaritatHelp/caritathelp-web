@@ -22,7 +22,7 @@
 				.card.event(ng-repeat="event in calendar.events")
 					header
 						h6.event--title {{event.title}}
-						.event--creator Organisé par <a href="#/associations/{{event.assoc_id}}">{{event.assoc_id}}</a>
+						.event--creator Organisé par <a href="#/associations/{{event.assoc_id}}">{{event.assoc_name}}</a>
 					section.
 						Du {{event.begin}} au {{event.end}}<br>
 						Lieu: {{event.place}}<br>
@@ -43,7 +43,7 @@
 				.card.event(ng-repeat="event in calendar.joined")
 					header
 						h6.event--title {{event.title}}
-						.event--creator Organisé par <a href="#/associations/{{event.assoc_id}}">{{event.assoc_id}}</a>
+						.event--creator Organisé par <a href="#/associations/{{event.assoc_id}}">{{event.assoc_name}}</a>
 					section.
 						Du {{event.begin}} au {{event.end}}<br>
 						Lieu: {{event.place}}<br>

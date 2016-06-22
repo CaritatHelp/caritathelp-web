@@ -9,11 +9,12 @@ module.exports = /*@ngInject*/ function (userService, $routeParams, dataService)
 
 	vm.isCurrent = false;
 
-	vm.tab = 2;
+	vm.tab = 1;
 	if ($routeParams.id) {
 		dsc.getVolunteer($routeParams.id, usc.token())
 			.success(function (data) {
 				vm.user = data.response;
+				vm.user.picture = 'http://api.caritathelp.me' + data.response.thumb_path;
 			});
 		dsc.getFriends($routeParams.id, usc.token())
 			.success(function (data) {

@@ -80,10 +80,16 @@ app.config(function ($routeProvider, localStorageServiceProvider) {
 			controller: 'associationController',
 			controllerAs: 'asso'
 		})
+		//Recherche
 		.when('/search/:search', {
 			templateUrl: 'view/search.html',
 			controller: 'searchController',
 			controllerAs: 'search'
+		})
+		.when('/event/:id', {
+			templateUrl: 'view/event.html',
+			controller: 'eventController',
+			controllerAs: 'vm'
 		})
 		.otherwise({redirectTo: '/'});
 });

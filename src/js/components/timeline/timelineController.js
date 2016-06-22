@@ -9,7 +9,7 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 	getNews();
 
 	function getNews () {
-		dsc.getNews(usc.token())
+		dsc.getNewsList(usc.token())
 			.success(function (data) {
 				if (data.status === 200) {
 					vm.news = data.response.news;

@@ -1,0 +1,43 @@
+extends ../layout/with-cover
+
+block jumbotron
+	.coverstatebackground(style="background-image:url(img/cover/skyline.jpg)")
+	.cover--infos
+		img.picture(src="img/user3.png", alt="")
+		h1.name {{vm.event.title}}
+	nav.cover--navigation
+		a(ng-click="vm.setTab(1)"
+			ng-class="{active:vm.isSet(1)}") Timeline
+		a(ng-click="vm.setTab(2)"
+			ng-class="{active:vm.isSet(2)}") Participants
+		a(
+			ng-if="vm.event.rights == 'host' || vm.event.rights == 'admin'",
+			ng-click="vm.setTab(3)"
+			ng-class="{active:vm.isSet(3)}") Paramètres
+
+block tabs
+	.timeline-tab(ng-show="profil.isSet(1)")
+		.col-md-4
+			user-summary
+			.action(ng-if="!profil.user.friendship")
+				a(ng-click="profil.addFriend()").
+					#[i.fa.fa-plus]
+					Ajouter en ami
+			friend-list
+			asso-list
+		.col-md-8
+			timeline
+	.friends-tab(ng-show="profil.isSet(4)")
+		.col-md-3(ng-repeat="friend in profil.user.friends")
+			user-summary(user-id="friend.id")
+	.calendar-tab(ng-show="profil.isSet(2)")
+		calendar(
+			cal-id="profil.user.id",
+			cal-type="'volunteer'"
+		)
+	.settings-tab(
+		ng-if="profil.isCurrent",
+		ng-show="profil.isSet(3)",
+		ng-controller="settingsController as settings"
+	)
+			include ../tabs/user-settings

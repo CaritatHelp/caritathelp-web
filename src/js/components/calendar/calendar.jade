@@ -32,7 +32,7 @@
 						.event--status(ng-if="event.rights == 'host'") Vous êtes le créateur de cet évènement
 						.event--status(ng-if="event.rights == 'member'") Vous participez à cet évènement
 						.event--status(ng-if="!event.rights") Vous ne participez pas à cet évènement
-						a.btn.btn-small.btn-primary(href="#/events/{{event.id}}").
+						a.btn.btn-small.btn-primary(href="#/event/{{event.id}}").
 							#[.fa.fa-info-circle]
 							Plus d'informations
 
@@ -53,7 +53,7 @@
 						.event--status(ng-if="event.rights == 'host'") Vous êtes le créateur de cet évènement
 						.event--status(ng-if="event.rights == 'member'") Vous participez à cet évènement
 						.event--status(ng-if="!event.rights") Vous ne participez pas à cet évènement
-						a.btn.btn-small.btn-primary(href="#/events/{{event.id}}").
+						a.btn.btn-small.btn-primary(href="#/event/{{event.id}}").
 							#[.fa.fa-info-circle]
 							Plus d'informations
 

@@ -48,6 +48,6 @@ block tabs
 		.col-md-3(ng-repeat="member in asso.asso.members")
 			user-summary(user-id="member.id")
 	.calendar-tab(ng-show="asso.isSet(3)")
-		include ../tabs/asso-calendar
+		calendar(cal-type="association", cal-id="asso.asso.id", cal-rights="asso.asso.rights")
 	.settings-tab(ng-show="asso.isSet(4)")
 		include ../tabs/asso-calendar

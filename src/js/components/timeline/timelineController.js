@@ -19,7 +19,7 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 	} else {
 		dsc.getNewsList(usc.token())
 			.success(function (data) {
-				vm.news = data.response.news;
+				vm.news = data.response;
 			});
 	}
 
@@ -27,7 +27,7 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 		dsc.postVolunteerNews(vm.newNews, usc.token())
 			.success(function (data) {
 				if (data.status === 200) {
-					vm.news.push(data.response.object);
+					vm.news.push(data.response);
 					vm.newNews = '';
 				}
 			});

@@ -15,25 +15,31 @@ module.exports = /*@ngInject*/ function ($location, $routeParams, dataService, u
 	dsc.getAssoList(usc.token())
 		.success(function (data) {
 			vm.assos = data.response;
+		})
+		.error(function () {
+			usc.disconnect();
+			$location.path('#/login');
 		});
 
 	//Affichage d'une association
-	vm.tab = 1;
+	vm.tab = 3;
 	vm.asso = {};
-	dsc.getAsso($routeParams.id, usc.token())
-		.success(function (data) {
-			vm.asso = data.response;
-			//Récupération des membres
-			dsc.getAssoMembers($routeParams.id, usc.token())
-				.success(function (data) {
-					vm.asso.members = data.response;
-				});
-			//Récupération des events
-			dsc.getAssoEvents($routeParams.id, usc.token())
-				.success(function (data) {
-					vm.asso.events = data.response;
-				});
-		});
+	if ($routeParams.id) {
+		dsc.getAsso($routeParams.id, usc.token())
+			.success(function (data) {
+				vm.asso = data.response;
+				//Récupération des membres
+				dsc.getAssoMembers($routeParams.id, usc.token())
+					.success(function (data) {
+						vm.asso.members = data.response;
+					});
+				//Récupération des events
+				dsc.getAssoEvents($routeParams.id, usc.token())
+					.success(function (data) {
+						vm.asso.events = data.response;
+					});
+			});
+	}
 	this.setTab = function (activeTab) {
 		this.tab = activeTab;
 	};

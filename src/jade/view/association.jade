@@ -46,20 +46,16 @@ block main-column
 									a(href="#/association/{{assoc.id}}") {{assoc.name}}
 								td(ng-if="assoc.city") {{assoc.city}}
 								td(ng-if="!assoc.city") Non renseigné
-								td {{assoc.nb_friends_members}}
+								//- Ortographe amis
+								td(ng-if="!assoc.nb_members") {{assoc.nb_members}}
+								td(ng-if="assoc.nb_members && assoc.nb_friends_members == '0'") {{assoc.nb_members}}
+								td(ng-if="assoc.nb_members && assoc.nb_friends_members == '1'") {{assoc.nb_members}} ({{assoc.nb_friends_members}} ami)
+								td(ng-if="assoc.nb_members && assoc.nb_friends_members > 1") {{assoc.nb_members}} ({{assoc.nb_friends_members}} amis)
 		.asso(ng-show="association.list.length")
 			h4 Actualités de vos associations
 
 block sidebar-column
 	user-summary
-	.action
-		a(href="#").
-			#[i.fa.fa-pencil]
-			Modifier profil
-	.action
-		a(href="#").
-			#[i.fa.fa-lock]
-			Sécurité
 	.action
 		a(ng-click="association.startCreating()").
 			#[i.fa.fa-plus]

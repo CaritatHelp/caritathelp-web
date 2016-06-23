@@ -11,6 +11,10 @@ module.exports = /*@ngInject*/ function (userService, dataService, $routeParams)
 	dsc.getEvent($routeParams.id, usc.token())
 		.success(function (data) {
 			vm.event = data.response;
+			dsc.getGuestEvent($routeParams.id, usc.token())
+				.success(function (data) {
+					vm.event.guests = data.response;
+				});
 		});
 
 	vm.setTab = function (activeTab) {

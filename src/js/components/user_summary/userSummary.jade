@@ -1,15 +1,15 @@
 .card.summary.no-padding
 	.summary--cover(style="background-image:url(img/cover/skyline.jpg)")
-	a.summary--picture(href="{{cusc.link}}")
-		img.picture(src="{{cusc.user.picture}}", alt="{{cusc.user.firstname}} {{cusc.user.lastname}}")
-	a.summary--name(href="{{cusc.link}}") {{cusc.user.firstname}} {{cusc.user.lastname}}
+	a.summary--picture(href="{{vm.link}}")
+		img.picture(src="{{vm.user.picture}}", alt="{{vm.user.firstname}} {{vm.user.lastname}}")
+	a.summary--name(href="{{vm.link}}") {{vm.user.firstname}} {{vm.user.lastname}}
 	.summary--stats
-		a.stat(href="#friendsModal", data-toggle="modal", ng-if="cusc.user.city").
+		a.stat(href="#friendsModal", data-toggle="modal", ng-if="vm.user.city").
 			Location
-			#[h5.nb {{cusc.user.city}}]
-		a.stat(href="{{cusc.link}}", data-toggle="modal").
+			#[h5.nb {{vm.user.city}}]
+		a.stat(href="{{vm.link}}", data-toggle="modal").
 			Amis
-			#[h5.nb {{cusc.user.friends.length}}]
-		a.stat(href="{{cusc.link}}", data-toggle="modal").
+			#[h5.nb {{vm.user.friends.length}}]
+		a.stat(href="{{vm.link}}", data-toggle="modal").
 			Assos
-			#[h5.nb {{cusc.user.assos.length}}]
+			#[h5.nb {{vm.user.assos.length}}]

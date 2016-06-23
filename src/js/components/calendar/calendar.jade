@@ -1,32 +1,31 @@
 .calendar
 	.col-md-4
 		.card.calendar--nav
-			h5.title A propos
+			h5.title Calendrier
 			.text-list
-				.link(ng-class="{active:calendar.isSet(1)}")
+				.link(ng-if="calendar.type == 'volunteer'", ng-class="{active:calendar.isSet(1)}")
 					i.fa.fa-calendar-check-o
-					a(ng-click="calendar.setTab(1)") Evènements
+					a(ng-click="calendar.setTab(1)") Evènements partcipant
 				.link(ng-class="{active:calendar.isSet(2)}")
 					i.fa.fa-calendar
 					a(ng-click="calendar.setTab(2)") Tous les évènements
-				.link(ng-if="calendar.calType == 'association'", ng-class="{active:calendar.isSet(3)}")
+				.link(ng-if="calendar.type == 'association' && calendar.rights != 'edit'", ng-class="{active:calendar.isSet(3)}")
 					i.fa.fa-calendar-plus-o
 					a(ng-click="calendar.setTab(3)") Créer un évenement
 	.col-md-8
 		.calendar--main
-
 			//-Affichage de l'ensemble des évenements auxquels l'utilisateur peut participer
 			.calendar--all(ng-show="calendar.isSet(2)")
 				h4.title Tous les évènements
 				//-Affichage d'un évenement
-				.card.event(ng-repeat="event in calendar.events")
+				.card.event(ng-repeat="event in calendar.events", ng-if="!event.rights")
 					header
 						h6.event--title {{event.title}}
 						.event--creator Organisé par <a href="#/associations/{{event.assoc_id}}">{{event.assoc_name}}</a>
 					section.
 						Du {{event.begin}} au {{event.end}}<br>
 						Lieu: {{event.place}}<br>
-						54 participants, dont <strong>{{event.nb_friends_members}}</strong> amis
+						{{event.nb_guest}} participants, dont <strong>{{event.nb_friends_members}}</strong> amis
 					footer
 						.event--status(ng-if="event.rights == 'admin'") Vous êtes administrateur de cet évènement
 						.event--status(ng-if="event.rights == 'host'") Vous êtes le créateur de cet évènement
@@ -35,9 +34,12 @@
 						a.btn.btn-small.btn-primary(href="#/event/{{event.id}}").
 							#[.fa.fa-info-circle]
 							Plus d'informations
+				.card.event(ng-if="!calendar.events")
+					header
+						.no--event Aucun évènement organisé actuellement.
 
 			//- Evenements auxquels l'utilisateur participer
-			.calendar--joined(ng-show="calendar.isSet(1)")
+			.calendar--joined(ng-if="calendar.type == 'volunteer'", ng-show="calendar.isSet(1)")
 				h4.title Participation
 				//-Affichage d'un évenement (même que le précédent)
 				.card.event(ng-repeat="event in calendar.joined")
@@ -47,7 +49,7 @@
 					section.
 						Du {{event.begin}} au {{event.end}}<br>
 						Lieu: {{event.place}}<br>
-						54 participants, dont <strong>{{event.nb_friends_members}}</strong> amis
+						{{event.nb_guest}} participants, dont <strong>{{event.nb_friends_members}}</strong> amis
 					footer
 						.event--status(ng-if="event.rights == 'admin'") Vous êtes administrateur de cet évènement
 						.event--status(ng-if="event.rights == 'host'") Vous êtes le créateur de cet évènement
@@ -58,7 +60,7 @@
 							Plus d'informations
 
 			//- Creation d'un évenement
-			.calendar--create(ng-if="calendar.calType == 'association'", ng-show="calendar.isSet(3)")
+			.calendar--create(ng-if="calendar.type == 'association'", ng-show="calendar.isSet(3)")
 				h4.title Créer un évenement
 				.card.event--create
 					form

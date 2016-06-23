@@ -4,9 +4,5 @@
 	.friends
 		.friend(ng-repeat="friend in friendlist.friends")
 			a.avatar(href="#/user/{{friend.id}}", title="{{friend.firstname}} {{friend.lastname}}")
-				img(ng-if="friend.picture", src="http://api.caritathelp.me {{friend.picture.thumb_path}}", alt="{{friend.firstname}} {{friend.lastname}}", class="img-circle")
-				img(ng-if="!friend.picture && friend.gender === 'f'",  src="img/user1.png", alt="{{friend.firstname}} {{friend.lastname}}", class="img-circle")
-				img(ng-if="!friend.picture", src="img/user2.png", alt="{{friend.firstname}} {{friend.lastname}}", class="img-circle")
-
-				img(src="{{friend.picture}}", alt="{{friend.firstname}} {{friend.lastname}}", class="img-circle")
+				img(src="http://api.caritathelp.me{{friend.thumb_path}}", alt="{{friend.firstname}} {{friend.lastname}}", class="img-circle")
 			a.name(href="#/user/{{friend.id}}") {{friend.firstname}} {{friend.lastname}}

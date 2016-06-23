@@ -45,9 +45,9 @@ block tabs
 					Participer à cet évenement
 		.col-md-8
 			timeline
-	.friends-tab(ng-show="vm.isSet(4)")
-		.col-md-3(ng-repeat="friend in vm.user.friends")
-			user-summary(user-id="friend.id")
+	.friends-tab(ng-show="vm.isSet(2)")
+		.col-md-3(ng-repeat="guest in vm.event.guests")
+			user-summary(user-id="guest.id")
 	.settings-tab(
 		ng-if="vm.event.rights == 'host' || vm.event.rights == 'admin'",
 		ng-show="vm.isSet(3)",

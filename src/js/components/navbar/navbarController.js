@@ -7,7 +7,15 @@ module.exports = /*@ngInject*/ function ($location, dataService, userService) {
 	vm.user = usc.user();
 	vm.view = 'home';
 
-	getNotifs();
+	if (vm.user) {
+		dsc.getNotifs(vm.user.id, usc.token())
+			.success(function (data) {
+				vm.notifications = data.response;
+				if (!vm.notifications.length) {
+					vm.errorNotif = 'Pas de notifications récentes';
+				}
+			});
+	}
 
 	vm.logout = function () {
 		dsc.logout(usc.token());
@@ -27,15 +35,5 @@ module.exports = /*@ngInject*/ function ($location, dataService, userService) {
 	};
 	vm.search = function () {
 		$location.path('/search/'+vm.research);
-	}
-
-	function getNotifs() {
-		dsc.getNotifs(vm.user.id, usc.token())
-			.success(function (data) {
-				vm.notifications = data.response;
-				if (!vm.notifications.length) {
-					vm.errorNotif = 'Pas de notifications récentes';
-				}
-			});
 	}
 };

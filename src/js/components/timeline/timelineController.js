@@ -11,24 +11,20 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 	}	else {
 		vm.type = 'home';
 	}
-	//Sauvegarde de l'id en cours
-	if (vm.tlId) {
-		vm.id = vm.tlId
-	}
-
 	//Récupération de la liste des news
 	if (vm.type == 'volunteer') {
-		dsc.getNews(vm.id, usc.token())
+		console.log(vm.tlId);
+		dsc.getNews(vm.tlId, usc.token())
 			.success(function (data) {
 				vm.news = data.response.news;
 			});
 	} else if (vm.type == 'association') {
-		dsc.getAssoNews(vm.id, usc.token())
+		dsc.getAssoNews(vm.tlId, usc.token())
 			.success(function (data) {
 				vm.news = data.response.news;
 			});
 	} else if (vm.type == 'event') {
-		dsc.getEventNews(vm.ylId, usc.token())
+		dsc.getEventNews(vm.tlId, usc.token())
 			.success(function (data) {
 				vm.news = data.response.news;
 			});
@@ -38,7 +34,6 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 				vm.news = data.response;
 			});
 	}
-	console.log('tl type: '+vm.type+' tl id: '+vm.id);
 
 	vm.postNews = function () {
 		if (vm.type == 'volunteer' || vm.type == 'home') {
@@ -50,7 +45,7 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 					}
 				});
 		} else if (vm.type == 'association') {
-			dsc.postAssoNews(vm.id, vm.newNews, usc.token())
+			dsc.postAssoNews(vm.tlId, vm.newNews, usc.token())
 				.success(function (data) {
 					if (data.status === 200) {
 						vm.news.push(data.response);
@@ -58,7 +53,7 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 					}
 				});
 		} else if (vm.type == 'event') {
-			dsc.postEventNews(vm.id, vm.newNews, usc.token())
+			dsc.postEventNews(vm.tlId, vm.newNews, usc.token())
 				.success(function (data) {
 					if (data.status === 200) {
 						vm.news.push(data.response);

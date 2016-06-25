@@ -41,7 +41,7 @@ nav.navbar(ng-if="nav.isConnected()")
 			a.navbar--item(href="#notifModal", data-toggle="modal")
 				i.fa.fa-bell
 			a.navbar--picture(href="#/home")
-				img(src="{{nav.user.picture}}", alt="{{nav.user.firstname}} {{nav.user.lastname}}")
+				img(ng-src="{{nav.user.picture}}", alt="{{nav.user.firstname}} {{nav.user.lastname}}")
 
 .modal.fade#notifModal(tabindex="-1", role="dialog")
 	.modal-dialog

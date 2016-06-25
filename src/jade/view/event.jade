@@ -3,7 +3,7 @@ extends ../layout/with-cover
 block jumbotron
 	.coverstatebackground(style="background-image:url(img/cover/skyline.jpg)")
 	.cover--infos
-		img.picture(src="img/user3.png", alt="")
+		img.picture(ng-src="http://api.caritathelp.me{{vm.event.thumb_path}}", alt="{{vm.event.name}}")
 		h1.name {{vm.event.title}}
 	nav.cover--navigation
 		a(ng-click="vm.setTab(1)"

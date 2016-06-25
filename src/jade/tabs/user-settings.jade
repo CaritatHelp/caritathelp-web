@@ -28,7 +28,7 @@
 						input.form-control(
 							type="text",
 							placeholder="Prénom",
-							value="{{settings.user.firstname}}"
+							ng-model="settings.user.firstname"
 							)
 				fieldset.form-group.col-sm-6
 					label.control-label(for="inputLastName") Nom
@@ -38,7 +38,7 @@
 						input.form-control(
 							type="text",
 							placeholder="Nom",
-							value="{{settings.user.lastname}}"
+							ng-model="settings.user.lastname"
 						)
 				.clearfix
 				fieldset.form-group.col-sm-6
@@ -50,7 +50,7 @@
 							type="email",
 							name="inputMail",
 							placeholder="Adresse e-mail",
-							value="{{settings.user.mail}}",
+							ng-model="settings.user.mail",
 							required=""
 						)
 				.clearfix

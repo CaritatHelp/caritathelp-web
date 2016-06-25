@@ -5,5 +5,5 @@
 		.association(ng-repeat="asso in list.assos")
 			a(href="#/association/{{asso.id}}", title="{{asso.name}}")
 				img.asso--img(ng-if="!asso.thumb_path" src="img/mlp.jpg", class="img-circle")
-				img.asso--img(ng-if="asso.thumb_path", src="http://api.caritathelp.me{{asso.thumb_path}}", alt="{{asso.name}}", class="img-circle")
+				img.asso--img(ng-if="asso.thumb_path", ng-src="http://api.caritathelp.me{{asso.thumb_path}}", alt="{{asso.name}}", class="img-circle")
 			a.name(href="#/association/{{asso.id}}") {{asso.name}}

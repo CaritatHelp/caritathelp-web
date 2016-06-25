@@ -13,9 +13,7 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 
 	vm.events = {};
 	vm.joined = {};
-	console.log('id:' + vm.calId);
-	console.log('type:'  + vm.caltype);
-	if (vm.calType == 'volunteer') {
+	if (vm.calType === 'volunteer') {
 		vm.type = 'volunteer';
 		vm.tab = 1;
 		//Tous les events existants
@@ -28,19 +26,18 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 			.success(function (data) {
 				vm.joined = data.response;
 			});
-	} else if (vm.calType == 'association') {
+	} else if (vm.calType === 'association') {
 		vm.tab = 2;
 		vm.type = 'association';
 		//Events créés par l'asso
 		dsc.getAssoEvents(vm.calId, usc.token())
 			.success(function (data) {
 				vm.events = data.response;
-				if (vm.calRights == 'owner' || vm.calRights == 'admin') {
+				if (vm.calRights === 'owner' || vm.calRights === 'admin') {
 					vm.rights = 'edit';
 				} else {
 					vm.rights = vm.calRights;
 				}
-				console.log('right:' + vm.rights);
 			});
 	}
 };

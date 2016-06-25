@@ -22,7 +22,7 @@
 						.friends
 							.friend
 								a(href="#/user/{{user.id}}", title="{{user.firstname}} {{user.lastname}}")
-									img(src="http://api.caritathelp.me{{user.thumb_path}}", alt="{{user.firstname}} {{user.lastname}}", class="img-circle")
+									img(ng-src="http://api.caritathelp.me{{user.thumb_path}}", alt="{{user.firstname}} {{user.lastname}}", class="img-circle")
 								a.name(href="#/user/{{user.id}}") {{user.firstname}} {{user.lastname}}
 					.card.listing(ng-show="search.errorUser") {{search.errorUser}}
 				section.search--results

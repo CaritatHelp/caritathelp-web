@@ -60,13 +60,13 @@ app.config(function ($routeProvider, localStorageServiceProvider) {
 		.when('/profil', {
 			templateUrl: 'view/profil-user.html',
 			controller: 'profilController',
-			controllerAs: 'profil'
+			controllerAs: 'vm'
 		})
 		// Affichage d'un profil
 		.when('/user/:id', {
 			templateUrl: 'view/profil-user.html',
 			controller: 'profilController',
-			controllerAs: 'profil'
+			controllerAs: 'vm'
 		})
 		// Route pour la création d'assos
 		.when('/association', {

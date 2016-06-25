@@ -1,6 +1,6 @@
 .actu--comment
 	a.comment--picture(href="#/user/{{comment.user.id}}")
-		img(src="http://api.caritathelp.me{{comment.user.thumb_path}}", alt="{{comment.user.firstname}} {{comment.user.lastname}}")
+		img(ng-src="http://api.caritathelp.me{{comment.user.thumb_path}}", alt="{{comment.user.firstname}} {{comment.user.lastname}}")
 	.comment--body
 		header.infos
 			a.name(href="#/user/{{comment.user.id}}") {{comment.user.firstname}} {{comment.user.lastname}}

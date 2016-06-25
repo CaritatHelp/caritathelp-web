@@ -3,56 +3,10 @@
 	flex-wrap: wrap;
 }
 
-.recommendations {
-	.elements {
-		display: flex;
-		flex-wrap: wrap;
-		& > div {
-			display: flex;
-			padding: 0 .5rem;
-			margin-bottom: 1rem;
-			.avatar img {width: 50px;}
-			.infos {
-				flex-grow: 1;
-				padding-left: .75rem;
-				.name {
-					padding-bottom: .2rem;
-					font-weight: bold;
-				}
-				.btn {
-					padding: 5px 10px;
-					font-size: .9em;
-					line-height: 1.5;
-				}
-			}
-		}
-	}
-}
-.text-list {
-	display: flex;
-	flex-direction: column;
-	font-size: 1.1em;
-	.link	{
-		display: flex;
-		align-items: center;
-		line-height: 1.8;
-		cursor: pointer;
-		&:hover i {color: @link-color;}
-		i {
-			width: 1.2em;
-			margin-right: .5em;
-			font-size: 1.2em;
-			color: #9da9b0;
-			text-align: center;
-		}
-	}
-}
-
 .listing {
 	.friend, .association {
 		display: flex;
 		align-items: center;
-		.avatar {max-width: 20%;}
 		.name {
 			flex-grow: 1;
 			padding: 0 1em;
@@ -60,6 +14,12 @@
 			font-weight: bold;
 		}
 	}
-	.avatar {
+	.asso--img {
+		width: 4em;
+		max-height: 4em;
+	}
+	.friend--img {
+		width: 4em;
+		max-height: 4em;
 	}
 }

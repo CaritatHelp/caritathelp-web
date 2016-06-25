@@ -16,8 +16,4 @@
 					button.btn(type="submit")
 						i.fa.fa-play
 	section.news(ng-repeat="actu in timeline.news")
-		news(
-			news-id="actu.object.id",
-			user-id="actu.object.volunteer_id",
-			content="actu.object.content"
-		)
+		news(news-id="actu.id")

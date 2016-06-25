@@ -1,8 +1,8 @@
 .actu--comment
-	a.comment--picture(href="#")
-		img(src="img/user1.png", alt="")
+	a.comment--picture(href="#/user/{{comment.user.id}}")
+		img(src="http://api.caritathelp.me{{comment.user.thumb_path}}", alt="{{comment.user.firstname}} {{comment.user.lastname}}")
 	.comment--body
 		header.infos
-			a.name(href="#") Robin le moche
+			a.name(href="#/user/{{comment.user.id}}") {{comment.user.firstname}} {{comment.user.lastname}}
 			.time 8 min
-		.comment--text Vestibulum condimentum metus neque, ut elementum tellus venenatis sit amet.
+		.comment--text {{comment.content}}

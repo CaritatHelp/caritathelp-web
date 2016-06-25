@@ -5,8 +5,6 @@ block jumbotron
 	.cover--infos
 		//- Image de profil (défaut si l'user n'en a pas)
 		img.picture(ng-if="profil.user.picture", src="{{profil.user.picture}}", alt="{{profil.user.firstname}} {{profil.user.lastname}}")
-		img.picture(ng-if="!profil.user.picture && profil.user.gender == 'f'", src="img/user1.png", alt="{{profil.user.firstname}} {{profil.user.lastname}}")
-		img.picture(ng-if="!profil.user.picture", src="img/user2.png", alt="{{profil.user.firstname}} {{profil.user.lastname}}")
 		h1.name {{profil.user.firstname}} {{profil.user.lastname}}
 	nav.cover--navigation
 		a(ng-click="profil.setTab(1)"
@@ -30,10 +28,8 @@ block tabs
 					Ajouter en ami
 			friend-list
 			asso-list
-		.col-md-8(ng-if="profil.isCurrent")
-			timeline
-		.col-md-8(ng-if="!profil.isCurrent")
-			timeline(tl-type="user", tl-id="profil.user.id")
+		.col-md-8
+			timeline(tl-id="profil.user.id", tl-type="'volunteer'")
 	.friends-tab(ng-show="profil.isSet(4)")
 		.col-md-3(ng-repeat="friend in profil.user.friends")
 			user-summary(user-id="friend.id")

@@ -6,7 +6,7 @@ module.exports = /*@ngInject*/ function () {
 		templateUrl: 'js/timeline/timeline.html',
 		bindToController: {
 			tlId: '@',
-			tlType: '@'
+			tlType: '='
 		}
 	};
 };

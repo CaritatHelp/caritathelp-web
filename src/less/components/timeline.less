@@ -28,7 +28,10 @@
 //Un element de la timeline
 	.actu--main {
 		display: flex;
-		.actu--picture img:extend(.img-avatar) {width: 5em;}
+		.actu--picture img:extend(.img-avatar) {
+			width: 5em;
+			max-height: 5em;
+		}
 	}
 	.actu--aside {
 		display: flex;
@@ -53,6 +56,9 @@
 				color: #9da9b0;
 			}
 		}
+		.actu--text {
+			min-height: 2.5em;
+		}
 	}
 //Commentaires sur l'élément
 .actu--comments {padding-top: 1em;}
@@ -61,8 +67,14 @@
 	padding: .5em 0;
 	border-top: 1px solid @card-border;
 }
-.comment--body {padding: 0 .5em;}
-.comment--picture img:extend(.img-avatar) {width: 3em;}
+.comment--body {
+	width: 100%;
+	padding: 0 .5em;
+}
+.comment--picture img:extend(.img-avatar) {
+	width: 3em;
+	max-height: 3em;
+}
 //Input de réponse
 .actu--reply {
 	display: flex;
@@ -75,4 +87,7 @@
 		padding-left: 1em;
 	}
 }
-.reply--picture img:extend(.img-avatar) {width: 3em;}
+.reply--picture img:extend(.img-avatar) {
+	width: 3em;
+	max-height: 3em;
+}

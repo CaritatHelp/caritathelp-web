@@ -24,7 +24,7 @@ module.exports = /*@ngInject*/ function (localStorageService, dataService, $inte
 					user.assos = data.response;
 					ls.set('currentUser', user);
 				});
-			dsc.getEvents(user.id, user.token)
+			dsc.getEvents(user.id, token)
 				.success(function (data) {
 					user.events = data.response;
 					ls.set('currentUser', user);

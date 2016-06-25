@@ -21,8 +21,8 @@
 					.card.listing(ng-show="search.resUser.length", ng-repeat="user in search.resUser")
 						.friends
 							.friend
-								a.avatar(href="#/user/{{user.id}}", title="{{user.firstname}} {{user.lastname}}")
-									img(src="img/user1.png", alt="", class="img-circle")
+								a(href="#/user/{{user.id}}", title="{{user.firstname}} {{user.lastname}}")
+									img(src="http://api.caritathelp.me{{user.thumb_path}}", alt="{{user.firstname}} {{user.lastname}}", class="img-circle")
 								a.name(href="#/user/{{user.id}}") {{user.firstname}} {{user.lastname}}
 					.card.listing(ng-show="search.errorUser") {{search.errorUser}}
 				section.search--results
@@ -30,7 +30,8 @@
 						a(href='#') Résultats dans les associssons
 					.card.listing(ng-show="search.resAsso.length", ng-repeat="asso in search.resAsso")
 						.association
-							a.avatar(href="#/association/{{asso.id}}", title="{{asso.name}}")
-								img(src="img/mlp.jpg", alt="", class="img-circle")
+							a(href="#/association/{{asso.id}}", title="{{asso.name}}")
+								img(src="img/mlp.jpg", alt="{{asso.name}}", class="img-circle")
+								img(src="http://api.caritathelp.me{{asso.thumb_path}}", alt="{{asso.name}}", class="img-circle")
 							a.name(href="#/association/{{asso.id}}") {{asso.name}}
 					.card.listing(ng-show="search.errorAsso") {{search.errorAsso}}

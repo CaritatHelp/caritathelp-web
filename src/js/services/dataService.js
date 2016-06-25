@@ -186,12 +186,12 @@ module.exports = /*@ngInject*/ function ($http) {
 		var parameters = 'token=' + token + '&content=' + content;
 		return $http.post(buildUrl('news', null, 'volunteer_status', parameters));
 	};
-	DataService.postAssoNews = function (content, token) {
-		var parameters = 'token=' + token + '&content=' + content;
+	DataService.postAssoNews = function (asso_id, content, token) { // eslint-disable-line camelcase
+		var parameters = 'token=' + token + '&content=' + content + '&assoc_id=' + asso_id; // eslint-disable-line camelcase
 		return $http.post(buildUrl('news', null, 'assoc_status', parameters));
 	};
-	DataService.postEventNews = function (content, token) {
-		var parameters = 'token=' + token + '&content=' + content;
+	DataService.postEventNews = function (event_id, content, token) { // eslint-disable-line camelcase
+		var parameters = 'token=' + token + '&content=' + content + '&event_id=' + event_id; // eslint-disable-line camelcase
 		return $http.post(buildUrl('news', null, 'event_status', parameters));
 	};
 	DataService.getNews = function (id, token) {
@@ -201,6 +201,24 @@ module.exports = /*@ngInject*/ function ($http) {
 	DataService.getNewsComments = function (id, token) {
 		var parameters = 'token=' + token;
 		return $http.get(buildUrl('news', id, 'comments', parameters));
+	};
+
+//Comments
+	DataService.postComment = function (news_id, content, token) { // eslint-disable-line camelcase
+		var parameters = 'token=' + token + '&new_id=' + news_id + '&content=' + content; // eslint-disable-line camelcase
+		return $http.post(buildUrl('comments', null, null, parameters));
+	};
+	DataService.updateComment = function (id, content, token) {
+		var parameters = 'token=' + token + '&content=' + content;
+		return $http.put(buildUrl('comments', id, null, parameters));
+	};
+	DataService.getComment = function (id, token) {
+		var parameters = 'token=' + token;
+		return $http.get(buildUrl('comments', id, null, parameters));
+	};
+	DataService.deleteComment = function (id, token) {
+		var parameters = 'token=' + token;
+		return $http.delete(buildUrl('comments', id, null, parameters));
 	};
 
 //Events

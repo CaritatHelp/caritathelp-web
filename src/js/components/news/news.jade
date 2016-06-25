@@ -1,23 +1,37 @@
 .timeline--actu
 	.actu--main(data-id="{{news.newsId}}")
-		.actu--aside
-			a.actu--picture(href="#")
-				img(src="img/user3.png", alt="")
+		//-User picture
+		.actu--aside(ng-if="news.user")
+			a.actu--picture(href="#/user/{{news.user.id}}")
+				img(src="http://api.caritathelp.me{{news.user.thumb_path}}", alt="{{news.user.firstname}} {{news.user.lastname}}")
+		//-Asso picture
+		.actu--aside(ng-if="news.asso")
+			a.actu--picture(href="#/association/{{news.asso.id}}")
+				img(src="http://api.caritathelp.me{{news.asso.thumb_path}}", alt="{{news.asso.name}}")
+		//-Event picture
+		.actu--aside(ng-if="news.event")
+			a.actu--picture(href="#/event/{{news.event.id}}")
+				img(src="http://api.caritathelp.me{{news.event.thumb_path}}", alt="{{news.event.title}}")
+
 		.actu--body
 			header.infos
-				a.name(href="") {{news.username}}
+				a.name(href="#/user/{{news.user.id}}") {{news.username}}
 				.time 25mn
-			.actu--text {{news.content}}
-			.actu--comments(ng-repeat="comment in news.comments")
-				comment
-	.actu--reply(ng-show="news.isReplying()")
+			.actu--text {{news.actu.content}}
+			.actu--comments(ng-repeat="com in news.comments")
+				comment(cm-id="com.id", cm-user="com.volunteer_id")
+	form.actu--reply#postComment(
+		novalidate="",
+		name="postComment",
+		ng-submit="news.postComment()"
+		)
 		a.reply--picture(href="#")
-			img(src="img/user2.png", alt="")
+			img(src="{{news.current.picture}}", alt="{{news.current.firstname}} {{news.current.lastname}}")
 		.input-group
 			input.form-control(
 				type="text",
 				placeholder="Poster un commentaire",
-				ng-model="timeline.test")
+				ng-model="news.newComment")
 			.input-group-btn
 				button.btn
 					i.fa.fa-play

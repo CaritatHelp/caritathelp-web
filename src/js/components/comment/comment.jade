@@ -1,8 +1,8 @@
 .actu--comment
-	a.comment--picture(href="#/user/{{comment.user.id}}")
-		img(ng-src="http://api.caritathelp.me{{comment.user.thumb_path}}", alt="{{comment.user.firstname}} {{comment.user.lastname}}")
+	a.comment--picture(href="#/user/{{comment.com.volunteer_id}}")
+		img(ng-src="http://api.caritathelp.me{{comment.com.thumb_path}}", alt="{{comment.com.firstname}} {{comment.com.lastname}}")
 	.comment--body
 		header.infos
-			a.name(href="#/user/{{comment.user.id}}") {{comment.user.firstname}} {{comment.user.lastname}}
-			.time 8 min
-		.comment--text {{comment.content}}
+			a.name(href="#/user/{{comment.com.volunteer_id}}") {{comment.com.firstname}} {{comment.com.lastname}}
+			.time {{comment.com.created_at | date: "'MM/dd' à 'HH:mm'"}}
+		.comment--text {{comment.com.content}}

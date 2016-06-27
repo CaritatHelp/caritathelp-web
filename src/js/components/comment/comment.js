@@ -1,12 +1,11 @@
 'use strict';
 module.exports = /*@ngInject*/ function () {
 	return {
-		controller: 'commentController',
+		controller: function(){},
 		controllerAs: 'comment',
 		templateUrl: 'js/comment/comment.html',
 		bindToController: {
-			cmId: '=',
-			cmUser: '='
+			com: '='
 		}
 	};
 };

@@ -12,7 +12,7 @@ block main-column
 			h5 Vos associations
 		section
 			.table-responsive
-				table.table.table-hover
+				table.table.table-hover.table-max
 					thead
 						tr
 							th Nom
@@ -34,12 +34,12 @@ block main-column
 				h5 Toutes les associations
 			section
 				.table-responsive
-					table.table.table-hover
+					table.table.table-hover.table-max
 						thead
 							tr
 								th Nom
 								th Ville
-								th Amis membres
+								th Membres
 						tbody
 							tr(ng-repeat="assoc in association.assos", ng-show="!assoc.rights")
 								td

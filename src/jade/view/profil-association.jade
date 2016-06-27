@@ -3,52 +3,53 @@ extends ../layout/with-cover
 block jumbotron
 	.cover--background(style="background-image:url(img/cover/fuzeria.jpg)")
 	.cover--infos
-		img.picture(ng-if="!asso.asso.thumb_path", src="img/mlp.jpg", alt="")
-		img.picture(ng-if="asso.asso.thumb_path", ng-src="http://api.caritathelp.me{{asso.asso.thumb_path}}", alt="{{asso.asso.name}}")
-		h1.name {{asso.asso.name}}
+		img.picture(ng-if="!vm.asso.thumb_path", src="img/mlp.jpg", alt="")
+		img.picture(ng-if="vm.asso.thumb_path", ng-src="http://api.caritathelp.me{{vm.asso.thumb_path}}", alt="{{vm.asso.name}}")
+		h1.name {{vm.asso.name}}
 	nav.cover--navigation
-		a(ng-click="asso.setTab(1)"
-			ng-class="{active:asso.isSet(1)}") Timeline
-		a(ng-click="asso.setTab(2)"
-			ng-class="{active:asso.isSet(2)}") Membres
-		a(ng-click="asso.setTab(3)"
-			ng-class="{active:asso.isSet(3)}") Evenements
-		a(ng-click="asso.setTab(4)"
-			ng-class="{active:asso.isSet(4)}") Administration
+		a(ng-click="vm.setTab(1)"
+			ng-class="{active:vm.isSet(1)}") Timeline
+		a(ng-click="vm.setTab(2)"
+			ng-class="{active:vm.isSet(2)}") Membres
+		a(ng-click="vm.setTab(3)"
+			ng-class="{active:vm.isSet(3)}") Evenements
+		a(ng-click="vm.setTab(4)"
+			ng-class="{active:vm.isSet(4)}") Administration
 
 block tabs
-	.timeline-tab(ng-show="asso.isSet(1)")
+	.timeline-tab(ng-show="vm.isSet(1)")
 		.col-md-4
+			.description
+				header
+					.description--title Description
+				section
+					.description--text {{vm.asso.description}}
 			//-Bloc d'informations latéral
-			.card
-				section(ng-if="!asso.asso.rights").
-					Vous n'êtes pas membre de cette association
-				section(ng-if="asso.asso.rights == 'member'").
-					Vous êtes membre de cette association
-				section(ng-if="asso.asso.rights == 'admin'").
-					Vous n'êtes pas membre de cette association
-				section(ng-if="asso.asso.rights == 'owner'").
-					Vous êtes le créateur de cette association
+			.rights.alert(ng-class="vm.rights.class") {{vm.rights.message}}
 			//- Actions possibles pour l'utilisateur
-			.action(ng-if="!asso.asso.rights")
-				a(href="#").
+			.action(ng-if="vm.asso.rights == 'none'")
+				a(ng-click="vm.joinAsso()").
 					#[i.fa.fa-plus]
-					Rejoindre l'association
-			.action(ng-if="asso.asso.rights && asso.asso.rights != 'owner'")
-				a(href="#").
+					Rejoindre cette association
+			.action(ng-if="vm.asso.rights == 'member' || vm.asso.rights == 'admin' || vm.asso.rights == 'owner'")
+				a(ng-click="vm.inviteAsso()").
+					#[i.fa.fa-user-plus]
+					Inviter vos amis
+			.action(ng-if="vm.asso.rights == 'admin' || vm.asso.rights == 'member'")
+				a(ng-click="vm.leaveAsso()").
 					#[i.fa.fa-minus]
 					Quitter l'association
-			.action(ng-if="asso.asso.rights == 'owner'")
-				a(href="#").
+			.action(ng-if="vm.asso.rights == 'owner'")
+				a(ng-click="vm.deleteAsso()").
 					#[i.fa.fa-minus]
 					Supprimer l'association
 			//- Timeline de l'association
 		.col-md-8
-			timeline(tl-id="asso.asso.id", tl-type="association")
-	.members-tab(ng-show="asso.isSet(2)")
-		.col-md-3(ng-repeat="member in asso.asso.members")
+			timeline(tl-id="vm.asso.id", tl-type="association")
+	.members-tab(ng-show="vm.isSet(2)")
+		.col-md-3(ng-repeat="member in vm.asso.members")
 			user-summary(user-id="member.id")
-	.calendar-tab(ng-show="asso.isSet(3)")
-		calendar(cal-type="association", cal-id="asso.asso.id", cal-rights="asso.asso.rights")
-	.settings-tab(ng-show="asso.isSet(4)")
+	.calendar-tab(ng-show="vm.isSet(3)")
+		calendar(cal-type="association", cal-id="vm.asso.id", cal-rights="vm.asso.rights")
+	.settings-tab(ng-show="vm.isSet(4)")
 		include ../tabs/asso-calendar

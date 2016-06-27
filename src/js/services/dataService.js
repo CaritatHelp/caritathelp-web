@@ -1,5 +1,5 @@
 'use strict';
-
+/* eslint camelcase: "off", max-lines: "off" */
 module.exports = /*@ngInject*/ function ($http) {
 	var servurl = 'http://api.caritathelp.me/';
 	var DataService = {};
@@ -162,6 +162,48 @@ module.exports = /*@ngInject*/ function ($http) {
 		return $http.get(buildUrl('associations', id, 'news', null));
 	};
 
+//Membership
+	DataService.joinAsso = function (id) {
+		var parameters = 'assoc_id=' + id;
+		return $http.post(buildUrl('membership', null, 'join', parameters));
+	};
+	DataService.replyDemandAsso = function (id, status) {
+		var parameters = 'notif_id=' + id + '&acceptance=' + status;
+		return $http.post(buildUrl('membership', null, 'reply_member', parameters));
+	};
+	DataService.inviteAsso = function (volunteer_id, assoc_id) {
+		var parameters = 'assoc_id=' + assoc_id + '&volunteer_id=' + volunteer_id;
+		return $http.post(buildUrl('membership', null, 'invite', parameters));
+	};
+	DataService.replyInviteAsso = function (id, status) {
+		var parameters = 'notif_id=' + id + '&acceptance=' + status;
+		return $http.post(buildUrl('membership', null, 'reply_invite', parameters));
+	};
+	DataService.leaveAsso = function (id) {
+		var parameters = 'assoc_id=' + id;
+		return $http.delete(buildUrl('membership', null, 'leave', parameters));
+	};
+	DataService.upgradeRightsAsso = function (volunteer_id, assoc_id, rights) {
+		var parameters = 'assoc_id=' + assoc_id + '&volunteer_id=' + volunteer_id + '&rights=' + rights;
+		return $http.put(buildUrl('membership', null, 'upgrade', parameters));
+	};
+	DataService.kickAsso = function (volunteer_id, assoc_id) {
+		var parameters = 'assoc_id=' + assoc_id + '&volunteer_id=' + volunteer_id;
+		return $http.delete(buildUrl('membership', null, 'kick', parameters));
+	};
+	DataService.invitedAsso = function (id) {
+		var parameters = 'assoc_id=' + id;
+		return $http.get(buildUrl('membership', null, 'invited', parameters));
+	};
+	DataService.uninviteAsso = function (volunteer_id, assoc_id) {
+		var parameters = 'assoc_id=' + assoc_id + '&volunteer_id=' + volunteer_id;
+		return $http.delete(buildUrl('membership', null, 'uninvite', parameters));
+	};
+	DataService.waitingAsso = function (id) {
+		var parameters = 'assoc_id=' + id;
+		return $http.get(buildUrl('membership', null, 'waiting', parameters));
+	};
+
 //News
 	DataService.getNewsList = function () {
 		return $http.get(buildUrl('news', null, null, null));
@@ -170,12 +212,12 @@ module.exports = /*@ngInject*/ function ($http) {
 		var parameters = 'content=' + content;
 		return $http.post(buildUrl('news', null, 'volunteer_status', parameters));
 	};
-	DataService.postAssoNews = function (asso_id, content) { // eslint-disable-line camelcase
-		var parameters = 'content=' + content + '&assoc_id=' + asso_id; // eslint-disable-line camelcase
+	DataService.postAssoNews = function (assoc_id, content) {
+		var parameters = 'content=' + content + '&assoc_id=' + assoc_id;
 		return $http.post(buildUrl('news', null, 'assoc_status', parameters));
 	};
-	DataService.postEventNews = function (event_id, content) { // eslint-disable-line camelcase
-		var parameters = 'content=' + content + '&event_id=' + event_id; // eslint-disable-line camelcase
+	DataService.postEventNews = function (event_id, content) {
+		var parameters = 'content=' + content + '&event_id=' + event_id;
 		return $http.post(buildUrl('news', null, 'event_status', parameters));
 	};
 	DataService.getNew = function (id) {
@@ -186,8 +228,8 @@ module.exports = /*@ngInject*/ function ($http) {
 	};
 
 //Comments
-	DataService.postComment = function (news_id, content) { // eslint-disable-line camelcase
-		var parameters = 'new_id=' + news_id + '&content=' + content; // eslint-disable-line camelcase
+	DataService.postComment = function (news_id, content) {
+		var parameters = 'new_id=' + news_id + '&content=' + content;
 		return $http.post(buildUrl('comments', null, null, parameters));
 	};
 	DataService.updateComment = function (id, content) {
@@ -205,8 +247,8 @@ module.exports = /*@ngInject*/ function ($http) {
 	DataService.getEventList = function () {
 		return $http.get(buildUrl('events', null, null, null));
 	};
-	DataService.createEvent = function (assoc_id, title, description, place, begin, end) { // eslint-disable-line camelcase
-		var parameters = 'assoc_id=' + assoc_id + '&title=' + title + '&description=' + description; // eslint-disable-line camelcase
+	DataService.createEvent = function (assoc_id, title, description, place, begin, end) {
+		var parameters = 'assoc_id=' + assoc_id + '&title=' + title + '&description=' + description;
 		if (place) {
 			parameters = parameters + '&place=' + place;
 		}

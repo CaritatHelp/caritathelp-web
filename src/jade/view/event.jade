@@ -18,11 +18,11 @@ block jumbotron
 block tabs
 	.timeline-tab(ng-show="vm.isSet(1)")
 		.col-md-4
-			.card.event
+			.description
 				header
-					h5 Description par l'hôte
+					.description--title Description par l'hôte
 				section
-					.event--description {{vm.event.description}}
+					.description--text {{vm.event.description}}
 			//- Membre
 			.action(ng-if="vm.event.rights == 'members'")
 				a(ng-click="vm.joinEvent()").

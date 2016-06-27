@@ -19,7 +19,7 @@
 				.time 25mn
 			.actu--text {{vmnews.actu.content}}
 			.actu--comments(ng-repeat="com in vmnews.comments | orderBy:'+created_at'")
-				comment(cm-id="com.id", cm-user="com.volunteer_id")
+				comment(com="com")
 	form.actu--reply#postComment(
 		novalidate="",
 		name="postComment",

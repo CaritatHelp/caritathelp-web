@@ -78,7 +78,7 @@ app.config(function ($routeProvider, localStorageServiceProvider) {
 		.when('/association/:id', {
 			templateUrl: 'view/profil-association.html',
 			controller: 'associationController',
-			controllerAs: 'asso'
+			controllerAs: 'vm'
 		})
 		//Recherche
 		.when('/search/:search', {

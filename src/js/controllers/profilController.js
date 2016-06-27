@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function (userService, $routeParams, dataService) {
+module.exports = /*@ngInject*/ function (userService, $routeParams, $location, dataService) {
 	var vm = this;
 	var usc = userService;
 	var dsc = dataService;
@@ -11,16 +11,19 @@ module.exports = /*@ngInject*/ function (userService, $routeParams, dataService)
 
 	vm.tab = 1;
 	if ($routeParams.id) {
-		dsc.getVolunteer($routeParams.id, usc.token())
+		if ($routeParams.id == vm.currentUser.id) { // eslint-disable-line eqeqeq
+			$location.path('/profil');
+		}
+		dsc.getVolunteer($routeParams.id)
 			.success(function (data) {
 				vm.user = data.response;
 				vm.user.picture = 'http://api.caritathelp.me' + data.response.thumb_path;
 			});
-		dsc.getFriends($routeParams.id, usc.token())
+		dsc.getFriends($routeParams.id)
 			.success(function (data) {
 				vm.user.friends = data.response;
 			});
-		dsc.getEvents($routeParams.id, usc.token())
+		dsc.getEvents($routeParams.id)
 			.success(function (data) {
 				vm.user.events = data.response;
 			});

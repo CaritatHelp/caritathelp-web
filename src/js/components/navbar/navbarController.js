@@ -8,7 +8,7 @@ module.exports = /*@ngInject*/ function ($location, dataService, userService) {
 	vm.view = 'home';
 
 	if (vm.user) {
-		dsc.getNotifs(vm.user.id, usc.token())
+		dsc.getNotifs(vm.user.id)
 			.success(function (data) {
 				vm.notifications = data.response;
 				if (!vm.notifications.length) {
@@ -18,7 +18,7 @@ module.exports = /*@ngInject*/ function ($location, dataService, userService) {
 	}
 
 	vm.logout = function () {
-		dsc.logout(usc.token());
+		dsc.logout();
 		usc.disconnect();
 		$location.path('/login');
 	};

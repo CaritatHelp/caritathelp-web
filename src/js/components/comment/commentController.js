@@ -1,13 +1,12 @@
 'use strict';
-module.exports = /*@ngInject*/ function (userService, dataService) {
+module.exports = /*@ngInject*/ function (dataService) {
 	var vm = this;
-	var usc = userService;
 	var dsc = dataService;
 
-	dsc.getComment(vm.cmId, usc.token())
+	dsc.getComment(vm.cmId)
 		.success(function (data) {
 			vm.id = data.response.id;
-			dsc.getVolunteer(vm.cmUser, usc.token())
+			dsc.getVolunteer(vm.cmUser)
 				.success(function (data) {
 					vm.user = data.response;
 				});

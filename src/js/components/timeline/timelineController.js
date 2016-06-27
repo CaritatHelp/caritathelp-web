@@ -1,35 +1,37 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, userService) {
+module.exports = /*@ngInject*/ function (userService, dataService, $routeParams) {
 	var vm = this;
-	var usc = userService;
 	var dsc = dataService;
+	var usc = userService;
 
 	vm.news = {};
+	vm.currentUser = usc.user();
 	//Sauvegarde du type de timeline
 	if (vm.tlType) {
 		vm.type = vm.tlType;
 	}	else {
 		vm.type = 'home';
 	}
+
 	//Récupération de la liste des news
 	if (vm.type == 'volunteer') {
-		console.log(vm.tlId);
-		dsc.getNews(vm.tlId, usc.token())
+		vm.id = $routeParams.id ? $routeParams.id : vm.currentUser.id;
+		dsc.getNews(vm.id)
 			.success(function (data) {
-				vm.news = data.response.news;
+				vm.news = data.response;
 			});
 	} else if (vm.type == 'association') {
-		dsc.getAssoNews(vm.tlId, usc.token())
+		dsc.getAssoNews($routeParams.id)
 			.success(function (data) {
-				vm.news = data.response.news;
+				vm.news = data.response;
 			});
 	} else if (vm.type == 'event') {
-		dsc.getEventNews(vm.tlId, usc.token())
+		dsc.getEventNews($routeParams.id)
 			.success(function (data) {
-				vm.news = data.response.news;
+				vm.news = data.response;
 			});
-	} else {
-		dsc.getNewsList(usc.token())
+	} else if (!$routeParams.id) {
+		dsc.getNewsList()
 			.success(function (data) {
 				vm.news = data.response;
 			});
@@ -37,7 +39,7 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 
 	vm.postNews = function () {
 		if (vm.type == 'volunteer' || vm.type == 'home') {
-			dsc.postVolunteerNews(vm.newNews, usc.token())
+			dsc.postVolunteerNews(vm.newNews)
 				.success(function (data) {
 					if (data.status === 200) {
 						vm.news.push(data.response);
@@ -45,7 +47,7 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 					}
 				});
 		} else if (vm.type == 'association') {
-			dsc.postAssoNews(vm.tlId, vm.newNews, usc.token())
+			dsc.postAssoNews($routeParams.id, vm.newNews)
 				.success(function (data) {
 					if (data.status === 200) {
 						vm.news.push(data.response);
@@ -53,7 +55,7 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 					}
 				});
 		} else if (vm.type == 'event') {
-			dsc.postEventNews(vm.tlId, vm.newNews, usc.token())
+			dsc.postEventNews($routeParams.id, vm.newNews)
 				.success(function (data) {
 					if (data.status === 200) {
 						vm.news.push(data.response);

@@ -1,36 +1,35 @@
 'use strict';
 
-module.exports = /*@ngInject*/ function (localStorageService, dataService, $interval) {
+module.exports = /*@ngInject*/ function (localStorageService, dataService) {
 	var ls = localStorageService;
 	var dsc = dataService;
-	var token = null;
 	var user = null;
 
 	if (ls.get('connected')) {
-		token = ls.get('token');
+		dsc.setToken(ls.get('token'));
 		user = ls.get('currentUser');
 	}
 
 	//Refresh de la liste d'amis et des assos totues les 5 minutes
-	if (user) {
-		$interval(function () {
-			dsc.getFriends(user.id, token)
-				.success(function (data) {
-					user.friends = data.response;
-					ls.set('currentUser', user);
-				});
-			dsc.getAssos(user.id, token)
-				.success(function (data) {
-					user.assos = data.response;
-					ls.set('currentUser', user);
-				});
-			dsc.getEvents(user.id, token)
-				.success(function (data) {
-					user.events = data.response;
-					ls.set('currentUser', user);
-				});
-		}, 300000);
-	}
+	// if (user) {
+	// 	$interval(function () {
+	// 		dsc.getFriends(user.id, token)
+	// 			.success(function (data) {
+	// 				user.friends = data.response;
+	// 				ls.set('currentUser', user);
+	// 			});
+	// 		dsc.getAssos(user.id, token)
+	// 			.success(function (data) {
+	// 				user.assos = data.response;
+	// 				ls.set('currentUser', user);
+	// 			});
+	// 		dsc.getEvents(user.id, token)
+	// 			.success(function (data) {
+	// 				user.events = data.response;
+	// 				ls.set('currentUser', user);
+	// 			});
+	// 	}, 300000);
+	// }
 
 	//Sauvegarde des données de l'utilisateur
 	function fillUser(datas) {
@@ -51,17 +50,14 @@ module.exports = /*@ngInject*/ function (localStorageService, dataService, $inte
 	}
 
 	return {
-		token: function () {
-			return token;
-		},
 		// check si l'user est logged
 		user: function () {
 			return (user) ? user : false;
 		},
 		connect: function (datas) {
 			//Sauvegarde du token
-			token = datas.token;
-			ls.set('token', token);
+			dsc.setToken(datas.token);
+			ls.set('token', datas.token);
 
 			//sauvegarde de l'user
 			user = fillUser(datas);
@@ -88,7 +84,7 @@ module.exports = /*@ngInject*/ function (localStorageService, dataService, $inte
 		},
 		disconnect: function () {
 			user = null;
-			token = '';
+			dsc.setToken(null);
 
 			//On retire les cookies du localhost
 			ls.remove('token');

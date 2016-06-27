@@ -1,17 +1,15 @@
 'use strict';
-module.exports = /*@ngInject*/ function (userService, dataService, $routeParams) {
+module.exports = /*@ngInject*/ function (dataService, $routeParams) {
 	var vm = this;
-	var usc = userService;
 	var dsc = dataService;
 
-	vm.currentUser = usc.user();
 	vm.tab = 1;
 	vm.event = {};
 
-	dsc.getEvent($routeParams.id, usc.token())
+	dsc.getEvent($routeParams.id)
 		.success(function (data) {
 			vm.event = data.response;
-			dsc.getGuestEvent($routeParams.id, usc.token())
+			dsc.getGuestEvent($routeParams.id)
 				.success(function (data) {
 					vm.event.guests = data.response;
 				});

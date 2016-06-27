@@ -1,7 +1,6 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, userService) {
+module.exports = /*@ngInject*/ function (dataService) {
 	var vm = this;
-	var usc = userService;
 	var dsc = dataService;
 
 	vm.setTab = function (activeTab) {
@@ -17,12 +16,12 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 		vm.type = 'volunteer';
 		vm.tab = 1;
 		//Tous les events existants
-		dsc.getEventList(usc.token())
+		dsc.getEventList()
 			.success(function (data) {
 				vm.events = data.response;
 			});
 		//Events rejoints par l'user
-		dsc.getEvents(vm.calId, usc.token())
+		dsc.getEvents(vm.calId)
 			.success(function (data) {
 				vm.joined = data.response;
 			});
@@ -30,7 +29,7 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 		vm.tab = 2;
 		vm.type = 'association';
 		//Events créés par l'asso
-		dsc.getAssoEvents(vm.calId, usc.token())
+		dsc.getAssoEvents(vm.calId)
 			.success(function (data) {
 				vm.events = data.response;
 				if (vm.calRights === 'owner' || vm.calRights === 'admin') {

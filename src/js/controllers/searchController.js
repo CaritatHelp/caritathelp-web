@@ -1,13 +1,11 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, userService, $routeParams) {
+module.exports = /*@ngInject*/ function (dataService, $routeParams) {
 	var vm = this;
-	var usc = userService;
 	var dsc = dataService;
 
-	vm.currentUser = usc.user();
 	vm.research = $routeParams.search;
 
-	dsc.searchVolunteer(vm.research, usc.token())
+	dsc.searchVolunteer(vm.research)
 		.success(function (data) {
 			if (data.status === 200) {
 				vm.resUser = data.response;
@@ -16,7 +14,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $routeParams)
 				}
 			}
 		});
-	dsc.searchAssociation(vm.research, usc.token())
+	dsc.searchAssociation(vm.research)
 		.success(function (data) {
 			if (data.status === 200) {
 				vm.resAsso = data.response;

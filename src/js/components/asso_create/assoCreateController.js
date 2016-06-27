@@ -1,7 +1,6 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($location, userService, dataService) {
+module.exports = /*@ngInject*/ function ($location, dataService) {
 	var vm = this;
-	var usc = userService;
 	var dsc = dataService;
 
 	vm.error = false;
@@ -10,7 +9,7 @@ module.exports = /*@ngInject*/ function ($location, userService, dataService) {
 	vm.createAsso = function () {
 		vm.date = new Date();
 		// Parametres: nom description birthday city latitude longitude token
-		dsc.createAsso(vm.name, vm.description, null, null, null, null, usc.token())
+		dsc.createAsso(vm.name, vm.description, null, null, null, null)
 			.success(function (data) {
 				if (data.status === 200) {
 					$location.path('/association/' + data.response.id);

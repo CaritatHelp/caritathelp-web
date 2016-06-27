@@ -4,50 +4,51 @@ module.exports = /*@ngInject*/ function ($http) {
 	var servurl = 'http://api.caritathelp.me/';
 	var DataService = {};
 	var logEnabled = true;
+	var token = null;
 
 	function buildUrl(route, identifier, subroute, parameters) {
-		var url = servurl + route + (identifier ? '/' + identifier : '') + (subroute ? '/' + subroute : '') + '?' + parameters;
+		var url = servurl + route + (identifier ? '/' + identifier : '') + (subroute ? '/' + subroute : '') + '?token=' + token + (parameters ? '&' + parameters : '');
 		if (logEnabled) {
 			console.log('API call: ' + url);
 		}
 		return url;
 	}
 
+	DataService.setToken = function (tokn) {
+		token = tokn;
+	};
+
 /*Implémenté:
 *
-* /assocs /events /friendship /login /logout /news /volunteers
-* /comment /guests /membership /messages /pictures /shelters
+* /assocs /comments /events /friendship /login /logout /news /volunteers
+* /guests /membership /messages /pictures /shelters
 *
 */
 
 //Login - Logout - Register (POSTVolunteer)
 	DataService.login = function (mail, password) {
-		var parameters = 'mail=' + mail + '&password=' + password;
-		return $http.post(buildUrl('login', null, null, parameters));
+		return $http.post(servurl + 'login?mail=' + mail + '&password=' + password);
 	};
-	DataService.logout = function (token) {
-		var parameters = 'token=' + token;
-		return $http.post(buildUrl('logout', null, null, parameters));
+	DataService.logout = function () {
+		return $http.post(buildUrl('logout', null, null, null));
 	};
 	DataService.register = function (mail, password, firstname, lastname, birthday, gender) {
 		var parameters = 'mail=' + mail + '&password=' + password + '&firstname=' + firstname + '&lastname=' + lastname + '&birthday=' + birthday + '&gender=' + gender;
-		return $http.post(buildUrl('volunteers', null, null, parameters));
+		return $http.post(servurl + 'volunteers' + parameters);
 	};
 
 //Volunteers
 	//Retourne la liste des volontaires
-	DataService.getVolunteers = function (token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('volunteers', null, null, parameters));
+	DataService.getVolunteers = function () {
+		return $http.get(buildUrl('volunteers', null, null, null));
 	};
 	//Retourne le volontaire $id
-	DataService.getVolunteer = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('volunteers', id, null, parameters));
+	DataService.getVolunteer = function (id) {
+		return $http.get(buildUrl('volunteers', id, null, null));
 	};
 	//Recherche d'un volontaire
-	DataService.searchVolunteer = function (research, token) {
-		var parameters = 'token=' + token + '&research=' + research;
+	DataService.searchVolunteer = function (research) {
+		var parameters = 'research=' + research;
 		return $http.get(buildUrl('volunteers', null, 'search', parameters));
 	};
 	//Mise à jour du volontaire $id
@@ -55,55 +56,47 @@ module.exports = /*@ngInject*/ function ($http) {
 		var parameters = 'mail=' + mail + '&password=' + password + '&firstname=' + firstname + '&lastname=' + lastname + '&birthday=' + birthday + '&gender=' + gender;
 		return $http.put(buildUrl('volunteers', id, null, parameters));
 	};
-	DataService.getNotifs = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('volunteers', id, 'notifications', parameters));
+	DataService.getNotifs = function (id) {
+		return $http.get(buildUrl('volunteers', id, 'notifications', null));
 	};
-	DataService.getFriends = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('volunteers', id, 'friends', parameters));
+	DataService.getFriends = function (id) {
+		return $http.get(buildUrl('volunteers', id, 'friends', null));
 	};
-	DataService.getAssos = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('volunteers', id, 'associations', parameters));
+	DataService.getAssos = function (id) {
+		return $http.get(buildUrl('volunteers', id, 'associations', null));
 	};
-	DataService.getEvents = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('volunteers', id, 'events', parameters));
+	DataService.getEvents = function (id) {
+		return $http.get(buildUrl('volunteers', id, 'events', null));
 	};
-	DataService.getPictures = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('volunteers', id, 'pictures', parameters));
+	DataService.getPictures = function (id) {
+		return $http.get(buildUrl('volunteers', id, 'pictures', null));
 	};
-	DataService.getMainPicture = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('volunteers', id, 'main_picture', parameters));
+	DataService.getMainPicture = function (id) {
+		return $http.get(buildUrl('volunteers', id, 'main_picture', null));
 	};
-	DataService.getNews = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('volunteers', id, 'news', parameters));
+	DataService.getNews = function (id) {
+		return $http.get(buildUrl('volunteers', id, 'news', null));
 	};
 
 //Friendship
-	DataService.addFriend = function (id, token) {
-		var parameters = 'token=' + token + '&volunteers_id=' + id;
+	DataService.addFriend = function (id) {
+		var parameters = 'volunteers_id=' + id;
 		return $http.post(buildUrl('friendship', null, 'add', parameters));
 	};
-	DataService.replyFriend = function (id, acceptance, token) {
-		var parameters = 'token=' + token + '&notif_id=' + id + '&acceptance=' + acceptance;
+	DataService.replyFriend = function (id, acceptance) {
+		var parameters = 'notif_id=' + id + '&acceptance=' + acceptance;
 		return $http.post(buildUrl('friendship', null, 'reply', parameters));
 	};
-	DataService.removeFriend = function (id, token) {
-		var parameters = 'token=' + token + '&id=' + id;
+	DataService.removeFriend = function (id) {
+		var parameters = 'id=' + id;
 		return $http.delete(buildUrl('friendship', null, 'remove', parameters));
 	};
 
 //Association
-	DataService.getAssoList = function (token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('associations', null, null, parameters));
+	DataService.getAssoList = function () {
+		return $http.get(buildUrl('associations', null, null, null));
 	};
-	DataService.createAsso = function (name, description, birthday, city, latitude, longitude, token) {
+	DataService.createAsso = function (name, description, birthday, city, latitude, longitude) {
 		var parameters = 'name=' + name + '&description=' + description;
 		if (birthday) {
 			parameters = parameters + '&birthday=' + birthday;
@@ -120,25 +113,22 @@ module.exports = /*@ngInject*/ function ($http) {
 		parameters = parameters + '&token=' + token;
 		return $http.post(buildUrl('associations', null, null, parameters));
 	};
-	DataService.getAsso = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('associations', id, null, parameters));
+	DataService.getAsso = function (id) {
+		return $http.get(buildUrl('associations', id, null, null));
 	};
-	DataService.searchAssociation = function (research, token) {
-		var parameters = 'token=' + token + '&research=' + research;
+	DataService.searchAssociation = function (research) {
+		var parameters = 'research=' + research;
 		return $http.get(buildUrl('associations', null, 'search', parameters));
 	};
-	DataService.getAssoMembers = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('associations', id, 'members', parameters));
+	DataService.getAssoMembers = function (id) {
+		return $http.get(buildUrl('associations', id, 'members', null));
 	};
-	DataService.getAssoEvents = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('associations', id, 'events', parameters));
+	DataService.getAssoEvents = function (id) {
+		return $http.get(buildUrl('associations', id, 'events', null));
 	};
 	//Mise à jour de l'asso $id
-	DataService.updateAsso = function (id, name, description, birthday, city, latitude, longitude, token) {
-		var parameters = 'token=' + token;
+	DataService.updateAsso = function (id, name, description, birthday, city, latitude, longitude) {
+		var parameters = '';
 		if (name) {
 			parameters = parameters + '&name=' + name;
 		}
@@ -156,77 +146,66 @@ module.exports = /*@ngInject*/ function ($http) {
 		}
 		return $http.put(buildUrl('associations', id, null, parameters));
 	};
-	DataService.deleteAsso = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.delete(buildUrl('associations', id, null, parameters));
+	DataService.deleteAsso = function (id) {
+		return $http.delete(buildUrl('associations', id, null, null));
 	};
-	DataService.getAssoInvited = function (token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('associations', null, 'invited', parameters));
+	DataService.getAssoInvited = function () {
+		return $http.get(buildUrl('associations', null, 'invited', null));
 	};
-	DataService.getAssoPictures = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('associations', id, 'pictures', parameters));
+	DataService.getAssoPictures = function (id) {
+		return $http.get(buildUrl('associations', id, 'pictures', null));
 	};
-	DataService.getAssoMainPicture = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('associations', id, 'main_picture', parameters));
+	DataService.getAssoMainPicture = function (id) {
+		return $http.get(buildUrl('associations', id, 'main_picture', null));
 	};
-	DataService.getAssoNews = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('associations', id, 'news', parameters));
+	DataService.getAssoNews = function (id) {
+		return $http.get(buildUrl('associations', id, 'news', null));
 	};
 
 //News
-	DataService.getNewsList = function (token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('news', null, null, parameters));
+	DataService.getNewsList = function () {
+		return $http.get(buildUrl('news', null, null, null));
 	};
-	DataService.postVolunteerNews = function (content, token) {
-		var parameters = 'token=' + token + '&content=' + content;
+	DataService.postVolunteerNews = function (content) {
+		var parameters = 'content=' + content;
 		return $http.post(buildUrl('news', null, 'volunteer_status', parameters));
 	};
-	DataService.postAssoNews = function (asso_id, content, token) { // eslint-disable-line camelcase
-		var parameters = 'token=' + token + '&content=' + content + '&assoc_id=' + asso_id; // eslint-disable-line camelcase
+	DataService.postAssoNews = function (asso_id, content) { // eslint-disable-line camelcase
+		var parameters = 'content=' + content + '&assoc_id=' + asso_id; // eslint-disable-line camelcase
 		return $http.post(buildUrl('news', null, 'assoc_status', parameters));
 	};
-	DataService.postEventNews = function (event_id, content, token) { // eslint-disable-line camelcase
-		var parameters = 'token=' + token + '&content=' + content + '&event_id=' + event_id; // eslint-disable-line camelcase
+	DataService.postEventNews = function (event_id, content) { // eslint-disable-line camelcase
+		var parameters = 'content=' + content + '&event_id=' + event_id; // eslint-disable-line camelcase
 		return $http.post(buildUrl('news', null, 'event_status', parameters));
 	};
-	DataService.getNews = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('news', id, null, parameters));
+	DataService.getNew = function (id) {
+		return $http.get(buildUrl('news', id, null, null));
 	};
-	DataService.getNewsComments = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('news', id, 'comments', parameters));
+	DataService.getNewsComments = function (id) {
+		return $http.get(buildUrl('news', id, 'comments', null));
 	};
 
 //Comments
-	DataService.postComment = function (news_id, content, token) { // eslint-disable-line camelcase
-		var parameters = 'token=' + token + '&new_id=' + news_id + '&content=' + content; // eslint-disable-line camelcase
+	DataService.postComment = function (news_id, content) { // eslint-disable-line camelcase
+		var parameters = 'new_id=' + news_id + '&content=' + content; // eslint-disable-line camelcase
 		return $http.post(buildUrl('comments', null, null, parameters));
 	};
-	DataService.updateComment = function (id, content, token) {
-		var parameters = 'token=' + token + '&content=' + content;
+	DataService.updateComment = function (id, content) {
+		var parameters = 'content=' + content;
 		return $http.put(buildUrl('comments', id, null, parameters));
 	};
-	DataService.getComment = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('comments', id, null, parameters));
+	DataService.getComment = function (id) {
+		return $http.get(buildUrl('comments', id, null, null));
 	};
-	DataService.deleteComment = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.delete(buildUrl('comments', id, null, parameters));
+	DataService.deleteComment = function (id) {
+		return $http.delete(buildUrl('comments', id, null, null));
 	};
 
 //Events
-	DataService.getEventList = function (token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('events', null, null, parameters));
+	DataService.getEventList = function () {
+		return $http.get(buildUrl('events', null, null, null));
 	};
-	DataService.createEvent = function (assoc_id, title, description, place, begin, end, token) { // eslint-disable-line camelcase
+	DataService.createEvent = function (assoc_id, title, description, place, begin, end) { // eslint-disable-line camelcase
 		var parameters = 'assoc_id=' + assoc_id + '&title=' + title + '&description=' + description; // eslint-disable-line camelcase
 		if (place) {
 			parameters = parameters + '&place=' + place;
@@ -237,23 +216,20 @@ module.exports = /*@ngInject*/ function ($http) {
 		if (end) {
 			parameters = parameters + '&end=' + end;
 		}
-		parameters = parameters + '&token=' + token;
 		return $http.post(buildUrl('events', null, null, parameters));
 	};
-	DataService.getEvent = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('events', id, null, parameters));
+	DataService.getEvent = function (id) {
+		return $http.get(buildUrl('events', id, null, null));
 	};
-	DataService.searchEvent = function (search, token) {
-		var parameters = 'research=' + search + '&token=' + token;
+	DataService.searchEvent = function (search) {
+		var parameters = 'research=' + search;
 		return $http.get(buildUrl('events', null, 'search', parameters));
 	};
-	DataService.getGuestEvent = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('events', id, 'guests', parameters));
+	DataService.getGuestEvent = function (id) {
+		return $http.get(buildUrl('events', id, 'guests', null));
 	};
-	DataService.updateEvent = function (id, title, description, place, begin, end, token) {
-		var parameters = 'token=' + token;
+	DataService.updateEvent = function (id, title, description, place, begin, end) {
+		var parameters = '';
 		if (title) {
 			parameters = parameters + '&title=' + title;
 		}
@@ -271,25 +247,20 @@ module.exports = /*@ngInject*/ function ($http) {
 		}
 		return $http.put(buildUrl('events', id, null, parameters));
 	};
-	DataService.getOwnedEvent = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('events', null, 'owned', parameters));
+	DataService.getOwnedEvent = function () {
+		return $http.get(buildUrl('events', null, 'owned', null));
 	};
-	DataService.getInvitedtEvent = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('events', null, 'invited', parameters));
+	DataService.getInvitedtEvent = function () {
+		return $http.get(buildUrl('events', null, 'invited', null));
 	};
-	DataService.getEventPictures = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('events', id, 'pictures', parameters));
+	DataService.getEventPictures = function (id) {
+		return $http.get(buildUrl('events', id, 'pictures', null));
 	};
-	DataService.getEventMainPicture = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('events', id, 'main_picture', parameters));
+	DataService.getEventMainPicture = function (id) {
+		return $http.get(buildUrl('events', id, 'main_picture', null));
 	};
-	DataService.getEventNews = function (id, token) {
-		var parameters = 'token=' + token;
-		return $http.get(buildUrl('events', id, 'news', parameters));
+	DataService.getEventNews = function (id) {
+		return $http.get(buildUrl('events', id, 'news', null));
 	};
 
 	return DataService;

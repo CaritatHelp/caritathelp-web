@@ -14,10 +14,10 @@ module.exports = /*@ngInject*/ function ($routeParams, userService, dataService)
 	}
 
 	function getUser(id) {
-		dsc.getVolunteer(id, usc.token())
+		dsc.getVolunteer(id)
 			.success(function (data) {
 				vm.user = data.response;
-				dsc.getFriends(id, usc.token())
+				dsc.getFriends(id)
 					.success(function (data) {
 						vm.friends = data.response;
 					});

@@ -17,15 +17,15 @@ module.exports = /*@ngInject*/ function ($routeParams, userService, dataService)
 	}
 
 	function getUser(id) {
-		dsc.getVolunteer(id, usc.token())
+		dsc.getVolunteer(id)
 			.success(function (data) {
 				vm.user = data.response;
 				vm.user.picture = "http://api.caritathelp.me" + data.response.thumb_path;
-				dsc.getFriends(id, usc.token())
+				dsc.getFriends(id)
 					.success(function (data) {
 						vm.user.friends = data.response;
 					});
-				dsc.getAssos(id, usc.token())
+				dsc.getAssos(id)
 					.success(function (data) {
 						vm.user.assos = data.response;
 					});

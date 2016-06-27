@@ -1,0 +1,37 @@
+.timeline--actu
+	.actu--main(data-id="{{vmnews.newsId}}")
+		//-User picture
+		.actu--aside(ng-if="vmnews.user")
+			a.actu--picture(href="#/user/{{vmnews.user.id}}")
+				img(ng-src="http://api.caritathelp.me{{vmnews.user.thumb_path}}", alt="{{vmnews.actu.sender_name}}")
+		//-Asso picture
+		.actu--aside(ng-if="vmnews.asso")
+			a.actu--picture(href="#/association/{{vmnews.asso.id}}")
+				img(ng-src="http://api.caritathelp.me{{vmnews.asso.thumb_path}}", alt="{{vmnews.asso.name}}")
+		//-Event picture
+		.actu--aside(ng-if="vmnews.event")
+			a.actu--picture(href="#/event/{{vmnews.event.id}}")
+				img(ng-src="http://api.caritathelp.me{{vmnews.event.thumb_path}}", alt="{{vmnews.event.title}}")
+
+		.actu--body
+			header.infos
+				a.name(href="#/user/{{vmnews.user.id}}") {{vmnews.actu.sender_name}}
+				.time 25mn
+			.actu--text {{vmnews.actu.content}}
+			.actu--comments(ng-repeat="com in vmnews.comments | orderBy:'+created_at'")
+				comment(cm-id="com.id", cm-user="com.volunteer_id")
+	form.actu--reply#postComment(
+		novalidate="",
+		name="postComment",
+		ng-submit="vmnews.postComment()"
+		)
+		a.reply--picture(href="#")
+			img(ng-src="{{vmnews.current.picture}}", alt="{{vmnews.current.firstname}} {{vmnews.current.lastname}}")
+		.input-group
+			input.form-control(
+				type="text",
+				placeholder="Poster un commentaire",
+				ng-model="vmnews.newComment")
+			.input-group-btn
+				button.btn
+					i.fa.fa-play

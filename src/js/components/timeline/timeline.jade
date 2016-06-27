@@ -1,0 +1,19 @@
+.timeline
+	section.timeline--new
+		form.timeline--post#postNews(
+			novalidate="",
+			name="postNews",
+			ng-submit="timeline.postNews()"
+			)
+			.input-group
+				input.form-control(
+					type="text",
+					placeholder="Publier un message",
+					ng-model="timeline.newNews",
+					required
+				)
+				.input-group-btn
+					button.btn(type="submit")
+						i.fa.fa-play
+	section.news(ng-repeat="actu in timeline.news")
+		news(news-id="actu.id")

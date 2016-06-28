@@ -44,7 +44,7 @@ block tabs
 					#[i.fa.fa-plus]
 					Participer à cet évenement
 		.col-md-8
-			timeline
+			timeline(tl-type="'event'")
 	.friends-tab(ng-show="vm.isSet(2)")
 		.col-md-3(ng-repeat="guest in vm.event.guests")
 			user-summary(user-id="guest.id")

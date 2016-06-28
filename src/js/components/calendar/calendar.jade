@@ -18,7 +18,7 @@
 			.calendar--all(ng-show="calendar.isSet(2)")
 				h4.title Tous les évènements
 				//-Affichage d'un évenement
-				.card.event(ng-repeat="event in calendar.events", ng-if="!event.rights")
+				.card.event(ng-repeat="event in calendar.events")
 					header
 						h6.event--title {{event.title}}
 						.event--creator Organisé par <a href="#/associations/{{event.assoc_id}}">{{event.assoc_name}}</a>
@@ -30,7 +30,7 @@
 						.event--status(ng-if="event.rights == 'admin'") Vous êtes administrateur de cet évènement
 						.event--status(ng-if="event.rights == 'host'") Vous êtes le créateur de cet évènement
 						.event--status(ng-if="event.rights == 'member'") Vous participez à cet évènement
-						.event--status(ng-if="!event.rights") Vous ne participez pas à cet évènement
+						.event--status(ng-if="event.rights == 'none'") Vous ne participez pas à cet évènement
 						a.btn.btn-small.btn-primary(href="#/event/{{event.id}}").
 							#[.fa.fa-info-circle]
 							Plus d'informations
@@ -54,7 +54,7 @@
 						.event--status(ng-if="event.rights == 'admin'") Vous êtes administrateur de cet évènement
 						.event--status(ng-if="event.rights == 'host'") Vous êtes le créateur de cet évènement
 						.event--status(ng-if="event.rights == 'member'") Vous participez à cet évènement
-						.event--status(ng-if="!event.rights") Vous ne participez pas à cet évènement
+						.event--status(ng-if="event.rights == 'none'") Vous ne participez pas à cet évènement
 						a.btn.btn-small.btn-primary(href="#/event/{{event.id}}").
 							#[.fa.fa-info-circle]
 							Plus d'informations

@@ -25,7 +25,6 @@ require('./components/user_summary');
 require('./components/friends_list');
 require('./components/assos_list');
 require('./components/asso_create');
-require('./components/asso_actions');
 require('./components/timeline');
 require('./components/news');
 require('./components/comment');

@@ -1,7 +1,10 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService) {
+module.exports = /*@ngInject*/ function (dataService, userService, $routeParams) {
 	var vm = this;
 	var dsc = dataService;
+	var usc = userService;
+
+	vm.currentUser = usc.user();
 
 	vm.setTab = function (activeTab) {
 		vm.tab = activeTab;
@@ -13,23 +16,25 @@ module.exports = /*@ngInject*/ function (dataService) {
 	vm.events = {};
 	vm.joined = {};
 	if (vm.calType === 'volunteer') {
-		vm.type = 'volunteer';
 		vm.tab = 1;
+		vm.type = 'volunteer';
+		vm.id = $routeParams.id ? $routeParams.id : vm.currentUser.id;
 		//Tous les events existants
 		dsc.getEventList()
 			.success(function (data) {
 				vm.events = data.response;
 			});
 		//Events rejoints par l'user
-		dsc.getEvents(vm.calId)
+		dsc.getEvents(vm.id)
 			.success(function (data) {
 				vm.joined = data.response;
 			});
 	} else if (vm.calType === 'association') {
 		vm.tab = 2;
 		vm.type = 'association';
+		vm.id = $routeParams.id;
 		//Events créés par l'asso
-		dsc.getAssoEvents(vm.calId)
+		dsc.getAssoEvents(vm.id)
 			.success(function (data) {
 				vm.events = data.response;
 				if (vm.calRights === 'owner' || vm.calRights === 'admin') {

@@ -29,12 +29,12 @@ block tabs
 			friend-list
 			asso-list
 		.col-md-8
-			timeline(tl-id="vm.user.id", tl-type="'volunteer'")
+			timeline(tl-type="'volunteer'")
 	.friends-tab(ng-show="vm.isSet(4)")
 		.col-md-3(ng-repeat="friend in vm.user.friends")
 			user-summary(user-id="friend.id")
 	.calendar-tab(ng-show="vm.isSet(2)")
-		calendar(cal-type="'volunteer'", cal-id="vm.user.id")
+		calendar(cal-type="'volunteer'")
 	.settings-tab(
 		ng-if="vm.isCurrent",
 		ng-show="vm.isSet(3)",

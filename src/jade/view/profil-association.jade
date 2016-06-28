@@ -55,7 +55,7 @@ block tabs
 		.col-md-3(ng-repeat="member in vm.asso.members")
 			user-summary(user-id="member.id")
 	.calendar-tab(ng-show="vm.isSet(3)")
-		calendar(cal-type="'association'", cal-id="vm.asso.id", cal-rights="vm.asso.rights")
+		calendar(cal-type="'association'", cal-rights="vm.asso.rights")
 	.settings-tab(ng-show="vm.isSet(4)")
 		include ../tabs/asso-calendar
 

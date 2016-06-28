@@ -5,7 +5,7 @@ module.exports = /*@ngInject*/ function ($location, $routeParams, dataService, u
 	var dsc = dataService;
 
 	vm.currentUser = usc.user();
-	vm.tab = 1;
+	vm.tab = 3;
 	vm.setTab = function (activeTab) {
 		vm.tab = activeTab;
 	};
@@ -40,12 +40,6 @@ module.exports = /*@ngInject*/ function ($location, $routeParams, dataService, u
 					.success(function (data) {
 						vm.asso.members = data.response;
 					});
-				//Récupération des events
-				dsc.getAssoEvents($routeParams.id)
-					.success(function (data) {
-						vm.asso.events = data.response;
-					});
-
 				getRightsMessages();
 			});
 	}

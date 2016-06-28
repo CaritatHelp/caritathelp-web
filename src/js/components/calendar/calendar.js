@@ -5,7 +5,6 @@ module.exports = /*@ngInject*/ function () {
 		controllerAs: 'calendar',
 		templateUrl: 'js/calendar/calendar.html',
 		bindToController: {
-			calId: '=',
 			calType: '='
 		}
 	};

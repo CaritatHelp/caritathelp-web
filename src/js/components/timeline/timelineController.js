@@ -13,7 +13,6 @@ module.exports = /*@ngInject*/ function (userService, dataService, $routeParams)
 		vm.type = 'home';
 	}
 
-	console.log(vm.tlType);
 	//Récupération de la liste des news
 	if (vm.type == 'volunteer') {
 		vm.id = $routeParams.id ? $routeParams.id : vm.currentUser.id;
@@ -22,10 +21,12 @@ module.exports = /*@ngInject*/ function (userService, dataService, $routeParams)
 				vm.news = data.response;
 			});
 	} else if (vm.type == 'association') {
+		console.log('---TIMELINE---');
 		dsc.getAssoNews($routeParams.id)
 			.success(function (data) {
 				vm.news = data.response;
 			});
+		console.log('---/TIMELINE---');
 	} else if (vm.type == 'event') {
 		dsc.getEventNews($routeParams.id)
 			.success(function (data) {

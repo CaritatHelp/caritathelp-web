@@ -19,7 +19,6 @@ block jumbotron
 block tabs
 	.timeline-tab(ng-show="vm.isSet(1)")
 		.col-md-4
-			a.btn(ng-click="vm.displayModal()") Open
 			.description
 				header
 					.description--title Description
@@ -28,15 +27,35 @@ block tabs
 			//-Bloc d'informations latéral
 			.rights.alert(ng-class="vm.rights.class") {{vm.rights.message}}
 			//- Actions possibles pour l'utilisateur
-			asso-actions(asso="vm.asso")
-			//- Timeline de l'association
+			.asso-actions
+				//- Rejoindre l'association
+				.action(ng-if="vm.asso.rights == 'none'")
+					a(ng-click="vm.joinAsso()").
+						#[i.fa.fa-plus]
+						Rejoindre cette association
+				//- Inviter des utilisateurs
+				.action(ng-if="vm.asso.rights == 'member' || vm.asso.rights == 'admin' || vm.asso.rights == 'owner'")
+					a(ng-click="vm.inviteAsso()").
+						#[i.fa.fa-user-plus]
+						Inviter vos amis
+				//- Quitter l'association
+				.action(ng-if="vm.asso.rights == 'admin' || vm.asso.rights == 'member'")
+					a(ng-click="vm.leaveAsso()").
+						#[i.fa.fa-minus]
+						Quitter l'association
+				//- Supprimer l'association
+				.action(ng-if="vm.asso.rights == 'owner'")
+					a(ng-click="vm.deleteAsso()").
+						#[i.fa.fa-minus]
+						Supprimer l'association
 		.col-md-8
-			timeline(tl-id="vm.asso.id", tl-type="association")
+			//- Timeline de l'association
+			timeline(tl-type="'association'")
 	.members-tab(ng-show="vm.isSet(2)")
 		.col-md-3(ng-repeat="member in vm.asso.members")
 			user-summary(user-id="member.id")
 	.calendar-tab(ng-show="vm.isSet(3)")
-		calendar(cal-type="association", cal-id="vm.asso.id", cal-rights="vm.asso.rights")
+		calendar(cal-type="'association'", cal-id="vm.asso.id", cal-rights="vm.asso.rights")
 	.settings-tab(ng-show="vm.isSet(4)")
 		include ../tabs/asso-calendar
 

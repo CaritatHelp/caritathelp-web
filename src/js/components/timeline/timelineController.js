@@ -13,6 +13,7 @@ module.exports = /*@ngInject*/ function (userService, dataService, $routeParams)
 		vm.type = 'home';
 	}
 
+	console.log(vm.tlType);
 	//Récupération de la liste des news
 	if (vm.type == 'volunteer') {
 		vm.id = $routeParams.id ? $routeParams.id : vm.currentUser.id;

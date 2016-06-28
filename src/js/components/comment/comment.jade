@@ -4,5 +4,5 @@
 	.comment--body
 		header.infos
 			a.name(href="#/user/{{comment.com.volunteer_id}}") {{comment.com.firstname}} {{comment.com.lastname}}
-			.time {{comment.com.created_at | date: "'MM/dd' à 'HH:mm'"}}
+			.time {{comment.com.created_at | date: "dd/MM à HH:mm"}}
 		.comment--text {{comment.com.content}}

@@ -12,6 +12,7 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 		.success(function (data) {
 			vm.actu = data.response;
 			getInfos();
+			getLink();
 			getComments();
 		});
 
@@ -24,6 +25,16 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 					vm.newComment = '';
 				}
 			});
+	};
+
+	function getLink() {
+		if (vm.actu.volunteer_id) {
+			vm.link = "#/user/" + vm.actu.volunteer_id;
+		} else if (vm.actu.assoc_id) {
+			vm.link = "#/association/" + vm.actu.assoc_id;
+		} else if (vm.actu.event_id) {
+			vm.link = "#/event/" + vm.actu.event_id;
+		}
 	};
 
 	function getInfos() {

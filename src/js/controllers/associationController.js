@@ -50,6 +50,34 @@ module.exports = /*@ngInject*/ function ($location, $routeParams, dataService, u
 			});
 	}
 
+	vm.joinAsso = function () {
+		dsc.joinAsso(vm.asso.id)
+			.success(function (data) {
+				console.log(data);
+				vm.asso.rights = 'waiting';
+			})
+			.error(function (data) {
+				console.log(data);
+			});
+	};
+	vm.cancelJoin = function () {
+		vm.asso.rights = 'none';
+		console.log('it works !');
+	};
+	vm.leaveAsso = function () {
+		dsc.leaveAsso(vm.asso.id)
+			.success(function (data) {
+				console.log(data);
+				vm.asso.rights = 'none';
+			});
+	};
+	vm.deleteAsso = function () {
+		dsc.deleteAsso(vm.asso.id)
+			.success(function () {
+				$location.path('/home');
+			});
+	};
+
 	function getRightsMessages() {
 		switch (vm.asso.rights) {
 			case 'none':

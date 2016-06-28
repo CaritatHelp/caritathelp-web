@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($location, dataService) {
+module.exports = /*@ngInject*/ function ($location, dataService, $routeParams) {
 	var vm = this;
 	var dsc = dataService;
 	var angular = require('angular');
@@ -16,6 +16,8 @@ module.exports = /*@ngInject*/ function ($location, dataService) {
 			});
 	};
 	vm.cancelJoin = function () {
+		vm.asso.rights = 'none';
+		angular.element('#cancelJoin').toggle();
 		console.log('it works !');
 	};
 	vm.leaveAsso = function () {

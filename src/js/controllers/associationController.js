@@ -50,16 +50,6 @@ module.exports = /*@ngInject*/ function ($location, $routeParams, dataService, u
 			});
 	}
 
-	vm.joinAsso = function () {
-		dsc.joinAsso($routeParams.id)
-			.success(function (data) {
-				console.log(data);
-			})
-			.error(function (data) {
-				console.log(data);
-			});
-	};
-
 	function getRightsMessages() {
 		switch (vm.asso.rights) {
 			case 'none':

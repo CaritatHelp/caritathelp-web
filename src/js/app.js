@@ -9,8 +9,9 @@ require('angular-route');
 require('angular-sanitize');
 require('angular-messages');
 require('angular-local-storage');
+require('angular-ui-bootstrap');
 
-var app = angular.module('caritathelp', ['ngRoute', 'ngSanitize', 'ngMessages', 'LocalStorageModule']);
+var app = angular.module('caritathelp', ['ngRoute', 'ngSanitize', 'ngMessages', 'LocalStorageModule', 'ui.bootstrap']);
 
 require('./services');
 require('./directives');
@@ -29,6 +30,7 @@ require('./components/timeline');
 require('./components/news');
 require('./components/comment');
 require('./components/calendar');
+require('./components/event_create');
 
 app.config(function ($routeProvider, localStorageServiceProvider) {
 	//Configuration localStorage

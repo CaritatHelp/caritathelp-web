@@ -61,6 +61,4 @@
 
 			//- Creation d'un évenement
 			.calendar--create(ng-if="calendar.type == 'association'", ng-show="calendar.isSet(3)")
-				h4.title Créer un évenement
-				.card.event--create
-					form
+				event-create(asso="calendar.id")

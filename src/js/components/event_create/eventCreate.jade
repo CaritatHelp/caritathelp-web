@@ -1,0 +1,79 @@
+.card.associations
+	.create-asso
+		header
+			h4 Créer un évenement
+		section
+			form(
+				novalidate="",
+				name="createForm",
+				ng-submit="createForm.$valid && create.createEvent()"
+				)
+				//- Messages d'erreur
+				.alert.alert-danger(
+					role="alert",
+					ng-show="create.error",
+					ng-bind-html="create.errorMessage")
+
+				fieldset.form-group
+					label(for="inputTitleEvent") Titre de l'évenement
+					input.form-control(
+						type="text",
+						name="inputTitleEvent",
+						ng-model="create.title",
+						required=""
+					)
+					.help-block(ng-messages="createForm.inputTitleEvent.$error" ng-show="(createForm.$submitted || createForm.inputTitleEvent.$touched) && createForm.inputTitleEvent.$invalid")
+						p(ng-message="required") Ce champs est requis
+				fieldset.form-group
+					label(for="inputDescriptionEvent") Description
+					textarea.form-control(
+						name="inputDescriptionEvent",
+						ng-model="create.description",
+						required=""
+					)
+					.help-block(ng-messages="createForm.inputDescriptionEvent.$error" ng-show="(createForm.$submitted || createForm.inputDescriptionEvent.$touched) && createForm.inputDescriptionEvent.$invalid")
+						p(ng-message="required") Ce champs est requis
+				fieldset.form-group
+					label(for="inputPlaceEvent") Location
+					input.form-control(
+						type="text",
+						name="inputPlaceEvent",
+						ng-model="create.place"
+					)
+				fieldset.form-group.col-sm-6
+					label(for="inputBeginEvent") Début
+					.input-group
+						input.form-control(
+							type="text",
+							uib-datepicker-popup="dd/MM/yyyy",
+							ng-model="create.begin",
+							is-open="create.popupBegin.opened",
+							datepickerOptions="dateOptions",
+							close-text="Fermer"
+						)
+						span.input-group-btn
+							button.btn.btn-default(
+								type="button",
+								ng-click="create.openBegin()"
+							)
+								i.fa.fa-calendar
+				fieldset.form-group.col-sm-6
+					label(for="inputEndEvent") Fin
+					.input-group
+						input.form-control(
+							type="text",
+							uib-datepicker-popup="dd/MM/yyyy",
+							ng-model="create.end",
+							is-open="create.popupEnd.opened",
+							datepickerOptions="dateOptions",
+							close-text="Fermer"
+						)
+						span.input-group-btn
+							button.btn.btn-default(
+								type="button",
+								ng-click="create.openEnd()"
+							)
+								i.fa.fa-calendar
+				.clearfix
+				fieldset.form-group
+					button.btn.btn-primary(type="submit", style="float:right") Enregistrer

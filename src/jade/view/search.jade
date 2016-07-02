@@ -16,22 +16,17 @@
 					h2 Recherche de "{{search.research}}"
 					br
 				section.search--results
-					.card--title
-						a(href='#') Résultats dans les volontaires
-					.card.listing(ng-show="search.resUser.length", ng-repeat="user in search.resUser")
-						.friends
-							.friend
-								a(href="#/user/{{user.id}}", title="{{user.firstname}} {{user.lastname}}")
-									img(ng-src="http://api.caritathelp.me{{user.thumb_path}}", alt="{{user.firstname}} {{user.lastname}}", class="img-circle")
-								a.name(href="#/user/{{user.id}}") {{user.firstname}} {{user.lastname}}
-					.card.listing(ng-show="search.errorUser") {{search.errorUser}}
-				section.search--results
-					.card--title
-						a(href='#') Résultats dans les associssons
-					.card.listing(ng-show="search.resAsso.length", ng-repeat="asso in search.resAsso")
-						.association
-							a(href="#/association/{{asso.id}}", title="{{asso.name}}")
-								img(src="img/mlp.jpg", alt="{{asso.name}}", class="img-circle")
-								img(src="http://api.caritathelp.me{{asso.thumb_path}}", alt="{{asso.name}}", class="img-circle")
-							a.name(href="#/association/{{asso.id}}") {{asso.name}}
-					.card.listing(ng-show="search.errorAsso") {{search.errorAsso}}
+					.card.listing(ng-show="search.result.length", ng-repeat="res in search.result")
+						.friend(ng-if="res.result_type == 'Volunteer'")
+							a(href="#/user/{{res.id}}", title="{{res.name}}")
+								img(ng-src="http://api.caritathelp.me{{res.thumb_path}}", alt="{{res.name}}", class="img-circle")
+							a.name(href="#/user/{{res.id}}") {{res.name}}
+						.association(ng-if="res.result_type == 'Assoc'")
+							a(href="#/association/{{res.id}}", title="{{res.name}}")
+								img(ng-src="http://api.caritathelp.me{{res.thumb_path}}", alt="{{res.name}}", class="img-circle")
+							a.name(href="#/user/{{res.id}}") {{res.name}}
+						.event(ng-if="res.result_type == 'Event'")
+							a(href="#/event/{{res.id}}", title="{{res.name}}")
+								img(ng-src="http://api.caritathelp.me{{res.thumb_path}}", alt="{{res.name}}", class="img-circle")
+							a.name(href="#/user/{{res.id}}") {{res.name}}
+					.card.listing(ng-show="search.error") {{search.error}}

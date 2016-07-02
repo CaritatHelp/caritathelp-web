@@ -5,21 +5,13 @@ module.exports = /*@ngInject*/ function (dataService, $routeParams) {
 
 	vm.research = $routeParams.search;
 
-	dsc.searchVolunteer(vm.research)
+	dsc.search(vm.research)
 		.success(function (data) {
 			if (data.status === 200) {
-				vm.resUser = data.response;
-				if (!vm.resUser.length) {
-					vm.errorUser = 'Pas de résultat';
-				}
-			}
-		});
-	dsc.searchAssociation(vm.research)
-		.success(function (data) {
-			if (data.status === 200) {
-				vm.resAsso = data.response;
-				if (!vm.resAsso.length) {
-					vm.errorAsso = 'Pas de résultat';
+				vm.result = data.response;
+				console.log(vm.result);
+				if (!vm.result.length) {
+					vm.error = 'Pas de résultat';
 				}
 			}
 		});

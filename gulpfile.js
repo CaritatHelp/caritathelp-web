@@ -82,7 +82,8 @@ gulp.task('browserify', ['lint'], function () {
 		}
 	}))
 	.pipe(buffer())
-	.pipe(gulp.dest('public/js/'));
+	.pipe(gulp.dest('public/js/'))
+	.pipe(browserSync.reload({stream:true}));
 });
 gulp.task('scripts', ['browserify'], function() {
 	gulp.src('public/js/app.js')

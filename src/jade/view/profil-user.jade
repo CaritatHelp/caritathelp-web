@@ -8,7 +8,7 @@ block jumbotron
 		h1.name {{vm.user.firstname}} {{vm.user.lastname}}
 	nav.cover--navigation
 		a(ng-click="vm.setTab(1)"
-			ng-class="{active:vm.isSet(1)}") Timeline
+			ng-class="{active:vm.isSet(1)}") Accueil
 		a(ng-click="vm.setTab(4)"
 			ng-class="{active:vm.isSet(4)}") Amis
 		a(ng-click="vm.setTab(2)"
@@ -16,16 +16,13 @@ block jumbotron
 		a(
 			ng-if="vm.isCurrent",
 			ng-click="vm.setTab(3)"
-			ng-class="{active:vm.isSet(3)}") Settings
+			ng-class="{active:vm.isSet(3)}") Paramètres
 
 block tabs
 	.timeline-tab(ng-show="vm.isSet(1)")
 		.col-md-4
 			user-summary
-			.action(ng-if="!vm.isCurrent && !vm.user.friendship")
-				a(ng-click="vm.addFriend()").
-					#[i.fa.fa-plus]
-					Ajouter en ami
+			user-actions
 			friend-list
 			asso-list
 		.col-md-8
@@ -37,7 +34,6 @@ block tabs
 		calendar(cal-type="'volunteer'")
 	.settings-tab(
 		ng-if="vm.isCurrent",
-		ng-show="vm.isSet(3)",
-		ng-controller="settingsController as settings"
+		ng-show="vm.isSet(3)"
 	)
-			include ../tabs/user-settings
+		user-settings

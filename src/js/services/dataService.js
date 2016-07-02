@@ -46,15 +46,10 @@ module.exports = /*@ngInject*/ function ($http) {
 	DataService.getVolunteer = function (id) {
 		return $http.get(buildUrl('volunteers', id, null, null));
 	};
-	//Recherche d'un volontaire
-	DataService.searchVolunteer = function (research) {
-		var parameters = 'research=' + research;
-		return $http.get(buildUrl('volunteers', null, 'search', parameters));
-	};
 	//Mise à jour du volontaire $id
-	DataService.updateVolunteer = function (id, mail, password, firstname, lastname, birthday, gender) {
+	DataService.updateVolunteer = function (mail, password, firstname, lastname, birthday, gender) {
 		var parameters = 'mail=' + mail + '&password=' + password + '&firstname=' + firstname + '&lastname=' + lastname + '&birthday=' + birthday + '&gender=' + gender;
-		return $http.put(buildUrl('volunteers', id, null, parameters));
+		return $http.put(buildUrl('volunteers', null, null, parameters));
 	};
 	DataService.getNotifs = function (id) {
 		return $http.get(buildUrl('volunteers', id, 'notifications', null));
@@ -78,9 +73,15 @@ module.exports = /*@ngInject*/ function ($http) {
 		return $http.get(buildUrl('volunteers', id, 'news', null));
 	};
 
+//Recherche
+	DataService.search = function (research) {
+		var parameters = 'research=' + research;
+		return $http.get(buildUrl('search', null, null, parameters));
+	};
+
 //Friendship
 	DataService.addFriend = function (id) {
-		var parameters = 'volunteers_id=' + id;
+		var parameters = 'volunteer_id=' + id;
 		return $http.post(buildUrl('friendship', null, 'add', parameters));
 	};
 	DataService.replyFriend = function (id, acceptance) {
@@ -115,10 +116,6 @@ module.exports = /*@ngInject*/ function ($http) {
 	};
 	DataService.getAsso = function (id) {
 		return $http.get(buildUrl('associations', id, null, null));
-	};
-	DataService.searchAssociation = function (research) {
-		var parameters = 'research=' + research;
-		return $http.get(buildUrl('associations', null, 'search', parameters));
 	};
 	DataService.getAssoMembers = function (id) {
 		return $http.get(buildUrl('associations', id, 'members', null));
@@ -262,10 +259,6 @@ module.exports = /*@ngInject*/ function ($http) {
 	};
 	DataService.getEvent = function (id) {
 		return $http.get(buildUrl('events', id, null, null));
-	};
-	DataService.searchEvent = function (search) {
-		var parameters = 'research=' + search;
-		return $http.get(buildUrl('events', null, 'search', parameters));
 	};
 	DataService.getGuestEvent = function (id) {
 		return $http.get(buildUrl('events', id, 'guests', null));

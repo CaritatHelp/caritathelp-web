@@ -1,0 +1,13 @@
+.actions--user
+	.action(ng-if="actions.user.friendship == 'none'")
+		a(ng-click="actions.addFriend()").
+			#[i.fa.fa-plus]
+			Ajouter en ami
+	.action(ng-if="actions.user.friendship == 'friend'")
+		a(ng-click="actions.removeFriend()").
+			#[i.fa.fa-minus]
+			Retirer des amis
+	.alert.alert-info(ng-if="actions.user.friendship == 'invitation sent'").
+		Votre invitation a bien été envoyée.
+	.alert.alert-warning(ng-if="actions.user.friendship == 'invitation received'").
+		Cet utilisateur a demandé à devenir votre ami.

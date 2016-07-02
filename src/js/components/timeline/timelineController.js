@@ -21,12 +21,10 @@ module.exports = /*@ngInject*/ function (userService, dataService, $routeParams)
 				vm.news = data.response;
 			});
 	} else if (vm.type == 'association') {
-		console.log('---TIMELINE---');
 		dsc.getAssoNews($routeParams.id)
 			.success(function (data) {
 				vm.news = data.response;
 			});
-		console.log('---/TIMELINE---');
 	} else if (vm.type == 'event') {
 		dsc.getEventNews($routeParams.id)
 			.success(function (data) {

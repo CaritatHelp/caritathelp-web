@@ -1,0 +1,86 @@
+.col-md-4
+	.card.settings
+		h5.title A propos
+		.text-list
+			.link(ng-class="{active:settings.isSet(1)}")
+				i.fa.fa-home
+				a(ng-click="settings.setTab(1)") General
+			.link(ng-class="{active:settings.isSet(2)}")
+				i.fa.fa-lock
+				a(ng-click="settings.setTab(2)") Sécurité
+			.link(ng-class="{active:settings.isSet(3)}")
+				i.fa.fa-calendar
+				a(ng-click="settings.setTab(3)") Calendrier
+			.link(ng-class="{active:settings.isSet(4)}")
+				i.fa.fa-users
+				a(ng-click="settings.setTab(4)") Amis
+
+.col-md-8
+	.card.settings
+		.content(ng-show="settings.isSet(1)")
+			h4 Paramètres du compte
+			form
+				fieldset.form-group.col-sm-6
+					label.control-label(for="inputFirstName") Prénom
+					.input-group
+						span.input-group-addon
+							i.fa.fa-user
+						input.form-control(
+							type="text",
+							placeholder="Prénom",
+							ng-model="settings.user.firstname"
+							)
+				fieldset.form-group.col-sm-6
+					label.control-label(for="inputLastName") Nom
+					.input-group
+						span.input-group-addon
+							i.fa.fa-user
+						input.form-control(
+							type="text",
+							placeholder="Nom",
+							ng-model="settings.user.lastname"
+						)
+				.clearfix
+				fieldset.form-group.col-sm-6
+					label.control-label(for="inputMail") Adresse e-mail
+					.input-group
+						span.input-group-addon.input-mail
+							i.fa.fa-envelope
+						input.form-control(
+							type="email",
+							name="inputMail",
+							placeholder="Adresse e-mail",
+							ng-model="settings.user.mail",
+							required=""
+						)
+				.clearfix
+				fieldset.form-group.col-sm-6
+					label.control-label(for="inputPassword") Mot de passe
+					.input-group
+						span.input-group-addon
+							i.fa.fa-lock
+						input.form-control(
+							type="password",
+							name="inputPassword",
+							required=""
+						)
+				fieldset.form-group.col-sm-6
+					label.control-label(for="inputConfirm") Confirmation
+					.input-group
+						span.input-group-addon
+							i.fa.fa-lock
+						input.form-control(
+							type="password",
+							name="inputConfirm",
+							required=""
+						)
+				.clearfix
+				.pull-right
+					button#buttonConnect.btn.btn-primary(type="submit") Enregistrer
+
+		.content(ng-show="settings.isSet(2)")
+			h4 Sécurité
+		.content(ng-show="settings.isSet(3)")
+			h4 Paramètres du calendrier
+		.content(ng-show="settings.isSet(4)")
+			h4 Gestion des amis

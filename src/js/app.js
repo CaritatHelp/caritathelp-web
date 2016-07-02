@@ -16,13 +16,14 @@ var app = angular.module('caritathelp', ['ngRoute', 'ngSanitize', 'ngMessages', 
 require('./services');
 require('./directives');
 require('./controllers');
-require('./settings');
 
 // Composants réutilisables
 require('./components/login_box');
 require('./components/register_box');
 require('./components/navbar');
 require('./components/user_summary');
+require('./components/user_actions');
+require('./components/user_settings');
 require('./components/friends_list');
 require('./components/assos_list');
 require('./components/asso_create');

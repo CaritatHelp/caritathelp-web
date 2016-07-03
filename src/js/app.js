@@ -10,8 +10,9 @@ require('angular-sanitize');
 require('angular-messages');
 require('angular-local-storage');
 require('angular-ui-bootstrap');
+require('angular-base64-upload');
 
-var app = angular.module('caritathelp', ['ngRoute', 'ngSanitize', 'ngMessages', 'LocalStorageModule', 'ui.bootstrap']);
+var app = angular.module('caritathelp', ['ngRoute', 'ngSanitize', 'ngMessages', 'LocalStorageModule', 'ui.bootstrap', 'naif.base64']);
 
 require('./services');
 require('./directives');

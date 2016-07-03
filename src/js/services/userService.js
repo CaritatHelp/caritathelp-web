@@ -91,6 +91,10 @@ module.exports = /*@ngInject*/ function (localStorageService, dataService) {
 			ls.remove('currentUser');
 			ls.remove('connected');
 			console.log('User disconnected');
+		},
+		setPicture: function (pic) {
+			user.picture = pic;
+			ls.set('currentUser', user);
 		}
 	};
 };

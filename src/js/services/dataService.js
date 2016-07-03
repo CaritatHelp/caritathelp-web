@@ -21,7 +21,7 @@ module.exports = /*@ngInject*/ function ($http) {
 /*Implémenté:
 *
 * /assocs /comments /events /friendship /login /logout /news /volunteers
-* /guests /membership /messages /pictures /shelters
+* /guests  /messages /pictures /shelters
 *
 */
 
@@ -47,8 +47,8 @@ module.exports = /*@ngInject*/ function ($http) {
 		return $http.get(buildUrl('volunteers', id, null, null));
 	};
 	//Mise à jour du volontaire $id
-	DataService.updateVolunteer = function (mail, password, firstname, lastname, birthday, gender) {
-		var parameters = 'mail=' + mail + '&password=' + password + '&firstname=' + firstname + '&lastname=' + lastname + '&birthday=' + birthday + '&gender=' + gender;
+	DataService.updateVolunteer = function (mail, password, firstname, lastname, birthday) {
+		var parameters = 'mail=' + mail + '&password=' + password + '&firstname=' + firstname + '&lastname=' + lastname + '&birthday=' + birthday;
 		return $http.put(buildUrl('volunteers', null, null, parameters));
 	};
 	DataService.getNotifs = function (id) {
@@ -296,6 +296,21 @@ module.exports = /*@ngInject*/ function ($http) {
 	};
 	DataService.getEventNews = function (id) {
 		return $http.get(buildUrl('events', id, 'news', null));
+	};
+
+//Pictures
+	DataService.postPicture = function (file, filename, original, main) {
+		return $http({
+			url: servurl + 'pictures',
+			method: 'POST',
+			data: {
+				token: token,
+				file: file,
+				filename: filename,
+				original_filename: original,
+				is_main: main
+			}
+		});
 	};
 
 	return DataService;

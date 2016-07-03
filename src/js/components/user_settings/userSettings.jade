@@ -1,13 +1,12 @@
 .col-md-4
 	.card.settings
-		h5.title A propos
 		.text-list
 			.link(ng-class="{active:settings.isSet(1)}")
 				i.fa.fa-home
 				a(ng-click="settings.setTab(1)") General
 			.link(ng-class="{active:settings.isSet(2)}")
-				i.fa.fa-lock
-				a(ng-click="settings.setTab(2)") Sécurité
+				i.fa.fa-eye
+				a(ng-click="settings.setTab(2)") Photo de profil
 			.link(ng-class="{active:settings.isSet(3)}")
 				i.fa.fa-calendar
 				a(ng-click="settings.setTab(3)") Calendrier
@@ -16,10 +15,25 @@
 				a(ng-click="settings.setTab(4)") Amis
 
 .col-md-8
+	//- Messages d'erreur
+	.alert.alert-info(
+		role="alert",
+		ng-show="settings.success",
+		ng-bind-html="settings.successMessage")
 	.card.settings
 		.content(ng-show="settings.isSet(1)")
 			h4 Paramètres du compte
-			form
+			form(
+				novalidate="",
+				name="updateForm",
+				ng-submit="updateForm.$valid && settings.updateVolunteer()"
+				)
+				//- Messages d'erreur
+				.alert.alert-danger(
+					role="alert",
+					ng-show="settings.error",
+					ng-bind-html="settings.errorMessage")
+
 				fieldset.form-group.col-sm-6
 					label.control-label(for="inputFirstName") Prénom
 					.input-group
@@ -27,9 +41,13 @@
 							i.fa.fa-user
 						input.form-control(
 							type="text",
+							name="inputFirstName",
 							placeholder="Prénom",
 							ng-model="settings.user.firstname"
 							)
+					.help-block(ng-messages="updateForm.inputFirstName.$error", ng-show="updateForm.$submitted && updateForm.inputFirstName.$invalid")
+						p(ng-message="required") Ce champs est requis
+
 				fieldset.form-group.col-sm-6
 					label.control-label(for="inputLastName") Nom
 					.input-group
@@ -37,10 +55,14 @@
 							i.fa.fa-user
 						input.form-control(
 							type="text",
+							name="inputLastName",
 							placeholder="Nom",
 							ng-model="settings.user.lastname"
 						)
+					.help-block(ng-messages="updateForm.inputLastName.$error", ng-show="updateForm.$submitted && updateForm.inputLastName.$invalid")
+						p(ng-message="required") Ce champs est requis
 				.clearfix
+
 				fieldset.form-group.col-sm-6
 					label.control-label(for="inputMail") Adresse e-mail
 					.input-group
@@ -53,7 +75,10 @@
 							ng-model="settings.user.mail",
 							required=""
 						)
+					.help-block(ng-messages="updateForm.inputMail.$error", ng-show="updateForm.$submitted && updateForm.inputMail.$invalid")
+						p(ng-message="required") Ce champs est requis
 				.clearfix
+
 				fieldset.form-group.col-sm-6
 					label.control-label(for="inputPassword") Mot de passe
 					.input-group
@@ -62,8 +87,12 @@
 						input.form-control(
 							type="password",
 							name="inputPassword",
-							required=""
+							required="",
+							ng-model="settings.password"
 						)
+					.help-block(ng-messages="updateForm.inputPassword.$error", ng-show="updateForm.$submitted && updateForm.inputPassword.$invalid")
+						p(ng-message="required") Ce champs est requis
+
 				fieldset.form-group.col-sm-6
 					label.control-label(for="inputConfirm") Confirmation
 					.input-group
@@ -72,14 +101,45 @@
 						input.form-control(
 							type="password",
 							name="inputConfirm",
-							required=""
+							required="",
+							ng-model="settings.confirm"
+							compare-to="settings.password"
 						)
+					.help-block(
+						ng-messages="updateForm.inputConfirm.$error",
+						ng-show="(updateForm.$submitted || updateForm.inputConfirm.$touched) && updateForm.inputConfirm.$invalid"
+					)
+						p(ng-message="required") Ce champs est requis
+						p(ng-message="compareTo") Les mots de passe ne correspondent pas
 				.clearfix
 				.pull-right
-					button#buttonConnect.btn.btn-primary(type="submit") Enregistrer
+					button#buttonSave.btn.btn-primary(type="submit") Enregistrer
 
 		.content(ng-show="settings.isSet(2)")
-			h4 Sécurité
+			h4 Photo de profil
+			div(ng-show="!settings.changePicture")
+				.alert.alert-info Votre photo de profil est visible par tous les utilisateurs. Cliquez sur le bouton pour la changer.
+				.col-sm-9
+					img(ng-src="{{settings.user.picture}}", alt="{{settings.user.firstname}} {{settings.user.lastname}}")
+				.col-sm-3
+					button.btn.btn-primary(ng-click="settings.changePicture = true") Changer la photo
+			div(ng-show="settings.changePicture")
+				.progress(ng-show="settings.picture.progress >= 0")
+					div(style="width:{{settings.picture.progress}}%", ng-bind="settings.picture.progress + '%'")
+				.col-sm-9
+					form(novalidate="", name="pictureForm")
+					fieldset.form-group
+						input(
+							type="file",
+							ng-model="settings.picture",
+							base-sixty-four-input="",
+							name="uploadPicture",
+							required="",
+							accept="image/*"
+						)
+				.col-sm-3
+					button#buttonPicture.btn.btn-primary(ng-click="settings.updatePicture()") Enregistrer
+					button#buttonCancel.btn.btn-danger(ng-click="settings.picture = null; settings.changePicture = false", ng-show="settings.picture") Annuler
 		.content(ng-show="settings.isSet(3)")
 			h4 Paramètres du calendrier
 		.content(ng-show="settings.isSet(4)")

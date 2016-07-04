@@ -50,7 +50,6 @@ block tabs
 			user-summary(user-id="guest.id")
 	.settings-tab(
 		ng-if="vm.event.rights == 'host' || vm.event.rights == 'admin'",
-		ng-show="vm.isSet(3)",
-		ng-controller="settingsController as settings"
+		ng-show="vm.isSet(3)"
 	)
 			include ../tabs/user-settings

@@ -7,10 +7,10 @@
 			.link(ng-class="{active:settings.isSet(2)}")
 				i.fa.fa-eye
 				a(ng-click="settings.setTab(2)") Photo de profil
-			.link(ng-class="{active:settings.isSet(3)}")
+			.link(ng-class="{active:settings.isSet(3)}", ng-if="false")
 				i.fa.fa-calendar
 				a(ng-click="settings.setTab(3)") Calendrier
-			.link(ng-class="{active:settings.isSet(4)}")
+			.link(ng-class="{active:settings.isSet(4)}", ng-if="false")
 				i.fa.fa-users
 				a(ng-click="settings.setTab(4)") Amis
 

@@ -5,7 +5,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $location) {
 	var dsc = dataService;
 
 	vm.user = usc.user();
-	vm.tab = 2;
+	vm.tab = 1;
 
 
 	vm.updateVolunteer = function () {

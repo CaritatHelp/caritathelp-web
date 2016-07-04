@@ -5,7 +5,7 @@ module.exports = /*@ngInject*/ function ($location, $routeParams, dataService, u
 	var dsc = dataService;
 
 	vm.currentUser = usc.user();
-	vm.tab = 3;
+	vm.tab = 1;
 	vm.setTab = function (activeTab) {
 		vm.tab = activeTab;
 	};

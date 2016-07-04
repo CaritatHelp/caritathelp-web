@@ -9,7 +9,7 @@ module.exports = /*@ngInject*/ function (userService, $routeParams, $location, d
 
 	vm.isCurrent = false;
 
-	vm.tab = 4;
+	vm.tab = 1;
 	if ($routeParams.id) {
 		if ($routeParams.id == vm.currentUser.id) { // eslint-disable-line eqeqeq
 			$location.path('/profil');

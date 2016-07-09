@@ -4,3 +4,4 @@ carita.sublime*
 src/modules
 *.log
 todo
+.idea

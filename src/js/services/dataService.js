@@ -297,6 +297,9 @@ module.exports = /*@ngInject*/ function ($http) {
 	DataService.getEventNews = function (id) {
 		return $http.get(buildUrl('events', id, 'news', null));
 	};
+	DataService.deleteEvent = function (id) {
+		return $http.delete(buildUrl('events', id, null, null));
+	};
 
 //Pictures
 	DataService.postPicture = function (file, filename, original, main) {

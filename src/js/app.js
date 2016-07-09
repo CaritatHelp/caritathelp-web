@@ -33,6 +33,7 @@ require('./components/news');
 require('./components/comment');
 require('./components/calendar');
 require('./components/event_create');
+require('./components/event_settings');
 
 app.config(function ($routeProvider, localStorageServiceProvider) {
 	//Configuration localStorage
@@ -91,7 +92,7 @@ app.config(function ($routeProvider, localStorageServiceProvider) {
 			controllerAs: 'search'
 		})
 		.when('/event/:id', {
-			templateUrl: 'view/event.html',
+			templateUrl: 'view/profil-event.html',
 			controller: 'eventController',
 			controllerAs: 'vm'
 		})

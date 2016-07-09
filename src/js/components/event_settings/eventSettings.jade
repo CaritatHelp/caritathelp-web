@@ -1,0 +1,182 @@
+.col-md-4
+	.card.settings
+		.text-list
+			.link(ng-class="{active:settings.isSet(1)}")
+				i.fa.fa-home
+				a(ng-click="settings.setTab(1)") General
+			.link(ng-class="{active:settings.isSet(2)}")
+				i.fa.fa-eye
+				a(ng-click="settings.setTab(2)") Photo de profil
+			.link(ng-class="{active:settings.isSet(3)}")
+				i.fa.fa-users
+				a(ng-click="settings.setTab(3)") Participants
+			.link(ng-class="{active:settings.isSet(4)}")
+				i.fa.fa-times
+				a(ng-click="settings.setTab(4)") Supprimer
+
+.col-md-8
+	//- Messages d'erreur
+	.alert.alert-info(
+		role="alert",
+		ng-show="settings.success",
+		ng-bind-html="settings.successMessage")
+	.card.event.settings
+		.content(ng-show="settings.isSet(1)")
+			h4 Paramètres de l'évènement
+			form(
+				novalidate="",
+				name="updateForm",
+				ng-submit="updateForm.$valid && settings.updateEvent()"
+				)
+				//- Messages d'erreur
+				.alert.alert-danger(
+					role="alert",
+					ng-show="settings.error",
+					ng-bind-html="settings.errorMessage")
+
+				fieldset.form-group
+					label.control-label(for="inputTitle") Titre
+					input.form-control(
+						type="text",
+						name="inputTitle",
+						placeholder="Titre",
+						ng-model="settings.event.title"
+						)
+
+				fieldset.form-group
+					label.control-label(for="inputDescription") Description
+					textarea.form-control(
+						name="inputDescription",
+						placeholder="Description",
+						ng-model="settings.event.description",
+					)
+
+				fieldset.form-group
+					label.control-label(for="inputLocation") Location
+					input.form-control(
+						type="text",
+						name="inputLocation",
+						placeholder="Location",
+						ng-model="settings.event.place"
+					)
+				fieldset.form-group.col-sm-6
+					label(for="inputBeginEvent") Début
+					.input-group
+						input.form-control(
+						type="text",
+						ng-model="settings.event.begin",
+						uib-datepicker-popup="dd/MM/yyyy",
+						is-open="create.popupBegin.opened",
+						datepickerOptions="dateOptions",
+						close-text="Fermer"
+						)
+						span.input-group-btn
+							button.btn.btn-default(
+							type="button",
+							ng-click="create.openBegin()"
+							)
+								i.fa.fa-calendar
+				fieldset.form-group.col-sm-6
+					label(for="inputEndEvent") Fin
+					.input-group
+						input.form-control(
+						type="text",
+						ng-model="settings.event.end",
+						uib-datepicker-popup="dd/MM/yyyy",
+						is-open="create.popupEnd.opened",
+						datepickerOptions="dateOptions",
+						close-text="Fermer"
+						)
+						span.input-group-btn
+							button.btn.btn-default(
+							type="button",
+							ng-click="create.openEnd()"
+							)
+								i.fa.fa-calendar
+
+				.pull-right
+					button#buttonSave.btn.btn-primary(type="submit") Enregistrer
+
+		.content(ng-show="settings.isSet(2)")
+			h4 Photo de profil
+			div(ng-show="!settings.changePicture")
+				.alert.alert-info Cette photo est visible par tous les utilisateurs. Cliquez sur le bouton pour la changer.
+				.col-sm-9
+					img(ng-src="http://api.caritathelp.me{{settings.event.thumb_path}}", alt="{{settings.event.title}}")
+				.col-sm-3
+					button.btn.btn-primary(ng-click="settings.changePicture = true") Changer la photo
+			div(ng-show="settings.changePicture")
+				.progress(ng-show="settings.picture.progress >= 0")
+					div(style="width:{{settings.picture.progress}}%", ng-bind="settings.picture.progress + '%'")
+				.col-sm-9
+					form(novalidate="", name="pictureForm")
+					fieldset.form-group
+						input(
+							type="file",
+							ng-model="settings.picture",
+							base-sixty-four-input="",
+							name="uploadPicture",
+							required="",
+							accept="image/*"
+						)
+				.col-sm-3
+					button#buttonPicture.btn.btn-primary(ng-click="settings.updatePicture()") Enregistrer
+					button#buttonCancel.btn.btn-danger(ng-click="settings.picture = null; settings.changePicture = false", ng-show="settings.picture") Annuler
+		.content(ng-show="settings.isSet(3)")
+			h4 Gestion des participants
+			.col-lg-6.card
+				h6 Demandes en attente
+				table.table.table-striped.table-max
+					thead
+						tr
+							th Nom
+							th Action
+					tbody
+						tr
+							td Monsieur Test
+							td
+								btn.btn.btn-xs.btn-success(title="Accepter la demande")
+									i.fa.fa-check
+								btn.btn.btn-xs.btn-danger(title="Refuser la demande")
+									i.fa.fa-times
+			.col-lg-6.card
+				h6 Invitations en cours
+				table.table.table-striped.table-max
+					thead
+						tr
+							th Nom
+							th Invité par
+							th Action
+					tbody
+						tr
+							td Monsieur Test
+							td Monsieur admin
+							td
+								btn.btn.btn-xs.btn-danger(title="Annuler l'invitation")
+									i.fa.fa-times
+			.clearfix
+			.col-md-12.card
+				h6 Participants
+				table.table.table-striped.table-max.event--table
+					thead
+						tr
+							th Nom
+							th Status
+							th Action
+					tbody
+						tr(ng-repeat="guest in settings.event.guests")
+							td.
+								#[img(src="http://api.caritathelp.me{{guest.thumb_path}}")]
+								{{guest.firstname}} {{guest.lastname}}
+							td {{guest.rights}}
+							td
+								btn.btn.btn-xs.btn-info(title="Editer l'invité")
+									i.fa.fa-edit
+								btn.btn.btn-xs.btn-danger(title="Supprimer l'invité")
+									i.fa.fa-times
+		.content(ng-show="settings.isSet(4)")
+			h4 Suppression de l'évènement
+			.alert.alert-danger.
+				#[i.fa.fa-exclamation-triangle]
+				Cette action est irréversible !
+			button.btn.btn-danger(ng-click="settings.deleteEvent()") Supprimer l'évènement

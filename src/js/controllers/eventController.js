@@ -3,7 +3,7 @@ module.exports = /*@ngInject*/ function (dataService, $routeParams) {
 	var vm = this;
 	var dsc = dataService;
 
-	vm.tab = 1;
+	vm.tab = 3;
 	vm.event = {};
 
 	dsc.getEvent($routeParams.id)

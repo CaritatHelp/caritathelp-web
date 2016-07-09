@@ -25,7 +25,6 @@ module.exports = /*@ngInject*/ function (dataService, $routeParams, $route, $loc
 		dsc.updateEvent(vm.event.id, vm.event.title, vm.event.description, vm.event.place, vm.event.begin, vm.event.end)
 			.success(function (data) {
 				$route.reload();
-				//$location.path('/event/'+$routeParams.id);
 				vm.success = true;
 				vm.successMessage = 'L\'évènement a bien été modifié';
 			})
@@ -61,6 +60,19 @@ module.exports = /*@ngInject*/ function (dataService, $routeParams, $route, $loc
 		dsc.deleteEvent(vm.event.id)
 			.success(function () {
 				$location.path('/home');
+			});
+	};
+
+	vm.kickUser = function(userId) {
+		dsc.kickEvent(userId, vm.event.id)
+			.success(function (data) {
+				$route.reload();
+				vm.success = true;
+				vm.successMessage = 'L\'invité a bien été expulsé';
+			})
+			.error(function (data) {
+				vm.error = true;
+				vm.errorMessage = data.message;
 			});
 	};
 

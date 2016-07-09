@@ -20,8 +20,8 @@ module.exports = /*@ngInject*/ function ($http) {
 
 /*Implémenté:
 *
-* /assocs /comments /events /friendship /login /logout /news /volunteers
-* /guests  /messages /pictures /shelters
+* /assocs /comments /events /friendship /guests /login /logout /news /volunteers
+*  /messages /pictures /shelters
 *
 */
 
@@ -299,6 +299,48 @@ module.exports = /*@ngInject*/ function ($http) {
 	};
 	DataService.deleteEvent = function (id) {
 		return $http.delete(buildUrl('events', id, null, null));
+	};
+
+//Guests
+	DataService.joinEvent = function (id) {
+		var parameters = 'event_id=' + id;
+		return $http.post(buildUrl('guests', null, 'join', parameters));
+	};
+	DataService.replyDemandEvent = function (id, status) {
+		var parameters = 'notif_id=' + id + '&acceptance=' + status;
+		return $http.post(buildUrl('guests', null, 'reply_guest', parameters));
+	};
+	DataService.inviteEvent = function (volunteer_id, event_id) {
+		var parameters = 'event_id=' + event_id + '&volunteer_id=' + volunteer_id;
+		return $http.post(buildUrl('guests', null, 'invite', parameters));
+	};
+	DataService.replyInviteEvent = function (id, status) {
+		var parameters = 'notif_id=' + id + '&acceptance=' + status;
+		return $http.post(buildUrl('guests', null, 'reply_invite', parameters));
+	};
+	DataService.leaveEvent = function (id) {
+		var parameters = 'event_id=' + id;
+		return $http.delete(buildUrl('guests', null, 'leave', parameters));
+	};
+	DataService.upgradeRightsEvent = function (volunteer_id, event_id, rights) {
+		var parameters = 'event_id=' + event_id + '&volunteer_id=' + volunteer_id + '&rights=' + rights;
+		return $http.put(buildUrl('guests', null, 'upgrade', parameters));
+	};
+	DataService.kickEvent = function (volunteer_id, event_id) {
+		var parameters = 'event_id=' + event_id + '&volunteer_id=' + volunteer_id;
+		return $http.delete(buildUrl('guests', null, 'kick', parameters));
+	};
+	DataService.invitedEvent = function (id) {
+		var parameters = 'event_id=' + id;
+		return $http.get(buildUrl('guests', null, 'invited', parameters));
+	};
+	DataService.uninviteEvent = function (volunteer_id, event_id) {
+		var parameters = 'event_id=' + event_id + '&volunteer_id=' + volunteer_id;
+		return $http.delete(buildUrl('guests', null, 'uninvite', parameters));
+	};
+	DataService.waitingEvent = function (id) {
+		var parameters = 'event_id=' + id;
+		return $http.get(buildUrl('guests', null, 'waiting', parameters));
 	};
 
 //Pictures

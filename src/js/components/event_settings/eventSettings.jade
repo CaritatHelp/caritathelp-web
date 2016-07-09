@@ -172,7 +172,7 @@
 							td
 								btn.btn.btn-xs.btn-info(title="Editer l'invité")
 									i.fa.fa-edit
-								btn.btn.btn-xs.btn-danger(title="Supprimer l'invité")
+								btn.btn.btn-xs.btn-danger(title="Supprimer l'invité", ng-click="settings.kickUser(guest.id)")
 									i.fa.fa-times
 		.content(ng-show="settings.isSet(4)")
 			h4 Suppression de l'évènement

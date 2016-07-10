@@ -80,6 +80,25 @@
 				.clearfix
 
 				fieldset.form-group.col-sm-6
+					label(for="inputBirthday") Date de naissance
+					.input-group
+						span.input-group-btn
+							button.btn.btn-default(
+							type="button",
+							ng-click="settings.openBirthdate()"
+							)
+								i.fa.fa-calendar
+						input.form-control(
+							type="text",
+							ng-model="settings.user.birthday",
+							uib-datepicker-popup="dd/MM/yyyy",
+							is-open="settings.popupBirthdate.opened",
+							datepickerOptions="dateOptions",
+							close-text="Fermer"
+						)
+				.clearfix
+
+				fieldset.form-group.col-sm-6
 					label.control-label(for="inputPassword") Mot de passe
 					.input-group
 						span.input-group-addon

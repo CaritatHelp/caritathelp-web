@@ -22,6 +22,8 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams) {
 		dsc.joinEvent(vm.event.id)
 			.success(function () {
 				vm.event.rights = 'waiting';
+				vm.rights.message = 'Vous avez fait une demande pour participer à cet évènement. Un organisateur vous répondra prochainement';
+				vm.rights.class = 'alert-info';
 			})
 			.error(function (data) {
 				vm.error = (data.message);

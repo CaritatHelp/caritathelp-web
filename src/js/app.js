@@ -80,6 +80,11 @@ app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProv
 			templateUrl: 'view/partials/user.friends.html',
 			authenticate: true
 		})
+		.state('profil.assos', {
+			url: '/associations',
+			templateUrl: 'view/partials/user.assos.html',
+			authenticate: true
+		})
 		.state('profil.calendar', {
 			url: '/calendar',
 			templateUrl: 'view/partials/user.calendar.html',

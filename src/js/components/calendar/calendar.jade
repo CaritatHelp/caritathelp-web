@@ -5,8 +5,8 @@
 			.text-list
 				.link(ng-if="calendar.type == 'volunteer'", ng-class="{active:calendar.isSet(1)}")
 					i.fa.fa-calendar-check-o
-					a(ng-click="calendar.setTab(1)") Evènements partcipant
-				.link(ng-class="{active:calendar.isSet(2)}")
+					a(ng-click="calendar.setTab(1)") Evènements en cours
+				.link(ng-if="calendar.type != 'volunteer' || calendar.isCurrent", ng-class="{active:calendar.isSet(2)}")
 					i.fa.fa-calendar
 					a(ng-click="calendar.setTab(2)") Tous les évènements
 				.link(ng-if="calendar.type == 'association' && calendar.rights != 'edit'", ng-class="{active:calendar.isSet(3)}")

@@ -5,6 +5,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $stateParams)
 	var usc = userService;
 
 	vm.currentUser = usc.user();
+	vm.isCurrent = !$stateParams.id;
 
 	vm.setTab = function (activeTab) {
 		vm.tab = activeTab;

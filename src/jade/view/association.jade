@@ -22,7 +22,7 @@ block main-column
 					tbody
 						tr(ng-repeat="assoc in association.currentUser.assos")
 							td
-								a(href="#/association/{{assoc.id}}") {{assoc.name}}
+								a(ui-sref="association.home({id: {{assoc.id}}})") {{assoc.name}}
 							td(ng-if="assoc.city") {{assoc.city}}
 							td(ng-if="!assoc.city") Non renseigné
 							td {{assoc.nb_friends_members}}
@@ -43,7 +43,7 @@ block main-column
 						tbody
 							tr(ng-repeat="assoc in association.assos", ng-show="!assoc.rights")
 								td
-									a(href="#/association/{{assoc.id}}") {{assoc.name}}
+									a(ui-sref="association.home({id: {{assoc.id}}})") {{assoc.name}}
 								td(ng-if="assoc.city") {{assoc.city}}
 								td(ng-if="!assoc.city") Non renseigné
 								//- Ortographe amis

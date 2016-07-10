@@ -1,21 +1,20 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, $routeParams, $route, $location) {
+module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $location) {
 	var vm = this;
 	var dsc = dataService;
 
 	vm.tab = 1;
 
-	if ($routeParams.id) {
-		dsc.getEvent($routeParams.id)
+	if ($stateParams.id) {
+		dsc.getEvent($stateParams.id)
 			.success(function (data) {
 				vm.event = data.response;
 				vm.event.begin = new Date(vm.event.begin);
 				vm.event.end = new Date(vm.event.end);
 
-				dsc.getGuestEvent($routeParams.id)
+				dsc.getGuestEvent($stateParams.id)
 					.success(function (data) {
 						vm.event.guests = data.response;
-						console.log(data.response);
 					});
 			});
 	}
@@ -48,7 +47,6 @@ module.exports = /*@ngInject*/ function (dataService, $routeParams, $route, $loc
 					});
 			})
 			.error(function (data) {
-				console.log(data);
 				angular.element('#buttonPicture').html('Enregistrer').attr('disabled', false);
 			})
 			.then(function () {

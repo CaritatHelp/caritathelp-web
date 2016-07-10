@@ -1,14 +1,13 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($routeParams, userService, dataService) {
+module.exports = /*@ngInject*/ function ($stateParams, userService, dataService) {
 	var vm = this;
 	var usc = userService;
 	var dsc = dataService;
 
-	if ($routeParams.id) {
-		dsc.getVolunteer($routeParams.id)
+	if ($stateParams.id) {
+		dsc.getVolunteer($stateParams.id)
 			.success(function (data) {
 				vm.user = data.response;
-				console.log(vm.user);
 			})
 	} else {
 		vm.user = usc.user();

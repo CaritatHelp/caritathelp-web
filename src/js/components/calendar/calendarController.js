@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, userService, $routeParams) {
+module.exports = /*@ngInject*/ function (dataService, userService, $stateParams) {
 	var vm = this;
 	var dsc = dataService;
 	var usc = userService;
@@ -18,7 +18,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $routeParams)
 	if (vm.calType === 'volunteer') {
 		vm.tab = 1;
 		vm.type = 'volunteer';
-		vm.id = $routeParams.id ? $routeParams.id : vm.currentUser.id;
+		vm.id = $stateParams.id ? $stateParams.id : vm.currentUser.id;
 		//Tous les events existants
 		dsc.getEventList()
 			.success(function (data) {
@@ -32,7 +32,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $routeParams)
 	} else if (vm.calType === 'association') {
 		vm.tab = 2;
 		vm.type = 'association';
-		vm.id = $routeParams.id;
+		vm.id = $stateParams.id;
 		//Events créés par l'asso
 		dsc.getAssoEvents(vm.id)
 			.success(function (data) {

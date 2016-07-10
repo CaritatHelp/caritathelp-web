@@ -28,10 +28,8 @@ module.exports = /*@ngInject*/ function (dataService, userService, $location) {
 
 	vm.updatePicture = function () {
 		angular.element('#buttonPicture').prepend('<i class="fa fa-spin fa-spinner"></i> ').attr('disabled', true);
-		console.log(vm.picture);
 		dsc.postPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename, true)
 			.success(function (data) {
-				console.log(data);
 				dsc.getMainPicture(vm.user.id)
 					.success(function (data) {
 						vm.user.picture = 'http://api.caritathelp.me' + data.thumb_path;
@@ -39,7 +37,6 @@ module.exports = /*@ngInject*/ function (dataService, userService, $location) {
 					});
 			})
 			.error(function (data) {
-				console.log(data);
 				angular.element('#buttonPicture').html('Enregistrer').attr('disabled', false);
 			})
 			.then(function () {

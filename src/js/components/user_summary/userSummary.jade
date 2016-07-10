@@ -1,15 +1,15 @@
 .card.summary.no-padding
 	.summary--cover(style="background-image:url(img/cover/skyline.jpg)")
-	a.summary--picture(href="{{sum.link}}")
+	a.summary--picture(ui-sref="{{sum.plink}}")
 		img.picture(ng-src="{{sum.user.picture}}", alt="{{sum.user.firstname}} {{sum.user.lastname}}")
-	a.summary--name(href="{{sum.link}}") {{sum.user.firstname}} {{sum.user.lastname}}
+	a.summary--name(ui-sref="{{sum.plink}}") {{sum.user.firstname}} {{sum.user.lastname}}
 	.summary--stats
 		a.stat(href="#friendsModal", data-toggle="modal", ng-if="sum.user.city").
 			Location
 			#[h5.nb {{sum.user.city}}]
-		a.stat(href="{{sum.link}}", data-toggle="modal").
+		a.stat(ui-sref="{{sum.flink}}", data-toggle="modal").
 			Amis
 			#[h5.nb {{sum.user.friends.length}}]
-		a.stat(href="{{sum.link}}", data-toggle="modal").
+		a.stat(ui-sref="{{sum.flink}}", data-toggle="modal").
 			Assos
 			#[h5.nb {{sum.user.assos.length}}]

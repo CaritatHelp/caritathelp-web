@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($location, $routeParams, dataService, userService) {
+module.exports = /*@ngInject*/ function ($location, $stateParams, dataService, userService) {
 	var vm = this;
 	var usc = userService;
 	var dsc = dataService;
@@ -31,12 +31,12 @@ module.exports = /*@ngInject*/ function ($location, $routeParams, dataService, u
 //Affichage d'une association
 	vm.asso = {};
 	vm.rights = {};
-	if ($routeParams.id) {
-		dsc.getAsso($routeParams.id)
+	if ($stateParams.id) {
+		dsc.getAsso($stateParams.id)
 			.success(function (data) {
 				vm.asso = data.response;
 				//Récupération des membres
-				dsc.getAssoMembers($routeParams.id)
+				dsc.getAssoMembers($stateParams.id)
 					.success(function (data) {
 						vm.asso.members = data.response;
 					});
@@ -47,21 +47,18 @@ module.exports = /*@ngInject*/ function ($location, $routeParams, dataService, u
 	vm.joinAsso = function () {
 		dsc.joinAsso(vm.asso.id)
 			.success(function (data) {
-				console.log(data);
 				vm.asso.rights = 'waiting';
 			})
 			.error(function (data) {
-				console.log(data);
+				vm.error = (data.message);
 			});
 	};
 	vm.cancelJoin = function () {
 		vm.asso.rights = 'none';
-		console.log('it works !');
 	};
 	vm.leaveAsso = function () {
 		dsc.leaveAsso(vm.asso.id)
 			.success(function (data) {
-				console.log(data);
 				vm.asso.rights = 'none';
 			});
 	};

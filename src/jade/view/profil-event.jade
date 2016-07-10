@@ -6,50 +6,9 @@ block jumbotron
 		img.picture(ng-src="http://api.caritathelp.me{{vm.event.thumb_path}}", alt="{{vm.event.name}}")
 		h1.name {{vm.event.title}}
 	nav.cover--navigation
-		a(ng-click="vm.setTab(1)"
-			ng-class="{active:vm.isSet(1)}") Informations
-		a(ng-click="vm.setTab(2)"
-			ng-class="{active:vm.isSet(2)}") Participants
-		a(
-			ng-if="vm.event.rights == 'host' || vm.event.rights == 'admin'",
-			ng-click="vm.setTab(3)"
-			ng-class="{active:vm.isSet(3)}") Paramètres
+		a(ui-sref="event.home", ui-sref-active="active") Informations
+		a(ui-sref="event.guests", ui-sref-active="active") Participants
+		a(ng-if="vm.event.rights == 'host' || vm.event.rights == 'admin'", ui-sref="event.settings", ui-sref-active="active") Paramètres
 
 block tabs
-	.timeline-tab(ng-show="vm.isSet(1)")
-		.col-md-4
-			.description
-				header
-					.description--title Description par l'hôte
-				section
-					.description--text {{vm.event.description}}
-			//- Membre
-			.action(ng-if="vm.event.rights == 'members'")
-				a(ng-click="vm.joinEvent()").
-					#[i.fa.fa-check]
-					Vous participez à cet évenement
-			//- Invité
-			.action(ng-if="vm.event.rights == 'invited'")
-				a(ng-click="vm.joinEvent()").
-					#[i.fa.fa-check]
-					Vous avez été invité à cet évenement
-			//- Invité
-			.action(ng-if="vm.event.rights == 'waiting'")
-				a(ng-click="vm.joinEvent()").
-					#[i.fa.fa-check]
-					Vous avez demandé à participer à cet évenement
-			//- Non membre
-			.action(ng-if="vm.event.rights == 'none'")
-				a(ng-click="vm.joinEvent()").
-					#[i.fa.fa-plus]
-					Participer à cet évenement
-		.col-md-8
-			timeline(tl-type="'event'")
-	.friends-tab(ng-show="vm.isSet(2)")
-		.col-md-3(ng-repeat="guest in vm.event.guests")
-			user-summary(user-id="guest.id")
-	.settings-tab(
-		ng-if="vm.event.rights == 'host' || vm.event.rights == 'admin'",
-		ng-show="vm.isSet(3)"
-	)
-		event-settings
+	ui-view

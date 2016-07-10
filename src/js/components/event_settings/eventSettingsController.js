@@ -3,7 +3,7 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $loc
 	var vm = this;
 	var dsc = dataService;
 
-	vm.tab = 1;
+	vm.tab = 3;
 
 	if ($stateParams.id) {
 		dsc.getEvent($stateParams.id)
@@ -15,6 +15,14 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $loc
 				dsc.getGuestEvent($stateParams.id)
 					.success(function (data) {
 						vm.event.guests = data.response;
+					});
+				dsc.waitingEvent($stateParams.id)
+					.success(function (data) {
+						vm.event.waiting = data.response;
+					});
+				dsc.invitedEvent($stateParams.id)
+					.success(function (data) {
+						vm.event.invited = data.response;
 					});
 			});
 	}

@@ -5,25 +5,30 @@
 				.description--title Description par l'hôte
 			section
 				.description--text {{vm.event.description}}
-		//- Membre
-		.action(ng-if="vm.event.rights == 'members'")
-			a(ng-click="vm.joinEvent()").
-				#[i.fa.fa-check]
-				Vous participez à cet évenement
-		//- Invité
-		.action(ng-if="vm.event.rights == 'invited'")
-			a(ng-click="vm.joinEvent()").
-				#[i.fa.fa-check]
-				Vous avez été invité à cet évenement
-		//- Invité
-		.action(ng-if="vm.event.rights == 'waiting'")
-			a(ng-click="vm.joinEvent()").
-				#[i.fa.fa-check]
-				Vous avez demandé à participer à cet évenement
-		//- Non membre
-		.action(ng-if="vm.event.rights == 'none'")
-			a(ng-click="vm.joinEvent()").
-				#[i.fa.fa-plus]
-				Participer à cet évenement
+		//-Bloc d'informations latéral
+		.rights.alert(ng-class="vm.rights.class") {{vm.rights.message}}
+		//- Actions possibles pour l'utilisateur
+		.event--actions
+			//Rejoindre l'event
+			.action(ng-if="vm.event.rights == 'none'")
+				a(ng-click="vm.joinEvent()").
+					#[i.fa.fa-plus]
+					Participer à cet évenement
+			//- Inviter des utilisateurs
+			.action(ng-if="vm.event.rights == 'member' || vm.event.rights == 'admin' || vm.event.rights == 'owner'")
+				a(ng-click="vm.inviteEvent()").
+					#[i.fa.fa-user-plus]
+					Inviter vos amis
+			//- Quitter l'event
+			.action(ng-if="vm.event.rights == 'admin' || vm.event.rights == 'member'")
+				a(ng-click="vm.leaveEvent()").
+					#[i.fa.fa-minus]
+					Quitter l'évènement
+			//- Supprimer l'event
+			.action(ng-if="vm.event.rights == 'owner'")
+				a(ng-click="vm.deleteEvent()").
+					#[i.fa.fa-minus]
+					Supprimer l'évènement
+		.alert.alert-danger(ng-if="vm.error", ng-bind-html="vm.error")
 	.col-md-8
 		timeline(tl-type="'event'")

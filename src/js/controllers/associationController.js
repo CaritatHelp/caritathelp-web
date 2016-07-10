@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($location, $stateParams, dataService, userService) {
+module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, userService) {
 	var vm = this;
 	var usc = userService;
 	var dsc = dataService;
@@ -22,10 +22,6 @@ module.exports = /*@ngInject*/ function ($location, $stateParams, dataService, u
 	dsc.getAssoList()
 		.success(function (data) {
 			vm.assos = data.response;
-		})
-		.error(function () {
-			usc.disconnect();
-			$location.path('#/login');
 		});
 
 //Affichage d'une association
@@ -48,6 +44,8 @@ module.exports = /*@ngInject*/ function ($location, $stateParams, dataService, u
 		dsc.joinAsso(vm.asso.id)
 			.success(function () {
 				vm.asso.rights = 'waiting';
+				vm.rights.message = 'Vous avez fait une demande pour rejoindre cette association. Un administrateur vous répondra prochainement';
+				vm.rights.class = 'alert-info';
 			})
 			.error(function (data) {
 				vm.error = (data.message);
@@ -60,12 +58,14 @@ module.exports = /*@ngInject*/ function ($location, $stateParams, dataService, u
 		dsc.leaveAsso(vm.asso.id)
 			.success(function () {
 				vm.asso.rights = 'none';
+				vm.rights.message = 'Vous n\'êtes pas membre de cette association';
+				vm.rights.class = 'alert-warning';
 			});
 	};
 	vm.deleteAsso = function () {
 		dsc.deleteAsso(vm.asso.id)
 			.success(function () {
-				$location.path('/home');
+				$state.transitionTo('home');
 			});
 	};
 

@@ -126,34 +126,40 @@
 			h4 Gestion des participants
 			.col-lg-6.card
 				h6 Demandes en attente
-				table.table.table-striped.table-max
+				table.table.table-striped.table-max.event--table(ng-if="settings.event.waiting.length")
 					thead
 						tr
 							th Nom
 							th Action
 					tbody
-						tr
-							td Monsieur Test
+						tr(ng-repeat="waiter in settings.event.waiting")
+							td
+								a(ui-sref="profil.home({id:{{waiter.id}}})").
+									#[img(src="http://api.caritathelp.me{{waiter.thumb_path}}")]
+									{{waiter.firstname}} {{waiter.lastname}}
 							td
 								btn.btn.btn-xs.btn-success(title="Accepter la demande")
 									i.fa.fa-check
 								btn.btn.btn-xs.btn-danger(title="Refuser la demande")
 									i.fa.fa-times
+				.alert.alert-info(ng-if="!settings.event.waiting.length") Aucune demande en attente
 			.col-lg-6.card
 				h6 Invitations en cours
-				table.table.table-striped.table-max
+				table.table.table-striped.table-max(ng-if="settings.event.invited.length")
 					thead
 						tr
 							th Nom
-							th Invité par
 							th Action
 					tbody
-						tr
-							td Monsieur Test
-							td Monsieur admin
+						tr(ng-repeat="invite in settings.event.invited")
+							td
+								a(ui-sref="profil.home({id:{{invite.id}}})").
+									#[img(src="http://api.caritathelp.me{{invite.thumb_path}}")]
+									{{invite.firstname}} {{invite.lastname}}
 							td
 								btn.btn.btn-xs.btn-danger(title="Annuler l'invitation")
 									i.fa.fa-times
+				.alert.alert-info(ng-if="!settings.event.invited.length") Aucune invitation en attente
 			.clearfix
 			.col-md-12.card
 				h6 Participants
@@ -165,10 +171,11 @@
 							th Action
 					tbody
 						tr(ng-repeat="guest in settings.event.guests")
-							td.
-								#[img(src="http://api.caritathelp.me{{guest.thumb_path}}")]
-								{{guest.firstname}} {{guest.lastname}}
-							td {{guest.rights}}
+							td
+								a(ui-sref="profil.home({id:{{guest.id}}})").
+									#[img(src="http://api.caritathelp.me{{guest.thumb_path}}")]
+									{{guest.firstname}} {{guest.lastname}}
+							td.col-status {{guest.rights}}
 							td
 								btn.btn.btn-xs.btn-info(title="Editer l'invité")
 									i.fa.fa-edit

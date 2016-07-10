@@ -46,7 +46,7 @@ module.exports = /*@ngInject*/ function ($location, $stateParams, dataService, u
 
 	vm.joinAsso = function () {
 		dsc.joinAsso(vm.asso.id)
-			.success(function (data) {
+			.success(function () {
 				vm.asso.rights = 'waiting';
 			})
 			.error(function (data) {
@@ -58,7 +58,7 @@ module.exports = /*@ngInject*/ function ($location, $stateParams, dataService, u
 	};
 	vm.leaveAsso = function () {
 		dsc.leaveAsso(vm.asso.id)
-			.success(function (data) {
+			.success(function () {
 				vm.asso.rights = 'none';
 			});
 	};

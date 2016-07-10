@@ -177,23 +177,3 @@ app.run(function ($rootScope, $state, userService) {
 		}
 	});
 });
-
-/*app.config(function ($routeProvider, localStorageServiceProvider) {
-	//Configuration localStorage
-
-	//Routing
-	$routeProvider
-		// Route spécifique pour l'user actuel
-		.when('/profil', {
-			templateUrl: 'view/profil-user.html',
-			controller: 'profilController',
-			controllerAs: 'vm'
-		})
-		// Affichage d'un profil
-		.when('/user/:id', {
-			templateUrl: 'view/profil-user.html',
-			controller: 'profilController',
-			controllerAs: 'vm'
-		})
-});
-*/

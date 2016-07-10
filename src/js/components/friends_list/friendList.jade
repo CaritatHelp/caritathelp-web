@@ -1,6 +1,5 @@
 .card.listing
-	.card--title
-		a(href='#') Amis
+	.card--title Amis
 	.friends
 		.friend(ng-repeat="friend in friendlist.friends")
 			a(ui-sref="profil.home({id: {{friend.id}}})", title="{{friend.firstname}} {{friend.lastname}}")

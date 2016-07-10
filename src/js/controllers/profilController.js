@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function (userService, $stateParams, $location, dataService) {
+module.exports = /*@ngInject*/ function (userService, $stateParams, $state, dataService) {
 	var vm = this;
 	var usc = userService;
 	var dsc = dataService;
@@ -12,7 +12,7 @@ module.exports = /*@ngInject*/ function (userService, $stateParams, $location, d
 	vm.tab = 1;
 	if ($stateParams.id) {
 		if ($stateParams.id == vm.currentUser.id) { // eslint-disable-line eqeqeq
-			$location.path('/profil');
+			$state.transitionTo('profil.home');
 		}
 		dsc.getVolunteer($stateParams.id)
 			.success(function (data) {

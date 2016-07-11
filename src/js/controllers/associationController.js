@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($location, $stateParams, dataService, userService) {
+module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, userService) {
 	var vm = this;
 	var usc = userService;
 	var dsc = dataService;
@@ -25,7 +25,7 @@ module.exports = /*@ngInject*/ function ($location, $stateParams, dataService, u
 		})
 		.error(function () {
 			usc.disconnect();
-			$location.path('#/login');
+			$state.transitionTo('login');
 		});
 
 //Affichage d'une association
@@ -41,6 +41,9 @@ module.exports = /*@ngInject*/ function ($location, $stateParams, dataService, u
 						vm.asso.members = data.response;
 					});
 				getRightsMessages();
+			})
+			.error(function () {
+				$state.transitionTo('associations');
 			});
 	}
 
@@ -65,7 +68,7 @@ module.exports = /*@ngInject*/ function ($location, $stateParams, dataService, u
 	vm.deleteAsso = function () {
 		dsc.deleteAsso(vm.asso.id)
 			.success(function () {
-				$location.path('/home');
+				$state.transitionTo('home');
 			});
 	};
 

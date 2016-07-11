@@ -20,7 +20,7 @@
 	role="alert",
 	ng-show="settings.success",
 	ng-bind-html="settings.successMessage")
-	.card.event.settings
+	.card.asso.settings
 		.content(ng-show="settings.isSet(1)")
 			h4 Paramètres de l'association
 			form(
@@ -132,7 +132,7 @@
 					tbody
 						tr(ng-repeat="member in settings.asso.members")
 							td.
-								#[img(src="http://api.caritathelp.me{{member.thumb_path}}")]
+								#[img(ng-src="http://api.caritathelp.me{{member.thumb_path}}")]
 								{{member.firstname}} {{member.lastname}}
 							td {{member.rights}}
 							td
@@ -145,4 +145,4 @@
 			.alert.alert-danger.
 				#[i.fa.fa-exclamation-triangle]
 				Cette action est irréversible !
-			button.btn.btn-danger(ng-click="settings.deleteEvent()") Supprimer l'évènement
+			button.btn.btn-danger(ng-click="settings.deleteAsso()") Supprimer l'association

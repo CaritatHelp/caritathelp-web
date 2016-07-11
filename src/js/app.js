@@ -29,6 +29,7 @@ require('./components/user_settings');
 require('./components/friends_list');
 require('./components/assos_list');
 require('./components/asso_create');
+require('./components/asso_settings');
 require('./components/timeline');
 require('./components/news');
 require('./components/comment');
@@ -107,7 +108,7 @@ app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProv
 
 		// Asso profil
 		.state('association', {
-			url: '/association/{id:int}',
+			url: '/association/{id}',
 			templateUrl: 'view/profil-association.html',
 			controller: 'associationController',
 			controllerAs: 'vm',

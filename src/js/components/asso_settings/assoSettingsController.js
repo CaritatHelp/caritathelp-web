@@ -6,26 +6,24 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $loc
 	vm.tab = 1;
 
 	if ($stateParams.id) {
-		dsc.getEvent($stateParams.id)
+		dsc.getAsso($stateParams.id)
 			.success(function (data) {
-				vm.event = data.response;
-				vm.event.begin = new Date(vm.event.begin);
-				vm.event.end = new Date(vm.event.end);
+				vm.asso = data.response;
 
-				dsc.getGuestEvent($stateParams.id)
+				dsc.getAssoMembers($stateParams.id)
 					.success(function (data) {
-						vm.event.guests = data.response;
+						vm.asso.members = data.response;
 					});
 			});
 	}
 
-	vm.updateEvent = function () {
+	vm.updateAsso = function () {
 		angular.element('#buttonSave').prepend('<i class="fa fa-spin fa-spinner"></i> ').attr('disabled', true);
-		dsc.updateEvent(vm.event.id, vm.event.title, vm.event.description, vm.event.place, vm.event.begin, vm.event.end)
-			.success(function (data) {
+		dsc.updateAsso(vm.asso.id, vm.asso.name, vm.asso.description, vm.asso.birthday, vm.asso.city, null, null)
+			.success(function () {
 				$route.reload();
 				vm.success = true;
-				vm.successMessage = 'L\'évènement a bien été modifié';
+				vm.successMessage = 'Votre association a bien été modifiée';
 			})
 			.error(function (data) {
 				vm.error = true;
@@ -40,13 +38,13 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $loc
 	vm.updatePicture = function () {
 		angular.element('#buttonPicture').prepend('<i class="fa fa-spin fa-spinner"></i> ').attr('disabled', true);
 		dsc.postPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename, true)
-			.success(function () {
-				dsc.getEventMainPicture(vm.event.id)
+			.success(function (data) {
+				dsc.getAssoMainPicture(vm.asso.id)
 					.success(function (data) {
-						vm.event.thumb_path = data.thumb_path;
+						vm.asso.thumb_path = data.thumb_path;
 					});
 			})
-			.error(function () {
+			.error(function (data) {
 				angular.element('#buttonPicture').html('Enregistrer').attr('disabled', false);
 			})
 			.then(function () {
@@ -54,15 +52,15 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $loc
 			});
 	};
 
-	vm.deleteEvent = function () {
-		dsc.deleteEvent(vm.event.id)
+	vm.deleteAsso = function () {
+		dsc.deleteAsso(vm.asso.id)
 			.success(function () {
 				$state.transitionTo('home');
 			});
 	};
 
 	vm.kickUser = function(userId) {
-		dsc.kickEvent(userId, vm.event.id)
+		dsc.kickAsso(userId, vm.asso.id)
 			.success(function (data) {
 				$route.reload();
 				vm.success = true;

@@ -45,7 +45,6 @@ module.exports = /*@ngInject*/ function (userService, $stateParams, $state, data
 				vm.user.friendship = 'invitation sent';
 				angular.element('#addFriend').html('Demande envoyée').attr('disabled', true);
 			});
-
 	};
 
 	vm.setTab = function (activeTab) {

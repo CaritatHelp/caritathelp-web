@@ -1,8 +1,8 @@
 .actu--comment
-	a.comment--picture(href="#/user/{{comment.com.volunteer_id}}")
+	a.comment--picture(ui-sref="profil.home({id: {{comment.com.volunteer_id}}})")
 		img(ng-src="http://api.caritathelp.me{{comment.com.thumb_path}}", alt="{{comment.com.firstname}} {{comment.com.lastname}}")
 	.comment--body
 		header.infos
-			a.name(href="#/user/{{comment.com.volunteer_id}}") {{comment.com.firstname}} {{comment.com.lastname}}
+			a.name(ui-sref="profil.home({id: {{comment.com.volunteer_id}}})") {{comment.com.firstname}} {{comment.com.lastname}}
 			.time {{comment.com.created_at | date: "dd/MM à HH:mm"}}
 		.comment--text {{comment.com.content}}

@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, userService) {
+module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 	var vm = this;
 	var usc = userService;
 	var dsc = dataService;
@@ -21,7 +21,6 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 	vm.postComment = function () {
 		dsc.postComment(vm.newsId, vm.newComment)
 			.success(function (data) {
-				console.log(data);
 				if (data.status === 200) {
 					vm.comments.push(data.response);
 					vm.newComment = '';
@@ -31,11 +30,11 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 
 	function getLink() {
 		if (vm.actu.volunteer_id) {
-			vm.link = "#/user/" + vm.actu.volunteer_id;
+			vm.link = $state.href('profil.home', {id: vm.actu.volunteer_id});
 		} else if (vm.actu.assoc_id) {
-			vm.link = "#/association/" + vm.actu.assoc_id;
+			vm.link = $state.href('association.home', {id:  vm.actu.assoc_id});
 		} else if (vm.actu.event_id) {
-			vm.link = "#/event/" + vm.actu.event_id;
+			vm.link = $state.href('event.home', {id: vm.actu.event_id});
 		}
 	};
 };

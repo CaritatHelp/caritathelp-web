@@ -9,19 +9,19 @@ nav.navbar(ng-if="nav.isConnected()")
 			a(href="#/")
 				img(src="img/logo.png", alt="CaritatHelp")
 		.navbar--menu
-			a.navbar--item(href="#/home", ng-class="{active:nav.isSet('home')}", ng-click="nav.setView('home')")
+			a.navbar--item(ui-sref="home", ui-sref-active="active")
 				span Accueil
 				i.fa.fa-home
-			a.navbar--item(href="#/profil", ng-class="{active:nav.isSet('profil')}", ng-click="nav.setView('profil')")
+			a.navbar--item(ui-sref="profil.home", ui-sref-active="active")
 				span Profil
 				i.fa.fa-user
-			a.navbar--item(href="#/association", ng-class="{active:nav.isSet('asso')}", ng-click="nav.setView('asso')")
+			a.navbar--item(ui-sref="associations", ui-sref-active="active")
 				span Associations
 				i.fa.fa-coffee
 			a.navbar--item(href="#msgModal", data-toggle="modal")
 				span Messagerie
 				i.fa.fa-envelope
-			a.navbar--item(href="#/login", ng-click="nav.logout()")
+			a.navbar--item(ng-click="nav.logout()")
 				span Logout
 				i.fa.fa-power-off
 		.navbar--right
@@ -40,7 +40,7 @@ nav.navbar(ng-if="nav.isConnected()")
 				)
 			a.navbar--item(href="#notifModal", data-toggle="modal")
 				i.fa.fa-bell
-			a.navbar--picture(href="#/home")
+			a.navbar--picture(ui-sref="home")
 				img(ng-src="{{nav.user.picture}}", alt="{{nav.user.firstname}} {{nav.user.lastname}}")
 
 .modal.fade#notifModal(tabindex="-1", role="dialog")

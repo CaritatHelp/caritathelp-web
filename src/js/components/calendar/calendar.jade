@@ -5,8 +5,8 @@
 			.text-list
 				.link(ng-if="calendar.type == 'volunteer'", ng-class="{active:calendar.isSet(1)}")
 					i.fa.fa-calendar-check-o
-					a(ng-click="calendar.setTab(1)") Evènements partcipant
-				.link(ng-class="{active:calendar.isSet(2)}")
+					a(ng-click="calendar.setTab(1)") Evènements en cours
+				.link(ng-if="calendar.type != 'volunteer' || calendar.isCurrent", ng-class="{active:calendar.isSet(2)}")
 					i.fa.fa-calendar
 					a(ng-click="calendar.setTab(2)") Tous les évènements
 				.link(ng-if="calendar.type == 'association' && calendar.rights != 'edit'", ng-class="{active:calendar.isSet(3)}")
@@ -21,7 +21,7 @@
 				.card.event(ng-repeat="event in calendar.events")
 					header
 						h6.event--title {{event.title}}
-						.event--creator Organisé par <a href="#/associations/{{event.assoc_id}}">{{event.assoc_name}}</a>
+						.event--creator Organisé par <a ui-sref="association.home({id:{{event.assoc_id}}})">{{event.assoc_name}}</a>
 					section.
 						Du {{event.begin}} au {{event.end}}<br>
 						Lieu: {{event.place}}<br>
@@ -31,7 +31,7 @@
 						.event--status(ng-if="event.rights == 'host'") Vous êtes le créateur de cet évènement
 						.event--status(ng-if="event.rights == 'member'") Vous participez à cet évènement
 						.event--status(ng-if="event.rights == 'none'") Vous ne participez pas à cet évènement
-						a.btn.btn-small.btn-primary(href="#/event/{{event.id}}").
+						a.btn.btn-small.btn-primary(ui-sref="event.home({id:{{event.id}}})").
 							#[.fa.fa-info-circle]
 							Plus d'informations
 				.card.event(ng-if="!calendar.events")
@@ -45,7 +45,7 @@
 				.card.event(ng-repeat="event in calendar.joined")
 					header
 						h6.event--title {{event.title}}
-						.event--creator Organisé par <a href="#/associations/{{event.assoc_id}}">{{event.assoc_name}}</a>
+						.event--creator Organisé par <a ui-sref="association.home({id:{{event.assoc_id}}})">{{event.assoc_name}}</a>
 					section.
 						Du {{event.begin}} au {{event.end}}<br>
 						Lieu: {{event.place}}<br>
@@ -55,7 +55,7 @@
 						.event--status(ng-if="event.rights == 'host'") Vous êtes le créateur de cet évènement
 						.event--status(ng-if="event.rights == 'member'") Vous participez à cet évènement
 						.event--status(ng-if="event.rights == 'none'") Vous ne participez pas à cet évènement
-						a.btn.btn-small.btn-primary(href="#/event/{{event.id}}").
+						a.btn.btn-small.btn-primary(ui-sref="event.home({id:{{event.id}}})").
 							#[.fa.fa-info-circle]
 							Plus d'informations
 

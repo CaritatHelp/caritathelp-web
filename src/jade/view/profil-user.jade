@@ -7,35 +7,12 @@ block jumbotron
 		img.picture(ng-if="vm.user.picture", ng-src="{{vm.user.picture}}", alt="{{vm.user.firstname}} {{vm.user.lastname}}")
 		h1.name {{vm.user.firstname}} {{vm.user.lastname}}
 	nav.cover--navigation
-		a(ng-click="vm.setTab(1)"
-			ng-class="{active:vm.isSet(1)}") Accueil
-		a(ng-click="vm.setTab(2)"
-			ng-class="{active:vm.isSet(2)}") Amis
-		a(ng-click="vm.setTab(3)"
-			ng-class="{active:vm.isSet(3)}") Calendrier
-		a(
-			ng-if="vm.isCurrent",
-			ng-click="vm.setTab(4)"
-			ng-class="{active:vm.isSet(4)}") Paramètres
+		a(ui-sref="profil.home", ui-sref-active="active") Accueil
+		a(ui-sref="profil.friends", ui-sref-active="active") Amis
+		a(ui-sref="profil.assos", ui-sref-active="active") Associations
+		a(ui-sref="profil.calendar", ui-sref-active="active") Calendrier
+		a(ng-if="vm.isCurrent", ui-sref="profil.settings", ui-sref-active="active") Paramètres
 
 block tabs
-	.timeline-tab(ng-show="vm.isSet(1)")
-		.col-md-4
-			user-summary
-			user-actions
-			friend-list
-			asso-list
-		.col-md-8
-			timeline(tl-type="'volunteer'")
-	.friends-tab(ng-show="vm.isSet(2)")
-		.col-md-3(ng-repeat="friend in vm.user.friends")
-			user-summary(user-id="friend.id")
-		.col-md-6.col-md-push-3(ng-if="!vm.user.friends.length && vm.isCurrent")
-			.card Vous n'avez pas encore d'amis ! Utilisez la barre de recherche pour en retrouver.
-	.calendar-tab(ng-show="vm.isSet(3)")
-		calendar(cal-type="'volunteer'")
-	.settings-tab(
-		ng-if="vm.isCurrent",
-		ng-show="vm.isSet(4)"
-	)
-		user-settings
+	ui-view
+

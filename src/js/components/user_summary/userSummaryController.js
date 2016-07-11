@@ -1,19 +1,27 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($routeParams, userService, dataService) {
+module.exports = /*@ngInject*/ function ($stateParams, userService, dataService) {
 	var vm = this;
 	var usc = userService;
 	var dsc = dataService;
 	vm.user = {};
 
 	if (vm.userId) {
-		getUser(vm.userId);
-		vm.link = "#/user/" + vm.userId;
-	} else if ($routeParams.id) {
-		getUser($routeParams.id);
-		vm.link = "#/user/" + $routeParams.id;
+		var id = vm.userId;
+		getUser(id);
+		vm.plink = 'profil.home({id:' + id + '})';
+		vm.flink = 'profil.friends({id:' + id + '})';
+		vm.alink = 'profil.assos({id:' + id + '})';
+	} else if ($stateParams.id) {
+		var id = $stateParams.id;
+		getUser(id);
+		vm.plink = 'profil.home({id:' + id + '})';
+		vm.flink = 'profil.friends({id:' + id + '})';
+		vm.alink = 'profil.assos({id:' + id + '})';
 	} else {
 		vm.user = usc.user();
-		vm.link = "#/profil";
+		vm.plink = "profil.home";
+		vm.flink = 'profil.friends';
+		vm.alink = 'profil.assos';
 	}
 
 	function getUser(id) {

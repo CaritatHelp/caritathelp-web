@@ -16,7 +16,7 @@
 		name="postComment",
 		ng-submit="vmnews.postComment()"
 		)
-		a.reply--picture(href="#/user/{{vmnews.current.id}}")
+		a.reply--picture(ui-sref="profil.home({id:{{vmnews.current.id}}})")
 			img(ng-src="{{vmnews.current.picture}}", alt="{{vmnews.current.firstname}} {{vmnews.current.lastname}}")
 		.input-group
 			input.form-control(

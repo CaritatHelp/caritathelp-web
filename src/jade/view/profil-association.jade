@@ -7,55 +7,11 @@ block jumbotron
 		img.picture(ng-if="vm.asso.thumb_path", ng-src="http://api.caritathelp.me{{vm.asso.thumb_path}}", alt="{{vm.asso.name}}")
 		h1.name {{vm.asso.name}}
 	nav.cover--navigation
-		a(ng-click="vm.setTab(1)"
-			ng-class="{active:vm.isSet(1)}") Timeline
-		a(ng-click="vm.setTab(2)"
-			ng-class="{active:vm.isSet(2)}") Membres
-		a(ng-click="vm.setTab(3)"
-			ng-class="{active:vm.isSet(3)}") Evenements
-		a(ng-click="vm.setTab(4)"
-			ng-class="{active:vm.isSet(4)}") Administration
+		a(ui-sref="association.home", ui-sref-active="active") Accueil
+		a(ui-sref="association.members", ui-sref-active="active") Membres
+		a(ui-sref="association.calendar", ui-sref-active="active") Evenements
+		a(ui-sref="association.settings", ui-sref-active="active") Administration
 
 block tabs
-	.timeline-tab(ng-show="vm.isSet(1)")
-		.col-md-4
-			.description
-				header
-					.description--title Description
-				section
-					.description--text {{vm.asso.description}}
-			//-Bloc d'informations latéral
-			.rights.alert(ng-class="vm.rights.class") {{vm.rights.message}}
-			//- Actions possibles pour l'utilisateur
-			.asso-actions
-				//- Rejoindre l'association
-				.action(ng-if="vm.asso.rights == 'none'")
-					a(ng-click="vm.joinAsso()").
-						#[i.fa.fa-plus]
-						Rejoindre cette association
-				//- Inviter des utilisateurs
-				.action(ng-if="vm.asso.rights == 'member' || vm.asso.rights == 'admin' || vm.asso.rights == 'owner'")
-					a(ng-click="vm.inviteAsso()").
-						#[i.fa.fa-user-plus]
-						Inviter vos amis
-				//- Quitter l'association
-				.action(ng-if="vm.asso.rights == 'admin' || vm.asso.rights == 'member'")
-					a(ng-click="vm.leaveAsso()").
-						#[i.fa.fa-minus]
-						Quitter l'association
-				//- Supprimer l'association
-				.action(ng-if="vm.asso.rights == 'owner'")
-					a(ng-click="vm.deleteAsso()").
-						#[i.fa.fa-minus]
-						Supprimer l'association
-		.col-md-8
-			//- Timeline de l'association
-			timeline(tl-type="'association'")
-	.members-tab(ng-show="vm.isSet(2)")
-		.col-md-3(ng-repeat="member in vm.asso.members")
-			user-summary(user-id="member.id")
-	.calendar-tab(ng-show="vm.isSet(3)")
-		calendar(cal-type="'association'", cal-rights="vm.asso.rights")
-	.settings-tab(ng-show="vm.isSet(4)")
-		include ../tabs/asso-calendar
+	ui-view
 

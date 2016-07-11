@@ -1,0 +1,14 @@
+extends ../layout/with-cover
+
+block jumbotron
+	.coverstatebackground(style="background-image:url(img/cover/skyline.jpg)")
+	.cover--infos
+		img.picture(ng-src="http://api.caritathelp.me{{vm.event.thumb_path}}", alt="{{vm.event.name}}")
+		h1.name {{vm.event.title}}
+	nav.cover--navigation
+		a(ui-sref="event.home", ui-sref-active="active") Informations
+		a(ui-sref="event.guests", ui-sref-active="active") Participants
+		a(ng-if="vm.event.rights == 'host' || vm.event.rights == 'admin'", ui-sref="event.settings", ui-sref-active="active") Paramètres
+
+block tabs
+	ui-view

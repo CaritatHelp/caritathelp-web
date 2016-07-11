@@ -1,8 +1,7 @@
 .card.listing
-	.card--title
-		a(href='#') Amis
+	.card--title Amis
 	.friends
 		.friend(ng-repeat="friend in friendlist.friends")
-			a(href="#/user/{{friend.id}}", title="{{friend.firstname}} {{friend.lastname}}")
+			a(ui-sref="profil.home({id: {{friend.id}}})", title="{{friend.firstname}} {{friend.lastname}}")
 				img.friend--img(ng-src="http://api.caritathelp.me{{friend.thumb_path}}", alt="{{friend.firstname}} {{friend.lastname}}", class="img-circle")
-			a.name(href="#/user/{{friend.id}}") {{friend.firstname}} {{friend.lastname}}
+			a.name(ui-sref="profil.home({id: {{friend.id}}})") {{friend.firstname}} {{friend.lastname}}

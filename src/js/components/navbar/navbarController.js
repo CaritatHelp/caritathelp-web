@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($location, dataService, userService) {
+module.exports = /*@ngInject*/ function ($state, dataService, userService) {
 	var vm = this;
 	var dsc = dataService;
 	var usc = userService;
@@ -20,7 +20,7 @@ module.exports = /*@ngInject*/ function ($location, dataService, userService) {
 	vm.logout = function () {
 		dsc.logout();
 		usc.disconnect();
-		$location.path('/login');
+		$state.go('login');
 	};
 
 	vm.isConnected = function () {
@@ -34,6 +34,6 @@ module.exports = /*@ngInject*/ function ($location, dataService, userService) {
 		return vm.view === view;
 	};
 	vm.search = function () {
-		$location.path('/search/'+vm.research);
+		$state.go('search', {search: vm.research});
 	}
 };

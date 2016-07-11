@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($location, dataService) {
+module.exports = /*@ngInject*/ function ($state, dataService) {
 	var vm = this;
 	var dsc = dataService;
 
@@ -12,7 +12,7 @@ module.exports = /*@ngInject*/ function ($location, dataService) {
 		dsc.createAsso(vm.name, vm.description, null, null, null, null)
 			.success(function (data) {
 				if (data.status === 200) {
-					$location.path('/association/' + data.response.id);
+					$state.transitionTo('association.home({id:' + data.response.id + '})');
 				} else {
 					//Erreur serveur
 					vm.error = true;

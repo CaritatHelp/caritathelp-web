@@ -5,25 +5,23 @@
 				.description--title Description par l'hôte
 			section
 				.description--text {{vm.event.description}}
-		//- Membre
-		.action(ng-if="vm.event.rights == 'members'")
-			a(ng-click="vm.joinEvent()").
-				#[i.fa.fa-check]
-				Vous participez à cet évenement
-		//- Invité
-		.action(ng-if="vm.event.rights == 'invited'")
-			a(ng-click="vm.joinEvent()").
-				#[i.fa.fa-check]
-				Vous avez été invité à cet évenement
-		//- Invité
-		.action(ng-if="vm.event.rights == 'waiting'")
-			a(ng-click="vm.joinEvent()").
-				#[i.fa.fa-check]
-				Vous avez demandé à participer à cet évenement
-		//- Non membre
-		.action(ng-if="vm.event.rights == 'none'")
-			a(ng-click="vm.joinEvent()").
-				#[i.fa.fa-plus]
-				Participer à cet évenement
+		//-Bloc d'informations latéral
+		.rights.alert(ng-class="vm.rights.class") {{vm.rights.message}}
+		.event-actions
+			//- Membre
+			.action(ng-if="vm.event.rights == 'members'")
+				a(ng-click="vm.joinEvent()").
+					#[i.fa.fa-check]
+					Vous participez à cet évenement
+			//- Invité
+			.action(ng-if="vm.event.rights == 'invited'")
+				a(ng-click="vm.joinEvent()").
+					#[i.fa.fa-check]
+					Vous avez été invité à cet évenement
+			//- Non membre
+			.action(ng-if="vm.event.rights == 'none'")
+				a(ng-click="vm.joinEvent()").
+					#[i.fa.fa-plus]
+					Participer à cet évenement
 	.col-md-8
 		timeline(tl-type="'event'")

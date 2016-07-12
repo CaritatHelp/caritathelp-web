@@ -10,7 +10,7 @@ block jumbotron
 		a(ui-sref="association.home", ui-sref-active="active") Accueil
 		a(ui-sref="association.members", ui-sref-active="active") Membres
 		a(ui-sref="association.calendar", ui-sref-active="active") Evenements
-		a(ui-sref="association.settings", ui-sref-active="active") Administration
+		a(ui-sref="association.settings", ui-sref-active="active", ng-if="vm.asso.rights == 'owner' || vm.asso.rights == 'admin'") Administration
 
 block tabs
 	ui-view

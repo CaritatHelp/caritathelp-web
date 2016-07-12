@@ -3,7 +3,7 @@
 module.exports = /*@ngInject*/ function ($http) {
 	var servurl = 'http://api.caritathelp.me/';
 	var DataService = {};
-	var logEnabled = false;
+	var logEnabled = true;
 	var token = null;
 
 	function buildUrl(route, identifier, subroute, parameters) {
@@ -348,6 +348,7 @@ module.exports = /*@ngInject*/ function ($http) {
 		return $http({
 			url: servurl + 'pictures',
 			method: 'POST',
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 			data: {
 				token: token,
 				file: file,

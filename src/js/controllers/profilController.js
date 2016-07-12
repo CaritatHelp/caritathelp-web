@@ -10,7 +10,6 @@ module.exports = /*@ngInject*/ function (userService, $stateParams, $state, data
 
 	vm.isCurrent = false;
 
-	vm.tab = 1;
 	if ($stateParams.id) {
 		if ($stateParams.id == vm.currentUser.id) { // eslint-disable-line eqeqeq
 			$state.transitionTo('profil.home');
@@ -35,7 +34,6 @@ module.exports = /*@ngInject*/ function (userService, $stateParams, $state, data
 	} else {
 		vm.isCurrent = true;
 		vm.user = vm.currentUser;
-		console.log(vm.user.assos);
 	}
 
 	vm.addFriend = function () {
@@ -45,13 +43,5 @@ module.exports = /*@ngInject*/ function (userService, $stateParams, $state, data
 				vm.user.friendship = 'invitation sent';
 				angular.element('#addFriend').html('Demande envoyée').attr('disabled', true);
 			});
-
-	};
-
-	vm.setTab = function (activeTab) {
-		vm.tab = activeTab;
-	};
-	vm.isSet = function (tab) {
-		return vm.tab === tab;
 	};
 };

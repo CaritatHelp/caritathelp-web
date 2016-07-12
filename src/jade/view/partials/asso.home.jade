@@ -16,7 +16,7 @@
 					Rejoindre cette association
 			//- Inviter des utilisateurs
 			.action(ng-if="vm.asso.rights == 'member' || vm.asso.rights == 'admin' || vm.asso.rights == 'owner'")
-				a(ng-click="vm.inviteAsso()").
+				a(ng-click="vm.openInvite()").
 					#[i.fa.fa-user-plus]
 					Inviter vos amis
 			//- Quitter l'association
@@ -32,3 +32,12 @@
 	.col-md-8
 		//- Timeline de l'association
 		timeline(tl-type="'association'")
+
+	script(type="text/ng-template", id="inviteFriendsModal.html")
+		.modal-header
+			h3.modal-title Inviter des amis
+		.modal-body
+			section(ng-repeat="friend in friends")
+				h2 {{friend.firstname}} {{friend.lastname}}
+				btn(ng-click="vm.inviteFriend(friend.id)") Inviter
+		.modal-footer

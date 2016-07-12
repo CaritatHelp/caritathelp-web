@@ -1,11 +1,13 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, userService) {
+module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, userService, $uibModal) {
 	var vm = this;
 	var usc = userService;
 	var dsc = dataService;
 
-	vm.currentUser = usc.user();
-
+	vm.current = usc.user();
+	vm.modal = {
+		friends: vm.current.friends
+	};
 //Listing des associations
 	vm.assos = {};
 	vm.creating = false;
@@ -69,6 +71,15 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 			.success(function () {
 				$state.transitionTo('home');
 			});
+	};
+
+	vm.openInvite = function () {
+		$uibModal.open({
+			templateUrl: 'inviteFriendsModal.html',
+			controller: function ($scope) {
+				$scope.friends = vm.current.friends;
+			}
+		});
 	};
 
 	function getRightsMessages() {

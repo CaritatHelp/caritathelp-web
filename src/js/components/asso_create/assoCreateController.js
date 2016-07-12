@@ -12,7 +12,7 @@ module.exports = /*@ngInject*/ function ($state, dataService) {
 		dsc.createAsso(vm.name, vm.description, null, vm.city, null, null)
 			.success(function (data) {
 				if (data.status === 200) {
-					$state.transitionTo('association.home({id:' + data.response.id + '})');
+					$state.transitionTo('association.home', {id: data.response.id});
 				} else {
 					//Erreur serveur
 					vm.error = true;

@@ -9,6 +9,7 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 	dsc.getEvent($stateParams.id)
 		.success(function (data) {
 			vm.event = data.response;
+			getRightsMessages();
 			dsc.getGuestEvent($stateParams.id)
 				.success(function (data) {
 					vm.event.guests = data.response;
@@ -20,14 +21,18 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 		dsc.joinEvent(vm.event.id)
 			.success(function () {
 				vm.event.rights = 'waiting';
+				vm.rights.message = 'Vous avez fait une demande pour participer à cet évènement. Un organisateur vous répondra prochainement';
+				vm.rights.class = 'alert-info';
 			})
 			.error(function (data) {
 				vm.error = (data.message);
 			});
 	};
+
 	vm.cancelJoin = function () {
 		vm.event.rights = null;
 	};
+
 	vm.leaveEvent = function () {
 		dsc.leaveEvent(vm.event.id)
 			.success(function () {
@@ -44,23 +49,23 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 	function getRightsMessages() {
 		switch (vm.event.rights) {
 			case 'none':
-				vm.rights.message = 'Vous ne participez pas à cet évenement';
+				vm.rights.message = 'Vous ne participez pas à cet évènement';
 				vm.rights.class = 'alert-warning';
 				break;
 			case 'member':
-				vm.rights.message = 'Vous êtes participez à cet évenement';
+				vm.rights.message = 'Vous participez à cet évènement';
 				vm.rights.class = 'alert-success';
 				break;
 			case 'admin':
-				vm.rights.message = 'Vous êtes administrateur de cet évenement';
+				vm.rights.message = 'Vous êtes administrateur de cet évènement';
 				vm.rights.class = 'alert-success';
 				break;
-			case 'owner':
-				vm.rights.message = 'Vous êtes l\'hôte de cet évenement';
+			case 'host':
+				vm.rights.message = 'Vous êtes le créateur de cet évènement';
 				vm.rights.class = 'alert-success';
 				break;
 			case 'waiting':
-				vm.rights.message = 'Vous avez fait une demande pour participer à cet évènement. Un administrateur vous répondra prochainement';
+				vm.rights.message = 'Vous avez fait une demande pour participer à cet évènement. Un organisateur vous répondra prochainement';
 				vm.rights.class = 'alert-info';
 				break;
 			default:

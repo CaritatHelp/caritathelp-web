@@ -126,18 +126,21 @@
 			h4 Gestion des participants
 			.col-lg-6.card
 				h6 Demandes en attente
-				table.table.table-striped.table-max(ng-if="settings.event.waiting")
+				table.table.table-striped.table-max.event--table(ng-if="settings.event.waiting.length")
 					thead
 						tr
 							th Nom
 							th Action
 					tbody
-						tr(ng-repeat="demand in settings.event.waiting")
-							td {{demand.firstname}} {{demand.lastname}}
+						tr(ng-repeat="waiter in settings.event.waiting")
 							td
-								btn.btn.btn-xs.btn-success(title="Accepter la demande", ng-click="settings.replyDemand(demand.id, true, $index)")
+								a(ui-sref="profil.home({id:{{waiter.id}}})").
+									#[img(src="http://api.caritathelp.me{{waiter.thumb_path}}")]
+									{{waiter.firstname}} {{waiter.lastname}}
+							td
+								btn.btn.btn-xs.btn-success(title="Accepter la demande", ng-click="settings.replyDemand(waiter.id, true, $index)")
 									i.fa.fa-check
-								btn.btn.btn-xs.btn-danger(title="Refuser la demande", ng-click="settings.replyDemand(demand.id, false, $index)")
+								btn.btn.btn-xs.btn-danger(title="Refuser la demande", ng-click="settings.replyDemand(waiter.id, false, $index)")
 									i.fa.fa-times
 				.alert.alert-info(ng-if="!settings.event.waiting") Aucune demande en attente
 			.col-lg-6.card
@@ -149,11 +152,14 @@
 							th Action
 					tbody
 						tr(ng-repeat="invite in settings.event.invited")
-							td {{invite.firstname}} {{invite.lastname}}
+							td
+								a(ui-sref="profil.home({id:{{invite.id}}})").
+									#[img(src="http://api.caritathelp.me{{invite.thumb_path}}")]
+									{{invite.firstname}} {{invite.lastname}}
 							td
 								btn.btn.btn-xs.btn-danger(title="Annuler l'invitation")
 									i.fa.fa-times
-				.alert.alert-info(ng-if="!settings.event.invited") Aucune invitation en attente
+				.alert.alert-info(ng-if="!settings.event.invited.length") Aucune invitation en attente
 			.clearfix
 			.col-md-12.card
 				h6 Participants
@@ -165,10 +171,11 @@
 							th Action
 					tbody
 						tr(ng-repeat="guest in settings.event.guests")
-							td.
-								#[img(ng-src="http://api.caritathelp.me{{guest.thumb_path}}")]
-								{{guest.firstname}} {{guest.lastname}}
-							td {{guest.rights}}
+							td
+								a(ui-sref="profil.home({id:{{guest.id}}})").
+									#[img(src="http://api.caritathelp.me{{guest.thumb_path}}")]
+									{{guest.firstname}} {{guest.lastname}}
+							td.col-status {{guest.rights}}
 							td
 								btn.btn.btn-xs.btn-info(title="Editer l'invité")
 									i.fa.fa-edit

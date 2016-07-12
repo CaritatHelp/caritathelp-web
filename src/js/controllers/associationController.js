@@ -17,10 +17,6 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 	dsc.getAssoList()
 		.success(function (data) {
 			vm.assos = data.response;
-		})
-		.error(function () {
-			usc.disconnect();
-			$state.transitionTo('login');
 		});
 
 //Affichage d'une association

@@ -11,6 +11,10 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 	vm.startCreating = function () {
 		vm.creating = true;
 	};
+	dsc.getAssos(vm.current.id)
+		.success(function (data) {
+			vm.current.assos = data.response;
+		});
 	dsc.getAssoList()
 		.success(function (data) {
 			vm.assos = data.response;

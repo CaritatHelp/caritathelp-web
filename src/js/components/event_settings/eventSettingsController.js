@@ -1,9 +1,12 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $location) {
+module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $state) {
 	var vm = this;
 	var dsc = dataService;
 
-	vm.tab = 1;
+	require('angular');
+
+	vm.tab = 3;
+	var angular = angular;
 
 	if ($stateParams.id) {
 		dsc.getEvent($stateParams.id)
@@ -16,13 +19,21 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $loc
 					.success(function (data) {
 						vm.event.guests = data.response;
 					});
+				dsc.invitedEvent($stateParams.id)
+					.success(function (data) {
+						vm.event.invited = data.response;
+					});
+				dsc.waitingEvent($stateParams.id)
+					.success(function (data) {
+						vm.event.waiting = data.response;
+					});
 			});
 	}
 
 	vm.updateEvent = function () {
 		angular.element('#buttonSave').prepend('<i class="fa fa-spin fa-spinner"></i> ').attr('disabled', true);
 		dsc.updateEvent(vm.event.id, vm.event.title, vm.event.description, vm.event.place, vm.event.begin, vm.event.end)
-			.success(function (data) {
+			.success(function () {
 				$route.reload();
 				vm.success = true;
 				vm.successMessage = 'L\'évènement a bien été modifié';
@@ -71,6 +82,16 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $loc
 			.error(function (data) {
 				vm.error = true;
 				vm.errorMessage = data.message;
+			});
+	};
+
+	vm.replyDemand = function(userId, answer, index) {
+		dsc.replyDemandEvent(userId, answer)
+			.success(function () {
+				vm.event.waiting.splice(index, 1);
+			})
+			.error(function (data) {
+				vm.error = data.message;
 			});
 	};
 

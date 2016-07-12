@@ -5,13 +5,6 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 	var dsc = dataService;
 
 	vm.currentUser = usc.user();
-	vm.tab = 1;
-	vm.setTab = function (activeTab) {
-		vm.tab = activeTab;
-	};
-	vm.isSet = function (tab) {
-		return vm.tab === tab;
-	};
 
 //Listing des associations
 	vm.assos = {};
@@ -51,6 +44,8 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 		dsc.joinAsso(vm.asso.id)
 			.success(function () {
 				vm.asso.rights = 'waiting';
+				vm.rights.message = 'Vous avez fait une demande pour rejoindre cette association. Un administrateur vous répondra prochainement';
+				vm.rights.class = 'alert-info';
 			})
 			.error(function (data) {
 				vm.error = (data.message);
@@ -58,11 +53,15 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 	};
 	vm.cancelJoin = function () {
 		vm.asso.rights = 'none';
+		vm.rights.message = 'Vous n\'êtes pas membre de cette association';
+		vm.rights.class = 'alert-warning';
 	};
 	vm.leaveAsso = function () {
 		dsc.leaveAsso(vm.asso.id)
 			.success(function () {
 				vm.asso.rights = 'none';
+				vm.rights.message = 'Vous n\'êtes pas membre de cette association';
+				vm.rights.class = 'alert-warning';
 			});
 	};
 	vm.deleteAsso = function () {

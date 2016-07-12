@@ -34,16 +34,18 @@ module.exports = /*@ngInject*/ function (dataService, userService, $stateParams)
 		vm.tab = 2;
 		vm.type = 'association';
 		vm.id = $stateParams.id;
+		dsc.getAsso(vm.id)
+			.success(function (data) {
+				if (data.response.rights === 'owner' || data.response.rights === 'admin') {
+					vm.rights = 'edit';
+				} else {
+					vm.rights = null;
+				}
+			});
 		//Events créés par l'asso
 		dsc.getAssoEvents(vm.id)
 			.success(function (data) {
 				vm.events = data.response;
-				if (vm.calRights === 'owner' || vm.calRights === 'admin') {
-					vm.rights = 'edit';
-				} else {
-					vm.rights = vm.calRights;
-				}
-				console.log(vm.events);
 			});
 	}
 };

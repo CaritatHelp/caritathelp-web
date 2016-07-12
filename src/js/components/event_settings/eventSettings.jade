@@ -135,9 +135,9 @@
 						tr(ng-repeat="demand in settings.event.waiting")
 							td {{demand.firstname}} {{demand.lastname}}
 							td
-								btn.btn.btn-xs.btn-success(title="Accepter la demande")
+								btn.btn.btn-xs.btn-success(title="Accepter la demande", ng-click="settings.replyDemand(demand.id, true, $index)")
 									i.fa.fa-check
-								btn.btn.btn-xs.btn-danger(title="Refuser la demande")
+								btn.btn.btn-xs.btn-danger(title="Refuser la demande", ng-click="settings.replyDemand(demand.id, false, $index)")
 									i.fa.fa-times
 				.alert.alert-info(ng-if="!settings.event.waiting") Aucune demande en attente
 			.col-lg-6.card

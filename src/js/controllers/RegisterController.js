@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, userService, $location) {
+module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 	var _this = this;
 	var dsc = dataService;
 	var usc = userService;
@@ -54,7 +54,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $location) {
 			.success(function (data) {
 				if (data.status === 200) {
 					usc.connect(data.response);
-					$location.path('/home');
+					$state.transitionTo('home');
 				} else {
 					//Erreur serveur
 					_this.error = true;

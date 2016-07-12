@@ -43,6 +43,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $stateParams)
 				} else {
 					vm.rights = vm.calRights;
 				}
+				console.log(vm.events);
 			});
 	}
 };

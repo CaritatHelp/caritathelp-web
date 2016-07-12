@@ -14,6 +14,14 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $sta
 					.success(function (data) {
 						vm.asso.members = data.response;
 					});
+				dsc.invitedAsso($stateParams.id)
+					.success(function (data) {
+						vm.asso.invited = data.response;
+					});
+				dsc.waitingAsso($stateParams.id)
+					.success(function (data) {
+						vm.asso.waiting = data.response;
+					});
 			});
 	}
 

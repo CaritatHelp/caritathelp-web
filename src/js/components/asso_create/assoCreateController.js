@@ -8,8 +8,8 @@ module.exports = /*@ngInject*/ function ($state, dataService) {
 
 	vm.createAsso = function () {
 		vm.date = new Date();
-		// Parametres: nom description birthday city latitude longitude token
-		dsc.createAsso(vm.name, vm.description, null, null, null, null)
+		// Parametres: nom description birthday city latitude longitude
+		dsc.createAsso(vm.name, vm.description, null, vm.city, null, null)
 			.success(function (data) {
 				if (data.status === 200) {
 					$state.transitionTo('association.home({id:' + data.response.id + '})');

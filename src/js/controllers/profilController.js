@@ -35,7 +35,6 @@ module.exports = /*@ngInject*/ function (userService, $stateParams, $state, data
 	} else {
 		vm.isCurrent = true;
 		vm.user = vm.currentUser;
-		console.log(vm.user.assos);
 	}
 
 	vm.addFriend = function () {

@@ -348,6 +348,7 @@ module.exports = /*@ngInject*/ function ($http) {
 		return $http({
 			url: servurl + 'pictures',
 			method: 'POST',
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 			data: {
 				token: token,
 				file: file,

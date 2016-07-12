@@ -5,9 +5,6 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 	var dsc = dataService;
 
 	vm.current = usc.user();
-	vm.modal = {
-		friends: vm.current.friends
-	};
 //Listing des associations
 	vm.assos = {};
 	vm.creating = false;
@@ -73,6 +70,9 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 			});
 	};
 
+	vm.modal = {
+		friends: vm.current.friends
+	};
 	vm.openInvite = function () {
 		$uibModal.open({
 			templateUrl: 'inviteFriendsModal.html',

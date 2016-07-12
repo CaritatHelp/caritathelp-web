@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($location, dataService) {
+module.exports = /*@ngInject*/ function ($state, dataService) {
 	var vm = this;
 	var dsc = dataService;
 
@@ -25,7 +25,7 @@ module.exports = /*@ngInject*/ function ($location, dataService) {
 		dsc.createEvent(vm.asso, vm.title, vm.description, vm.place, vm.begin, vm.end)
 			.success(function (data) {
 				if (data.status === 200) {
-					$location.path('/event/' + data.response.id);
+					$state.transitionTo('event.home', {id: data.response.id});
 				} else {
 					//Erreur serveur
 					vm.error = true;

@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, userService, $location) {
+module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 	var vm = this;
 	var usc = userService;
 	var dsc = dataService;
@@ -7,13 +7,14 @@ module.exports = /*@ngInject*/ function (dataService, userService, $location) {
 	vm.user = usc.user();
 	vm.tab = 1;
 
+	console.log(vm.user);
 
 	vm.updateVolunteer = function () {
 		//mail, password, firstname, lastname, birthday, gender
 		angular.element('#buttonSave').prepend('<i class="fa fa-spin fa-spinner"></i> ').attr('disabled', true);
 		dsc.updateVolunteer(vm.user.mail, vm.password, vm.user.firstname, vm.user.lastname, null)
 			.success(function (data) {
-				$location.path('/profil');
+				$state.transitionTo('profil.settings');
 				vm.success = true;
 				vm.successMessage = 'Votre profil a bien été modifié';
 			})
@@ -42,6 +43,14 @@ module.exports = /*@ngInject*/ function (dataService, userService, $location) {
 			.then(function () {
 				angular.element('#buttonPicture').html('Enregistrer').attr('disabled', false);
 			});
+	};
+
+	vm.popupBirthdate = {
+		opened: false
+	};
+
+	vm.openBirthdate = function () {
+		vm.popupBirthdate.opened = true;
 	};
 
 	this.setTab = function (activeTab) {

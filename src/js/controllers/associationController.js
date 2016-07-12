@@ -5,15 +5,16 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 	var dsc = dataService;
 
 	vm.current = usc.user();
-	vm.modal = {
-		friends: vm.current.friends
-	};
 //Listing des associations
 	vm.assos = {};
 	vm.creating = false;
 	vm.startCreating = function () {
 		vm.creating = true;
 	};
+	dsc.getAssos(vm.current.id)
+		.success(function (data) {
+			vm.current.assos = data.response;
+		});
 	dsc.getAssoList()
 		.success(function (data) {
 			vm.assos = data.response;
@@ -69,6 +70,9 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 			});
 	};
 
+	vm.modal = {
+		friends: vm.current.friends
+	};
 	vm.openInvite = function () {
 		$uibModal.open({
 			templateUrl: 'inviteFriendsModal.html',

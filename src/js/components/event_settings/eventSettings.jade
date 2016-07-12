@@ -142,10 +142,10 @@
 									i.fa.fa-check
 								btn.btn.btn-xs.btn-danger(title="Refuser la demande", ng-click="settings.replyDemand(waiter.id, false, $index)")
 									i.fa.fa-times
-				.alert.alert-info(ng-if="!settings.event.waiting") Aucune demande en attente
+				.alert.alert-info(ng-if="!settings.event.waiting.length") Aucune demande en attente
 			.col-lg-6.card
 				h6 Invitations en cours
-				table.table.table-striped.table-max(ng-if="settings.event.invited")
+				table.table.table-striped.event--table.table-max(ng-if="settings.event.invited")
 					thead
 						tr
 							th Nom

@@ -83,11 +83,11 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams,
 		$uibModal.open({
 			templateUrl: 'inviteFriendsModal.html',
 			controller: function ($scope, $uibModalInstance, dataService) {
-				$scope.friends = vm.current.friends;
+				$scope.members = vm.event.members;
 				$scope.closeInvite = function () {
 					$uibModalInstance.dismiss();
 				};
-				$scope.inviteFriend = function (friendId) {
+				$scope.invite = function (friendId) {
 					dataService.inviteEvent(friendId, vm.event.id)
 						.success(function (data) {
 							console.log(data);

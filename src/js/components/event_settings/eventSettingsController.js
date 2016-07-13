@@ -5,7 +5,7 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $sta
 
 	require('angular');
 
-	vm.tab = 3;
+	vm.tab = 1;
 	var angular = angular;
 
 	if ($stateParams.id) {

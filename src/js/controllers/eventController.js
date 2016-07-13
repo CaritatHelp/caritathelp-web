@@ -9,6 +9,7 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 	dsc.getEvent($stateParams.id)
 		.success(function (data) {
 			vm.event = data.response;
+			console.log(vm.event);
 			getRightsMessages();
 			dsc.getGuestEvent($stateParams.id)
 				.success(function (data) {

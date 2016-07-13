@@ -3,12 +3,12 @@
 module.exports = /*@ngInject*/ function ($http) {
 	var servurl = 'http://api.caritathelp.me/';
 	var DataService = {};
-	//var logEnabled = true;
+	var logEnabled = true;
 	var token = null;
 
 	function buildUrl(route, identifier, subroute, parameters) {
 		var url = servurl + route + (identifier ? '/' + identifier : '') + (subroute ? '/' + subroute : '') + '?token=' + token + (parameters ? '&' + parameters : '');
-		if (route === 'guests' || route === 'membership') {
+		if (logEnabled) {
 			console.log('API call: ' + url);
 		}
 		return url;

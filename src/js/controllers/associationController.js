@@ -70,18 +70,6 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 			});
 	};
 
-	vm.modal = {
-		friends: vm.current.friends
-	};
-	vm.openInvite = function () {
-		$uibModal.open({
-			templateUrl: 'inviteFriendsModal.html',
-			controller: function ($scope) {
-				$scope.friends = vm.current.friends;
-			}
-		});
-	};
-
 	function getRightsMessages() {
 		switch (vm.asso.rights) {
 			case 'none':
@@ -110,4 +98,29 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 				break;
 		}
 	}
+
+	vm.modal = {
+		friends: vm.current.friends
+	};
+	vm.openInvite = function () {
+		$uibModal.open({
+			templateUrl: 'inviteFriendsModal.html',
+			controller: function ($scope, $uibModalInstance, dataService) {
+				$scope.friends = vm.current.friends;
+				$scope.closeInvite = function () {
+					$uibModalInstance.dismiss();
+				};
+				$scope.inviteFriend = function (friendId) {
+					dataService.inviteAsso(friendId, vm.asso.id)
+						.success(function (data) {
+							console.log(data);
+						})
+						.error(function (data) {
+							console.log(data);
+						});
+				};
+			},
+			controllerAs: 'frmodal'
+		});
+	};
 };

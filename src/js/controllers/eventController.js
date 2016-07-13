@@ -1,8 +1,10 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
+module.exports = /*@ngInject*/ function (userService, dataService, $stateParams, $state, $uibModal) {
 	var vm = this;
 	var dsc = dataService;
+	var usc = userService;
 
+	vm.current = usc.user();
 	vm.event = {};
 	vm.rights = {};
 
@@ -73,4 +75,29 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 				break;
 		}
 	}
+
+	vm.modal = {
+		friends: vm.current.friends
+	};
+	vm.openInvite = function () {
+		$uibModal.open({
+			templateUrl: 'inviteFriendsModal.html',
+			controller: function ($scope, $uibModalInstance, dataService) {
+				$scope.friends = vm.current.friends;
+				$scope.closeInvite = function () {
+					$uibModalInstance.dismiss();
+				};
+				$scope.inviteFriend = function (friendId) {
+					dataService.inviteEvent(friendId, vm.event.id)
+						.success(function (data) {
+							console.log(data);
+						})
+						.error(function (data) {
+							console.log(data);
+						});
+				};
+			},
+			controllerAs: 'frmodal'
+		});
+	};
 };

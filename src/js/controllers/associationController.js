@@ -118,6 +118,7 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 						.error(function (data) {
 							console.log(data);
 						});
+					$uibModalInstance.dismiss();
 				};
 			},
 			controllerAs: 'frmodal'

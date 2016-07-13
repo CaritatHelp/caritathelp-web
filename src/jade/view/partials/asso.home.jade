@@ -24,11 +24,6 @@
 				a(ng-click="vm.leaveAsso()").
 					#[i.fa.fa-minus]
 					Quitter l'association
-			//- Supprimer l'association
-			.action(ng-if="vm.asso.rights == 'owner'")
-				a(ng-click="vm.deleteAsso()").
-					#[i.fa.fa-minus]
-					Supprimer l'association
 	.col-md-8
 		//- Timeline de l'association
 		timeline(tl-type="'association'")

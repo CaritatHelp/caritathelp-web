@@ -116,19 +116,11 @@
 			.col-lg-6.card
 				h6 Invitations en cours
 				table.table.table-striped.event--table.table-max(ng-if="settings.asso.invited.length")
-					thead
-						tr
-							th Nom
-							//-th Action
-					tbody
-						tr(ng-repeat="invite in settings.asso.invited")
-							td
-								a(ui-sref="profil.home({id:{{invite.id}}})").
-									#[img(ng-src="http://api.caritathelp.me{{invite.thumb_path}}")]
-									{{invite.firstname}} {{invite.lastname}}
-							//-td
-								btn.btn.btn-xs.btn-danger(title="Annuler l'invitation")
-									i.fa.fa-times
+					tr(ng-repeat="invite in settings.asso.invited")
+						td
+							a(ui-sref="profil.home({id:{{invite.id}}})").
+								#[img(ng-src="http://api.caritathelp.me{{invite.thumb_path}}")]
+								{{invite.firstname}} {{invite.lastname}}
 				.alert.alert-info(ng-if="!settings.asso.invited.length") Aucune invitation en attente
 			.clearfix
 			.col-md-12.card

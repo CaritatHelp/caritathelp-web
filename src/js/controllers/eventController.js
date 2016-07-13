@@ -77,13 +77,13 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams,
 	}
 
 	vm.modal = {
-		friends: vm.current.friends
+		members: vm.current.friends
 	};
 	vm.openInvite = function () {
 		$uibModal.open({
 			templateUrl: 'inviteFriendsModal.html',
 			controller: function ($scope, $uibModalInstance, dataService) {
-				$scope.members = vm.event.members;
+				$scope.members = vm.current.friends;
 				$scope.closeInvite = function () {
 					$uibModalInstance.dismiss();
 				};
@@ -95,6 +95,7 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams,
 						.error(function (data) {
 							console.log(data);
 						});
+					$uibModalInstance.dismiss();
 				};
 			},
 			controllerAs: 'frmodal'

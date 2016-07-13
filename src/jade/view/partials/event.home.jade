@@ -29,7 +29,7 @@
 					#[i.fa.fa-plus]
 					Participer à cet évenement
 			//- Inviter des utilisateurs
-			.action(ng-if="vm.event.rights == 'member' || vm.event.rights == 'admin' || vm.event.rights == 'owner'")
+			.action(ng-if="vm.event.rights == 'member' || vm.event.rights == 'admin' || vm.event.rights == 'host'")
 				a(ng-click="vm.openInvite()").
 					#[i.fa.fa-user-plus]
 					Inviter vos amis
@@ -38,11 +38,6 @@
 				a(ng-click="vm.leaveEvent()").
 					#[i.fa.fa-minus]
 					Quitter l'évènement
-			//- Supprimer l'event
-			.action(ng-if="vm.event.rights == 'owner'")
-				a(ng-click="vm.deleteEvent()").
-					#[i.fa.fa-minus]
-					Supprimer l'évènement
 		.alert.alert-danger(ng-if="vm.error", ng-bind-html="vm.error")
 	.col-md-8
 		timeline(tl-type="'event'")

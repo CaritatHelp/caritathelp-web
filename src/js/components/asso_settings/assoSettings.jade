@@ -141,9 +141,10 @@
 							th Action
 					tbody
 						tr(ng-repeat="member in settings.asso.members")
-							td.
-								#[img(ng-src="http://api.caritathelp.me{{member.thumb_path}}")]
-								{{member.firstname}} {{member.lastname}}
+							td
+								a(ui-sref="profil.home({id:{{member.id}}})").
+									#[img(ng-src="http://api.caritathelp.me{{member.thumb_path}}")]
+									{{member.firstname}} {{member.lastname}}
 							td {{member.rights}}
 							td
 								btn.btn.btn-xs.btn-info(title="Editer l'invité")

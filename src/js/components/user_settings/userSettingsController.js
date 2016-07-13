@@ -7,13 +7,16 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 	vm.user = usc.user();
 	vm.tab = 1;
 
-	console.log(vm.user);
+	dsc.getNotifs()
+		.success(function (data) {
+			vm.notifs = data.response;
+		});
 
 	vm.updateVolunteer = function () {
 		//mail, password, firstname, lastname, birthday, gender
 		angular.element('#buttonSave').prepend('<i class="fa fa-spin fa-spinner"></i> ').attr('disabled', true);
 		dsc.updateVolunteer(vm.user.mail, vm.password, vm.user.firstname, vm.user.lastname, null)
-			.success(function (data) {
+			.success(function () {
 				$state.transitionTo('profil.settings');
 				vm.success = true;
 				vm.successMessage = 'Votre profil a bien été modifié';
@@ -42,6 +45,42 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 			})
 			.then(function () {
 				angular.element('#buttonPicture').html('Enregistrer').attr('disabled', false);
+			});
+	};
+
+	vm.answerAsso = function (notifId, acceptance, index) {
+		dsc.replyInviteAsso(notifId, acceptance)
+			.success(function () {
+				vm.notifs.splice(index, 1);
+				vm.success = true;
+				vm.successMessage = 'La demande a bien été traitée';
+			})
+			.error(function (data) {
+				vm.error = data.message;
+			});
+	};
+
+	vm.answerEvent = function (notifId, acceptance, index) {
+		dsc.replyInviteEvent(notifId, acceptance)
+			.success(function () {
+				vm.notifs.splice(index, 1);
+				vm.success = true;
+				vm.successMessage = 'La demande a bien été traitée';
+			})
+			.error(function (data) {
+				vm.error = data.message;
+			});
+	};
+
+	vm.answerFriend = function (notifId, acceptance, index) {
+		dsc.replyFriend(notifId, acceptance)
+			.success(function () {
+				vm.notifs.splice(index, 1);
+				vm.success = true;
+				vm.successMessage = 'La demande a bien été traitée';
+			})
+			.error(function (data) {
+				vm.error = data.message;
 			});
 	};
 

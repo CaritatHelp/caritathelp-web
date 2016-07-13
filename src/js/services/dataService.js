@@ -51,8 +51,8 @@ module.exports = /*@ngInject*/ function ($http) {
 		var parameters = 'mail=' + mail + '&password=' + password + '&firstname=' + firstname + '&lastname=' + lastname + '&birthday=' + birthday;
 		return $http.put(buildUrl('volunteers', null, null, parameters));
 	};
-	DataService.getNotifs = function (id) {
-		return $http.get(buildUrl('volunteers', id, 'notifications', null));
+	DataService.getNotifs = function () {
+		return $http.get(buildUrl('notifications', null, null, null));
 	};
 	DataService.getFriends = function (id) {
 		return $http.get(buildUrl('volunteers', id, 'friends', null));

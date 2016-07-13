@@ -7,12 +7,9 @@
 			.link(ng-class="{active:settings.isSet(2)}")
 				i.fa.fa-eye
 				a(ng-click="settings.setTab(2)") Photo de profil
-			.link(ng-class="{active:settings.isSet(3)}", ng-if="false")
-				i.fa.fa-calendar
-				a(ng-click="settings.setTab(3)") Calendrier
-			.link(ng-class="{active:settings.isSet(4)}", ng-if="false")
-				i.fa.fa-users
-				a(ng-click="settings.setTab(4)") Amis
+			.link(ng-class="{active:settings.isSet(3)}")
+				i.fa.fa-sign-in
+				a(ng-click="settings.setTab(3)") Invitations
 
 .col-md-8
 	//- Messages d'erreur
@@ -160,6 +157,60 @@
 					button#buttonPicture.btn.btn-primary(ng-click="settings.updatePicture()") Enregistrer
 					button#buttonCancel.btn.btn-danger(ng-click="settings.picture = null; settings.changePicture = false", ng-show="settings.picture") Annuler
 		.content(ng-show="settings.isSet(3)")
-			h4 Paramètres du calendrier
-		.content(ng-show="settings.isSet(4)")
-			h4 Gestion des amis
+			h4 Gestion des invitations
+			section
+				.invite(ng-repeat="notif in settings.notifs", ng-if="settings.notifs.length")
+
+					//- Invitation dans une asso
+					.invite--asso(ng-if="notif.notif_type == 'InviteMember'")
+						.invite--text
+							.invite--from
+								a(ui-sref="profil.home({id:{{notif.sender_id}}})").
+									#[img(ng-src="http://api.caritathelp.me{{notif.thumb_path}}")]
+									{{notif.sender_name}}
+							.invite--description vous a invité à rejoindre l'association
+							.invite--to
+								a(ui-sref="association.home({id:{{notif.assoc_id}}})").
+									#[img(ng-src="http://api.caritathelp.me{{notif.thumb_path}}")]
+									{{notif.assoc_name}}
+						.invite--actions
+							button.btn.btn-success(ng-click="settings.answerAsso(notif.id, true, $index)")
+								i.fa.fa-check
+							button.btn.btn-danger(ng-click="settings.answerAsso(notif.id, false, $index)")
+								i.fa.fa-times
+
+					//- Invitation dans un event
+					.invite--event(ng-if="notif.notif_type == 'InviteGuest'")
+						.invite--text
+							.invite--from
+								a(ui-sref="profil.home({id:{{notif.sender_id}}})").
+									#[img(ng-src="http://api.caritathelp.me{{notif.thumb_path}}")]
+									{{notif.sender_name}}
+							.invite--description vous a invité à participer à l'évènement
+							.invite--to
+								a(ui-sref="event.home({id:{{notif.event_id}}})").
+									#[img(ng-src="http://api.caritathelp.me{{notif.thumb_path}}")]
+									{{notif.event_name}}
+						.invite--actions
+							button.btn.btn-success(ng-click="settings.answerEvent(notif.id, true, $index)")
+								i.fa.fa-check
+							button.btn.btn-danger(ng-click="settings.answerEvent(notif.id, false, $index)")
+								i.fa.fa-times
+
+					//- Invitation d'ami
+					.invite--friend(ng-if="notif.notif_type == 'AddFriend'")
+						.invite--text
+							.invite--from
+								a(ui-sref="profil.home({id:{{notif.sender_id}}})").
+									#[img(ng-src="http://api.caritathelp.me{{notif.thumb_path}}")]
+									{{notif.sender_name}}
+							.invite--description vous a ajouté à ses amis
+						.invite--actions
+							button.btn.btn-success(ng-click="settings.answerFriend(notif.id, true, $index)")
+								i.fa.fa-check
+							button.btn.btn-danger(ng-click="settings.answerFriend(notif.id, false, $index)")
+								i.fa.fa-times
+
+
+				//- Empty
+				.alert.alert-info(ng-if="!settings.notifs.length") Vous n'avez pas d'invitations récentes

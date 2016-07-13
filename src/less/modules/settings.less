@@ -5,3 +5,34 @@
 		font-size: 1.5em;
 	}
 }
+.invite {
+  img {
+	width: 3em;
+	height: 3em;
+	max-height: 3em;
+  }
+  .invite--from {
+	padding-right: .25em;
+	font-weight: bold;
+  }
+  .invite--to {
+	padding-left: .25em;
+	font-weight: bold;
+  }
+  a {
+	display: block;
+	cursor: pointer;
+  }
+  .invite--text {
+	display: flex;
+	align-items: center;
+	flex-grow: 1;
+  }
+}
+
+.invite--asso:extend(.card), .invite--event:extend(.card), .invite--friend:extend(.card) {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-grow: 1;
+}

@@ -138,7 +138,7 @@
 						tr(ng-repeat="waiter in settings.event.waiting")
 							td
 								a(ui-sref="profil.home({id:{{waiter.id}}})").
-									#[img(src="http://api.caritathelp.me{{waiter.thumb_path}}")]
+									#[img(ng-src="http://api.caritathelp.me{{waiter.thumb_path}}")]
 									{{waiter.firstname}} {{waiter.lastname}}
 							td
 								btn.btn.btn-xs.btn-success(title="Accepter la demande", ng-click="settings.replyDemand(waiter.notif_id, true, $index)")
@@ -157,7 +157,7 @@
 						tr(ng-repeat="invite in settings.event.invited")
 							td
 								a(ui-sref="profil.home({id:{{invite.id}}})").
-									#[img(src="http://api.caritathelp.me{{invite.thumb_path}}")]
+									#[img(ng-src="http://api.caritathelp.me{{invite.thumb_path}}")]
 									{{invite.firstname}} {{invite.lastname}}
 							//-td
 								btn.btn.btn-xs.btn-danger(title="Annuler l'invitation")
@@ -176,7 +176,7 @@
 						tr(ng-repeat="guest in settings.event.guests")
 							td
 								a(ui-sref="profil.home({id:{{guest.id}}})").
-									#[img(src="http://api.caritathelp.me{{guest.thumb_path}}")]
+									#[img(ng-src="http://api.caritathelp.me{{guest.thumb_path}}")]
 									{{guest.firstname}} {{guest.lastname}}
 							td.col-status {{guest.rights}}
 							td

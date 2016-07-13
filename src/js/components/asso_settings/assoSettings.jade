@@ -124,7 +124,7 @@
 						tr(ng-repeat="invite in settings.asso.invited")
 							td
 								a(ui-sref="profil.home({id:{{invite.id}}})").
-									#[img(src="http://api.caritathelp.me{{invite.thumb_path}}")]
+									#[img(ng-src="http://api.caritathelp.me{{invite.thumb_path}}")]
 									{{invite.firstname}} {{invite.lastname}}
 							//-td
 								btn.btn.btn-xs.btn-danger(title="Annuler l'invitation")

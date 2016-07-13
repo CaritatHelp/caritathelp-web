@@ -21,6 +21,7 @@
 	ng-show="settings.success",
 	ng-bind-html="settings.successMessage")
 	.card.asso.settings
+		//- Paramètres généraux
 		.content(ng-show="settings.isSet(1)")
 			h4 Paramètres de l'association
 			form(
@@ -63,7 +64,7 @@
 				.pull-right
 					button#buttonSave.btn.btn-primary(type="submit") Enregistrer
 
-		//- Profil picture
+		//- Photo de profil
 		.content(ng-show="settings.isSet(2)")
 			h4 Photo de profil
 			div(ng-show="!settings.changePicture")
@@ -90,40 +91,42 @@
 					button#buttonPicture.btn.btn-primary(ng-click="settings.updatePicture()") Enregistrer
 					button#buttonCancel.btn.btn-danger(ng-click="settings.picture = null; settings.changePicture = false", ng-show="settings.picture") Annuler
 
-		//- Gestion members
+		//- Gestion membres
 		.content(ng-show="settings.isSet(3)")
 			h4 Gestion des membres
 			.col-lg-6.card
 				h6 Demandes en attente
-				table.table.table-striped.event--table.table-max(ng-if="settings.asso.waiting")
+				table.table.table-striped.event--table.table-max(ng-if="settings.asso.waiting.length")
 					thead
 						tr
 							th Nom
 							th Action
 					tbody
-						tr(ng-repeat="demand in settings.asso.waiting")
-							td.
-								#[img(ng-src="http://api.caritathelp.me{{demand.thumb_path}}")]
-								{{demand.firstname}} {{demand.lastname}}
+						tr(ng-repeat="waiter in settings.asso.waiting")
 							td
-								btn.btn.btn-xs.btn-success(title="Accepter la demande")
+								a(ui-sref="profil.home({id:{{waiter.id}}})").
+									#[img(ng-src="http://api.caritathelp.me{{waiter.thumb_path}}")]
+									{{waiter.firstname}} {{waiter.lastname}}
+							td
+								btn.btn.btn-xs.btn-success(title="Accepter la demande", ng-click="settings.replyDemand(waiter.notif_id, true, $index)")
 									i.fa.fa-check
-								btn.btn.btn-xs.btn-danger(title="Refuser la demande")
+								btn.btn.btn-xs.btn-danger(title="Refuser la demande", ng-click="settings.replyDemand(waiter.notif_id, false, $index)")
 									i.fa.fa-times
 				.alert.alert-info(ng-if="!settings.asso.waiting.length") Aucune demande en attente
 			.col-lg-6.card
 				h6 Invitations en cours
-				table.table.table-striped.event--table.table-max(ng-if="settings.asso.invited")
+				table.table.table-striped.event--table.table-max(ng-if="settings.asso.invited.length")
 					thead
 						tr
 							th Nom
-							th Action
+							//-th Action
 					tbody
 						tr(ng-repeat="invite in settings.asso.invited")
-							td.
-								#[img(ng-src="http://api.caritathelp.me{{invite.thumb_path}}")]
-								{{invite.firstname}} {{invite.lastname}}
 							td
+								a(ui-sref="profil.home({id:{{invite.id}}})").
+									#[img(src="http://api.caritathelp.me{{invite.thumb_path}}")]
+									{{invite.firstname}} {{invite.lastname}}
+							//-td
 								btn.btn.btn-xs.btn-danger(title="Annuler l'invitation")
 									i.fa.fa-times
 				.alert.alert-info(ng-if="!settings.asso.invited.length") Aucune invitation en attente

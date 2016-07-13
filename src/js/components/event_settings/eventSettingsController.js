@@ -85,8 +85,8 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $sta
 			});
 	};
 
-	vm.replyDemand = function(userId, answer, index) {
-		dsc.replyDemandEvent(userId, answer)
+	vm.replyDemand = function(notifId, answer, index) {
+		dsc.replyDemandEvent(notifId, answer)
 			.success(function () {
 				vm.event.waiting.splice(index, 1);
 			})

@@ -70,9 +70,12 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $sta
 	vm.kickUser = function(userId) {
 		dsc.kickAsso(userId, vm.asso.id)
 			.success(function (data) {
-				$route.reload();
 				vm.success = true;
 				vm.successMessage = 'L\'invité a bien été expulsé';
+				dsc.getAssoMembers($stateParams.id)
+					.success(function (data) {
+						vm.asso.members = data.response;
+					});
 			})
 			.error(function (data) {
 				vm.error = true;
@@ -80,7 +83,26 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $sta
 			});
 	};
 
+	vm.replyDemand = function(notifId, answer, index) {
+		dsc.replyDemandAsso(notifId, answer)
+			.success(function () {
+				vm.asso.waiting.splice(index, 1);
+				vm.success = true;
+				vm.successMessage = 'La demande a bien été traitée';
+				if (answer) {
+					dsc.getAssoMembers($stateParams.id)
+						.success(function (data) {
+							vm.asso.members = data.response;
+						});
+				}
+			})
+			.error(function (data) {
+				vm.error = data.message;
+			});
+	};
+
 	this.setTab = function (activeTab) {
+		vm.success = false;
 		this.tab = activeTab;
 	};
 	this.isSet = function (tab) {

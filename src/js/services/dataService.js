@@ -362,5 +362,32 @@ module.exports = /*@ngInject*/ function ($http) {
 		});
 	};
 
+//Messages
+	DataService.getChatrooms = function () {
+		return $http.get(buildUrl('chatrooms', null, null, null));
+	};
+	DataService.getChatroom = function (id) {
+		return $http.get(buildUrl('chatrooms', id, null, null));
+	};
+	DataService.createChatroom = function (volunteers) {
+		var parameters = 'volunteers=' + volunteers;
+		return $http.post(buildUrl('chatrooms', null, null, parameters));
+	};
+	DataService.getVolunteersChatroom = function (id) {
+		return $http.get(buildUrl('chatrooms', id, 'volunteers', null));
+	};
+	DataService.setNameChatroom = function (id, name) {
+		var parameters = 'name=' + name;
+		return $http.put(buildUrl('chatrooms', id, 'set_name', parameters));
+	};
+	DataService.addVolunteersChatroom = function (id, volunteers) {
+		var parameters = 'volunteers=' + volunteers;
+		return $http.put(buildUrl('chatrooms', id, 'add_volunteers ', parameters));
+	};
+	DataService.sendMessageChatroom = function (id, message) {
+		var parameters = 'content=' + message;
+		return $http.put(buildUrl('chatrooms', id, 'new_message  ', parameters));
+	};
+
 	return DataService;
 };

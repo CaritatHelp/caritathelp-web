@@ -1,7 +1,30 @@
 .content-wrapper
-	.container
+	.container.inbox--container
 		.row
 			.col-sm-4
-				div Liste des messages
+				.card.chat--list
+					header.title
+						h5 Conversations
+					button.btn.btn-primary.btn-lg(ng-click="inbox.createChatroom()").
+						#[i.fa.fa-pencil-square-o]
+						Nouvelle conversation
+					a.card.conversation(ng-repeat="conv in inbox.chatrooms", ng-click="inbox.setChatroom(conv)", ng-class="{active: inbox.active.id == conv.id}")
+						header.conversation--name {{conv.name}}
+						section.conversation--infos
+							.conversation--members {{conv.number_volunteers}} participants
+							.conversation--messages {{conv.number_messages}} messages
+
 			.col-sm-8
-				div affichage du message
+				.chatroom.card(ng-show="inbox.active")
+					.chatroom--header
+						header.title {{inbox.active.name}}
+					.chatroom--messages
+						.message--wrapper(ng-repeat="message in inbox.messages", ng-class="{'message--sent':message.volunteer_id == inbox.current.id}")
+							.message
+								.message--aside
+									img(ng-src="{{inbox.current.picture}}")
+								.message--body
+									.message--content.card {{message.content}}
+									.message--footer {{message.volunteer_id}} {{message.created_at| date: "le dd MMMM à HH:mm"}}
+
+				.alert.alert-info(ng-show="!inbox.messages.length && !inbox.active") Sélectionnez une conversation dans la barre latérale pour l'afficher ici, ou bien commencez en une nouvelle

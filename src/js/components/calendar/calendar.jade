@@ -13,7 +13,7 @@
 					i.fa.fa-calendar-plus-o
 					a(ng-click="calendar.setTab(3)") Créer un évenement
 	.col-md-8
-		.calendar--main
+		.calendar--main(ng-show="calendar.loaded")
 			//-Affichage de l'ensemble des évenements auxquels l'utilisateur peut participer
 			.calendar--all(ng-show="calendar.isSet(2)")
 				h4.title Tous les évènements
@@ -60,3 +60,7 @@
 			//- Creation d'un évenement
 			.calendar--create(ng-if="calendar.type == 'association' && calendar.rights == 'edit'", ng-show="calendar.isSet(3)")
 				event-create(asso="calendar.id")
+
+		.calendar--loader(ng-show="!calendar.loaded")
+			i.fa.fa-spin.fa-refresh
+			.loader--info Chargement du calendrier

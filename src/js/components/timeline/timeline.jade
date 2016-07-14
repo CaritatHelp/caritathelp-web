@@ -1,4 +1,4 @@
-.timeline
+.timeline(ng-show="timeline.loaded")
 	section.timeline--new
 		form.timeline--post#postNews(
 			novalidate="",
@@ -17,3 +17,6 @@
 						i.fa.fa-play
 	section.news(ng-repeat="actu in timeline.news")
 		news(news-id="actu.id")
+.timeline--loader(ng-show="!timeline.loaded")
+	.fa.fa-spin.fa-refresh
+	.loader--info Chargement du fil d'actualité

@@ -23,7 +23,7 @@
 					 -
 					#[span(ng-click="search.test = {result_type:'event'}; search.setFilter(3)", ng-class="{active: search.isFilterUp(3)}") Evènements]
 				section.search--results
-					.card.listing(ng-show="search.result.length", ng-repeat="res in search.result | filter:search.test:strict")
+					.card.listing(ng-show="search.result.length && search.loaded", ng-repeat="res in search.result | filter:search.test:strict")
 						.friend(ng-if="res.result_type == 'volunteer'")
 							a(ui-sref="profil.home({id: {{res.id}}})", title="{{res.name}}")
 								img(ng-src="http://api.caritathelp.me{{res.thumb_path}}", alt="{{res.name}}", class="img-circle")
@@ -36,4 +36,8 @@
 							a(ui-sref="event.home({id: {{res.id}}})", title="{{res.name}}")
 								img(ng-src="http://api.caritathelp.me{{res.thumb_path}}", alt="{{res.name}}", class="img-circle")
 							a.name(ui-sref="event.home({id: {{res.id}}})") {{res.name}}
-					.card.listing(ng-show="search.error") {{search.error}}
+					.card.listing(ng-show="search.error && search.loaded") {{search.error}}
+					.card(ng-show="!search.loaded")
+						.search--loader
+							i.fa.fa-spin.fa-refresh
+							.loader--info Recherche en cours

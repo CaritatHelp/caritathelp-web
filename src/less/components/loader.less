@@ -1,0 +1,50 @@
+.loader {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+.loader--info {
+  font-size: 1.5em;
+  color: @link-color;
+}
+
+.timeline--loader:extend(.loader) {
+  padding-top: 5em;
+  .fa {
+	font-size: 5em;
+	color: @link-color;
+  }
+}
+.profil--loader:extend(.loader) {
+  margin-bottom: 5em;
+  .fa {
+	font-size: 5em;
+	color: @link-color;
+  }
+}
+
+.calendar--loader:extend(.loader) {
+  padding-top: 5em;
+  .fa {
+	font-size: 5em;
+	color: @link-color;
+  }
+}
+
+.assolist--loader:extend(.loader) {
+  height: 8em;
+  .fa {
+	font-size: 5em;
+	color: @link-color;
+  }
+}
+
+.search--loader:extend(.loader) {
+  height: 8em;
+  .fa {
+	font-size: 5em;
+	color: @link-color;
+  }
+}

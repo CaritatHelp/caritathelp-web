@@ -6,6 +6,7 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams,
 
 	vm.current = usc.user();
 	vm.event = {};
+	vm.loaded = false;
 	vm.rights = {};
 
 	dsc.getEvent($stateParams.id)
@@ -14,6 +15,7 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams,
 			dsc.getGuestEvent($stateParams.id)
 				.success(function (data) {
 					vm.event.guests = data.response;
+					vm.loaded = true;
 				});
 			getRightsMessages();
 		});
@@ -29,11 +31,9 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams,
 				vm.error = (data.message);
 			});
 	};
-
 	vm.cancelJoin = function () {
 		vm.event.rights = null;
 	};
-
 	vm.leaveEvent = function () {
 		dsc.leaveEvent(vm.event.id)
 			.success(function () {
@@ -76,9 +76,6 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams,
 		}
 	}
 
-	vm.modal = {
-		members: vm.current.friends
-	};
 	vm.openInvite = function () {
 		$uibModal.open({
 			templateUrl: 'inviteFriendsModal.html',
@@ -97,8 +94,7 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams,
 						});
 					$uibModalInstance.dismiss();
 				};
-			},
-			controllerAs: 'frmodal'
+			}
 		});
 	};
 };

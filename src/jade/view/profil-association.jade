@@ -13,5 +13,7 @@ block jumbotron
 		a(ui-sref="association.settings", ui-sref-active="active", ng-if="vm.asso.rights == 'owner' || vm.asso.rights == 'admin'") Administration
 
 block tabs
-	ui-view
-
+	ui-view(ng-show="vm.loaded.asso")
+	.profil--loader(ng-show="!vm.loaded.asso")
+		i.fa.fa-spin.fa-refresh
+		.loader--info Chargement du profil

@@ -8,16 +8,23 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 //Listing des associations
 	vm.assos = {};
 	vm.creating = false;
+	vm.loaded = {
+		user: false,
+		list: false,
+		asso: false
+	};
 	vm.startCreating = function () {
 		vm.creating = true;
 	};
 	dsc.getAssos(vm.current.id)
 		.success(function (data) {
 			vm.current.assos = data.response;
+			vm.loaded.user = true;
 		});
 	dsc.getAssoList()
 		.success(function (data) {
 			vm.assos = data.response;
+			vm.loaded.list = true;
 		});
 
 //Affichage d'une association
@@ -31,6 +38,7 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 				dsc.getAssoMembers($stateParams.id)
 					.success(function (data) {
 						vm.asso.members = data.response;
+						vm.loaded.asso = true;
 					});
 				getRightsMessages();
 			})
@@ -99,9 +107,6 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 		}
 	}
 
-	vm.modal = {
-		friends: vm.current.friends
-	};
 	vm.openInvite = function () {
 		$uibModal.open({
 			templateUrl: 'inviteFriendsModal.html',
@@ -120,8 +125,7 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 						});
 					$uibModalInstance.dismiss();
 				};
-			},
-			controllerAs: 'frmodal'
+			}
 		});
 	};
 };

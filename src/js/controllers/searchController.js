@@ -4,15 +4,15 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams) {
 	var dsc = dataService;
 
 	vm.filter = 0;
+	vm.loaded = false;
 	vm.research = $stateParams.search;
 
 	dsc.search(vm.research)
 		.success(function (data) {
-			if (data.status === 200) {
-				vm.result = data.response;
-				if (!vm.result.length) {
-					vm.error = 'Pas de résultat';
-				}
+			vm.result = data.response;
+			vm.loaded = true;
+			if (!vm.result.length) {
+				vm.error = 'Pas de résultats';
 			}
 		});
 

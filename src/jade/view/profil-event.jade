@@ -11,4 +11,7 @@ block jumbotron
 		a(ng-if="vm.event.rights == 'host' || vm.event.rights == 'admin'", ui-sref="event.settings", ui-sref-active="active") Paramètres
 
 block tabs
-	ui-view
+	ui-view(ng-show="vm.loaded")
+	.profil--loader(ng-show="!vm.loaded")
+		i.fa.fa-spin.fa-refresh
+		.loader--info Chargement du profil

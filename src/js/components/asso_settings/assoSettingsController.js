@@ -1,9 +1,9 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $state) {
+module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $state, $uibModal) {
 	var vm = this;
 	var dsc = dataService;
 
-	vm.tab = 1;
+	vm.tab = 3;
 
 	if ($stateParams.id) {
 		dsc.getAsso($stateParams.id)
@@ -67,19 +67,57 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $sta
 			});
 	};
 
-	vm.kickUser = function(userId) {
-		dsc.kickAsso(userId, vm.asso.id)
-			.success(function (data) {
+	vm.promoteUser = function (userId) {
+		dsc.upgradeRightsAsso(userId, vm.asso.id, 'admin')
+			.success(function () {
 				vm.success = true;
-				vm.successMessage = 'L\'invité a bien été expulsé';
-				dsc.getAssoMembers($stateParams.id)
-					.success(function (data) {
-						vm.asso.members = data.response;
-					});
+				vm.successMessage = 'Le membre a bien été promu';
 			})
 			.error(function (data) {
 				vm.error = true;
 				vm.errorMessage = data.message;
+			})
+			.finally(function () {
+				dsc.getAssoMembers($stateParams.id)
+					.success(function (data) {
+						vm.asso.members = data.response;
+					});
+			});
+	};
+
+	vm.demoteUser = function (userId) {
+		dsc.upgradeRightsAsso(userId, vm.asso.id, 'member')
+			.success(function () {
+				vm.success = true;
+				vm.successMessage = 'Le membre a bien été rétrogradé';
+			})
+			.error(function (data) {
+				vm.error = true;
+				vm.errorMessage = data.message;
+			})
+			.finally(function () {
+				dsc.getAssoMembers($stateParams.id)
+					.success(function (data) {
+						vm.asso.members = data.response;
+					});
+			});
+	};
+
+	vm.kickUser = function (userId) {
+		dsc.kickAsso(userId, vm.asso.id)
+			.success(function () {
+				vm.success = true;
+				vm.successMessage = 'Le membre a bien été expulsé';
+			})
+			.error(function (data) {
+				vm.error = true;
+				vm.errorMessage = data.message;
+			})
+			.finally(function () {
+				dsc.getAssoMembers($stateParams.id)
+					.success(function (data) {
+						vm.asso.members = data.response;
+					});
 			});
 	};
 

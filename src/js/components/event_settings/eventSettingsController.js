@@ -72,16 +72,57 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $sta
 			});
 	};
 
+	vm.promoteUser = function (userId) {
+		dsc.upgradeRightsEvent(userId, vm.event.id, 'admin')
+			.success(function () {
+				vm.success = true;
+				vm.successMessage = 'L\'invité a bien été promu';
+			})
+			.error(function (data) {
+				vm.error = true;
+				vm.errorMessage = data.message;
+			})
+			.finally(function () {
+				dsc.getGuestEvent($stateParams.id)
+					.success(function (data) {
+						vm.event.guests = data.response;
+					});
+			});
+	};
+
+	vm.demoteUser = function (userId) {
+		dsc.upgradeRightsEvent(userId, vm.event.id, 'member')
+			.success(function () {
+				vm.success = true;
+				vm.successMessage = 'L\'invité a bien été rétrogradé';
+			})
+			.error(function (data) {
+				vm.error = true;
+				vm.errorMessage = data.message;
+			})
+			.finally(function () {
+				dsc.getGuestEvent($stateParams.id)
+					.success(function (data) {
+						vm.event.guests = data.response;
+					});
+			});
+	};
+
 	vm.kickUser = function(userId) {
 		dsc.kickEvent(userId, vm.event.id)
-			.success(function (data) {
-				$route.reload();
+			.success(function () {
 				vm.success = true;
 				vm.successMessage = 'L\'invité a bien été expulsé';
 			})
 			.error(function (data) {
 				vm.error = true;
 				vm.errorMessage = data.message;
+			})
+			.finally(function () {
+				dsc.getGuestEvent($stateParams.id)
+					.success(function (data) {
+						vm.event.guests = data.response;
+					});
 			});
 	};
 

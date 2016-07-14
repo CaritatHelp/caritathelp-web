@@ -139,9 +139,11 @@
 									{{member.firstname}} {{member.lastname}}
 							td {{member.rights}}
 							td
-								btn.btn.btn-xs.btn-info(title="Editer l'invité")
-									i.fa.fa-edit
-								btn.btn.btn-xs.btn-danger(title="Supprimer l'invité", ng-click="settings.kickUser(member.id)")
+								button.btn.btn-xs.btn-warning(title="Rétrograder le membre", ng-click="settings.demoteUser(member.id)", ng-if="member.rights == 'admin'")
+									i.fa.fa-thumbs-down
+								button.btn.btn-xs.btn-info(title="Promouvoir en admin", ng-click="settings.promoteUser(member.id)", ng-if="member.rights == 'member'")
+									i.fa.fa-thumbs-up
+								button.btn.btn-xs.btn-danger(title="Expulser le membre", ng-click="settings.kickUser(member.id)", ng-if="member.rights != 'owner'")
 									i.fa.fa-times
 		.content(ng-show="settings.isSet(4)")
 			h4 Suppression de l'évènement
@@ -149,3 +151,4 @@
 				#[i.fa.fa-exclamation-triangle]
 				Cette action est irréversible !
 			button.btn.btn-danger(ng-click="settings.deleteAsso()") Supprimer l'association
+

@@ -172,9 +172,11 @@
 									{{guest.firstname}} {{guest.lastname}}
 							td.col-status {{guest.rights}}
 							td
-								btn.btn.btn-xs.btn-info(title="Editer l'invité")
-									i.fa.fa-edit
-								btn.btn.btn-xs.btn-danger(title="Supprimer l'invité", ng-click="settings.kickUser(guest.id)", ng-if="guest.rights != 'host'")
+								button.btn.btn-xs.btn-warning(title="Rétrograder l'invité", ng-click="settings.demoteUser(guest.id)", ng-if="guest.rights == 'admin'")
+									i.fa.fa-thumbs-down
+								button.btn.btn-xs.btn-info(title="Promouvoir en admin", ng-click="settings.promoteUser(guest.id)", ng-if="guest.rights == 'member'")
+									i.fa.fa-thumbs-up
+								button.btn.btn-xs.btn-danger(title="Expulser l'invité", ng-click="settings.kickUser(guest.id)", ng-if="guest.rights != 'host'")
 									i.fa.fa-times
 		.content(ng-show="settings.isSet(4)")
 			h4 Suppression de l'évènement

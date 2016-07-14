@@ -3,7 +3,6 @@ extends ../layout/with-cover
 block jumbotron
 	.cover--background(style="background-image:url(img/cover/fuzeria.jpg)")
 	.cover--infos
-		img.picture(ng-if="!vm.asso.thumb_path", src="img/mlp.jpg", alt="")
 		img.picture(ng-if="vm.asso.thumb_path", ng-src="http://api.caritathelp.me{{vm.asso.thumb_path}}", alt="{{vm.asso.name}}")
 		h1.name {{vm.asso.name}}
 	nav.cover--navigation

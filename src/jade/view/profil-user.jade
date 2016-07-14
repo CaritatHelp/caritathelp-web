@@ -14,5 +14,7 @@ block jumbotron
 		a(ng-if="vm.isCurrent", ui-sref="profil.settings", ui-sref-active="active") Paramètres
 
 block tabs
-	ui-view
-
+	ui-view(ng-show="vm.loaded == 4")
+	.profil--loader(ng-show="vm.loaded != 4")
+		i.fa.fa-spin.fa-refresh
+		.loader--info Chargement du profil

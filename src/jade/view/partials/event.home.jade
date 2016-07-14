@@ -6,7 +6,9 @@
 			section
 				.description--text {{vm.event.description}}
 			footer
-				.description--host Organisé par l'association <a (ui-sref="association.home({id:{{vm.event.assoc_id}}})">{{vm.event.assoc_name}}</a>
+				.description--host.
+					Organisé par l'association
+					#[a(ui-sref="association.home({id: vm.event.assoc_id})") {{vm.event.assoc_name}}]
 		//-Bloc d'informations latéral
 		.rights.alert(ng-class="vm.rights.class") {{vm.rights.message}}
 		//- Actions possibles pour l'utilisateur
@@ -27,8 +29,8 @@
 					#[i.fa.fa-plus]
 					Participer à cet évenement
 			//- Inviter des utilisateurs
-			.action(ng-if="vm.event.rights == 'member' || vm.event.rights == 'admin' || vm.event.rights == 'owner'")
-				a(ng-click="vm.inviteEvent()").
+			.action(ng-if="vm.event.rights == 'member' || vm.event.rights == 'admin' || vm.event.rights == 'host'")
+				a(ng-click="vm.openInvite()").
 					#[i.fa.fa-user-plus]
 					Inviter vos amis
 			//- Quitter l'event
@@ -36,11 +38,19 @@
 				a(ng-click="vm.leaveEvent()").
 					#[i.fa.fa-minus]
 					Quitter l'évènement
-			//- Supprimer l'event
-			.action(ng-if="vm.event.rights == 'owner'")
-				a(ng-click="vm.deleteEvent()").
-					#[i.fa.fa-minus]
-					Supprimer l'évènement
 		.alert.alert-danger(ng-if="vm.error", ng-bind-html="vm.error")
 	.col-md-8
 		timeline(tl-type="'event'")
+
+script(type="text/ng-template", id="inviteFriendsModal.html")
+	.modal--friends
+		.modal-header
+			h3.modal-title Inviter des membres de l'association
+		.modal-body
+			section.friend(ng-repeat="member in members")
+				a(ui-sref="profil.home({id:member.id})")
+					img(ng-src="http://api.caritathelp.me{{member.thumb_path}}", alt="{{member.firstname}} {{member.lastname}}")
+				a(ui-sref="profil.home({id:member.id})").friend--name {{member.firstname}} {{member.lastname}}
+				button.btn.btn-primary(ng-click="invite(member.id)") Inviter
+		.modal-footer
+			btn.pull-right.btn.btn-danger(ng-click="closeInvite()") Fermer

@@ -5,6 +5,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $stateParams)
 	var usc = userService;
 
 	vm.currentUser = usc.user();
+	vm.loaded = -1;
 	vm.isCurrent = !$stateParams.id;
 
 	vm.setTab = function (activeTab) {
@@ -24,11 +25,13 @@ module.exports = /*@ngInject*/ function (dataService, userService, $stateParams)
 		dsc.getEventList()
 			.success(function (data) {
 				vm.events = data.response;
+				vm.loaded++;
 			});
 		//Events rejoints par l'user
 		dsc.getEvents(vm.id)
 			.success(function (data) {
 				vm.joined = data.response;
+				vm.loaded++;
 			});
 	} else if (vm.calType === 'association') {
 		vm.tab = 2;
@@ -46,6 +49,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $stateParams)
 		dsc.getAssoEvents(vm.id)
 			.success(function (data) {
 				vm.events = data.response;
+				vm.loaded = true;
 			});
 	}
 };

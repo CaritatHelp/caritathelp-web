@@ -6,6 +6,7 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams)
 
 	vm.news = {};
 	vm.currentUser = usc.user();
+	vm.loaded = false;
 	//Sauvegarde du type de timeline
 	if (vm.tlType) {
 		vm.type = vm.tlType;
@@ -19,21 +20,25 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams)
 		dsc.getNews(vm.id)
 			.success(function (data) {
 				vm.news = data.response;
+				vm.loaded = true;
 			});
 	} else if (vm.type == 'association') {
 		dsc.getAssoNews($stateParams.id)
 			.success(function (data) {
 				vm.news = data.response;
+				vm.loaded = true;
 			});
 	} else if (vm.type == 'event') {
 		dsc.getEventNews($stateParams.id)
 			.success(function (data) {
 				vm.news = data.response;
+				vm.loaded = true;
 			});
 	} else if (!$stateParams.id) {
 		dsc.getNewsList()
 			.success(function (data) {
 				vm.news = data.response;
+				vm.loaded = true;
 			});
 	}
 

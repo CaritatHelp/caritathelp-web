@@ -3,12 +3,12 @@
 module.exports = /*@ngInject*/ function ($http) {
 	var servurl = 'http://api.caritathelp.me/';
 	var DataService = {};
-	//var logEnabled = true;
+	var logEnabled = true;
 	var token = null;
 
 	function buildUrl(route, identifier, subroute, parameters) {
 		var url = servurl + route + (identifier ? '/' + identifier : '') + (subroute ? '/' + subroute : '') + '?token=' + token + (parameters ? '&' + parameters : '');
-		if (route === 'guests' || route === 'membership') {
+		if (logEnabled) {
 			console.log('API call: ' + url);
 		}
 		return url;
@@ -51,8 +51,8 @@ module.exports = /*@ngInject*/ function ($http) {
 		var parameters = 'mail=' + mail + '&password=' + password + '&firstname=' + firstname + '&lastname=' + lastname + '&birthday=' + birthday;
 		return $http.put(buildUrl('volunteers', null, null, parameters));
 	};
-	DataService.getNotifs = function (id) {
-		return $http.get(buildUrl('volunteers', id, 'notifications', null));
+	DataService.getNotifs = function () {
+		return $http.get(buildUrl('notifications', null, null, null));
 	};
 	DataService.getFriends = function (id) {
 		return $http.get(buildUrl('volunteers', id, 'friends', null));
@@ -128,6 +128,9 @@ module.exports = /*@ngInject*/ function ($http) {
 		var parameters = '';
 		if (name) {
 			parameters = parameters + '&name=' + name;
+		}
+		if (description) {
+			parameters = parameters + '&description=' + description;
 		}
 		if (birthday) {
 			parameters = parameters + '&birthday=' + birthday;
@@ -357,6 +360,39 @@ module.exports = /*@ngInject*/ function ($http) {
 				is_main: main
 			}
 		});
+	};
+
+//Messages
+	DataService.getChatrooms = function () {
+		return $http.get(buildUrl('chatrooms', null, null, null));
+	};
+	DataService.getChatroom = function (id) {
+		return $http.get(buildUrl('chatrooms', id, null, null));
+	};
+	DataService.createChatroom = function (volunteers) {
+		var parameters = 'volunteers[]=' + volunteers[0];
+		for (var i = 1; volunteers[i]; i++) {
+			parameters = parameters + '&volunteers[]=' + volunteers[i];
+		}
+		return $http.post(buildUrl('chatrooms', null, null, parameters));
+	};
+	DataService.getVolunteersChatroom = function (id) {
+		return $http.get(buildUrl('chatrooms', id, 'volunteers', null));
+	};
+	DataService.setNameChatroom = function (id, name) {
+		var parameters = 'name=' + name;
+		return $http.put(buildUrl('chatrooms', id, 'set_name', parameters));
+	};
+	DataService.addVolunteersChatroom = function (id, volunteers) {
+		var parameters = 'volunteers=' + volunteers;
+		return $http.put(buildUrl('chatrooms', id, 'add_volunteers ', parameters));
+	};
+	DataService.sendMessageChatroom = function (id, message) {
+		var parameters = 'content=' + message;
+		return $http.put(buildUrl('chatrooms', id, 'new_message', parameters));
+	};
+	DataService.leaveChatroom = function (id) {
+		return $http.delete(buildUrl('chatrooms', id, 'leave', null));
 	};
 
 	return DataService;

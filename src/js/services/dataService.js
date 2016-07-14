@@ -129,6 +129,9 @@ module.exports = /*@ngInject*/ function ($http) {
 		if (name) {
 			parameters = parameters + '&name=' + name;
 		}
+		if (description) {
+			parameters = parameters + '&description=' + description;
+		}
 		if (birthday) {
 			parameters = parameters + '&birthday=' + birthday;
 		}

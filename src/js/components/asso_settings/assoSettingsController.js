@@ -1,58 +1,58 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $state, $uibModal) {
+module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 	var vm = this;
 	var dsc = dataService;
+	var angular = require('angular');
 
-	vm.tab = 3;
+	vm.tab = 1;
 
-	if ($stateParams.id) {
-		dsc.getAsso($stateParams.id)
-			.success(function (data) {
-				vm.asso = data.response;
-
-				dsc.getAssoMembers($stateParams.id)
-					.success(function (data) {
-						vm.asso.members = data.response;
-					});
-				dsc.invitedAsso($stateParams.id)
-					.success(function (data) {
-						vm.asso.invited = data.response;
-					});
-				dsc.waitingAsso($stateParams.id)
-					.success(function (data) {
-						vm.asso.waiting = data.response;
-					});
-			});
-	}
+	dsc.getAsso($stateParams.id)
+		.success(function (data) {
+			vm.asso = data.response;
+			dsc.getAssoMembers($stateParams.id)
+				.success(function (data) {
+					vm.asso.members = data.response;
+				});
+			dsc.invitedAsso($stateParams.id)
+				.success(function (data) {
+					vm.asso.invited = data.response;
+				});
+			dsc.waitingAsso($stateParams.id)
+				.success(function (data) {
+					vm.asso.waiting = data.response;
+				});
+		});
 
 	vm.updateAsso = function () {
 		angular.element('#buttonSave').prepend('<i class="fa fa-spin fa-spinner"></i> ').attr('disabled', true);
 		dsc.updateAsso(vm.asso.id, vm.asso.name, vm.asso.description, vm.asso.birthday, vm.asso.city, null, null)
 			.success(function () {
-				$route.reload();
-				vm.success = true;
-				vm.successMessage = 'Votre association a bien été modifiée';
+				vm.success = 'Votre association a bien été modifiée';
 			})
 			.error(function (data) {
-				vm.error = true;
-				vm.errorMessage = data.message;
+				vm.error = data.message;
 			})
 			.finally(function () {
+				dsc.getAsso($stateParams.id)
+					.success(function (data) {
+						vm.asso = data.response;
+					});
 				angular.element('#buttonSave').html('Enregistrer').attr('disabled', false);
 			});
 	};
 
-
 	vm.updatePicture = function () {
 		angular.element('#buttonPicture').prepend('<i class="fa fa-spin fa-spinner"></i> ').attr('disabled', true);
 		dsc.postPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename, true)
-			.success(function (data) {
+			.success(function () {
+				vm.success = "L'image a bien été mise à jour";
 				dsc.getAssoMainPicture(vm.asso.id)
 					.success(function (data) {
 						vm.asso.thumb_path = data.thumb_path;
 					});
 			})
 			.error(function (data) {
+				vm.error = data.message;
 				angular.element('#buttonPicture').html('Enregistrer').attr('disabled', false);
 			})
 			.then(function () {
@@ -70,12 +70,10 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $sta
 	vm.promoteUser = function (userId) {
 		dsc.upgradeRightsAsso(userId, vm.asso.id, 'admin')
 			.success(function () {
-				vm.success = true;
-				vm.successMessage = 'Le membre a bien été promu';
+				vm.success = 'Le membre a bien été promu';
 			})
 			.error(function (data) {
-				vm.error = true;
-				vm.errorMessage = data.message;
+				vm.error = data.message;
 			})
 			.finally(function () {
 				dsc.getAssoMembers($stateParams.id)
@@ -88,12 +86,10 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $sta
 	vm.demoteUser = function (userId) {
 		dsc.upgradeRightsAsso(userId, vm.asso.id, 'member')
 			.success(function () {
-				vm.success = true;
-				vm.successMessage = 'Le membre a bien été rétrogradé';
+				vm.success = 'Le membre a bien été rétrogradé';
 			})
 			.error(function (data) {
-				vm.error = true;
-				vm.errorMessage = data.message;
+				vm.error = data.message;
 			})
 			.finally(function () {
 				dsc.getAssoMembers($stateParams.id)
@@ -106,12 +102,10 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $sta
 	vm.kickUser = function (userId) {
 		dsc.kickAsso(userId, vm.asso.id)
 			.success(function () {
-				vm.success = true;
-				vm.successMessage = 'Le membre a bien été expulsé';
+				vm.success = 'Le membre a bien été expulsé';
 			})
 			.error(function (data) {
-				vm.error = true;
-				vm.errorMessage = data.message;
+				vm.error = data.message;
 			})
 			.finally(function () {
 				dsc.getAssoMembers($stateParams.id)
@@ -125,25 +119,25 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $sta
 		dsc.replyDemandAsso(notifId, answer)
 			.success(function () {
 				vm.asso.waiting.splice(index, 1);
-				vm.success = true;
-				vm.successMessage = 'La demande a bien été traitée';
-				if (answer) {
-					dsc.getAssoMembers($stateParams.id)
-						.success(function (data) {
-							vm.asso.members = data.response;
-						});
-				}
+				vm.success = 'La demande a bien été traitée';
 			})
 			.error(function (data) {
 				vm.error = data.message;
+			})
+			.finally(function () {
+				dsc.getAssoMembers($stateParams.id)
+					.success(function (data) {
+						vm.asso.members = data.response;
+					});
 			});
 	};
 
-	this.setTab = function (activeTab) {
+	vm.setTab = function (activeTab) {
 		vm.success = false;
-		this.tab = activeTab;
+		vm.error = false;
+		vm.tab = activeTab;
 	};
-	this.isSet = function (tab) {
-		return this.tab === tab;
+	vm.isSet = function (tab) {
+		return vm.tab === tab;
 	};
 };

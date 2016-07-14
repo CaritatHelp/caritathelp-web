@@ -44,7 +44,7 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 	vm.sendMessage = function () {
 		dsc.sendMessageChatroom(vm.active.id, vm.message)
 			.success(function (data) {
-				vm.messages.push(data.response[0]);
+				vm.messages.push(data.response);
 				vm.message = '';
 			})
 		;
@@ -55,6 +55,7 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 			templateUrl: 'inviteFriendsModal.html',
 			controller: function ($scope, $uibModalInstance, dataService) {
 				var angular = require('angular');
+
 				$scope.dismiss = function () {
 					vm.creator = [];
 					$uibModalInstance.dismiss();
@@ -64,7 +65,7 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 						$scope.friends = data.response;
 					});
 				$scope.addFriend = function (friendId) {
-					angular.element('#invite-'+friendId).html('Ajouté').attr('disabled', true);
+					angular.element('#invite-' + friendId).html('Ajouté').attr('disabled', true);
 					vm.creator.push(friendId);
 				};
 				$scope.confirmCreation = function () {

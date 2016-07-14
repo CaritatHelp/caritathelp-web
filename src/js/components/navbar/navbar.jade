@@ -18,7 +18,7 @@ nav.navbar(ng-if="nav.isConnected()")
 			a.navbar--item(ui-sref="associations", ui-sref-active="active")
 				span Associations
 				i.fa.fa-coffee
-			a.navbar--item(href="#msgModal", data-toggle="modal")
+			a.navbar--item(ui-sref="inbox")
 				span Messagerie
 				i.fa.fa-envelope
 			a.navbar--item(ng-click="nav.logout()")

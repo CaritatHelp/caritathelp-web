@@ -169,6 +169,15 @@ app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProv
 			controllerAs: 'search',
 			authenticate: true
 		})
+
+		//Messagerie
+		.state('inbox', {
+			url: '/messagerie',
+			templateUrl: 'view/inbox.html',
+			controller: 'inboxController',
+			controllerAs: 'inbox',
+			authenticate: true
+		})
 	;
 });
 

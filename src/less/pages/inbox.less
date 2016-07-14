@@ -1,13 +1,15 @@
 
 .inbox--container {
-  display: flex;
-  flex-grow: 1;
   & > .row {
 	display: flex;
+	flex-direction: row;
 	flex-grow: 1;
-	& > .col-sm-4 {
-	  display: flex;
+	min-height: 75vh;
+	& > div {
 	  flex-grow: 1;
+	}
+	.col-sm-4 {
+	  display: flex;
 	}
   }
 }
@@ -45,19 +47,18 @@
   }
 }
 .chatroom {
+  .chatroom--header {
+	display: flex;
+	padding-bottom: .5em;
+  }
   .title {
+	flex-grow: 1;
 	padding-bottom: .5em;
 	font-size: 1.5em;
 	font-weight: bold;
   }
 }
 .chatroom--messages {
-  display: flex;
-  flex-direction: column;
-  padding: .5em;
-  border: 1px solid @navbar-border;
-  border-radius: 5px;
-
   .message--wrapper {
 	align-self: flex-start;
   }
@@ -70,6 +71,7 @@
 	  .message--content {
 		margin-bottom: 0;
 		background-color: #eceeef;
+		border-radius: 9px;
 	  }
 	  .message--footer {
 		font-size: .8em;

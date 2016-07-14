@@ -370,7 +370,10 @@ module.exports = /*@ngInject*/ function ($http) {
 		return $http.get(buildUrl('chatrooms', id, null, null));
 	};
 	DataService.createChatroom = function (volunteers) {
-		var parameters = 'volunteers=' + volunteers;
+		var parameters = 'volunteers[]=' + volunteers[0];
+		for (var i = 1; volunteers[i]; i++) {
+			parameters = parameters + '&volunteers[]=' + volunteers[i];
+		}
 		return $http.post(buildUrl('chatrooms', null, null, parameters));
 	};
 	DataService.getVolunteersChatroom = function (id) {
@@ -386,7 +389,10 @@ module.exports = /*@ngInject*/ function ($http) {
 	};
 	DataService.sendMessageChatroom = function (id, message) {
 		var parameters = 'content=' + message;
-		return $http.put(buildUrl('chatrooms', id, 'new_message  ', parameters));
+		return $http.put(buildUrl('chatrooms', id, 'new_message', parameters));
+	};
+	DataService.leaveChatroom = function (id) {
+		return $http.delete(buildUrl('chatrooms', id, 'leave', null));
 	};
 
 	return DataService;

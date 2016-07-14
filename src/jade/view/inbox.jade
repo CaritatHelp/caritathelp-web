@@ -1,5 +1,5 @@
 .content-wrapper
-	.container.inbox--container
+	.container
 		.row
 			.col-sm-4
 				.card.chat--list
@@ -67,7 +67,7 @@ script(type="text/ng-template", id="inviteFriendsModal.html")
 				a(ui-sref="profil.home({id:friend.id})")
 					img(ng-src="http://api.caritathelp.me{{friend.thumb_path}}", alt="{{friend.firstname}} {{friend.lastname}}")
 				a(ui-sref="profil.home({id:friend.id})").friend--name {{friend.firstname}} {{friend.lastname}}
-				bouton.btn.btn-primary(ng-click="addFriend(friend.id)") Inviter
+				button.btn.btn-primary(ng-click="addFriend(friend.id)", id="invite-{{friend.id}}") Inviter
 		.modal-footer
 			button.pull-right.btn.btn-success(ng-click="confirmCreation()") Valider
 			button.pull-right.btn.btn-danger(ng-click="dismiss()") Fermer

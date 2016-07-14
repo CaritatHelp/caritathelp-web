@@ -54,7 +54,9 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 		$uibModal.open({
 			templateUrl: 'inviteFriendsModal.html',
 			controller: function ($scope, $uibModalInstance, dataService) {
+				var angular = require('angular');
 				$scope.dismiss = function () {
+					vm.creator = [];
 					$uibModalInstance.dismiss();
 				};
 				dataService.getVolunteers()
@@ -62,6 +64,7 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 						$scope.friends = data.response;
 					});
 				$scope.addFriend = function (friendId) {
+					angular.element('#invite-'+friendId).html('Ajouté').attr('disabled', true);
 					vm.creator.push(friendId);
 				};
 				$scope.confirmCreation = function () {

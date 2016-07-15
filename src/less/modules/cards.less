@@ -33,3 +33,82 @@
 **	Droits Asso/Event
 **
 */
+/* USER PROFILE PAGE */
+.bscard {
+  padding: 30px;
+  background-color: rgba(214, 224, 226, 0.2);
+  border-top-left-radius:5px;
+  border-top-right-radius:5px;
+  box-sizing: border-box;
+}
+.bscard.bshovercard {
+  position: relative;
+  padding-top: 0;
+  overflow: hidden;
+  text-align: center;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 1);
+}
+.bscard.bshovercard .bscard-background {
+  max-height: 9rem;
+}
+.bscard-background img {
+  filter: blur(25px);
+  margin-left: -100px;
+  margin-top: -200px;
+  min-width: 130%;
+}
+.bscard.bshovercard .bsuseravatar {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  right: 0;
+}
+.bscard.bshovercard .bsuseravatar img {
+  width: 100px;
+  height: 100px;
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, 0.5);
+}
+.bscard.bshovercard .bscard-info {
+  position: absolute;
+  right: 0;
+  bottom: 14px;
+  left: 0;
+}
+.bscard.bshovercard .bscard-info .bscard-title {
+  padding:0 3px;
+  font-size: 1.7em;
+  line-height: 1;
+  color: #262626;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+.bscard.bshovercard .bscard-info {
+  color: #737373;
+}
+.bscard.bshovercard .bsbottom {
+  padding: 0 20px;
+  margin-bottom: 17px;
+}
+.btn-pref {
+	display: flex;
+	&>.btn-group {
+		flex-grow: 1;
+	}
+	a {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 1em 0;
+		font-size: 1.1em;
+		i {padding-right: .75em;}
+	}
+}
+.btn-pref .btn {
+  -webkit-border-radius:0 !important;
+}
+

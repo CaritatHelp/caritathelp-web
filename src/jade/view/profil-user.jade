@@ -1,17 +1,35 @@
 extends ../layout/with-cover
 
 block jumbotron
-	.coverstatebackground(style="background-image:url(img/cover/skyline.jpg)")
-	.cover--infos
-		//- Image de profil (défaut si l'user n'en a pas)
-		img.picture(ng-if="vm.user.picture", ng-src="{{vm.user.picture}}", alt="{{vm.user.firstname}} {{vm.user.lastname}}")
-		h1.name {{vm.user.firstname}} {{vm.user.lastname}}
-	nav.cover--navigation
-		a(ui-sref="profil.home", ui-sref-active="active") Accueil
-		a(ui-sref="profil.friends", ui-sref-active="active") Amis
-		a(ui-sref="profil.assos", ui-sref-active="active") Associations
-		a(ui-sref="profil.calendar", ui-sref-active="active") Calendrier
-		a(ng-if="vm.isCurrent", ui-sref="profil.settings", ui-sref-active="active") Paramètres
+	.bscard.bshovercard
+		.bscard-background
+			img.bscard-bkimg(ng-src="{{vm.user.picture}}")
+		.bsuseravatar
+			img(ng-src="{{vm.user.picture}}")
+		.bscard-info
+			span.bscard-title {{vm.user.firstname}} {{vm.user.lastname}}
+	.btn-pref.btn-group.btn-group-justified.btn-group-lg(style="display:flex")
+		.btn-group
+			a(ui-sref="profil.home", ui-sref-active="active").btn.btn-primary
+				i.fa.fa-home
+				.hidden-xs Accueil
+		.btn-group
+			a(ui-sref="profil.friends", ui-sref-active="active").btn.btn-primary
+				i.fa.fa-users
+				.hidden-xs Friends
+		.btn-group
+			a(ui-sref="profil.assos", ui-sref-active="active").btn.btn-primary
+				i.fa.fa-truck
+				.hidden-xs Associations
+		.btn-group
+			a(ui-sref="profil.calendar", ui-sref-active="active").btn.btn-primary
+				i.fa.fa-calendar
+				.hidden-xs Calendrier
+		.btn-group
+			a(ng-if="vm.isCurrent", ui-sref="profil.settings", ui-sref-active="active").btn.btn-primary
+				i.fa.fa-cog
+				.hidden-xs Paramètres
+
 
 block tabs
 	ui-view(ng-show="vm.loaded == 4")

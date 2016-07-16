@@ -1,14 +1,26 @@
 extends ../layout/with-cover
 
 block jumbotron
-	.coverstatebackground(style="background-image:url(img/cover/skyline.jpg)")
-	.cover--infos
-		img.picture(ng-src="http://api.caritathelp.me{{vm.event.thumb_path}}", alt="{{vm.event.name}}")
-		h1.name {{vm.event.title}}
-	nav.cover--navigation
-		a(ui-sref="event.home", ui-sref-active="active") Informations
-		a(ui-sref="event.guests", ui-sref-active="active") Participants
-		a(ng-if="vm.event.rights == 'host' || vm.event.rights == 'admin'", ui-sref="event.settings", ui-sref-active="active") Paramètres
+	.profil--cover
+		.pcover--background
+			img.bscard-bkimg(ng-src="http://api.caritathelp.me{{vm.event.thumb_path}}", alt="{{vm.event.name}}")
+		.pcover--avatar
+			img(ng-src="http://api.caritathelp.me{{vm.event.thumb_path}}", alt="{{vm.event.name}}")
+		.pcover--name
+			span.pcover--title {{vm.event.title}}
+	.btn-pref.btn-group.btn-group-justified.btn-group-lg(style="display:flex")
+		.btn-group
+			a(ui-sref="event.home", ui-sref-active="active").btn.btn-primary
+				i.fa.fa-home
+				.hidden-xs Accueil
+		.btn-group
+			a(ui-sref="event.guests", ui-sref-active="active").btn.btn-primary
+				i.fa.fa-users
+				.hidden-xs Participants
+		.btn-group
+			a(ng-if="vm.event.rights == 'host' || vm.event.rights == 'admin'", ui-sref="event.settings", ui-sref-active="active").btn.btn-primary
+				i.fa.fa-cog
+				.hidden-xs Paramètres
 
 block tabs
 	ui-view(ng-show="vm.loaded")

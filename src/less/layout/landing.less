@@ -1,24 +1,14 @@
-.landing {
-	position: relative;
+.ch-landing_container:extend(.ch-container) {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
 	min-height: 100vh;
-	padding-bottom: 5em;
+	width: 100vw;
 	background-color: @landing-background;
-  	.container {z-index: 2;}
-	@media(min-width: 768px) {
-		display: flex;
-		align-items:center;
-		.container {width: 600px;}
-	}
-  	&:before {
-	  position: absolute;
-	  top: 0;
-	  left: 0;
-	  display: block;
-	  width: 100%;
-	  height: 100%;
-	  background-image: url('../img/landing.jpg');
-	  background-position: center 10%;
-	  content: ' ';
-	  opacity: .2;
-	}
 }

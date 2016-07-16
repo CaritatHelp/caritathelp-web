@@ -8,10 +8,14 @@
 @import "abstract/mixins";
 @import "abstract/variables";
 
+@import "base/normalize";
 @import "base/reset";
 @import "base/base";
+@import "base/grid";
 
+@import "compo/navbar";
 @import "layout/landing";
+
 @import "layout/with-cover";
 
 @import "components/summary";
@@ -39,4 +43,5 @@ body {
 	font-family: Roboto, sans-serif;
 	font-size: 14px;
 	background-color: @body-background;
+	padding-top: @navbar-height;
 }

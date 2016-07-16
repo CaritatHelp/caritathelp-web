@@ -1,5 +1,5 @@
-.friends-tab
-	.col-md-3(ng-repeat="asso in vm.user.assos")
+.ch-grid(ng-class="{'--centered': !vm.user.assos.length}")
+	.ch-grid_col.--one-third_from-tablet(ng-repeat="asso in vm.user.assos")
 		.card.summary
 			a.summary--picture(ui-sref="association.home({id: {{asso.id}}})")
 				img.picture(ng-src="http://api.caritathelp.me{{asso.thumb_path}}", alt="{{asso.name}}")
@@ -11,7 +11,7 @@
 				a.stat(ui-sref="association.members({id:{{asso.id}}})").
 					Membres
 					#[h5.nb {{asso.nb_members}}]
-	.col-md-6.col-md-push-3(ng-if="!vm.user.assos.length && vm.isCurrent")
+	.ch-grid_col.--two-thirds_from-tablet(ng-if="!vm.user.assos.length && vm.isCurrent")
 		.card Vous n'êtes pas encore membre d'une association ! Utilisez la barre de recherche pour en retrouver.
-	.col-md-6.col-md-push-3(ng-if="!vm.user.assos.length && !vm.isCurrent")
+	.ch-grid_col.--two-thirds_from-tablet(ng-if="!vm.user.assos.length && !vm.isCurrent")
 		.card Cet utilisateur n'est encore membre d'aucune association !

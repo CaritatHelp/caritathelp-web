@@ -1,15 +1,15 @@
-.friends-tab
-	.col-md-3(ng-repeat="friend in vm.user.friends")
+.ch-grid(ng-class="{'--centered': !vm.user.friends.length}")
+	.ch-grid_col.--one-third_from-tablet(ng-repeat="friend in vm.user.friends")
 		user-summary(user-id="friend.id")
-	.col-md-6.col-md-push-3(ng-if="!vm.user.friends.length && vm.isCurrent")
+	.ch-grid_col.--two-thirds_from-tablet(ng-if="!vm.user.friends.length && vm.isCurrent")
 		.card Vous n'avez pas encore d'amis ! Utilisez la barre de recherche pour en retrouver.
-	.col-md-6.col-md-push-3(ng-if="!vm.user.friends.length && !vm.isCurrent && vm.user.friendship === 'none'")
+	.ch-grid_col.--two-thirds_from-tablet(ng-if="!vm.user.friends.length && !vm.isCurrent && vm.user.friendship === 'none'")
 		.card
 			p Cet utilisateur n'a pas encore d'amis !
 			p Si vous le connaissez en dehors de CaritatHelp, ajoutez le à vos amis !
 			btn#addFriend.btn.btn-primary(ng-click="vm.addFriend()").
 				#[i.fa.fa-plus]
 				Ajouter en ami
-	.col-md-6.col-md-push-3(ng-if="!vm.user.friends.length && !vm.isCurrent && vm.user.friendship === 'invitation sent'")
+	.ch-grid_col.--two-thirds_from-tablet(ng-if="!vm.user.friends.length && !vm.isCurrent && vm.user.friendship === 'invitation sent'")
 		.card
 			.alert.alert-info Votre invitation a bien été envoyée, vous recevrez une réponse prochainement.

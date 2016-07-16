@@ -1,5 +1,5 @@
-.timeline-tab
-	.col-md-4
+.ch-grid
+	.ch-grid_col.--one-third_from-tablet
 		.description
 			header
 				.description--title Description par l'hôte
@@ -39,7 +39,7 @@
 					#[i.fa.fa-minus]
 					Quitter l'évènement
 		.alert.alert-danger(ng-if="vm.error", ng-bind-html="vm.error")
-	.col-md-8
+	.ch-grid_col.--two-thirds_from-tablet
 		timeline(tl-type="'event'")
 
 script(type="text/ng-template", id="inviteFriendsModal.html")

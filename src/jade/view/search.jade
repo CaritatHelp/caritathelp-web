@@ -1,43 +1,42 @@
-.content-wrapper
-	.container
-		.row
-			.col-sm-4
-				user-summary
-				.action
-					a(ui-sref="profil.settings").
-						#[i.fa.fa-pencil]
-						Modifier profil
-				.action
-					a(ui-sref="associations").
-						#[i.fa.fa-lock]
-						Sécurité
-			.col-sm-8.card.search--result
-				header
-					h2 Recherche de "{{search.research}}"
-					br
-				p.
-					Filtrer par :
-					#[span(ng-click="search.test = {result_type:'volunteer'}; search.setFilter(1)", ng-class="{active: search.isFilterUp(1)}") Utilisateurs]
-					 -
-					#[span(ng-click="search.test = {result_type:'assoc'}; search.setFilter(2)", ng-class="{active: search.isFilterUp(2)}") Associations]
-					 -
-					#[span(ng-click="search.test = {result_type:'event'}; search.setFilter(3)", ng-class="{active: search.isFilterUp(3)}") Evènements]
-				section.search--results
-					.card.listing(ng-show="search.result.length && search.loaded", ng-repeat="res in search.result | filter:search.test:strict")
-						.friend(ng-if="res.result_type == 'volunteer'")
-							a(ui-sref="profil.home({id: {{res.id}}})", title="{{res.name}}")
-								img(ng-src="http://api.caritathelp.me{{res.thumb_path}}", alt="{{res.name}}", class="img-circle")
-							a.name(ui-sref="profil.home({id: {{res.id}}})") {{res.name}}
-						.association(ng-if="res.result_type == 'assoc'")
-							a(ui-sref="association.home({id: {{res.id}}})", title="{{res.name}}")
-								img(ng-src="http://api.caritathelp.me{{res.thumb_path}}", alt="{{res.name}}", class="img-circle")
-							a.name(ui-sref="association.home({id: {{res.id}}})") {{res.name}}
-						.event(ng-if="res.result_type == 'event'")
-							a(ui-sref="event.home({id: {{res.id}}})", title="{{res.name}}")
-								img(ng-src="http://api.caritathelp.me{{res.thumb_path}}", alt="{{res.name}}", class="img-circle")
-							a.name(ui-sref="event.home({id: {{res.id}}})") {{res.name}}
-					.card.listing(ng-show="search.error && search.loaded") {{search.error}}
-					.card(ng-show="!search.loaded")
-						.search--loader
-							i.fa.fa-spin.fa-refresh
-							.loader--info Recherche en cours
+.ch-grid
+	.ch-grid_col.--one-third_from-tablet
+		user-summary
+		.action
+			a(ui-sref="profil.settings").
+				#[i.fa.fa-pencil]
+				Modifier profil
+		.action
+			a(ui-sref="associations").
+				#[i.fa.fa-lock]
+				Sécurité
+	.ch-grid_col.--two-thirds_from-tablet
+		.card.search--result
+			header
+				h2 Recherche de "{{search.research}}"
+				br
+			p.
+				Filtrer par :
+				#[span(ng-click="search.test = {result_type:'volunteer'}; search.setFilter(1)", ng-class="{active: search.isFilterUp(1)}") Utilisateurs]
+				 -
+				#[span(ng-click="search.test = {result_type:'assoc'}; search.setFilter(2)", ng-class="{active: search.isFilterUp(2)}") Associations]
+				 -
+				#[span(ng-click="search.test = {result_type:'event'}; search.setFilter(3)", ng-class="{active: search.isFilterUp(3)}") Evènements]
+			section.search--results
+				.card.listing(ng-show="search.result.length && search.loaded", ng-repeat="res in search.result | filter:search.test:strict")
+					.friend(ng-if="res.result_type == 'volunteer'")
+						a(ui-sref="profil.home({id: {{res.id}}})", title="{{res.name}}")
+							img(ng-src="http://api.caritathelp.me{{res.thumb_path}}", alt="{{res.name}}", class="img-circle")
+						a.name(ui-sref="profil.home({id: {{res.id}}})") {{res.name}}
+					.association(ng-if="res.result_type == 'assoc'")
+						a(ui-sref="association.home({id: {{res.id}}})", title="{{res.name}}")
+							img(ng-src="http://api.caritathelp.me{{res.thumb_path}}", alt="{{res.name}}", class="img-circle")
+						a.name(ui-sref="association.home({id: {{res.id}}})") {{res.name}}
+					.event(ng-if="res.result_type == 'event'")
+						a(ui-sref="event.home({id: {{res.id}}})", title="{{res.name}}")
+							img(ng-src="http://api.caritathelp.me{{res.thumb_path}}", alt="{{res.name}}", class="img-circle")
+						a.name(ui-sref="event.home({id: {{res.id}}})") {{res.name}}
+				.card.listing(ng-show="search.error && search.loaded") {{search.error}}
+				.card(ng-show="!search.loaded")
+					.search--loader
+						i.fa.fa-spin.fa-refresh
+						.loader--info Recherche en cours

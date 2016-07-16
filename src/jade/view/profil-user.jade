@@ -1,13 +1,13 @@
 extends ../layout/with-cover
 
 block jumbotron
-	.bscard.bshovercard
-		.bscard-background
+	.profil--cover
+		.pcover--background
 			img.bscard-bkimg(ng-src="{{vm.user.picture}}")
-		.bsuseravatar
+		.pcover--avatar
 			img(ng-src="{{vm.user.picture}}")
-		.bscard-info
-			span.bscard-title {{vm.user.firstname}} {{vm.user.lastname}}
+		.pcover--name
+			span.pcover--title {{vm.user.firstname}} {{vm.user.lastname}}
 	.btn-pref.btn-group.btn-group-justified.btn-group-lg(style="display:flex")
 		.btn-group
 			a(ui-sref="profil.home", ui-sref-active="active").btn.btn-primary

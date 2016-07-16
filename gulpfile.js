@@ -131,7 +131,8 @@ gulp.task('reload', function () {
 gulp.task('serve', function () {
 	browserSync({
 		server: {baseDir: './public'},
-		online: false
+		online: false,
+		port: 3003
   });
 });
 

@@ -1,13 +1,3 @@
-//Wrapper pour toutes les pages sauf login/register
-	.content-wrapper{
-		display: flex;
-		flex-direction: column;
-		flex-grow: 1;
-		min-height: 100vh;
-		padding-top: @navbar-height;
-		& > .container {padding-top: 2em;}
-	}
-
 //cartes pour afficher les éléments
 	.card {
 		display: flex;
@@ -63,20 +53,7 @@
 			border-color: @button-border;
 		}
 	}
-	.btn-inversed {
-		color: @button-color;
-		background-color: transparent;
-		border-color: @button-border;
-		&:active,
-		&:hover,
-		&:focus,
-		&:active:hover,
-		&:active:focus {
-			color: @button-text;
-			background-color: @button-hover;
-			border-color: @button-border;
-		}
-	}
+
 	.btn-small {
 		padding: 3px 8px;
 		font-size: .75rem;

@@ -1,13 +1,10 @@
-extends ../layout/with-cover
-
-block jumbotron
-	.profil--cover
-		.pcover--background
+.ch-profil
+	.ch-profil_cover
+		.ch-profil_background
 			img.bscard-bkimg(ng-src="{{vm.user.picture}}")
-		.pcover--avatar
+		.ch-profil_picture
 			img(ng-src="{{vm.user.picture}}")
-		.pcover--name
-			span.pcover--title {{vm.user.firstname}} {{vm.user.lastname}}
+		.ch-profil_name {{vm.user.firstname}} {{vm.user.lastname}}
 	.btn-pref.btn-group.btn-group-justified.btn-group-lg(style="display:flex")
 		.btn-group
 			a(ui-sref="profil.home", ui-sref-active="active").btn.btn-primary
@@ -25,14 +22,14 @@ block jumbotron
 			a(ui-sref="profil.calendar", ui-sref-active="active").btn.btn-primary
 				i.fa.fa-calendar
 				.hidden-xs Calendrier
-		.btn-group
-			a(ng-if="vm.isCurrent", ui-sref="profil.settings", ui-sref-active="active").btn.btn-primary
+		.btn-group(ng-if="vm.isCurrent")
+			a(ui-sref="profil.settings", ui-sref-active="active").btn.btn-primary
 				i.fa.fa-cog
 				.hidden-xs Paramètres
 
 
-block tabs
-	ui-view(ng-show="vm.loaded == 4")
-	.profil--loader(ng-show="vm.loaded != 4")
-		i.fa.fa-spin.fa-refresh
-		.loader--info Chargement du profil
+	.tabs
+		ui-view(ng-show="vm.loaded == 4")
+		.profil--loader(ng-show="vm.loaded != 4")
+			i.fa.fa-spin.fa-refresh
+			.loader--info Chargement du profil

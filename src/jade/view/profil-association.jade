@@ -1,13 +1,10 @@
-extends ../layout/with-cover
-
-block jumbotron
-	.profil--cover
-		.pcover--background
+.ch-profil
+	.ch-profil_cover
+		.ch-profil_background
 			img.bscard-bkimg(ng-src="img/cover/fuzeria.jpg")
-		.pcover--avatar
+		.ch-profil_picture
 			img(ng-src="http://api.caritathelp.me{{vm.asso.thumb_path}}", alt="{{vm.asso.name}}")
-		.pcover--name
-			span.pcover--title {{vm.asso.name}}
+		.ch-profil_name {{vm.asso.name}}
 	.btn-pref.btn-group.btn-group-justified.btn-group-lg(style="display:flex")
 		.btn-group
 			a(ui-sref="association.home", ui-sref-active="active").btn.btn-primary
@@ -21,13 +18,13 @@ block jumbotron
 			a(ui-sref="association.calendar", ui-sref-active="active").btn.btn-primary
 				i.fa.fa-calendar
 				.hidden-xs Calendrier
-		.btn-group
-			a(ng-if="vm.asso.rights == 'owner' || vm.asso.rights == 'admin'", ui-sref="association.settings", ui-sref-active="active").btn.btn-primary
+		.btn-group(ng-if="vm.asso.rights == 'owner' || vm.asso.rights == 'admin'")
+			a(ui-sref="association.settings", ui-sref-active="active").btn.btn-primary
 				i.fa.fa-cog
 				.hidden-xs Administration
 
-block tabs
-	ui-view(ng-show="vm.loaded.asso")
-	.profil--loader(ng-show="!vm.loaded.asso")
-		i.fa.fa-spin.fa-refresh
-		.loader--info Chargement du profil
+	.tabs
+		ui-view(ng-show="vm.loaded.asso")
+		.profil--loader(ng-show="!vm.loaded.asso")
+			i.fa.fa-spin.fa-refresh
+			.loader--info Chargement du profil

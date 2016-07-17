@@ -1,5 +1,5 @@
 .ch-grid_col.--one-third_from-tablet
-	.card.settings
+	.card
 		.text-list
 			.link(ng-class="{active:settings.isSet(1)}")
 				i.fa.fa-home
@@ -26,7 +26,7 @@
 		ng-show="settings.error",
 		ng-bind-html="settings.error")
 
-	.card.asso.settings
+	.card.asso
 		//- Paramètres généraux
 		.content(ng-show="settings.isSet(1)")
 			h4 Paramètres de l'association

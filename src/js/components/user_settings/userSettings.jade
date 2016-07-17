@@ -1,5 +1,5 @@
 .ch-grid_col.--one-third_from-tablet
-	.card.settings
+	.card
 		.text-list
 			.link(ng-class="{active:settings.isSet(1)}")
 				i.fa.fa-home
@@ -17,7 +17,7 @@
 		role="alert",
 		ng-show="settings.success",
 		ng-bind-html="settings.successMessage")
-	.card.settings
+	.card
 		.content(ng-show="settings.isSet(1)")
 			h4 Paramètres du compte
 			form(

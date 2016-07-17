@@ -1,13 +1,10 @@
-extends ../layout/with-cover
-
-block jumbotron
-	.profil--cover
-		.pcover--background
+.ch-profil
+	.ch-profil_cover
+		.ch-profil_background
 			img.bscard-bkimg(ng-src="http://api.caritathelp.me{{vm.event.thumb_path}}", alt="{{vm.event.name}}")
-		.pcover--avatar
+		.ch-profil_picture
 			img(ng-src="http://api.caritathelp.me{{vm.event.thumb_path}}", alt="{{vm.event.name}}")
-		.pcover--name
-			span.pcover--title {{vm.event.title}}
+		.ch-profil_name {{vm.event.title}}
 	.btn-pref.btn-group.btn-group-justified.btn-group-lg(style="display:flex")
 		.btn-group
 			a(ui-sref="event.home", ui-sref-active="active").btn.btn-primary
@@ -17,13 +14,13 @@ block jumbotron
 			a(ui-sref="event.guests", ui-sref-active="active").btn.btn-primary
 				i.fa.fa-users
 				.hidden-xs Participants
-		.btn-group
-			a(ng-if="vm.event.rights == 'host' || vm.event.rights == 'admin'", ui-sref="event.settings", ui-sref-active="active").btn.btn-primary
+		.btn-group(ng-if="vm.event.rights == 'host' || vm.event.rights == 'admin'")
+			a(ui-sref="event.settings", ui-sref-active="active").btn.btn-primary
 				i.fa.fa-cog
 				.hidden-xs Paramètres
 
-block tabs
-	ui-view(ng-show="vm.loaded")
-	.profil--loader(ng-show="!vm.loaded")
-		i.fa.fa-spin.fa-refresh
-		.loader--info Chargement du profil
+	.tabs
+		ui-view(ng-show="vm.loaded")
+		.profil--loader(ng-show="!vm.loaded")
+			i.fa.fa-spin.fa-refresh
+			.loader--info Chargement du profil

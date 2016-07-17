@@ -1,0 +1,112 @@
+
+@primary-color: #53A634;
+@primary-hover: #69B578;
+@primary-active: #254D32;
+@primary-focus: #E5FFEB;
+
+@success-color: #4ad7a3;
+@success-hover: #2cb19f;
+@success-active: #75e7cd;
+
+@fail-color: #ff6e6e;
+@fail-hover: #f98;
+@fail-active: #cf415c;
+
+@tertiary-color: #b7d2d7;
+@tertiary-active: #72888e;
+
+@accent-color: #fff;
+
+.ch-btn {
+	position: relative;
+	border-radius: 3px;
+	background: @primary-color;
+	color: @accent-color;
+	padding: .5em 1.3em;
+	line-height: 1.5em;
+	transition: all .15s ease-in-out;
+	font-weight: 300;
+	border: 0;
+	margin: 0;
+	cursor: pointer;
+	text-align: center;
+	-webkit-appearance: none;
+	&:focus {outline: none;}
+	&:hover {background: @primary-hover;}
+	&:active {background: @primary-active;}
+	&:disabled {background: @tertiary-color; cursor: not-allowed;}
+	&.\--large {font-size: 1.4em;}
+	&.\--full {display: block; width: 100%;}
+	.fa {
+		font-size: 1em;
+		line-height: 1.5em;
+		display: inline;
+		height: auto;
+		width: auto;
+		padding-right: .2em;
+		vertical-align: baseline;
+	}
+}
+.\--inverse {
+	background: @accent-color;
+	color: @primary-color;
+	&:hover {color: @accent-color;background: @primary-hover;}
+	&:active {color: @primary-color; background: @primary-focus;}
+}
+.\--success {
+	color: @accent-color;
+	background: @success-color;
+	&:hover {background: @success-hover;}
+	&:active {background: @success-active;}
+}
+.\--fail {
+	color: @accent-color;
+	background: @fail-color;
+	&:hover {background: @fail-hover;}
+	&:active {background: @fail-active;}
+}
+.\--secondary {
+	color: @primary-color;
+	box-shadow: inset 0 0 0 1px @primary-color;
+	background: none;
+	&:hover {background: @primary-color; color: @accent-color;}
+	&:active {background: @primary-active; color: @accent-color; box-shadow: inset 1 1 4px @primary-active;}
+	&.\--inverse {
+		color: @accent-color;
+		background: transparent;
+		box-shadow: inset 1 1 4px @accent-color;
+		&:hover {color: @primary-hover; background: @accent-color;}
+		&:active {color: @primary-color; background: @primary-focus;}
+	}
+	&.\--fail {
+		color: @fail-color;
+		box-shadow: inset 0 0 0 1px @fail-color;
+		&:hover {background: @fail-color; color: @accent-color;}
+		&:active {background: @fail-active; color: @accent-color; box-shadow: inset 0 0 0 1px @fail-active;}
+	}
+}
+.\--tertiary {
+	color: @tertiary-active;
+	box-shadow: inset 0 0 0 1px @tertiary-color;
+	background: none;
+	&:hover {background: @tertiary-color; color: @accent-color;}
+	&:active {background: @tertiary-active; color: @accent-color; box-shadow: inset 0 0 0 1px @tertiary-active;}
+	&.\--inverse {
+		color: @accent-color;
+		box-shadow: inset 0 0 0 1px @accent-color;
+		background: transparent;
+		&:hover {color: @primary-hover; background: @accent-color;}
+		&:active {color: @primary-color; background: @primary-focus;}
+	}
+}
+
+.\--pill {
+	font-size: 1.2em;
+	border-radius: 25px;
+	box-shadow: inset 0 0 0 1px @tertiary-color;
+	background: @accent-color;
+	color: @tertiary-active;
+	&:hover {color: @accent-color; background: @tertiary-color;}
+	&:active {color: @accent-color; background: @tertiary-active; box-shadow: inset 0 0 0 1px @tertiary-active;}
+}
+

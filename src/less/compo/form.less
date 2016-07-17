@@ -1,0 +1,76 @@
+@font-family: Roboto, Arial, sans-serif;
+
+@default-color: #72888e;
+@strong-color: #3f5461;
+@weak-color: #bfcacc;
+@hover-color: #5ac7ff;
+@icon-color: #72888e;
+
+@emphasis-color: #1897ec;
+@selected-color: #b7d2d7;
+
+@success-color: #4ad7a3;
+@error-color: #ff6e6e;
+@error-hover-color: #f98;
+@error-active-color: #cf415c;
+@warning-color: #f5f5f5;
+
+@highlight-color: #fff;
+@light-background: #fbfbfb;
+
+@border-color: #d8e4e7;
+
+@checkbox-color: #d8e4e7;
+@checkbox-hover-color: #5ac7ff;
+
+.ch-form {
+	&::placeholder {
+		color: @weak-color;
+		font-weight: 300;
+	}
+	&.\--icons {
+		font-size: 1.4em;
+		margin-left: 1.3em;
+	}
+}
+
+.ch-form_row {
+	font-size: 1.4rem;
+	position: relative;
+	margin-top: 1.8rem;
+	&.\--no-margin {margin-top: 0;}
+	&.\--no-margin_from-tablet {@media (min-width:768px){margin-top: 0;}}
+	&.\--inline {
+		display: flex;
+		align-items: flex-start;
+		@media (max-width: 1023px) {display: block;}
+	}
+	&.\--align-center {text-align: center;}
+	&.\--align-right {text-align: right;}
+}
+
+.ch-form_inline-container {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+}
+
+.ch-grid-form {
+	display: flex;
+	font-size: 1.4rem;
+	flex-wrap: wrap;
+	margin-bottom: 1.2em;
+	margin-left: -2em;
+	margin-top: -2em;
+	@media (max-width: 767px) {margin-left: -1.2em;margin-top: -1.2em;}
+}
+.ch-grid-form_col {
+	width: 100%;
+	padding-left: 2em;
+	margin-top: 2em;
+	@media (max-width: 767px) {padding-left: 1.2em;margin-top: 1.2em;}
+	&.\--centered {align-self: center;}
+	&.\--full {width: 100%;}
+	&.\--half {width: 50%;}
+}

@@ -1,20 +1,19 @@
 .timeline(ng-show="timeline.loaded")
-	section.timeline--new
-		form.timeline--post#postNews(
+	.card
+		form.ch-form#postNews(
 			novalidate="",
 			name="postNews",
 			ng-submit="timeline.postNews()"
 			)
-			.input-group
-				input.form-control(
+			.ch-form_input-group.--button-input
+				input.ch-form_text.--button-input(
 					type="text",
 					placeholder="Publier un message",
 					ng-model="timeline.newNews",
 					required
 				)
-				.input-group-btn
-					button.btn(type="submit")
-						i.fa.fa-play
+				button.ch-btn.--button-input(type="submit")
+					i.fa.fa-play
 	section.news(ng-repeat="actu in timeline.news")
 		news(news-id="actu.id")
 .timeline--loader(ng-show="!timeline.loaded")

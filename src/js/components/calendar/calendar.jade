@@ -30,7 +30,7 @@
 					.event--status(ng-if="event.rights == 'host'") Vous êtes le créateur de cet évènement
 					.event--status(ng-if="event.rights == 'member'") Vous participez à cet évènement
 					.event--status(ng-if="event.rights == 'none'") Vous ne participez pas à cet évènement
-					a.btn.btn-small.btn-primary(ui-sref="event.home({id:{{event.id}}})").
+					a.ch-btn.--secondary(ui-sref="event.home({id:{{event.id}}})").
 						#[.fa.fa-info-circle]
 						Plus d'informations
 			.alert.alert-info(ng-if="!calendar.events.length") Aucun évènement organisé actuellement.
@@ -52,7 +52,7 @@
 					.event--status(ng-if="event.rights == 'host'") Vous êtes le créateur de cet évènement
 					.event--status(ng-if="event.rights == 'member'") Vous participez à cet évènement
 					.event--status(ng-if="event.rights == 'none'") Vous ne participez pas à cet évènement
-					a.btn.btn-small.btn-primary(ui-sref="event.home({id:{{event.id}}})").
+					a.ch-btn.--secondary(ui-sref="event.home({id:{{event.id}}})").
 						#[.fa.fa-info-circle]
 						Plus d'informations
 			.alert.alert-info(ng-if="!calendar.joined.length") Vous ne participez à aucun évènement actuellement.

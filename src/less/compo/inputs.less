@@ -1,0 +1,325 @@
+.ch-form_input-group {
+	display: flex;
+	position: relative;
+	&.\--button-input {@media (max-width: 767px) {flex-wrap: wrap;}}
+}
+
+// Label
+.ch-form_label {
+	display: inline-block;
+	position: relative;
+	color: @strong-color;
+	font-weight: 500;
+	font-size: 1.4rem;
+	margin-bottom: .7em;
+	line-height: 1.5em;
+	&.\--disabled {color:@weak-color;}
+	&.\--inline {
+		padding-right: 1.2em;
+		margin-bottom: 0;
+		flex-shrink: 0;
+		&.--fixed {width: 150px;}
+		@media (max-width: 1023px) {margin-bottom: .7em;}
+	}
+	&.\--large {
+		font-size: 1.8rem;
+		line-height: 1.5em;
+		margin-bottom: .6em;
+	}
+}
+
+
+.ch-form_addition {
+	font-size: 1.4rem;
+	font-weight: 500;
+	color: @default-color;
+	padding: .5em .8em;
+	background: @light-background;
+	border-right: 3px;
+	line-height: 1.5em;
+	display: inline-block;
+	flex-shrink: 0;
+	&.\--prefix {
+		box-shadow:  inset 0 1px 0 0 @border-color, inset 0 -1px 0 0 @border-color, inset 1px 0 0 0 @border-color;
+		border-right: 0;
+		border-bottom-right-radius: 0;
+		border-top-right-radius: 0;
+		&.\--large {
+			font-size: 1.8rem;
+			padding: .8em 1em;
+		}
+	}
+	&.\--suffix {
+		box-shadow: inset 0 1px 0 0 @border-color, inset 0 -1px 0 0 @border-color, inset -1px 0 0 0 @border-color;
+		border-left: 0;
+		border-bottom-left-radius: 0;
+		border-top-left-radius: 0;
+		&.\--large {
+			font-size: 1.8rem;
+			padding: .8em 1em;
+		}
+	}
+}
+
+// Select
+.ch-form_select {
+	background: @highlight-color;
+	height: 33px;
+	font-size: 1.4rem;
+	font-family: @font-family;
+	border: 1px solid @border-color;
+	color: @default-color;
+	&:focus {outline: none;}
+	&:disabled {cursor: not-allowed; background: @light-background;}
+	@media (max-width: 767px) {width: 100%;}
+	&.\--error {border-color: @error-color;}
+}
+
+.ch-form_toggle {
+	position: absolute;
+	transform: translateY(-50%);
+	top: 1.8rem;
+	right: .7rem;
+	font-size: 1.6rem;
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: pointer;
+	transition: .15s all ease-in-out;
+	color: @default-color;
+	&:disabled {color:@weak-color; cursor: not-allowed;}
+	&:hover:enabled {color: @emphasis-color;}
+	&:focus {outline: none;}
+}
+
+// Text input
+.ch-form_text {
+	position: relative;
+	font-size: 1.4rem;
+	box-shadow: inset 0 0 0 1px @border-color;
+	padding: .5em .7em;
+	color: @default-color;
+	font-family: @font-family;
+	border-radius: 3px;
+	transition: .1s all ease-in-out;
+	flex-grow: 1;
+	line-height: 1.5em;
+	border: 0;
+	margin: 0;
+	width: 100%;
+	&:enabled:hover {box-shadow: inset 0 0 0 1px @hover-color;}
+	&:enabled:focus {outline: none;box-shadow: inset 0 0 0 1px @emphasis-color;}
+	&:disabled {background: @light-background;cursor: not-allowed;}
+	&.\--small-width {@media (min-width: 480px) {flex-grow: 0;}}
+	&.\--button-input {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+		width: 100%;
+		@media (max-width: 767px) {margin-bottom: .7em;border-radius: 3px;}
+	}
+	&.\--prefix {border-top-left-radius: 0;border-bottom-left-radius: 0;min-width: 0;width: 100%;}
+	&.\--suffix {border-top-right-radius: 0;border-bottom-right-radius: 0;min-width: 0;width: 100%;}
+	&.\--large {font-size: 1.8rem;padding: .8em 1em;}
+	&.\--textarea {resize: vertical;overflow: hidden;}
+	&.\--error {
+		box-shadow: inset 0 0 0 1px @error-color;
+		&:enabled:hover {box-shadow: inset 0 0 0 1px @error-hover-color;}
+		&:enabled:focus {box-shadow: inset 0 0 0 1px @error-active-color;}
+	}
+}
+
+// Button
+.ch-form_button {
+	display: inline-block;
+	font-size: 1.4rem;
+	vertical-align: middle;
+	max-width: 100%;
+	&.\--full-width {width: 100%;}
+}
+.ch-form_button-icon {
+	color: @icon-color;
+	margin-right: 1em;
+	transition: .15s all ease-in-out;
+	vertical-align: sub;
+}
+.ch-form_button-element {
+	color: @default-color;
+	cursor: pointer;
+	background: @highlight-color;
+	box-shadow: inset 0 0 0 1px @border-color;
+	padding: .5em 1.3em;
+	transition: .15s all ease-in-out;
+	text-align: center;
+	border-radius: 3px;
+	border: 0;
+	display: block;
+	&:hover {
+		background: @selected-color;
+		box-shadow: inset 0 0 0 1px @selected-color;
+		color: @highlight-color;
+		.ch-form_button-icon {color:@highlight-color;}
+	}
+	@media (max-width: 767px) {width: 100%;}
+	&.\--logo {padding: .8em 1.5em;}
+	&.\--large {padding: .8em 1.8em; font-size: 1.6rem;}
+	&.\--small-text {padding: .8em 1.8em; font-size: 1.4rem;}
+	&.\--align-left {text-align: left;}
+}
+.ch-form_button-input {
+	display: none;
+	&:checked + .ch-form_button-element {
+		background: @emphasis-color;
+		box-shadow: inset 0 0 0 1px @emphasis-color;
+		color: @highlight-color;
+		.sa-form_button-icon {color: @highlight-color;}
+	}
+}
+.ch-form_button-logo {font-size: 2.3rem;}
+
+// Checkbox
+.ch-form_checkbox {
+	display: none;
+	&:disabled {
+		& + .ch-form_checkbox-label {
+			color: @weak-color;
+			&, &:after {cursor: not-allowed;}
+			&:hover:after {box-shadow: inset 0 0 0 2px @checkbox-color;}
+		}
+	}
+	&:checked {
+		& + .ch-form_checkbox-label {
+			&:after {background: @emphasis-color; box-shadow: inset 0 0 0 2px @emphasis-color;}
+			&:before {
+				content: 'check';
+				z-index: 1;
+				color: white;
+				left: 2px;
+			}
+		}
+	}
+}
+.ch-form_checkbox-label {
+	position: relative;
+	padding-left: 2em;
+	font-size: 1.4rem;
+	display: block;
+	margin-bottom: 0.9em;
+	color: @strong-color;
+	font-weight: 400;
+	cursor: pointer;
+	line-height: 1.2em;
+	&.\--no-margin {margin-bottom: 0;}
+	&:after, &:before {
+		font-family: FontAwesome;
+		cursor: pointer;
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		display: inline-block;
+		transition: .15s all ease-in-out;
+		text-rendering: optimizeLegibility;
+	}
+	&:after {
+		content: '';
+		width: 18px;
+		height: 18px;
+		box-shadow: inset 0 0 0 2px @checkbox-color;
+		font-size: 2.2rem;
+		border-radius: 3px;
+		color: @weak-color;
+	}
+	&:hover:after {box-shadow: inset 0 0 0 2px @checkbox-hover-color;}
+}
+
+// Messages
+.ch-form_message {
+	padding: .8em;
+	font-size: 1.4rem;
+	color: @highlight-color;
+	border-radius: 3px;
+	margin-top: 1em;
+	position: relative;
+	width: 100%;
+	padding-right: 2.2em;
+	&:after {
+		position: absolute;
+		left: 1.8em;
+		bottom: 100%;
+	}
+	&.\--large {padding: 1.8rem;}
+	&.\--error {
+		background: @error-color;
+		&:after {
+		width: 0;
+		height: 0;
+		content: '';
+		z-index: 2;
+		border-bottom: .45em solid @error-color;
+		border-left: .3em solid transparent;
+		border-right: .3em solid transparent;
+		}
+	}
+	&.\--success {
+		background: @success-color;
+		&:after {
+		width: 0;
+		height: 0;
+		content: '';
+		z-index: 2;
+		border-bottom: .45em solid @success-color;
+		border-left: .3em solid transparent;
+		border-right: .3em solid transparent;
+		}
+	}
+	&.\--warning {
+		background: @warning-color;
+		color: @default-color;
+		&:after {
+		width: 0;
+		height: 0;
+		content: '';
+		z-index: 2;
+		border-bottom: .45em solid @warning-color;
+		border-left: .3em solid transparent;
+		border-right: .3em solid transparent;
+		}
+	}
+	&.\--absolute {
+		position: absolute;
+		margin: 0;
+		top: 100%;
+		left: 0;
+		margin-top: 1em;
+		z-index: 3;
+	}
+}
+.ch-form_message-close {
+	position: absolute;
+	font-size: 1.4rem;
+	right: .8em;
+	color: @highlight-color;
+	padding: 0;
+	background: none;
+	border: 0;
+	cursor: pointer;
+	top: 50%;
+	transfrom: translateY(-50%);
+	&:focus {outline: none;}
+}
+
+// Icons
+.ch-form_icon {
+	position: absolute;
+	font-size: 1.4rem;
+	left: -1.3em;
+	top: 50%;
+	transfrom: translateY(-50%) translateX(-50%);
+	&.\--success {color: @success-color;}
+	&.\--error {color: @error-color;}
+}
+
+.ch-form_asterisk {
+	color: @weak-color;
+	margin-left: 3px;
+}

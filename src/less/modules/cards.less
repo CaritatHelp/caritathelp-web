@@ -83,6 +83,8 @@
 }
 .btn-pref {
 	display: flex;
+	z-index: 1;
+	line-height: 1.6;
 	&>.btn-group {
 		flex-grow: 1;
 	}
@@ -94,6 +96,20 @@
 		padding: 1em 0;
 		font-size: 1.1em;
 		i {padding-right: .75em;}
+	}
+	.btn-primary {
+		color: @button-text;
+		background-color: @button-color;
+		border-color: @button-border;
+		&:active,
+		&:hover,
+		&:focus,
+		&:active:hover,
+		&:active:focus {
+			color: @button-text;
+			background-color: @button-hover;
+			border-color: @button-border;
+		}
 	}
 }
 .btn-pref .btn {

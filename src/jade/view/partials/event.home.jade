@@ -51,6 +51,6 @@ script(type="text/ng-template", id="inviteFriendsModal.html")
 				a(ui-sref="profil.home({id:member.id})")
 					img(ng-src="http://api.caritathelp.me{{member.thumb_path}}", alt="{{member.firstname}} {{member.lastname}}")
 				a(ui-sref="profil.home({id:member.id})").friend--name {{member.firstname}} {{member.lastname}}
-				button.btn.btn-primary(ng-click="invite(member.id)") Inviter
+				button.ch-btn(ng-click="invite(member.id)") Inviter
 		.modal-footer
-			btn.pull-right.btn.btn-danger(ng-click="closeInvite()") Fermer
+			btn.pull-right.ch-btn.--fail(ng-click="closeInvite()") Fermer

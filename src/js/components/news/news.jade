@@ -11,18 +11,18 @@
 			.actu--text {{vmnews.actu.content}}
 			.actu--comments(ng-repeat="com in vmnews.comments | orderBy:'+created_at'")
 				comment(com="com")
-	form.actu--reply#postComment(
+	form.ch-form#postComment(
 		novalidate="",
 		name="postComment",
 		ng-submit="vmnews.postComment()"
 		)
 		a.reply--picture(ui-sref="profil.home({id:{{vmnews.current.id}}})")
 			img(ng-src="{{vmnews.current.picture}}", alt="{{vmnews.current.firstname}} {{vmnews.current.lastname}}")
-		.input-group
-			input.form-control(
+		.ch-form_input-group.--button-input
+			input.ch-form_text.--button-input(
 				type="text",
 				placeholder="Poster un commentaire",
-				ng-model="vmnews.newComment")
-			.input-group-btn
-				button.btn
-					i.fa.fa-play
+				ng-model="vmnews.newComment"
+				)
+			button.ch-btn.--button-input.--tertiary
+				i.fa.fa-play

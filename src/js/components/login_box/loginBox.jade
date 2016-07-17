@@ -1,34 +1,34 @@
 .card.login
 	h1.connect--header Connexion
-	form.connect--form#loginForm(
-			novalidate="",
-			name="loginForm",
-			ng-submit="login.login()"
+	form.ch-form#loginForm(
+		novalidate="",
+		name="loginForm",
+		ng-submit="login.login()"
 		)
 		.alert.alert-danger(role="alert", ng-show="login.error") {{login.errorMessage}}
-		fieldset.form-group#loginMail
-			label.control-label(for="inputMail") Adresse e-mail
-			.input-group
-				span.input-group-addon.input-mail
+		fieldset.ch-form_row#loginMail
+			label.ch-form_label(for="inputMail") Adresse e-mail
+			.ch-form_input-group
+				span.ch-form_addition.--prefix
 					i.fa.fa-envelope
-				input.form-control#inputMail(
+				input.ch-form_text#inputMail(
 					type="email",
 					name="inputMail",
 					placeholder="Adresse e-mail",
 					ng-model="login.mail",
 					required
-				)
-		fieldset.form-group#loginPassword
-			label.control-label(for="inputPassword") Mot de passe
-			.input-group
-				span.input-group-addon
+					)
+		fieldset.ch-form_row#loginPassword
+			label.ch-form_label(for="inputPassword") Mot de passe
+			.ch-form_input-group
+				span.ch-form_addition.--prefix
 					i.fa.fa-lock
-				input.form-control#inputPassword(
+				input.ch-form_text#inputPassword(
 					type="password",
 					name="inputPassword",
 					placeholder="Mot de passe",
 					ng-model="login.password",
 					required
-				)
+					)
 		a(ui-sref="register") Pas de compte ?
 		button#buttonConnect.ch-btn.pull-right(type="submit") Connexion

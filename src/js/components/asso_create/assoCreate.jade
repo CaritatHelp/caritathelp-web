@@ -1,44 +1,41 @@
-.card.associations
-	.create-asso
-		header
-			h4 Créer une association
-		section
-			form(
-				novalidate="",
-				name="createForm",
-				ng-submit="createForm.$valid && create.createAsso()"
-				)
-				//- Messages d'erreur
-				.alert.alert-danger(
-					role="alert",
-					ng-show="create.error",
-					ng-bind-html="create.errorMessage")
+.card
+	h4 Créer une association
+	form.ch-form(
+		novalidate="",
+		name="createForm",
+		ng-submit="createForm.$valid && create.createAsso()"
+		)
+		//- Messages d'erreur
+		.alert.alert-danger(
+			role="alert",
+			ng-show="create.error",
+			ng-bind-html="create.errorMessage")
 
-				fieldset.form-group
-					label(for="inputNameAsso") Nom de l'association
-					input.form-control(
-						type="text",
-						name="inputNameAsso",
-						ng-model="create.name",
-						required=""
-					)
-					.help-block(ng-messages="createForm.inputNameAsso.$error" ng-show="(createForm.$submitted || createForm.inputNameAsso.$touched) && createForm.inputNameAsso.$invalid")
-						p(ng-message="required") Ce champs est requis
-				fieldset.form-group
-					label(for="inputDescriptionAsso") Description
-					textarea.form-control(
-						name="inputDescriptionAsso",
-						ng-model="create.description",
-						required=""
-					)
-					.help-block(ng-messages="createForm.inputDescriptionAsso.$error" ng-show="(createForm.$submitted || createForm.inputDescriptionAsso.$touched) && createForm.inputDescriptionAsso.$invalid")
-						p(ng-message="required") Ce champs est requis
-				fieldset.form-group
-					label(for="inputCityAsso") Ville
-					input.form-control(
-						type="text",
-						name="inputCityAsso",
-						ng-model="create.city"
-					)
-				fieldset.form-group
-					button.btn.btn-primary(type="submit", style="float:right") Enregistrer
+		fieldset.ch-form_row
+			label.ch-form_label(for="inputNameAsso") Nom de l'association
+			input.ch-form_text(
+				type="text",
+				name="inputNameAsso",
+				ng-model="create.name",
+				required=""
+			)
+			.ch-form_message.--error(ng-messages="createForm.inputNameAsso.$error" ng-show="(createForm.$submitted || createForm.inputNameAsso.$touched) && createForm.inputNameAsso.$invalid")
+				p(ng-message="required") Ce champs est requis
+		fieldset.ch-form_row
+			label.ch-form_label(for="inputDescriptionAsso") Description
+			textarea.ch-form_text.--textarea(
+				name="inputDescriptionAsso",
+				ng-model="create.description",
+				required=""
+			)
+			.ch-form_message.--error(ng-messages="createForm.inputDescriptionAsso.$error" ng-show="(createForm.$submitted || createForm.inputDescriptionAsso.$touched) && createForm.inputDescriptionAsso.$invalid")
+				p(ng-message="required") Ce champs est requis
+		fieldset.ch-form_row
+			label.ch-form_label(for="inputCityAsso") Ville
+			input.ch-form_text(
+				type="text",
+				name="inputCityAsso",
+				ng-model="create.city"
+			)
+		fieldset.ch-form_row
+			button.ch-btn(type="submit", style="float:right") Enregistrer

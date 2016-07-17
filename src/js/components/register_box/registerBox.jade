@@ -1,7 +1,7 @@
 - var months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
 .card.register
 	h1.connect--header Inscription
-	form.connect--form#registerForm(
+	form.ch-form#registerForm(
 		novalidate="",
 		name="registerForm",
 		ng-submit="registerForm.$valid && register.register()"
@@ -13,14 +13,14 @@
 			ng-bind-html="register.errorMessage")
 
 		//- UserName
-		fieldset#userFirstName.col-sm-6.form-group(
+		fieldset#userFirstName.ch-form_row(
 			ng-class="{'has-error': (registerForm.$submitted || registerForm.inputFirstName.$touched) && registerForm.inputFirstName.$invalid}"
 			)
-			label.control-label(for="inputFirstName") Prénom
-			.input-group
-				span.input-group-addon
+			label.ch-form_label(for="inputFirstName") Prénom
+			.ch-form_input-group
+				span.ch-form_addition.--prefix
 					i.fa.fa-user
-				input.form-control#inputFirstName(
+				input.ch-form_text#inputFirstName(
 					type="text",
 					name="inputFirstName",
 					placeholder="Prénom",
@@ -28,18 +28,18 @@
 					ng-minlength="3",
 					required=""
 				)
-			.help-block(ng-messages="registerForm.inputFirstName.$error" ng-show="(registerForm.$submitted || registerForm.inputFirstName.$touched) && registerForm.inputFirstName.$invalid")
+			.ch-form_message.--error(ng-messages="registerForm.inputFirstName.$error" ng-show="(registerForm.$submitted || registerForm.inputFirstName.$touched) && registerForm.inputFirstName.$invalid")
 				p(ng-message="minlength") Minimum 3 caractères
 				p(ng-message="required") Ce champs est requis
 
 		//- Lastname
-		fieldset#userLastName.col-sm-6.form-group(
+		fieldset#userLastName.ch-form_row(
 			ng-class="{'has-error': (registerForm.$submitted || registerForm.inputLastName.$touched) && registerForm.inputLastName.$invalid }")
-			label.control-label(for="inputLastName") Nom
-			.input-group
-				span.input-group-addon
+			label.ch-form_label(for="inputLastName") Nom
+			.ch-form_input-group
+				span.ch-form_addition.--prefix
 					i.fa.fa-user
-				input.form-control#inputLastName(
+				input.ch-form_text#inputLastName(
 					type="text",
 					name="inputLastName",
 					placeholder="Nom",
@@ -47,38 +47,36 @@
 					ng-minlength="3",
 					required=""
 				)
-			.help-block(ng-messages="registerForm.inputLastName.$error" ng-show="(registerForm.$submitted || registerForm.inputLastName.$touched) && registerForm.inputLastName.$invalid")
+			.ch-form_message.--error(ng-messages="registerForm.inputLastName.$error" ng-show="(registerForm.$submitted || registerForm.inputLastName.$touched) && registerForm.inputLastName.$invalid")
 				p(ng-message="minlength") Minimum 3 caractères
 				p(ng-message="required") Ce champs est requis
-		.clearfix
-
 
 		//- Adresse email
-		fieldset#userMail.form-group(
+		fieldset#userMail.ch-form_row(
 			ng-class="{'has-error': (registerForm.$submitted || registerForm.inputMail.$touched) && registerForm.inputMail.$invalid }")
-			label.control-label(for="inputMail") Adresse e-mail
-			.input-group
-				span.input-group-addon.input-mail
+			label.ch-form_label(for="inputMail") Adresse e-mail
+			.ch-form_input-group
+				span.ch-form_addition.--prefix
 					i.fa.fa-envelope
-				input#inputMail.form-control(
+				input#inputMail.ch-form_text(
 					type="email",
 					name="inputMail",
 					placeholder="Adresse e-mail",
 					ng-model="register.mail",
 					required=""
 				)
-			.help-block(ng-messages="registerForm.inputMail.$error" ng-show="(registerForm.$submitted || registerForm.inputMail.$touched) && registerForm.inputMail.$invalid")
+			.ch-form_message.--error(ng-messages="registerForm.inputMail.$error" ng-show="(registerForm.$submitted || registerForm.inputMail.$touched) && registerForm.inputMail.$invalid")
 				p(ng-message="required") Ce champs est requis
 				p(ng-message="email") L'adresse entrée n'est pas valide
 
 		//- Mot  de passe
-		fieldset#userPassword.form-group(
+		fieldset#userPassword.ch-form_row(
 			ng-class="{'has-error': (registerForm.$submitted || registerForm.inputPassword.$touched) && registerForm.inputPassword.$invalid }")
-			label.control-label(for="inputPassword") Mot de passe
-			.input-group
-				span.input-group-addon
+			label.ch-form_label(for="inputPassword") Mot de passe
+			.ch-form_input-group
+				span.ch-form_addition.--prefix
 					i.fa.fa-lock
-				input#inputPassword.form-control(
+				input#inputPassword.ch-form_text(
 					type="password",
 					name="inputPassword",
 					placeholder="Mot de passe",
@@ -86,18 +84,18 @@
 					ng-minlength="8",
 					required
 				)
-			.help-block(ng-messages="registerForm.inputPassword.$error", ng-show="(registerForm.$submitted || registerForm.inputPassword.$touched) && registerForm.inputPassword.$invalid", ng-messages-multiple="")
+			.ch-form_message.--error(ng-messages="registerForm.inputPassword.$error", ng-show="(registerForm.$submitted || registerForm.inputPassword.$touched) && registerForm.inputPassword.$invalid", ng-messages-multiple="")
 				p(ng-message="required") Ce champs est requis
 				p(ng-message="minlength", multiple="") Le mot de passe doit contenir 8 caractères
 				p(ng-message="pattern", multiple="") Le mot de passe doit contenir au moins un chiffre ET une lettre
 
-		fieldset#userConfirm.form-group(
+		fieldset#userConfirm.ch-form_row(
 			ng-class="{'has-error': (registerForm.$submitted || registerForm.inputConfirmPassword.$touched) && registerForm.inputConfirmPassword.$invalid }")
-			label.control-label(for="inputConfirmPassword") Confirmation
-			.input-group
-				span.input-group-addon
+			label.ch-form_label(for="inputConfirmPassword") Confirmation
+			.ch-form_input-group
+				span.ch-form_addition.--prefix
 					i.fa.fa-lock
-				input.form-control#inputConfirmPassword(
+				input.ch-form_text#inputConfirmPassword(
 					type="password",
 					name="inputConfirmPassword",
 					placeholder="Confirmation",
@@ -105,50 +103,43 @@
 					required,
 					compare-to="register.password"
 				)
-			.help-block(ng-messages="registerForm.inputConfirmPassword.$error", ng-show="(registerForm.$submitted || registerForm.inputConfirmPassword.$touched) && registerForm.inputConfirmPassword.$invalid")
+			.ch-form_message.--error(ng-messages="registerForm.inputConfirmPassword.$error", ng-show="(registerForm.$submitted || registerForm.inputConfirmPassword.$touched) && registerForm.inputConfirmPassword.$invalid")
 				p(ng-message="required") Ce champs est requis
 				p(ng-message="compareTo") Les mots de passe ne correspondent pas
 
 		//- Birthday
-		fieldset#userBirthdate.form-group(
+		fieldset#userBirthdate.ch-form_row(
 			ng-class="{'has-error': register.checkBirthdate(registerForm)}")
-			label.control-label(for="inputBirthdate") Date de naissance
-			.input-group.select-group
-				span.input-group-addon
+			label.ch-form_label(for="inputBirthdate") Date de naissance
+			.ch-form_input-group
+				span.ch-form_addition.--prefix
 					i.fa.fa-calendar
-				.col-xs-3
-					select#selectDay.left.form-control(name="selectDay", ng-model="register.day", required="")
-						option(disabled="", selected="", hidden="", value="") Jour
-						- var i = 1
-						while i < 32
-							option(value="#{i}")= i++
-				.col-xs-5
-					select#selectMonth.form-control(name="selectMonth", ng-model="register.month", required="")
-						option(disabled="", selected="", hidden="", value="") Mois
-						each month, i in months
-							option(value="#{(i+1)}") #{month}
-				.col-xs-4
-					select#selectYear.right.form-control(name="selectYear", ng-model="register.year", required="")
-						option(disabled="", selected="", hidden="", value="") Année
-						- var i = 2015
-						while i > 1904
+				select#selectDay.ch-form_select(name="selectDay", ng-model="register.day", required="")
+					option(disabled="", selected="", hidden="", value="") Jour
+					- var i = 1
+					while i < 32
+						option(value="#{i}")= i++
+				select#selectMonth.ch-form_select(name="selectMonth", ng-model="register.month", required="")
+					option(disabled="", selected="", hidden="", value="") Mois
+					each month, i in months
+						option(value="#{(i+1)}") #{month}
+				select#selectYear.ch-form_select(name="selectYear", ng-model="register.year", required="")
+					option(disabled="", selected="", hidden="", value="") Année
+					- var i = 2015
+					while i > 1904
 							option(value="#{i}")= i--
-			.help-block(ng-show="register.checkBirthdate(registerForm)")
+			.ch-form_message.--error(ng-show="register.checkBirthdate(registerForm)")
 				p Ce champs est requis
 
 		//- Sexe
-		fieldset#userGender.form-group
-			label.control-label(for="inputGender") Sexe
-			.input-group.radio--group
-				.connect--radio.col-xs-6#inputGenderMan
-					input(type="radio", name="radioGender", id="radioMan", value="homme", ng-model="register.gender", required="")
-					label(for="radioMan") Homme
-				.connect--radio.col-xs-6#inputGenderWoman
-					input(type="radio", name="radioGender", id="radioWoman", value="femme", ng-model="register.gender")
-					label(for="radioWoman") Femme
+		fieldset#userGender.ch-form_row
+			label.ch-form_label(for="inputGender") Sexe
+			.ch-form_button#inputGenderMan
+				input.ch-form_button-input(type="radio", name="radioGender", id="radioMan", value="homme", ng-model="register.gender", required="")
+				label.ch-form_button-element(for="radioMan") Homme
+			.ch-form_button#inputGenderWoman
+				input.ch-form_button-input(type="radio", name="radioGender", id="radioWoman", value="femme", ng-model="register.gender")
+				label.ch-form_button-element(for="radioWoman") Femme
 
-
-		hr
 		a(ui-sref="login") Déjà un compte ?
-		.pull-right
-			button#buttonRegister.btn.btn-primary(type="submit") S'enregistrer
+		button#buttonRegister.ch-btn.pull-right(type="submit") S'enregistrer

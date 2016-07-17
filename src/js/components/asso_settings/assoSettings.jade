@@ -26,129 +26,123 @@
 		ng-show="settings.error",
 		ng-bind-html="settings.error")
 
-	.card.asso
-		//- Paramètres généraux
-		.content(ng-show="settings.isSet(1)")
-			h4 Paramètres de l'association
-			form(
+	//- Paramètres généraux
+	.card(ng-show="settings.isSet(1)")
+		h4 Paramètres de l'association
+		form.ch-form(
 			novalidate="",
 			name="updateForm",
 			ng-submit="updateForm.$valid && settings.updateAsso()"
 			)
-				fieldset.form-group
-					label.control-label(for="inputName") Nom
-					input.form-control(
+			fieldset.ch-form_row
+				label.ch-form_label(for="inputName") Nom
+				input.ch-form_text(
 					type="text",
 					id="inputName",
 					placeholder="Titre",
 					ng-model="settings.asso.name"
 					)
 
-				fieldset.form-group
-					label.control-label(for="inputDescription") Description
-					textarea.form-control(
+			fieldset.ch-form_row
+				label.ch-form_label(for="inputDescription") Description
+				textarea.ch-form_text(
 					id="inputDescription",
 					placeholder="Description",
 					ng-model="settings.asso.description",
 					)
 
-				fieldset.form-group
-					label.control-label(for="inputLocation") Ville
-					input.form-control(
+			fieldset.ch-form_row
+				label.ch-form_label(for="inputLocation") Ville
+				input.ch-form_text(
 					type="text",
 					id="inputLocation",
 					placeholder="Location",
 					ng-model="settings.asso.city"
 					)
 
-				.pull-right
-					button#buttonSave.btn.btn-primary(type="submit") Enregistrer
+			.pull-right
+				button#buttonSave.ch-btn(type="submit") Enregistrer
 
-		//- Photo de profil
-		.content(ng-show="settings.isSet(2)")
-			h4 Photo de profil
-			div(ng-show="!settings.changePicture")
-				.alert.alert-info Cette photo est visible par tous les utilisateurs. Cliquez sur le bouton pour la changer.
-				.col-sm-9
-					img(ng-src="http://api.caritathelp.me{{settings.asso.thumb_path}}", alt="{{settings.asso.name}}")
-				.col-sm-3
-					button.btn.btn-primary(ng-click="settings.changePicture = true") Changer la photo
-			div(ng-show="settings.changePicture")
-				.progress(ng-show="settings.picture.progress >= 0")
-					div(style="width:{{settings.picture.progress}}%", ng-bind="settings.picture.progress + '%'")
-				.col-sm-9
-					form(novalidate="", name="pictureForm")
-					fieldset.form-group
-						input(
-						type="file",
-						ng-model="settings.picture",
-						base-sixty-four-input="",
-						name="uploadPicture",
-						required="",
-						accept="image/*"
-						)
-				.col-sm-3
-					button#buttonPicture.btn.btn-primary(ng-click="settings.updatePicture()") Enregistrer
-					button#buttonCancel.btn.btn-danger(ng-click="settings.picture = null; settings.changePicture = false", ng-show="settings.picture") Annuler
+	//- Photo de profil
+	.card(ng-show="settings.isSet(2)")
+		h4 Photo de profil
+		div(ng-show="!settings.changePicture")
+			.alert.alert-info Cette photo est visible par tous les utilisateurs. Cliquez sur le bouton pour la changer.
+			img(ng-src="http://api.caritathelp.me{{settings.asso.thumb_path}}", alt="{{settings.asso.name}}")
+			button.ch-btn(ng-click="settings.changePicture = true") Changer la photo
+		div(ng-show="settings.changePicture")
+			.progress(ng-show="settings.picture.progress >= 0")
+				div(style="width:{{settings.picture.progress}}%", ng-bind="settings.picture.progress + '%'")
+			form.ch-form(novalidate="", name="pictureForm")
+				fieldset.ch-form_row
+					input(
+					type="file",
+					ng-model="settings.picture",
+					base-sixty-four-input="",
+					name="uploadPicture",
+					required="",
+					accept="image/*"
+					)
+			button#buttonPicture.ch-btn(ng-click="settings.updatePicture()") Enregistrer
+			button#buttonCancel.ch-btn.--fail(ng-click="settings.picture = null; settings.changePicture = false", ng-show="settings.picture") Annuler
 
-		//- Gestion membres
-		.content(ng-show="settings.isSet(3)")
-			h4 Gestion des membres
-			.col-lg-6.card
-				h6 Demandes en attente
-				table.table.table-striped.event--table.table-max(ng-if="settings.asso.waiting.length")
-					thead
-						tr
-							th Nom
-							th Action
-					tbody
-						tr(ng-repeat="waiter in settings.asso.waiting")
-							td
-								a(ui-sref="profil.home({id:{{waiter.id}}})").
-									#[img(ng-src="http://api.caritathelp.me{{waiter.thumb_path}}")]
-									{{waiter.firstname}} {{waiter.lastname}}
-							td
-								btn.btn.btn-xs.btn-success(title="Accepter la demande", ng-click="settings.replyDemand(waiter.notif_id, true, $index)")
-									i.fa.fa-check
-								btn.btn.btn-xs.btn-danger(title="Refuser la demande", ng-click="settings.replyDemand(waiter.notif_id, false, $index)")
-									i.fa.fa-times
-				.alert.alert-info(ng-if="!settings.asso.waiting.length") Aucune demande en attente
-			.col-lg-6.card
-				h6 Invitations en cours
-				table.table.table-striped.event--table.table-max(ng-if="settings.asso.invited.length")
-					tr(ng-repeat="invite in settings.asso.invited")
+	//- Gestion membres
+	.card(ng-show="settings.isSet(3)")
+		h4 Gestion des membres
+		.card
+			h6 Demandes en attente
+			table.table.table-striped.event--table.table-max(ng-if="settings.asso.waiting.length")
+				thead
+					tr
+						th Nom
+						th Action
+				tbody
+					tr(ng-repeat="waiter in settings.asso.waiting")
 						td
-							a(ui-sref="profil.home({id:{{invite.id}}})").
-								#[img(ng-src="http://api.caritathelp.me{{invite.thumb_path}}")]
-								{{invite.firstname}} {{invite.lastname}}
-				.alert.alert-info(ng-if="!settings.asso.invited.length") Aucune invitation en attente
-			.clearfix
-			.col-md-12.card
-				h6 Membres
-				table.table.table-striped.table-max.event--table
-					thead
-						tr
-							th Nom
-							th Status
-							th Action
-					tbody
-						tr(ng-repeat="member in settings.asso.members")
-							td
-								a(ui-sref="profil.home({id:{{member.id}}})").
-									#[img(ng-src="http://api.caritathelp.me{{member.thumb_path}}")]
-									{{member.firstname}} {{member.lastname}}
-							td {{member.rights}}
-							td
-								button.btn.btn-xs.btn-warning(title="Rétrograder le membre", ng-click="settings.demoteUser(member.id)", ng-if="member.rights == 'admin'")
-									i.fa.fa-thumbs-down
-								button.btn.btn-xs.btn-info(title="Promouvoir en admin", ng-click="settings.promoteUser(member.id)", ng-if="member.rights == 'member'")
-									i.fa.fa-thumbs-up
-								button.btn.btn-xs.btn-danger(title="Expulser le membre", ng-click="settings.kickUser(member.id)", ng-if="member.rights != 'owner'")
-									i.fa.fa-times
-		.content(ng-show="settings.isSet(4)")
-			h4 Suppression de l'évènement
-			.alert.alert-danger.
-				#[i.fa.fa-exclamation-triangle]
-				Cette action est irréversible !
-			button.btn.btn-danger(ng-click="settings.deleteAsso()") Supprimer l'association
+							a(ui-sref="profil.home({id:{{waiter.id}}})").
+								#[img(ng-src="http://api.caritathelp.me{{waiter.thumb_path}}")]
+								{{waiter.firstname}} {{waiter.lastname}}
+						td
+							btn.btn.btn-xs.btn-success(title="Accepter la demande", ng-click="settings.replyDemand(waiter.notif_id, true, $index)")
+								i.fa.fa-check
+							btn.btn.btn-xs.btn-danger(title="Refuser la demande", ng-click="settings.replyDemand(waiter.notif_id, false, $index)")
+								i.fa.fa-times
+			.alert.alert-info(ng-if="!settings.asso.waiting.length") Aucune demande en attente
+		.card
+			h6 Invitations en cours
+			table.table.table-striped.event--table.table-max(ng-if="settings.asso.invited.length")
+				tr(ng-repeat="invite in settings.asso.invited")
+					td
+						a(ui-sref="profil.home({id:{{invite.id}}})").
+							#[img(ng-src="http://api.caritathelp.me{{invite.thumb_path}}")]
+							{{invite.firstname}} {{invite.lastname}}
+			.alert.alert-info(ng-if="!settings.asso.invited.length") Aucune invitation en attente
+		.card
+			h6 Membres
+			table.table.table-striped.table-max.event--table
+				thead
+					tr
+						th Nom
+						th Status
+						th Action
+				tbody
+					tr(ng-repeat="member in settings.asso.members")
+						td
+							a(ui-sref="profil.home({id:{{member.id}}})").
+								#[img(ng-src="http://api.caritathelp.me{{member.thumb_path}}")]
+								{{member.firstname}} {{member.lastname}}
+						td {{member.rights}}
+						td
+							button.btn.btn-xs.btn-warning(title="Rétrograder le membre", ng-click="settings.demoteUser(member.id)", ng-if="member.rights == 'admin'")
+								i.fa.fa-thumbs-down
+							button.btn.btn-xs.btn-info(title="Promouvoir en admin", ng-click="settings.promoteUser(member.id)", ng-if="member.rights == 'member'")
+								i.fa.fa-thumbs-up
+							button.btn.btn-xs.btn-danger(title="Expulser le membre", ng-click="settings.kickUser(member.id)", ng-if="member.rights != 'owner'")
+								i.fa.fa-times
+	.card(ng-show="settings.isSet(4)")
+		h4 Suppression de l'évènement
+		.alert.alert-danger.
+			#[i.fa.fa-exclamation-triangle]
+			Cette action est irréversible !
+		button.ch-btn.--fail(ng-click="settings.deleteAsso()") Supprimer l'association
 

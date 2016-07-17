@@ -7,7 +7,7 @@
 		.card
 			p Cet utilisateur n'a pas encore d'amis !
 			p Si vous le connaissez en dehors de CaritatHelp, ajoutez le à vos amis !
-			btn#addFriend.btn.btn-primary(ng-click="vm.addFriend()").
+			btn#addFriend.ch-btn.--full(ng-click="vm.addFriend()").
 				#[i.fa.fa-plus]
 				Ajouter en ami
 	.ch-grid_col.--two-thirds_from-tablet(ng-if="!vm.user.friends.length && !vm.isCurrent && vm.user.friendship === 'invitation sent'")

@@ -8,11 +8,11 @@
 	.ch-grid_col.--two-thirds_from-tablet
 		asso-create(ng-show="association.creating")
 		//-Message si l'utilisateur n'est membre d'aucune association
-		.card.associations(ng-if="!association.current.assos", ng-show="!association.creating")
+		.card(ng-if="!association.current.assos", ng-show="!association.creating")
 			section.
 				Vous n'êtes membre d'aucune association ! <br> Vous pouvez en créer une en cliquant sur le bouton situé dans la barre de navigation à gauche, ou bien en rejoindre une déjà existante en la séléctionnant dans la liste ci-dessous.
 		//-Associations dont l'utilisateur est membre
-		.card.associations(ng-if="association.current.assos", ng-show="!association.creating")
+		.card(ng-if="association.current.assos", ng-show="!association.creating")
 			.user-assos(ng-show="association.loaded.user")
 				header
 					h5 Vos associations
@@ -37,7 +37,7 @@
 				i.fa.fa-spin.fa-refresh
 				.loader--info Chargement
 		//-Liste de toutes les assos moins celles dont l'user est membre
-		.card.associations(ng-show="!association.creating")
+		.card(ng-show="!association.creating")
 			.no-asso(ng-show="association.loaded.list")
 				header
 					h5 Toutes les associations

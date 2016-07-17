@@ -3,7 +3,7 @@
 		.card.chat--list
 			header.title
 				h5 Conversations
-			button.btn.btn-primary.btn-lg(ng-click="inbox.createChatroom()").
+			button.ch-btn.--full(ng-click="inbox.createChatroom()").
 				#[i.fa.fa-pencil-square-o]
 				Nouvelle conversation
 			a.card.conversation(ng-repeat="conv in inbox.chatrooms", ng-click="inbox.setChatroom(conv)", ng-class="{active: inbox.active.id == conv.id}")
@@ -21,28 +21,32 @@
 				header.title(ng-if="inbox.active.name") {{inbox.active.name}}
 				header.title(ng-if="!inbox.active.name") Conversation sans nom
 				.chatroom--actions
-					button.btn.btn-info(ng-click="inbox.inviteChatroom()")
+					button.ch-btn.--secondary(ng-click="inbox.inviteChatroom()")
+						i.fa.fa-pencil
+					button.ch-btn.--secondary(ng-click="inbox.inviteChatroom()")
 						i.fa.fa-user-plus
-					button.btn.btn-danger(ng-click="inbox.leaveChatroom()")
+					button.ch-btn.--fail(ng-click="inbox.leaveChatroom()")
 						i.fa.fa-sign-out
 
 			.chatroom--sender.card
-				form(
+				form.ch-form(
 					novalidate="",
 					name="sendMessage",
-					ng-submit="inbox.sendMessage()"
+					ng-submit="sendMessage.$valid && inbox.sendMessage()"
 				)
-					fieldset.form-group
-						.input-group
-							input.form-control(
+					fieldset.ch-form_row
+						.ch-form_input-group.--button-input
+							input.ch-form_text.--button-input(
 								type="text",
 								id="inputMessage",
 								placeholder="Message",
-								ng-model="inbox.message"
+								ng-model="inbox.message",
+								required=""
 							)
-							.input-group-btn
-								button.btn(type="submit")
-									i.fa.fa-reply
+							button.ch-btn.--button-input.--tertiary(type="submit")
+								i.fa.fa-reply
+						.ch-form_message.--error(ng-messages="sendMessage.inputMessage.$error", ng-show="sendMessage.$submitted")
+							p Votre message ne peut pas être vide
 
 			//- Affichage des messages
 			.chatroom--messages.card
@@ -65,7 +69,7 @@ script(type="text/ng-template", id="inviteFriendsModal.html")
 				a(ui-sref="profil.home({id:friend.id})")
 					img(ng-src="http://api.caritathelp.me{{friend.thumb_path}}", alt="{{friend.firstname}} {{friend.lastname}}")
 				a(ui-sref="profil.home({id:friend.id})").friend--name {{friend.firstname}} {{friend.lastname}}
-				button.btn.btn-primary(ng-click="addFriend(friend.id)", id="invite-{{friend.id}}") Inviter
+				button.ch-btn(ng-click="addFriend(friend.id)", id="invite-{{friend.id}}") Inviter
 		.modal-footer
-			button.pull-right.btn.btn-success(ng-click="confirmCreation()") Valider
-			button.pull-right.btn.btn-danger(ng-click="dismiss()") Fermer
+			button.pull-right.ch-btn(ng-click="confirmCreation()") Valider
+			button.pull-right.ch-btn.--fail(ng-click="dismiss()") Fermer

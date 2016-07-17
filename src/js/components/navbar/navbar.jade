@@ -20,14 +20,14 @@ nav.ch-navbar(ng-if="nav.isConnected()")
 				span Logout
 				i.fa.fa-power-off
 		.ch-navbar_search
-			a.navbar--item(href="#")
+			a.ch-navbar_item(href="#")
 				i.fa.fa-search
-			form(
+			form.ch-form(
 				role="search",
 				name="searchForm",
 				ng-submit="nav.search()"
 				)
-				input.form-control(
+				input(
 					type="text",
 					placeholder="Rechercher",
 					ng-model="nav.research"
@@ -35,5 +35,5 @@ nav.ch-navbar(ng-if="nav.isConnected()")
 		.ch-navbar_user
 			a.ch-navbar_item(href="#notifModal", data-toggle="modal")
 				i.fa.fa-bell
-			a.navbar--picture(ui-sref="home")
+			a.ch-navbar_picture.img-rounded(ui-sref="home")
 				img(ng-src="{{nav.user.picture}}", alt="{{nav.user.firstname}} {{nav.user.lastname}}")

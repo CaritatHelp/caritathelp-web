@@ -27,7 +27,7 @@ nav.ch-navbar(ng-if="nav.isConnected()")
 				name="searchForm",
 				ng-submit="nav.search()"
 				)
-				input(
+				input.ch-form_text(
 					type="text",
 					placeholder="Rechercher",
 					ng-model="nav.research"

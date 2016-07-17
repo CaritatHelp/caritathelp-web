@@ -2,7 +2,7 @@
 	.actu--main(data-id="{{vmnews.newsId}}")
 		.actu--aside
 			a.actu--picture(ng-href="{{vmnews.link}}")
-				img(ng-src="http://api.caritathelp.me{{vmnews.actu.thumb_path}}", alt="{{vmnews.actu.sender_name}}")
+				img.ch-avatar(ng-src="http://api.caritathelp.me{{vmnews.actu.thumb_path}}", alt="{{vmnews.actu.sender_name}}")
 
 		.actu--body
 			header.infos
@@ -11,18 +11,19 @@
 			.actu--text {{vmnews.actu.content}}
 			.actu--comments(ng-repeat="com in vmnews.comments | orderBy:'+created_at'")
 				comment(com="com")
-	form.ch-form#postComment(
-		novalidate="",
-		name="postComment",
-		ng-submit="vmnews.postComment()"
-		)
+	.actu--reply
 		a.reply--picture(ui-sref="profil.home({id:{{vmnews.current.id}}})")
-			img(ng-src="{{vmnews.current.picture}}", alt="{{vmnews.current.firstname}} {{vmnews.current.lastname}}")
-		.ch-form_input-group.--button-input
-			input.ch-form_text.--button-input(
-				type="text",
-				placeholder="Poster un commentaire",
-				ng-model="vmnews.newComment"
-				)
-			button.ch-btn.--button-input.--tertiary
-				i.fa.fa-play
+			img.ch-avatar.--small(ng-src="{{vmnews.current.picture}}", alt="{{vmnews.current.firstname}} {{vmnews.current.lastname}}")
+		form.ch-form#postComment(
+			novalidate="",
+			name="postComment",
+			ng-submit="vmnews.postComment()"
+			)
+			.ch-form_input-group.--button-input
+				input.ch-form_text.--button-input(
+					type="text",
+					placeholder="Poster un commentaire",
+					ng-model="vmnews.newComment"
+					)
+				button.ch-btn.--button-input.--tertiary
+					i.fa.fa-play

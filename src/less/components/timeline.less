@@ -1,38 +1,8 @@
-.timeline {
-	.input-group {
-		display: flex;
-		input {
-			flex-grow: 1;
-			float: none;
-			width: auto;
-		}
-		.input-group-btn {
-			display: block;
-			width: auto;
-		}
-	}
-	.btn {
-		color: #536570;
-		background-color: @card-background;
-		border-color: #ccc;
-		&:hover, &:focus, &:active {
-			color: #536570;
-			text-decoration: none;
-			background-color: @card-inverse-bg;
-		}
-	}
-}
-.timeline--new:extend(.card) {}
 .timeline--actu:extend(.card) {}
 
 //Un element de la timeline
 	.actu--main {
 		display: flex;
-		.actu--picture img:extend(.img-rounded) {
-			width: 5em;
-			height: 5em;
-			max-height: 5em;
-		}
 	}
 	.actu--aside {
 		display: flex;
@@ -72,11 +42,6 @@
 	width: 100%;
 	padding: 0 .5em;
 }
-.comment--picture img:extend(.img-rounded) {
-	width: 3em;
-	height: 3em;
-	max-height: 3em;
-}
 //Input de réponse
 .actu--reply {
 	display: flex;
@@ -84,13 +49,10 @@
 	padding: 1em;
 	margin: .5em -1em -1em;
 	background-color: @card-inverse-bg;
-	.input-group {
-		flex-grow: 1;
-		padding-left: 1em;
+	form {
+		width: 100%;
+		background-color: #fff;
+		margin-left: 1em;
 	}
-}
-.reply--picture img:extend(.img-rounded) {
-	width: 3em;
-	height: 3em;
-	max-height: 3em;
+	a {display: flex;}
 }

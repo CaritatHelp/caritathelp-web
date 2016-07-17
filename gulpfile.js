@@ -12,7 +12,7 @@ var runSequence = require('run-sequence'),
 		ngAnnotate = require('gulp-ng-annotate');
 
 gulp.task('jade', function () {
-	gulp.src(['src/jade/view/**/*.jade'])
+	gulp.src(['src/jade/**/*.jade'])
 		.pipe(g.plumber({
 			errorHandler: function (error) {
 				console.log(error.message);
@@ -20,7 +20,7 @@ gulp.task('jade', function () {
 			}
 		}))
 		.pipe(g.jade({pretty:true}))
-		.pipe(gulp.dest('public/view/'))
+		.pipe(gulp.dest('public/'))
 		.pipe(browserSync.reload({stream:true}));
 });
 

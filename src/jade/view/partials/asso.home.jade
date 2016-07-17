@@ -27,16 +27,3 @@
 	.ch-grid_col.--two-thirds_from-tablet
 		//- Timeline de l'association
 		timeline(tl-type="'association'")
-
-script(type="text/ng-template", id="inviteFriendsModal.html")
-	.modal--friends
-		.modal-header
-			h3.modal-title Inviter des amis
-		.modal-body
-			section.friend(ng-repeat="friend in friends")
-				a(ui-sref="profil.home({id:friend.id})")
-					img(ng-src="http://api.caritathelp.me{{friend.thumb_path}}", alt="{{friend.firstname}} {{friend.lastname}}")
-				a(ui-sref="profil.home({id:friend.id})").friend--name {{friend.firstname}} {{friend.lastname}}
-				button.ch-btn(ng-click="inviteFriend(friend.id)") Inviter
-		.modal-footer
-			btn.pull-right.ch-btn.--faill(ng-click="closeInvite()") Fermer

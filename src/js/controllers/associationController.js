@@ -1,51 +1,29 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, userService, $uibModal) {
+module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, userService, ModalService) {
 	var vm = this;
 	var usc = userService;
 	var dsc = dataService;
+	var modal = ModalService;
 
 	vm.current = usc.user();
-//Listing des associations
-	vm.assos = {};
-	vm.creating = false;
-	vm.loaded = {
-		user: false,
-		list: false,
-		asso: false
-	};
-	vm.startCreating = function () {
-		vm.creating = true;
-	};
-	dsc.getAssos(vm.current.id)
-		.success(function (data) {
-			vm.current.assos = data.response;
-			vm.loaded.user = true;
-		});
-	dsc.getAssoList()
-		.success(function (data) {
-			vm.assos = data.response;
-			vm.loaded.list = true;
-		});
-
-//Affichage d'une association
+	vm.loaded = false;
 	vm.asso = {};
 	vm.rights = {};
-	if ($stateParams.id) {
-		dsc.getAsso($stateParams.id)
-			.success(function (data) {
-				vm.asso = data.response;
-				//Récupération des membres
-				dsc.getAssoMembers($stateParams.id)
-					.success(function (data) {
-						vm.asso.members = data.response;
-						vm.loaded.asso = true;
-					});
-				getRightsMessages();
-			})
-			.error(function () {
-				$state.transitionTo('associations');
-			});
-	}
+
+	dsc.getAsso($stateParams.id)
+		.success(function (data) {
+			vm.asso = data.response;
+			//Récupération des membres
+			dsc.getAssoMembers($stateParams.id)
+				.success(function (data) {
+					vm.asso.members = data.response;
+					vm.loaded = true;
+				});
+			getRightsMessages();
+		})
+		.error(function () {
+			$state.transitionTo('associations');
+		});
 
 	vm.joinAsso = function () {
 		dsc.joinAsso(vm.asso.id)
@@ -108,12 +86,12 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 	}
 
 	vm.openInvite = function () {
-		$uibModal.open({
-			templateUrl: 'inviteFriendsModal.html',
-			controller: function ($scope, $uibModalInstance, dataService) {
+		modal.showModal({
+			templateUrl: 'modal/asso-invite.html',
+			controller: function (close, $scope, dataService) {
 				$scope.friends = vm.current.friends;
-				$scope.closeInvite = function () {
-					$uibModalInstance.dismiss();
+				$scope.dismiss = function () {
+					close();
 				};
 				$scope.inviteFriend = function (friendId) {
 					dataService.inviteAsso(friendId, vm.asso.id)
@@ -123,7 +101,7 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 						.error(function (data) {
 							console.log(data);
 						});
-					$uibModalInstance.dismiss();
+					close();
 				};
 			}
 		});

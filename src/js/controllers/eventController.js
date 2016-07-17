@@ -1,8 +1,9 @@
 'use strict';
-module.exports = /*@ngInject*/ function (userService, dataService, $stateParams, $state, $uibModal) {
+module.exports = /*@ngInject*/ function (userService, dataService, $stateParams, $state, ModalService) {
 	var vm = this;
 	var dsc = dataService;
 	var usc = userService;
+	var modal = ModalService;
 
 	vm.current = usc.user();
 	vm.event = {};
@@ -77,14 +78,14 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams,
 	}
 
 	vm.openInvite = function () {
-		$uibModal.open({
-			templateUrl: 'inviteFriendsModal.html',
-			controller: function ($scope, $uibModalInstance, dataService) {
-				$scope.members = vm.current.friends;
-				$scope.closeInvite = function () {
-					$uibModalInstance.dismiss();
+		modal.showModal({
+			templateUrl: 'modal/event-invite.html',
+			controller: function (close, $scope, dataService) {
+				this.members = vm.current.friends;
+				this.dismiss = function () {
+					close();
 				};
-				$scope.invite = function (friendId) {
+				this.invite = function (friendId) {
 					dataService.inviteEvent(friendId, vm.event.id)
 						.success(function (data) {
 							console.log(data);
@@ -92,9 +93,10 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams,
 						.error(function (data) {
 							console.log(data);
 						});
-					$uibModalInstance.dismiss();
+					close();
 				};
-			}
+			},
+			controllerAs: 'modal'
 		});
 	};
 };

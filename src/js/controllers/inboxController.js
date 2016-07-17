@@ -1,8 +1,9 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, userService, $uibModal) {
+module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, userService, ModalService) {
 	var vm = this;
 	var dsc = dataService;
 	var usc = userService;
+	var modal = ModalService;
 
 	vm.loaded = false;
 	vm.chatrooms = {};
@@ -51,19 +52,20 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 	};
 
 	vm.openInvite = function () {
-		$uibModal.open({
-			templateUrl: 'inviteFriendsModal.html',
-			controller: function ($scope, $uibModalInstance, dataService) {
+		modal.showModal({
+			templateUrl: 'modal/inbox-invite.html',
+			controller: function (close, dataService, $scope) {
 				var angular = require('angular');
 
-				$scope.dismiss = function () {
-					vm.creator = [];
-					$uibModalInstance.dismiss();
-				};
 				dataService.getVolunteers()
 					.success(function (data) {
 						$scope.friends = data.response;
 					});
+
+				$scope.dismiss = function () {
+					vm.creator = [];
+					close();
+				};
 				$scope.addFriend = function (friendId) {
 					angular.element('#invite-' + friendId).html('Ajouté').attr('disabled', true);
 					vm.creator.push(friendId);
@@ -71,10 +73,12 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 				$scope.confirmCreation = function () {
 					dsc.createChatroom(vm.creator)
 						.success(function (data) {
-							vm.active = data.response;
-							vm.chatrooms.unshift(data.response);
+							if (data.status === 200) {
+								vm.active = data.response;
+								vm.chatrooms.unshift(data.response);
+							}
 						});
-					$uibModalInstance.dismiss();
+					close();
 				};
 			}
 		});

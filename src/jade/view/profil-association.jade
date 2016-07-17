@@ -24,7 +24,7 @@
 				.hidden-xs Administration
 
 	.tabs
-		ui-view(ng-show="vm.loaded.asso")
-		.profil--loader(ng-show="!vm.loaded.asso")
+		ui-view(ng-show="vm.loaded")
+		.profil--loader(ng-show="!vm.loaded")
 			i.fa.fa-spin.fa-refresh
 			.loader--info Chargement du profil

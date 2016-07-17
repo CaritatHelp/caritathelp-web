@@ -9,11 +9,12 @@ require('angular-route');
 require('angular-sanitize');
 require('angular-messages');
 require('angular-local-storage');
+require('angular-modal-service');
 require('angular-ui-bootstrap');
 require('angular-base64-upload');
 require('angular-ui-router');
 
-var app = angular.module('caritathelp', ['ngRoute', 'ngSanitize', 'ngMessages', 'LocalStorageModule', 'ui.bootstrap', 'naif.base64', 'ui.router']);
+var app = angular.module('caritathelp', ['ngRoute', 'ngSanitize', 'ngMessages', 'LocalStorageModule', 'ui.bootstrap', 'naif.base64', 'ui.router', 'angularModalService']);
 
 require('./services');
 require('./directives');
@@ -100,9 +101,9 @@ app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProv
 		// Toutes les assos
 		.state('associations', {
 			url: '/association',
-			templateUrl: 'view/association.html',
-			controller: 'associationController',
-			controllerAs: 'association',
+			templateUrl: 'view/directory.html',
+			controller: 'directoryController',
+			controllerAs: 'vm',
 			authenticate: true
 		})
 

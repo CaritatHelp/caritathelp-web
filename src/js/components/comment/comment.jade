@@ -1,8 +1,8 @@
-.actu--comment
-	a.comment--picture(ui-sref="profil.home({id: {{comment.com.volunteer_id}}})")
+.ch-comment
+	a(ui-sref="profil.home({id: {{comment.com.volunteer_id}}})")
 		img.ch-avatar.--small(ng-src="http://api.caritathelp.me{{comment.com.thumb_path}}", alt="{{comment.com.firstname}} {{comment.com.lastname}}")
-	.comment--body
-		header.infos
-			a.name(ui-sref="profil.home({id: {{comment.com.volunteer_id}}})") {{comment.com.firstname}} {{comment.com.lastname}}
-			.time {{comment.com.created_at | date: "dd/MM à HH:mm"}}
-		.comment--text {{comment.com.content}}
+	.ch-comment_content
+		header.ch-comment_header
+			a.ch-text.--bold(ui-sref="profil.home({id: {{comment.com.volunteer_id}}})") {{comment.com.firstname}} {{comment.com.lastname}}
+			.ch-text.--tertiary.--micro {{comment.com.created_at | date: "dd/MM à HH:mm"}}
+		.ch-comment_text.ch-text {{comment.com.content}}

@@ -1,18 +1,18 @@
-.timeline--actu
-	.actu--main(data-id="{{vmnews.newsId}}")
-		.actu--aside
-			a.actu--picture(ng-href="{{vmnews.link}}")
+.card
+	.ch-actu(data-id="{{vmnews.newsId}}")
+		.ch-actu_aside
+			a(ng-href="{{vmnews.link}}")
 				img.ch-avatar(ng-src="http://api.caritathelp.me{{vmnews.actu.thumb_path}}", alt="{{vmnews.actu.sender_name}}")
 
-		.actu--body
-			header.infos
-				a.name(ng-href="{{vmnews.link}}") {{vmnews.actu.sender_name}}
-				.time {{vmnews.actu.created_at | date: "dd/MM à HH:mm"}}
-			.actu--text {{vmnews.actu.content}}
-			.actu--comments(ng-repeat="com in vmnews.comments | orderBy:'+created_at'")
+		.ch-actu_content
+			.ch-actu_header
+				a.ch-text.--kilo.--bold(ng-href="{{vmnews.link}}") {{vmnews.actu.sender_name}}
+				.ch-text.--tertiary.--micro {{vmnews.actu.created_at | date: "dd/MM à HH:mm"}}
+			.ch-actu_text.ch-text {{vmnews.actu.content}}
+			.ch-comments(ng-repeat="com in vmnews.comments | orderBy:'+created_at'")
 				comment(com="com")
-	.actu--reply
-		a.reply--picture(ui-sref="profil.home({id:{{vmnews.current.id}}})")
+	.ch-reply
+		a(ui-sref="profil.home({id:{{vmnews.current.id}}})")
 			img.ch-avatar.--small(ng-src="{{vmnews.current.picture}}", alt="{{vmnews.current.firstname}} {{vmnews.current.lastname}}")
 		form.ch-form#postComment(
 			novalidate="",

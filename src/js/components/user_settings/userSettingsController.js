@@ -6,6 +6,20 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 
 	vm.user = usc.user();
 	vm.tab = 1;
+	vm.invited = {};
+
+	dsc.getAssoInvited()
+		.success(function (data) {
+			vm.invited.assos = data.response;
+		});
+	dsc.getEventInvited()
+		.success(function (data) {
+			vm.invited.events = data.response;
+		});
+	dsc.getFriendRequests()
+		.success(function (data) {
+			vm.invited.friends = data.response;
+		});
 
 	dsc.getNotifs()
 		.success(function (data) {
@@ -51,7 +65,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 	vm.answerAsso = function (notifId, acceptance, index) {
 		dsc.replyInviteAsso(notifId, acceptance)
 			.success(function () {
-				vm.notifs.splice(index, 1);
+				vm.invited.assos.splice(index, 1);
 				vm.success = true;
 				vm.successMessage = 'La demande a bien été traitée';
 			})
@@ -63,7 +77,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 	vm.answerEvent = function (notifId, acceptance, index) {
 		dsc.replyInviteEvent(notifId, acceptance)
 			.success(function () {
-				vm.notifs.splice(index, 1);
+				vm.invited.events.splice(index, 1);
 				vm.success = true;
 				vm.successMessage = 'La demande a bien été traitée';
 			})
@@ -75,7 +89,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 	vm.answerFriend = function (notifId, acceptance, index) {
 		dsc.replyFriend(notifId, acceptance)
 			.success(function () {
-				vm.notifs.splice(index, 1);
+				vm.invited.friends.splice(index, 1);
 				vm.success = true;
 				vm.successMessage = 'La demande a bien été traitée';
 			})

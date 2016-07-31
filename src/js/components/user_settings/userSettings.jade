@@ -151,56 +151,56 @@
 	.card(ng-show="settings.isSet(3)")
 		h2.ch-text.--mega Gestion des invitations
 		section
-			.invite(ng-repeat="notif in settings.notifs", ng-if="settings.notifs.length")
+			.invite(ng-if="settings.invited.length")
 
 				//- Invitation dans une asso
-				.invite--asso(ng-if="notif.notif_type == 'InviteMember'")
+				.invite--asso(ng-repeat="asso in settings.invited.assos")
 					.invite--text
-						.invite--from
-							a(ui-sref="profil.home({id:{{notif.sender_id}}})").
-								#[img(ng-src="http://api.caritathelp.me{{notif.thumb_path}}")]
-								{{notif.sender_name}}
-						.invite--description vous a invité à rejoindre l'association
+						//- .invite--from
+						//- 	a(ui-sref="profil.home({id:{{asso.id}}})").
+						//- 		#[img(ng-src="http://api.caritathelp.me{{asso.thumb_path}}")]
+						//- 		{{asso.name}}
+						.invite--description Vous avez été invité à rejoindre l'association
 						.invite--to
-							a(ui-sref="association.home({id:{{notif.assoc_id}}})").
-								#[img(ng-src="http://api.caritathelp.me{{notif.thumb_path}}")]
-								{{notif.assoc_name}}
+							a(ui-sref="association.home({id:{{asso.id}}})").
+								#[img(ng-src="http://api.caritathelp.me{{asso.thumb_path}}")]
+								{{asso.name}}
 					.invite--actions
-						button.ch-btn(ng-click="settings.answerAsso(notif.id, true, $index)")
+						button.ch-btn(ng-click="settings.answerAsso(asso.notif_id, true, $index)")
 							i.fa.fa-check
-						button.ch-btn.--fail(ng-click="settings.answerAsso(notif.id, false, $index)")
+						button.ch-btn.--fail(ng-click="settings.answerAsso(asso.notif_id, false, $index)")
 							i.fa.fa-times
 
 				//- Invitation dans un event
-				.invite--event(ng-if="notif.notif_type == 'InviteGuest'")
+				.invite--event(ng-repeat="event in settings.invited.events")
 					.invite--text
-						.invite--from
-							a(ui-sref="profil.home({id:{{notif.sender_id}}})").
-								#[img(ng-src="http://api.caritathelp.me{{notif.thumb_path}}")]
-								{{notif.sender_name}}
-						.invite--description vous a invité à participer à l'évènement
+						//- .invite--from
+						//- 	a(ui-sref="profil.home({id:{{event.id}}})").
+						//- 		#[img(ng-src="http://api.caritathelp.me{{event.thumb_path}}")]
+						//- 		{{event.title}}
+						.invite--description Vous avez été invité à participer à l'évènement
 						.invite--to
-							a(ui-sref="event.home({id:{{notif.event_id}}})").
-								#[img(ng-src="http://api.caritathelp.me{{notif.thumb_path}}")]
-								{{notif.event_name}}
+							a(ui-sref="event.home({id:{{event.id}}})").
+								#[img(ng-src="http://api.caritathelp.me{{event.thumb_path}}")]
+								{{event.title}}
 					.invite--actions
-						button.ch-btn(ng-click="settings.answerEvent(notif.id, true, $index)")
+						button.ch-btn(ng-click="settings.answerEvent(event.notif_id, true, $index)")
 							i.fa.fa-check
-						button.ch-btn.--fail(ng-click="settings.answerEvent(notif.id, false, $index)")
+						button.ch-btn.--fail(ng-click="settings.answerEvent(event.notif_id, false, $index)")
 							i.fa.fa-times
 
 				//- Invitation d'ami
-				.invite--friend(ng-if="notif.notif_type == 'AddFriend'")
+				.invite--friend(ng-repeat="user in settings.invited.friends")
 					.invite--text
 						.invite--from
-							a(ui-sref="profil.home({id:{{notif.sender_id}}})").
-								#[img(ng-src="http://api.caritathelp.me{{notif.thumb_path}}")]
-								{{notif.sender_name}}
+							a(ui-sref="profil.home({id:{{user.id}}})").
+								#[img(ng-src="http://api.caritathelp.me{{user.thumb_path}}")]
+								{{user.firstname}} {{user.lastname}}
 						.invite--description vous a ajouté à ses amis
 					.invite--actions
-						button.ch-btn(ng-click="settings.answerFriend(notif.id, true, $index)")
+						button.ch-btn(ng-click="settings.answerFriend(user.notif_id, true, $index)")
 							i.fa.fa-check
-						button.ch-btn.--fail(ng-click="settings.answerFriend(notif.id, false, $index)")
+						button.ch-btn.--fail(ng-click="settings.answerFriend(user.notif_id, false, $index)")
 							i.fa.fa-times
 
 			//- Empty

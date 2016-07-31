@@ -73,6 +73,9 @@ module.exports = /*@ngInject*/ function ($http) {
 	DataService.getNews = function (id) {
 		return $http.get(buildUrl('volunteers', id, 'news', null));
 	};
+	DataService.getFriendRequests = function () {
+		return $http.get(buildUrl('volunteers', null, 'friend_requests', null));
+	};
 
 //Recherche
 	DataService.search = function (research) {
@@ -305,7 +308,7 @@ module.exports = /*@ngInject*/ function ($http) {
 	DataService.getOwnedEvent = function () {
 		return $http.get(buildUrl('events', null, 'owned', null));
 	};
-	DataService.getInvitedtEvent = function () {
+	DataService.getEventInvited = function () {
 		return $http.get(buildUrl('events', null, 'invited', null));
 	};
 	DataService.getEventPictures = function (id) {

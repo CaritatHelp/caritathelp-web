@@ -16,14 +16,9 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 		.success(function (data) {
 			vm.invited.events = data.response;
 		});
-	dsc.getFriendRequests()
+	dsc.receivedInvitations()
 		.success(function (data) {
 			vm.invited.friends = data.response;
-		});
-
-	dsc.getNotifs()
-		.success(function (data) {
-			vm.notifs = data.response;
 		});
 
 	vm.updateVolunteer = function () {

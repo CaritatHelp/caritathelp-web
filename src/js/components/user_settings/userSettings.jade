@@ -151,7 +151,7 @@
 	.card(ng-show="settings.isSet(3)")
 		h2.ch-text.--mega Gestion des invitations
 		section
-			.invite(ng-if="settings.invited.length")
+			.invite
 
 				//- Invitation dans une asso
 				.invite--asso(ng-repeat="asso in settings.invited.assos")
@@ -192,11 +192,11 @@
 				//- Invitation d'ami
 				.invite--friend(ng-repeat="user in settings.invited.friends")
 					.invite--text
-						.invite--from
-							a(ui-sref="profil.home({id:{{user.id}}})").
-								#[img(ng-src="http://api.caritathelp.me{{user.thumb_path}}")]
-								{{user.firstname}} {{user.lastname}}
-						.invite--description vous a ajouté à ses amis
+						a(ui-sref="profil.home({id:{{user.id}}})")
+							img(ng-src="http://api.caritathelp.me{{user.thumb_path}}")
+						.ch-text.
+							#[a(ui-sref="profil.home({id:{{user.id}}})") {{user.firstname}} {{user.lastname}}]
+							 vous a ajouté à ses amis
 					.invite--actions
 						button.ch-btn(ng-click="settings.answerFriend(user.notif_id, true, $index)")
 							i.fa.fa-check
@@ -204,4 +204,4 @@
 							i.fa.fa-times
 
 			//- Empty
-			.alert.alert-info(ng-if="!settings.notifs.length") Vous n'avez pas d'invitations récentes
+			.alert.alert-info(ng-if="!settings.invited.length") Vous n'avez pas d'invitations récentes

@@ -96,6 +96,9 @@ module.exports = /*@ngInject*/ function ($http) {
 		var parameters = 'id=' + id;
 		return $http.delete(buildUrl('friendship', null, 'remove', parameters));
 	};
+	DataService.receivedInvitations = function () {
+		return $http.get(buildUrl('friendship', null, 'received_invitations', null));
+	};
 
 //Association
 	DataService.getAssoList = function () {

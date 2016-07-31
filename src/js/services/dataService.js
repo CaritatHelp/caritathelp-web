@@ -221,6 +221,24 @@ module.exports = /*@ngInject*/ function ($http) {
 		var parameters = 'content=' + content + '&event_id=' + event_id;
 		return $http.post(buildUrl('news', null, 'event_status', parameters));
 	};
+	DataService.postNews = function (content, type, id, privacy) {
+		var parameters = 'content=' + content;
+		switch (type) {
+			case 'volunteer':
+				parameters += '&friend_id=' + id;
+				break;
+			case 'association':
+				parameters += '&assoc_id' + id;
+				break;
+			case 'event':
+				parameters += '&event_id=' + id;
+				break;
+			default:
+				break;
+		}
+		parameters += '&public=' + (privacy ? 'true' : 'false');
+		return $http.post(buildUrl('news', null, 'wall_message', parameters));
+	};
 	DataService.getNew = function (id) {
 		return $http.get(buildUrl('news', id, null, null));
 	};

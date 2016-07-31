@@ -12,7 +12,7 @@
 			section.
 				Vous n'êtes membre d'aucune association ! <br> Vous pouvez en créer une en cliquant sur le bouton situé dans la barre de navigation à gauche, ou bien en rejoindre une déjà existante en la séléctionnant dans la liste ci-dessous.
 		//-Associations dont l'utilisateur est membre
-		.card(ng-if="vm.belong.length", ng-show="!belong.creating")
+		.card(ng-if="vm.belong.length", ng-show="!vm.creating")
 			.user-assos(ng-show="vm.loaded.user")
 				h2.ch-text.--mega Vos associations
 				table.--highlight.--first-emphasis
@@ -44,7 +44,7 @@
 							th Ville
 							th Membres
 					tbody
-						tr(ng-repeat="assoc in vm.assos", ng-show="!assoc.rights")
+						tr(ng-repeat="assoc in vm.assos")
 							td
 								a(ui-sref="association.home({id: {{assoc.id}}})") {{assoc.name}}
 							td(ng-if="assoc.city") {{assoc.city}}

@@ -1,0 +1,2538 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"w",
+				"w	width"
+			],
+			[
+				"va-b",
+				"va-bl	vertical-align: baseline;"
+			],
+			[
+				"h",
+				"h-a	height: auto;"
+			],
+			[
+				"di",
+				"d-i	display: inline;"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"pt",
+				"padding-top"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"ch-s",
+				"ch-sidebar_link"
+			],
+			[
+				"border",
+				"border-right"
+			],
+			[
+				"a",
+				"a	<a>"
+			],
+			[
+				"par",
+				"partials"
+			],
+			[
+				"assets",
+				"assets/"
+			],
+			[
+				"asse",
+				"assets/"
+			],
+			[
+				"link",
+				"links	link - stylesheet"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"volun",
+				"volunteers"
+			],
+			[
+				"pa",
+				"parameters"
+			],
+			[
+				"cha",
+				"chatrooms"
+			],
+			[
+				"file",
+				"filename"
+			],
+			[
+				"ng-s",
+				"ng-submit"
+			],
+			[
+				"fir",
+				"firstname"
+			],
+			[
+				"popu",
+				"popupEnd"
+			],
+			[
+				"pop",
+				"popupEnd"
+			],
+			[
+				"eve",
+				"event_id"
+			],
+			[
+				"li",
+				"link"
+			],
+			[
+				"aso",
+				"assoc_id"
+			],
+			[
+				"border-c",
+				"border-color"
+			],
+			[
+				"margi",
+				"margin-top"
+			],
+			[
+				"assoc",
+				"assoc_id"
+			],
+			[
+				"ass",
+				"assoc_id"
+			],
+			[
+				"volunte",
+				"volunteer_id"
+			],
+			[
+				"asso",
+				"asso_id"
+			],
+			[
+				"members",
+				"membership"
+			],
+			[
+				"border-b",
+				"border-bottom"
+			],
+			[
+				"use",
+				"userService"
+			],
+			[
+				"user",
+				"userService〔argument〕"
+			],
+			[
+				"list-gr",
+				"list-group-item"
+			],
+			[
+				"alert-",
+				"alert-link"
+			],
+			[
+				"cal",
+				"calRights"
+			],
+			[
+				"ca",
+				"calendar.js"
+			],
+			[
+				"cale",
+				"calendarController"
+			],
+			[
+				"téléch",
+				"téléchargement"
+			],
+			[
+				"rese",
+				"research"
+			],
+			[
+				"sea",
+				"searchbox"
+			],
+			[
+				"searc",
+				"searchboxController"
+			],
+			[
+				"contr",
+				"controllerAs"
+			],
+			[
+				"login",
+				"loginController"
+			],
+			[
+				"var",
+				"var_dump〔function〕"
+			],
+			[
+				"getC",
+				"getContent〔function〕"
+			],
+			[
+				"get",
+				"getAll〔function〕"
+			],
+			[
+				"cate",
+				"category_id"
+			],
+			[
+				"categ",
+				"category"
+			],
+			[
+				"add",
+				"addquote"
+			],
+			[
+				"gulp",
+				"gulps	gulp.src('folder')"
+			],
+			[
+				"quote",
+				"quoteField"
+			],
+			[
+				"ange",
+				"angelName"
+			],
+			[
+				"serv",
+				"services/"
+			],
+			[
+				"hype",
+				"hypeService"
+			],
+			[
+				"fun",
+				"function〔keyword〕"
+			],
+			[
+				"seria",
+				"serialize"
+			],
+			[
+				"ser",
+				"serialize"
+			],
+			[
+				"jac",
+				"jacquesQuotes〔variable〕"
+			],
+			[
+				"pau",
+				"paulQuotes〔variable〕"
+			],
+			[
+				"pierr",
+				"pierreQuotes"
+			],
+			[
+				"addQ",
+				"addQuote"
+			],
+			[
+				"addq",
+				"addquote"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"post",
+				"postQuote"
+			],
+			[
+				"addQuote",
+				"addQuoteController.js"
+			],
+			[
+				"label",
+				"label	<label>"
+			],
+			[
+				"contro",
+				"controllerAs"
+			],
+			[
+				"nav",
+				"navigation"
+			],
+			[
+				"controll",
+				"controller"
+			],
+			[
+				"App",
+				"App\\Api\\V1\\Controllers\\CategoryController@index"
+			],
+			[
+				"json_",
+				"json_encode"
+			],
+			[
+				"fade",
+				"fadeOut〔function〕"
+			],
+			[
+				"max-",
+				"max-height"
+			],
+			[
+				"sk",
+				"skills"
+			],
+			[
+				"f-l",
+				"fl-l	float: left;"
+			],
+			[
+				"ba",
+				"base/"
+			],
+			[
+				"z-",
+				"z-index"
+			],
+			[
+				"mh",
+				"min-height"
+			],
+			[
+				"fsi",
+				"font-size"
+			],
+			[
+				"s",
+				"sidebar.less"
+			],
+			[
+				"foot",
+				"footer.php"
+			],
+			[
+				"boot",
+				"bootstrap/"
+			],
+			[
+				"lh",
+				"lh	line-height"
+			],
+			[
+				"exp",
+				"express〔variable〕"
+			],
+			[
+				"sou",
+				"sourcemaps"
+			],
+			[
+				"less",
+				"lesshint"
+			],
+			[
+				"pub",
+				"public/"
+			],
+			[
+				"cat",
+				"category"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"dig",
+				"angular: $digest"
+			],
+			[
+				"$a",
+				"angular: $apply"
+			],
+			[
+				"error",
+				"errorMessage"
+			],
+			[
+				"err",
+				"errorMessage"
+			],
+			[
+				"data",
+				"dataService"
+			],
+			[
+				"angu",
+				"angular"
+			],
+			[
+				"curre",
+				"currentSiteReset"
+			],
+			[
+				"curren",
+				"currentSiteReset"
+			],
+			[
+				"us",
+				"userService"
+			],
+			[
+				"loca",
+				"localStorageService"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"belongsT",
+				"belongsTo〔function〕"
+			],
+			[
+				"belongsTo",
+				"belongsToMany〔function〕"
+			],
+			[
+				"foreach",
+				"foreach	foreach …"
+			],
+			[
+				"com",
+				"components/"
+			],
+			[
+				"er",
+				"error"
+			],
+			[
+				"erro",
+				"errorHandler"
+			],
+			[
+				"fu",
+				"fun	Function"
+			],
+			[
+				"cuS",
+				"cuSummaryController.js"
+			],
+			[
+				"ng-c",
+				"ng-controller"
+			],
+			[
+				"bro",
+				"browserSync"
+			],
+			[
+				"champi",
+				"$champions〔variable〕"
+			],
+			[
+				"wat",
+				"watch"
+			],
+			[
+				"brows",
+				"browserSync"
+			],
+			[
+				"html",
+				"html5	Simple HTML5 Boilerplate"
+			],
+			[
+				"del",
+				"delete"
+			],
+			[
+				"compo",
+				"compo_1"
+			],
+			[
+				"incre",
+				"increments"
+			],
+			[
+				"auth",
+				"authenticate"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"creat",
+				"created"
+			],
+			[
+				"bo",
+				"book"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "@charset \"UTF-8\";\n\na, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font: inherit;\n    font-size: 1em;\n    vertical-align: baseline;\n}\n* {\n    box-sizing: border-box;\n}\narticle, aside, details, figcaption, figure, footer, header, menu, nav, section {\n    display: block;\n}\nhtml {\n    font-size: 62.5%;\n}\nbody {\n    line-height: 1;\n}\nol, ul {\n    list-style: none;\n}\nblockquote, q {\n    quotes: none;\n}\nblockquote:after, blockquote:before, q:after, q:before {\n    content: \"\";\n    content: none;\n}\ntable {\n    border-collapse: collapse;\n    border-spacing: 0;\n}\nsup {\n    vertical-align: super;\n    font-size: smaller;\n}\na {\n    text-decoration: none;\n}\n.ng-cloak, [ng-cloak], [ng\\:cloak] {\n    display: none !important;\n}\n.sa-avatar, .sa-button-back-to-top, .sa-button-showcase, .sa-call-to-action, .sa-company-card, .sa-container, .sa-data-block, .sa-drag-n-drop-area, .sa-feature-push, .sa-flash-message, .sa-footer, .sa-form, .sa-grid, .sa-grid-form, .sa-grid-simple, .sa-header-connected, .sa-header-disconnected, .sa-header-form, .sa-icon, .sa-image, .sa-info-block, .sa-investment-info, .sa-layout, .sa-layout-dashboard-page, .sa-layout-error, .sa-layout-form, .sa-link, .sa-list-flea, .sa-list-numbered, .sa-meowdal, .sa-paragraph-icon, .sa-password-verification, .sa-presentation-cupcake, .sa-presentation-lollipop, .sa-progress-bar, .sa-progress-circle, .sa-separat-or, .sa-slideshow, .sa-strate, .sa-sub-header, .sa-text, .sa-tooltip {\n    display: block;\n    color: #3f5461;\n    direction: ltr;\n    font-family: Roboto, Arial, sans-serif;\n    font-size: 1.6rem;\n    font-style: normal;\n    font-weight: 300;\n    letter-spacing: 0;\n    -ms-flex-positive: 0;\n    flex-grow: 0;\n    -ms-flex-negative: 0;\n    flex-shrink: 0;\n    line-height: 1;\n    text-align: left;\n    text-indent: 0;\n    text-transform: none;\n    visibility: visible;\n    white-space: normal;\n    word-spacing: normal;\n}\n.sa-layout {\n    height: 100vh;\n    overflow: hidden;\n}\n.sa-layout_header {\n    -ms-flex: 42px 0 0;\n    flex: 42px 0 0;\n}\n.sa-layout_header.\\--big-header {\n    -ms-flex: 54px 0 0;\n    flex: 54px 0 0;\n}\n.sa-layout_content {\n    height: calc(100vh - 42px);\n    overflow-y: auto;\n    transition: height .4s ease-in-out;\n}\n@media (max-width:1023px) {\n    .sa-layout_content.\\--compressed {\n        height: calc(100vh - 84px);\n    }\n}\n.sa-layout_content.\\--big-header {\n    height: calc(100vh - 54px);\n}\n@media (max-width:1023px) {\n    .sa-layout_content.\\--big-header.\\--compressed {\n        height: calc(100vh - 108px);\n    }\n}\n.sa-layout_content_back-to-top {\n    position: absolute;\n    z-index: 4;\n    bottom: 2em;\n    right: 2em;\n    opacity: 0;\n    overflow: hidden;\n    max-height: 0;\n    transition: .15s all ease-in-out;\n}\n.sa-layout_content_back-to-top.\\--shown {\n    opacity: 1;\n    max-height: 100%;\n}\n.sa-layout-error {\n    min-height: 600px;\n    background: #5ac7ff;\n    background-image: url(../../public/images/pattern-pictos.svg), linear-gradient(#5ac7ff, #1897ec);\n    background-size: 1000px, 100%;\n    padding-top: 200px;\n    padding-bottom: 200px;\n}\n.sa-layout-error_container {\n    font-size: 1.4rem;\n    padding-left: 2em;\n    padding-right: 2em;\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 800px;\n    line-height: 1.5;\n    text-align: center;\n}\n@media (max-width:767px) {\n    .sa-layout-error_container {\n        padding-left: 1.2em;\n        padding-right: 1.2em;\n    }\n}\n.sa-layout-error_infos, .sa-layout-error_subtitle, .sa-layout-error_title {\n    margin-bottom: 2em;\n}\n.sa-layout-error_call-to-action-bar {\n    margin-top: 3.5em;\n    display: -ms-flexbox;\n    display: flex;\n    margin-left: -.75em;\n    margin-right: -.75em;\n    -ms-flex-pack: center;\n    justify-content: center;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n}\n.sa-layout-error_call-to-action {\n    padding: .75em;\n}\n.sa-layout-form {\n    display: -ms-flexbox;\n    display: flex;\n    font-size: 1.4rem;\n    line-height: 1.5;\n    position: relative;\n}\n@media (max-width:1023px) {\n    .sa-layout-form {\n        -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    }\n}\n.sa-layout-form_main {\n    -ms-flex-positive: 1;\n    flex-grow: 1;\n}\n.sa-layout-form_control {\n    display: inline-block;\n    padding-left: 3rem;\n    padding-right: 3rem;\n    padding-top: 1.8rem;\n    font-size: 1.2rem;\n    text-transform: uppercase;\n    font-weight: 500;\n    color: #bfcacc;\n    transition: .15s all ease-in-out;\n}\n.sa-layout-form_control:hover {\n    color: #1897ec;\n}\n@media (max-width:767px) {\n    .sa-layout-form_control {\n        padding-left: 1.8rem;\n        padding-right: 1.8rem;\n    }\n}\n.sa-layout-form_control_arrow {\n    margin-right: .6em;\n    vertical-align: text-bottom;\n}\n.sa-layout-form_section {\n    background: #fff;\n    padding: 4.2rem 0;\n}\n@media (max-width:767px) {\n    .sa-layout-form_section {\n        padding: 3rem 0;\n    }\n}\n.sa-layout-form_section.\\--bordered-top {\n    border-top: 1px solid #d8e4e7;\n}\n.sa-layout-form_sidebar {\n    width: 34rem;\n    background: #f5f5f5;\n    padding: 4.2rem 3rem;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n    flex-direction: column;\n    -ms-flex-positive: 1;\n    flex-grow: 1;\n}\n@media (min-width:1024px) {\n    .sa-layout-form_sidebar {\n        -ms-flex-negative: 0;\n        flex-shrink: 0;\n        max-width: 34rem;\n    }\n}\n@media (min-width:768px) and (max-width:1023px) {\n    .sa-layout-form_sidebar {\n        -ms-flex-direction: row;\n        flex-direction: row;\n        -ms-flex-pack: center;\n        justify-content: center;\n        margin-right: -1.5rem;\n        margin-left: -1.5rem;\n    }\n}\n@media (max-width:767px) {\n    .sa-layout-form_sidebar {\n        padding: 3rem 1.8rem;\n    }\n}\n.sa-layout-form_sidebar_section {\n    padding-bottom: 4.2rem;\n}\n@media (min-width:768px) and (max-width:1023px) {\n    .sa-layout-form_sidebar_section {\n        -ms-flex: 50% 0 0;\n        flex: 50% 0 0;\n        -ms-flex-negative: 0;\n        flex-shrink: 0;\n        max-width: 50%;\n        padding-left: 1.5rem;\n        padding-right: 1.5rem;\n    }\n}\n@media (max-width:767px) {\n    .sa-layout-form_sidebar_section {\n        padding-bottom: 3rem;\n    }\n}\n.sa-layout-form_sidebar_section.\\--last {\n    padding-bottom: 0;\n}\n.sa-layout-dashboard-page {\n    background: #f5f5f5;\n    padding: 2em;\n    padding-bottom: 1em;\n    min-height: 100%;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n    flex-direction: column;\n}\n.sa-layout-dashboard-page_title {\n    margin-bottom: 2em;\n}\n.sa-layout-dashboard-page_feature-push {\n    margin-left: -2em;\n    margin-right: -2em;\n    margin-bottom: 2em;\n}\n.sa-layout-dashboard-page_footer {\n    -ms-flex-align: end;\n    align-items: flex-end;\n    -ms-flex-positive: 1;\n    flex-grow: 1;\n    display: -ms-flexbox;\n    display: flex;\n}\n.sa-meowdal {\n    position: fixed;\n    z-index: 5;\n    left: 0;\n    top: 0;\n    width: 100vw;\n    height: 100vh;\n    opacity: 1;\n    transition: opacity .3s;\n}\n.sa-meowdal_container {\n    display: block;\n    width: 100%;\n    border-radius: 3px;\n    overflow: hidden;\n}\n.sa-meowdal_header {\n    background-color: #00233c;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-pack: justify;\n    justify-content: space-between;\n    -ms-flex-align: center;\n    align-items: center;\n    text-align: center;\n    color: #fff;\n    padding: 1.8rem;\n    padding-left: 0;\n}\n.sa-meowdal_header_title {\n    font-weight: 500;\n    font-size: 1.6rem;\n    line-height: 1.3;\n    -ms-flex: 1px 1 1;\n    flex: 1px 1 1;\n    padding: 0 1.8rem;\n}\n.sa-meowdal_content {\n    padding: 3rem 3rem 0;\n    background-color: #fbfbfb;\n    overflow: auto;\n    max-height: calc(100vh - 12rem);\n}\n.sa-meowdal_content:after {\n    content: '';\n    display: block;\n    height: 3rem;\n}\n@media (max-width:767px) {\n    .sa-meowdal_content {\n        padding: 1.8rem 1.8rem 0;\n        max-height: calc(100vh - 13rem);\n    }\n    .sa-meowdal_content:after {\n        height: 1.8rem;\n    }\n}\n@keyframes a {\n    0% {\n        opacity: 1;\n    }\n    to {\n        opacity: 0;\n    }\n}\n.sa-meowdal.ngdialog-closing, .sa-meowdal.ngdialog-closing .ngdialog-content, .sa-meowdal.ngdialog-closing .ngdialog-overlay {\n    animation: a .5s;\n}\n.sa-meowdal .ngdialog-content {\n    background-color: transparent !important;\n    position: relative;\n    display: -ms-flexbox;\n    display: flex;\n    width: calc(100% - 1.8rem * 2);\n    margin: 3rem auto;\n    max-width: 60rem;\n    z-index: 2;\n}\n@media (max-width:767px) {\n    .sa-meowdal .ngdialog-content {\n        margin: 1.8rem auto;\n    }\n}\n.sa-meowdal .ngdialog-overlay {\n    background-color: rgba(2, 41, 74, .8);\n    position: absolute;\n    z-index: 1;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    cursor: zoom-out;\n    -ms-flex: 100vw 0 0;\n    flex: 100vw 0 0;\n    width: 100vw;\n    height: 100vh;\n}\n.sa-tooltip {\n    display: inline-block;\n    position: relative;\n    font-size: 1.2rem;\n    background: #00233c;\n    padding: .6rem 1.2rem;\n    color: #f2fbff;\n    border-radius: 3px;\n    line-height: 1.5;\n    text-align: center;\n    max-width: 17.2rem;\n}\n.sa-tooltip:before {\n    content: '';\n    display: block;\n    position: absolute;\n    width: 0;\n    height: 0;\n    border: 4px solid transparent;\n}\n.sa-tooltip.\\--arrow-top:before {\n    top: 0;\n    left: 50%;\n    transform: translate(-50%, -100%);\n    border-top-width: 0;\n    border-bottom-color: #00233c;\n}\n.sa-tooltip.\\--arrow-bottom:before {\n    bottom: 0;\n    left: 50%;\n    transform: translate(-50%, 100%);\n    border-bottom-width: 0;\n    border-top-color: #00233c;\n}\n.sa-tooltip.\\--arrow-left:before {\n    top: 50%;\n    left: 0;\n    transform: translate(-100%, -50%);\n    border-left-width: 0;\n    border-right-color: #00233c;\n}\n.sa-tooltip.\\--arrow-right:before {\n    top: 50%;\n    right: 0;\n    transform: translate(100%, -50%);\n    border-right-width: 0;\n    border-left-color: #00233c;\n}\n.sa-progress-circle {\n    position: relative;\n    display: inline-block;\n    max-width: 100%;\n}\n.sa-progress-circle .round-progress {\n    max-width: 100%;\n}\n.sa-progress-circle_content {\n    position: absolute;\n    top: 50%;\n    bottom: auto;\n    left: 50%;\n    transform: translateY(-50%) translateX(-50%);\n}\n.sa-grid {\n    display: -ms-flexbox;\n    display: flex;\n    font-size: 1.4rem;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n    margin-left: -3rem;\n    margin-top: -3rem;\n}\n@media (max-width:767px) {\n    .sa-grid {\n        margin-left: -1.8rem;\n        margin-top: -1.8rem;\n    }\n}\n.sa-grid.\\--compressed {\n    margin-top: -1.8rem;\n}\n.sa-grid.\\--align-center {\n    -ms-flex-pack: center;\n    justify-content: center;\n}\n.sa-grid_col {\n    -ms-flex: 100% 0 0;\n    flex: 100% 0 0;\n    max-width: 100%;\n    padding-left: 3rem;\n    margin-top: 3rem;\n}\n@media (max-width:767px) {\n    .sa-grid_col {\n        padding-left: 1.8rem;\n        margin-top: 1.8rem;\n    }\n}\n.sa-grid_col.\\--compressed {\n    margin-top: 1.8rem;\n}\n.sa-grid_col.\\--hidden {\n    display: none;\n}\n@media (max-width:767px) {\n    .sa-grid_col.\\--hidden\\@to-phablet {\n        display: none;\n    }\n}\n@media (min-width:768px) {\n    .sa-grid_col.\\--hidden\\@from-tablet {\n        display: none;\n    }\n}\n.sa-grid_col.\\--centered {\n    -ms-flex-item-align: center;\n    align-self: center;\n}\n.sa-grid_col.\\--company-card {\n    -ms-flex: 26rem 0 0;\n    flex: 26rem 0 0;\n    max-width: 26rem;\n}\n@media (max-width:767px) {\n    .sa-grid_col.\\--company-card {\n        -ms-flex: 24.8rem 0 0;\n        flex: 24.8rem 0 0;\n        max-width: 24.8rem;\n    }\n}\n.sa-grid_col.\\--three-quarters {\n    -ms-flex: 75% 0 0;\n    flex: 75% 0 0;\n    max-width: 75%;\n}\n@media (min-width:1024px) {\n    .sa-grid_col.\\--three-quarters\\@on-desktop {\n        -ms-flex: 75% 0 0;\n        flex: 75% 0 0;\n        max-width: 75%;\n    }\n}\n.sa-grid_col.\\--two-thirds {\n    -ms-flex: 66.6666% 0 0;\n    flex: 66.6666% 0 0;\n    max-width: 66.6666%;\n}\n@media (min-width:768px) {\n    .sa-grid_col.\\--two-thirds\\@from-tablet {\n        -ms-flex: 66.6666% 0 0;\n        flex: 66.6666% 0 0;\n        max-width: 66.6666%;\n    }\n}\n@media (min-width:1024px) {\n    .sa-grid_col.\\--two-thirds\\@on-desktop {\n        -ms-flex: 66.6666% 0 0;\n        flex: 66.6666% 0 0;\n        max-width: 66.6666%;\n    }\n}\n.sa-grid_col.\\--half {\n    -ms-flex: 50% 0 0;\n    flex: 50% 0 0;\n    max-width: 50%;\n}\n@media (min-width:768px) {\n    .sa-grid_col.\\--half\\@from-tablet {\n        -ms-flex: 50% 0 0;\n        flex: 50% 0 0;\n        max-width: 50%;\n    }\n}\n@media (min-width:768px) and (max-width:1023px) {\n    .sa-grid_col.\\--half\\@on-tablet {\n        -ms-flex: 50% 0 0;\n        flex: 50% 0 0;\n        max-width: 50%;\n    }\n}\n@media (min-width:1024px) {\n    .sa-grid_col.\\--half\\@on-desktop {\n        -ms-flex: 50% 0 0;\n        flex: 50% 0 0;\n        max-width: 50%;\n    }\n}\n.sa-grid_col.\\--one-third {\n    -ms-flex: 33.3333% 0 0;\n    flex: 33.3333% 0 0;\n    max-width: 33.3333%;\n}\n@media (min-width:768px) {\n    .sa-grid_col.\\--one-third\\@from-tablet {\n        -ms-flex: 33.3333% 0 0;\n        flex: 33.3333% 0 0;\n        max-width: 33.3333%;\n    }\n}\n@media (min-width:1024px) {\n    .sa-grid_col.\\--one-third\\@on-desktop {\n        -ms-flex: 33.3333% 0 0;\n        flex: 33.3333% 0 0;\n        max-width: 33.3333%;\n    }\n}\n.sa-grid_col.\\--one-quarter {\n    -ms-flex: 25% 0 0;\n    flex: 25% 0 0;\n    max-width: 25%;\n}\n@media (min-width:1024px) {\n    .sa-grid_col.\\--one-quarter\\@on-desktop {\n        -ms-flex: 25% 0 0;\n        flex: 25% 0 0;\n        max-width: 25%;\n    }\n}\n.sa-drag-n-drop-area {\n    position: relative;\n    display: -ms-flexbox;\n    display: flex;\n}\n.sa-drag-n-drop-area_input {\n    height: 0;\n    width: 0;\n}\n.sa-drag-n-drop-area_input:focus {\n    outline: none;\n}\n.sa-drag-n-drop-area_content {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-pack: center;\n    justify-content: center;\n    -ms-flex-direction: column;\n    flex-direction: column;\n    min-height: 26rem;\n    border-radius: 1.8rem;\n    border: 2px dashed #d8e4e7;\n    background: #fff;\n    padding: 1.8rem;\n    width: 100%;\n    cursor: pointer;\n    -ms-flex-align: center;\n    align-items: center;\n    margin: 0;\n    transition: .15s all ease-in-out;\n}\n.sa-drag-n-drop-area_content:focus {\n    outline: none;\n}\n.sa-drag-n-drop-area_content:hover {\n    border-color: #3f5461;\n}\n.sa-drag-n-drop-area_content:hover+.sa-drag-n-drop-area_button-bar .sa-drag-n-drop-area_button.\\--upload {\n    background: #3f5461;\n    color: #fff;\n    border-color: #3f5461;\n}\n.sa-drag-n-drop-area_content.\\--drag-hover {\n    border-color: #3f5461;\n}\n.sa-drag-n-drop-area_content.\\--drag-hover .sa-drag-n-drop-area_button {\n    background: #3f5461;\n    color: #fff;\n    border-color: #3f5461;\n}\n.sa-drag-n-drop-area_sub-title {\n    padding-bottom: 1.2rem;\n    max-width: 100%;\n}\n.sa-drag-n-drop-area_image {\n    text-align: center;\n    max-width: 100%;\n}\n.sa-drag-n-drop-area_title {\n    padding-top: 1.2rem;\n    max-width: 100%;\n}\n.sa-drag-n-drop-area_text {\n    margin-top: 1.2rem;\n    max-width: 100%;\n}\n.sa-drag-n-drop-area_button-bar {\n    position: absolute;\n    bottom: -1.8rem;\n    right: 0;\n}\n.sa-drag-n-drop-area_button {\n    background: #fff;\n    border: 1px solid #d8e4e7;\n    color: #5ac7ff;\n    border-radius: 50%;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-pack: center;\n    justify-content: center;\n    line-height: 0;\n    padding: 1.2rem;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n    margin-left: 1.2rem;\n    cursor: pointer;\n    transition: .15s all ease-in-out;\n}\n.sa-drag-n-drop-area_button::-moz-focus-inner {\n    padding: 0;\n}\n.sa-drag-n-drop-area_button:focus {\n    outline: none;\n}\n.sa-drag-n-drop-area_button:hover {\n    background: #3f5461;\n    color: #fff;\n    border-color: #3f5461;\n}\n.sa-avatar {\n    width: 80px;\n    border-radius: 50%;\n    overflow: hidden;\n    max-width: 100%;\n}\n.sa-avatar.\\--small {\n    width: 50px;\n}\n.sa-button-showcase {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n    -ms-flex-direction: column;\n    flex-direction: column;\n    -ms-flex-pack: center;\n    justify-content: center;\n    border-radius: 3px;\n    height: 26rem;\n    width: 100%;\n    background: #f5f5f5;\n    transition: .15s all ease-in-out;\n}\n.sa-button-showcase:hover {\n    background: #d8e4e7;\n}\n.sa-button-showcase:active {\n    background: #bfcacc;\n}\n.sa-button-showcase_image {\n    padding: 0 1.8rem;\n}\n.sa-button-showcase_title {\n    margin-top: 2.4rem;\n    padding: 0 1.8rem;\n}\n.sa-button-back-to-top {\n    background: #1897ec;\n    display: -ms-flexbox;\n    display: flex;\n    width: 3.6rem;\n    height: 3.6rem;\n    padding: .3rem;\n    -ms-flex-pack: center;\n    justify-content: center;\n    border-radius: 3px;\n    color: #fff;\n    border: 0;\n    cursor: pointer;\n    transition: .15s all ease-in-out;\n    border: 1px solid rgba(33, 106, 177, .3);\n}\n.sa-button-back-to-top:focus {\n    outline: 0;\n}\n.sa-button-back-to-top:hover {\n    background: #5ac7ff;\n}\n.sa-button-back-to-top:active {\n    background: #216ab1;\n}\n.sa-button-back-to-top_icon {\n    font-size: 2.6rem;\n}\n.sa-call-to-action {\n    position: relative;\n    font-size: 1.4rem;\n    border-radius: 3px;\n    display: inline-block;\n    background: #1897ec;\n    color: #fff;\n    padding: .5em 1.3em;\n    line-height: 1.5em;\n    transition: .15s all ease-in-out;\n    font-weight: 300;\n    border: 0;\n    margin: 0;\n    cursor: pointer;\n    text-align: center;\n    -webkit-appearance: none;\n}\n.sa-call-to-action:focus {\n    outline: none;\n}\n.sa-call-to-action:hover {\n    background: #5ac7ff;\n}\n.sa-call-to-action:active {\n    background: #216ab1;\n}\n.sa-call-to-action:disabled {\n    background: #b7d2d7;\n    cursor: not-allowed;\n}\n.sa-call-to-action.\\--large {\n    padding: .8em 1.8em;\n    font-size: 1.6rem;\n}\n.sa-call-to-action.\\--full {\n    display: block;\n    width: 100%;\n}\n@media (max-width:479px) {\n    .sa-call-to-action.\\--full\\@on-phone {\n        display: block;\n        width: 100%;\n    }\n}\n@media (max-width:767px) {\n    .sa-call-to-action.\\--full\\@to-phablet {\n        display: block;\n        width: 100%;\n    }\n}\n.sa-call-to-action.\\--trapped {\n    background: #fff;\n    color: #216ab1;\n}\n.sa-call-to-action.\\--trapped:hover {\n    color: #5ac7ff;\n}\n.sa-call-to-action.\\--trapped:active {\n    color: #1897ec;\n    background: #e0f4ff;\n}\n.sa-call-to-action.\\--validation {\n    color: #fff;\n    background: #4ad7a3;\n}\n.sa-call-to-action.\\--validation:hover {\n    background: #75e7cd;\n}\n.sa-call-to-action.\\--validation:active {\n    background: #2cb19f;\n}\n.sa-call-to-action.\\--linkedin {\n    color: #fff;\n    background: #0282bd;\n}\n.sa-call-to-action.\\--linkedin:hover {\n    background-color: #03a5ef;\n}\n.sa-call-to-action.\\--linkedin:active {\n    background-color: #014e71;\n}\n.sa-call-to-action.\\--pushed {\n    color: #fff;\n    background: #ff6e6e;\n}\n.sa-call-to-action.\\--pushed:hover {\n    background: #f98;\n}\n.sa-call-to-action.\\--pushed:active {\n    background: #cf415c;\n}\n.sa-call-to-action.\\--secondary {\n    color: #1897ec;\n    box-shadow: inset 0 0 0 1px #1897ec;\n    background: none;\n}\n.sa-call-to-action.\\--secondary:hover {\n    background: #1897ec;\n    color: #fff;\n}\n.sa-call-to-action.\\--secondary:active {\n    background: #216ab1;\n    color: #fff;\n    box-shadow: inset 0 0 0 1px #216ab1;\n}\n.sa-call-to-action.\\--secondary.\\--trapped {\n    color: #fff;\n    box-shadow: inset 0 0 0 1px #fff;\n    background: transparent;\n}\n.sa-call-to-action.\\--secondary.\\--trapped:hover {\n    color: #5ac7ff;\n    background: #fff;\n}\n.sa-call-to-action.\\--secondary.\\--trapped:active {\n    color: #1897ec;\n    background: #e0f4ff;\n}\n.sa-call-to-action.\\--secondary.\\--pushed {\n    color: #ff6e6e;\n    box-shadow: inset 0 0 0 1px #ff6e6e;\n}\n.sa-call-to-action.\\--secondary.\\--pushed:hover {\n    background: #ff6e6e;\n    color: #fff;\n}\n.sa-call-to-action.\\--secondary.\\--pushed:active {\n    background: #cf415c;\n    color: #fff;\n    box-shadow: inset 0 0 0 1px #cf415c;\n}\n.sa-call-to-action.\\--tertiary {\n    color: #72888e;\n    box-shadow: inset 0 0 0 1px #b7d2d7;\n    background: none;\n}\n.sa-call-to-action.\\--tertiary:hover {\n    background: #b7d2d7;\n    color: #fff;\n}\n.sa-call-to-action.\\--tertiary:active {\n    background: #72888e;\n    color: #fff;\n    box-shadow: inset 0 0 0 1px #72888e;\n}\n.sa-call-to-action.\\--tertiary.\\--trapped {\n    color: #fff;\n    box-shadow: inset 0 0 0 1px #fff;\n    background: transparent;\n}\n.sa-call-to-action.\\--tertiary.\\--trapped:hover {\n    color: #5ac7ff;\n    background: #fff;\n}\n.sa-call-to-action.\\--tertiary.\\--trapped:active {\n    color: #1897ec;\n    background: #e0f4ff;\n}\n.sa-call-to-action.\\--pill {\n    font-size: 1.2rem;\n    padding: .2em .9em;\n    border-radius: 25px;\n    box-shadow: inset 0 0 0 1px #b7d2d7;\n    background: #fff;\n    color: #72888e;\n}\n.sa-call-to-action.\\--pill:hover {\n    color: #fff;\n    background: #b7d2d7;\n}\n.sa-call-to-action.\\--pill:active {\n    color: #fff;\n    background: #72888e;\n    box-shadow: inset 0 0 0 1px #72888e;\n}\n.sa-call-to-action.\\--call-to-action-input {\n    border-top-left-radius: 0;\n    border-bottom-left-radius: 0;\n    margin-left: -1px;\n    -ms-flex-negativ.\\-e: 0;\n    flex-shrink: 0;\n}\n@media (max-width:767px) {\n    .sa-call-to-action.\\--call-to-action-input {\n        width: 100%;\n        border-radius: 3px;\n        text-align: center;\n    }\n}\n.sa-call-to-action.\\--fortuneo {\n    background-color: #a0e442;\n}\n.sa-call-to-action.\\--fortuneo:hover {\n    background-color: #cdf19b;\n}\n.sa-call-to-action.\\--fortuneo:active {\n    background-color: #6ca818;\n}\n.sa-call-to-action_icon {\n    font-size: 1em;\n    line-height: 1.5em;\n    display: inline;\n    height: auto;\n    width: auto;\n    padding-right: .8em;\n    vertical-align: baseline;\n}\n.sa-company-card {\n    max-width: 100%;\n    cursor: pointer;\n    transition: .15s all ease-in-out;\n    box-shadow: 0 0 0 0 #d8e4e7;\n    transform: translateZ(0);\n}\n.sa-company-card:hover {\n    box-shadow: 0 2px 6px 0 #d8e4e7;\n    text-decoration: none;\n}\n.sa-company-card.\\--trapped:hover {\n    box-shadow: 0 1px 10px 0 #152f53;\n}\n.sa-company-card_cover {\n    width: 100%;\n    max-width: 100%;\n    height: 0;\n    padding-bottom: 60%;\n    background-size: cover;\n    display: block;\n    border-top-right-radius: 3px;\n    border-top-left-radius: 3px;\n    position: relative;\n    overflow: hidden;\n}\n.sa-company-card_cover:hover .sa-company-card_cover_overlay {\n    opacity: .8;\n    transform: translateY(0);\n}\n.sa-company-card_cover_overlay {\n    pointer-events: none;\n    position: absolute;\n    border-top-right-radius: 3px;\n    border-top-left-radius: 3px;\n    top: 0;\n    bottom: 0;\n    right: 0;\n    left: 0;\n    background: #1897ec;\n    opacity: 0;\n    transition: .15s all ease-in-out;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n    -ms-flex-pack: center;\n    justify-content: center;\n    transform: translateY(3px);\n}\n.sa-company-card_cover_logo {\n    height: 100px;\n    width: 150px;\n    background-size: contain;\n    background-repeat: no-repeat;\n    background-position: 50%;\n}\n.sa-company-card_icon-title-container {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-pack: justify;\n    justify-content: space-between;\n}\n.sa-company-card_title {\n    -ms-flex: calc(100% - 3.7rem) 0 0;\n    flex: calc(100% - 3.7rem) 0 0;\n    max-width: calc(100% - 3.7rem);\n}\n.sa-company-card_icon {\n    padding-left: 1.2rem;\n    -ms-flex-item-align: center;\n    align-self: center;\n}\n.sa-company-card_content {\n    position: relative;\n    border-top: 0;\n    box-shadow: inset -1px 0 0 0 #d8e4e7, inset 1px 0 0 0 #d8e4e7;\n    padding: 1.2em;\n    background: #fff;\n}\n.sa-company-card_progress-bar {\n    height: 6px;\n    background: #d8e4e7;\n    border-radius: 3px;\n    margin-top: .8em;\n    margin-bottom: .4em;\n}\n.sa-company-card_progress-bar_progress {\n    height: 6px;\n    background: #4ad7a3;\n    max-width: 100%;\n    border-radius: 3px;\n}\n.sa-company-card_flea {\n    height: 10px;\n    width: 10px;\n    background: #4ad7a3;\n    margin-right: 3px;\n    display: inline-block;\n    border-radius: 50%;\n}\n.sa-company-card_flea.\\--no-progress {\n    background: #d8e4e7;\n}\n.sa-company-card_footer {\n    box-shadow: inset 0 0 0 1px #d8e4e7;\n    display: -ms-flexbox;\n    border-bottom-right-radius: 3px;\n    border-bottom-left-radius: 3px;\n    background: #fff;\n    display: flex;\n    -ms-flex-pack: center;\n    justify-content: center;\n    -ms-flex-align: center;\n    align-items: center;\n    height: 3.8em;\n}\n.sa-company-card_footer_cell {\n    -ms-flex-positive: 1;\n    flex-grow: 1;\n    -ms-flex-preferred-size: 0;\n    flex-basis: 0;\n    padding-top: .8em;\n    padding-bottom: .8em;\n    padding-left: .6em;\n}\n.sa-company-card_footer_cell:first-child {\n    padding-left: 1.2em;\n}\n.sa-company-card_footer_cell:last-child {\n    padding-right: 1.2em;\n}\n.sa-container {\n    font-size: 1.4rem;\n    padding-left: 3rem;\n    padding-right: 3rem;\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 120rem;\n    line-height: 1.5;\n}\n@media (max-width:767px) {\n    .sa-container {\n        padding-left: 1.8rem;\n        padding-right: 1.8rem;\n    }\n}\n.sa-container.\\--small {\n    max-width: 80rem;\n}\n@media (min-width:1024px) {\n    .sa-container.\\--small\\@on-desktop {\n        max-width: 80rem;\n    }\n}\n.sa-container.\\--centered {\n    text-align: center;\n}\n.sa-container.\\--reset-padding {\n    padding: 0;\n}\n.sa-container.\\--padded-top {\n    padding: 3rem;\n}\n@media (max-width:767px) {\n    .sa-container.\\--padded-top {\n        padding: 1.8rem;\n    }\n}\n.sa-data-block {\n    width: 8rem;\n    height: 8rem;\n    vertical-align: middle;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n    -ms-flex-pack: center;\n    justify-content: center;\n    -ms-flex-align: center;\n    align-items: center;\n    background-color: #1897ec;\n    border-radius: .5rem;\n    transition: .15s all ease-in-out;\n}\n.sa-data-block.\\--green {\n    background-color: #4ad7a3;\n}\n.sa-data-block.\\--red {\n    background-color: #ff6e6e;\n}\n.sa-data-block.\\--grey {\n    background-color: #bfcacc;\n}\n.sa-data-block.\\--fortuneo {\n    background-color: #a0e442;\n}\n.sa-data-block.\\--dark-blue {\n    background-color: #004c87;\n}\n.sa-data-block.\\--bordered {\n    background-color: transparent;\n    box-shadow: inset 0 0 0 1px #5ac7ff;\n}\n.sa-data-block.\\--bordered.\\--clickable:hover {\n    box-shadow: none;\n    background-color: #fff;\n}\n.sa-data-block.\\--bordered.\\--clickable:hover .sa-data-block_data {\n    color: #1897ec;\n}\n.sa-data-block.\\--bordered.\\--clickable:active {\n    box-shadow: none;\n    background-color: #e0f4ff;\n}\n.sa-data-block.\\--bordered.\\--clickable:active .sa-data-block_data {\n    color: #216ab1;\n}\n.sa-data-block.\\--small {\n    width: 5rem;\n    height: 5rem;\n}\n.sa-data-block_data {\n    overflow: hidden;\n    text-align: center;\n    white-space: nowrap;\n    color: #fff;\n    font-size: 5.5rem;\n}\n.sa-data-block_data.\\--text {\n    font-size: 2.4rem;\n    font-weight: 500;\n}\n.sa-data-block_data.\\--logo {\n    width: 5.5rem;\n    height: 5.5rem;\n    background-size: contain;\n    background-position: 50%;\n    background-repeat: no-repeat;\n}\n.sa-data-block_data.\\--small {\n    font-size: 3.4375rem;\n}\n.sa-data-block_data.\\--small.\\--logo {\n    width: 3.4375rem;\n    height: 3.4375rem;\n}\n.sa-data-block_data.\\--small.\\--text {\n    font-size: 1.5rem;\n}\n.sa-feature-push {\n    background: #d8e4e7;\n    padding: 2em;\n    position: relative;\n}\n@media (min-width:768px) {\n    .sa-feature-push {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-align: start;\n        align-items: flex-start;\n    }\n}\n.sa-feature-push_block {\n    text-align: center;\n    -ms-flex-negative: 0;\n    flex-shrink: 0;\n}\n@media (max-width:767px) {\n    .sa-feature-push_block {\n        margin-bottom: 1em;\n    }\n}\n.sa-feature-push_content {\n    margin-left: 1.5em;\n    -ms-flex-positive: 1;\n    flex-grow: 1;\n}\n@media (max-width:767px) {\n    .sa-feature-push_content {\n        margin-left: 0;\n    }\n}\n.sa-feature-push_list {\n    margin-top: .5em;\n}\n@media (max-width:767px) {\n    .sa-feature-push_list {\n        padding: 0 1em;\n    }\n}\n@media (min-width:1024px) {\n    .sa-feature-push_list {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-align: center;\n        align-items: center;\n        -ms-flex-pack: initial;\n        justify-content: initial;\n    }\n}\n.sa-feature-push_item {\n    margin-right: 1em;\n}\n@media (max-width:1023px) {\n    .sa-feature-push_item {\n        margin-bottom: .3em;\n    }\n    .sa-feature-push_item:last-child {\n        margin-bottom: 0;\n    }\n}\n.sa-feature-push_close {\n    -ms-flex-item-align: center;\n    align-self: center;\n}\n@media (max-width:767px) {\n    .sa-feature-push_close {\n        position: absolute;\n        top: 2em;\n        right: 2em;\n    }\n}\n.sa-flash-message {\n    line-height: 1.5;\n    position: relative;\n    padding: 1.2rem 3rem;\n    font-size: 1.4rem;\n    color: #fff;\n}\n@media (max-width:767px) {\n    .sa-flash-message {\n        padding: 1.2rem 1.8rem;\n    }\n}\n.sa-flash-message.\\--closable {\n    padding-right: 4.2rem;\n}\n.sa-flash-message.\\--error {\n    background: #ff6e6e;\n}\n.sa-flash-message.\\--success {\n    background: #4ad7a3;\n}\n.sa-flash-message_close {\n    font-size: 2rem;\n    line-height: 0;\n    position: absolute;\n    right: 3rem;\n    top: 50%;\n    transform: translateY(-50%);\n}\n@media (max-width:767px) {\n    .sa-flash-message_close {\n        right: 1.8rem;\n    }\n}\n.sa-footer {\n    background-color: #004c87;\n    padding: 1em 0;\n    -ms-flex-positive: 0;\n    flex-grow: 0;\n    -ms-flex-negative: 1;\n    flex-shrink: 1;\n    -ms-flex-preferred-size: auto;\n    flex-basis: auto;\n    width: 100%;\n}\n.sa-footer.\\--sub {\n    background-color: #152f53;\n}\n.sa-footer.\\--full-width {\n    width: 100%;\n}\n.sa-footer.\\--light {\n    background-color: #f5f5f5;\n}\n.sa-footer_title {\n    margin-bottom: .5em;\n}\n.sa-footer_macaron {\n    margin: .5em auto 1.5em;\n    display: block;\n    -ms-flex: auto 0 0;\n    flex: auto 0 0;\n    -ms-flex-item-align: center;\n    align-self: center;\n}\n@media (min-width:768px) {\n    .sa-footer_macaron {\n        margin: .5em 1.5em 0 0;\n    }\n}\n.sa-footer_macaron.\\--small {\n    width: 8rem;\n}\n@media (min-width:768px) {\n    .sa-footer_disclaimer {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-align: center;\n        align-items: center;\n    }\n}\n.sa-footer_text {\n    margin-top: 1em;\n}\n.sa-footer_grid {\n    margin: 0 -1em;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n    -ms-flex-pack: distribute;\n    justify-content: space-around;\n}\n.sa-footer_column {\n    padding: 1em;\n    -ms-flex: 100% 0 1;\n    flex: 100% 0 1;\n}\n@media (min-width:768px) {\n    .sa-footer_column {\n        -ms-flex: 25% 0 1;\n        flex: 25% 0 1;\n        max-width: 25%;\n    }\n}\n@media (max-width:767px) {\n    .sa-footer_icon-bar {\n        text-align: center;\n    }\n}\n.sa-footer_icon {\n    color: #fff;\n    font-size: 1.6rem;\n    transition: .15s all ease-in-out;\n}\n.sa-footer_icon:hover {\n    color: #1897ec;\n}\n.sa-footer_icon-link {\n    display: inline-block;\n    margin-top: 1em;\n    width: 1.6rem;\n    text-align: center;\n    margin-right: .5em;\n}\n.sa-footer_link {\n    font-size: 1.2rem;\n    line-height: 1.5em;\n    font-weight: 300;\n    color: #bfcacc;\n    display: block;\n    transition: .15s all ease-in-out;\n}\n@media (max-width:767px) {\n    .sa-footer_link {\n        text-align: center;\n    }\n}\n.sa-footer_link:hover {\n    color: #fff;\n}\n-----------------------------------------------------------------\n.sa-form::placeholder {\n    color: #bfcacc;\n    font-weight: 300;\n}\n.sa-form.\\--icons {\n    font-size: 1.4em;\n    margin-left: 1.3em;\n}\n.sa-form_row {\n    font-size: 1.4rem;\n    position: relative;\n    margin-top: 1.8rem;\n}\n.sa-form_row.\\--no-margin {\n    margin-top: 0;\n}\n@media (min-width:768px) {\n    .sa-form_row.\\--no-margin\\@from-tablet {\n        margin-top: 0;\n    }\n}\n.sa-form_row.\\--inline {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: start;\n    align-items: flex-start;\n}\n@media (max-width:1023px) {\n    .sa-form_row.\\--inline {\n        display: block;\n    }\n}\n.sa-form_row.\\--align-center {\n    text-align: center;\n}\n.sa-form_row.\\--align-right {\n    text-align: right;\n}\n.sa-form_input-inline-container {\n    width: 100%;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n}\n.sa-form_input-group, .sa-form_input-inline-container {\n    display: -ms-flexbox;\n    display: flex;\n    position: relative;\n}\n@media (max-width:767px) {\n    .sa-form_input-group.\\--call-to-action-input {\n        -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    }\n}\n.sa-form_label {\n    display: inline-block;\n    position: relative;\n    color: #3f5461;\n    font-weight: 500;\n    font-size: 1.4rem;\n    margin-bottom: .7em;\n    line-height: 1.5em;\n    cursor: pointer;\n}\n.sa-form_label.\\--disabled {\n    color: #bfcacc;\n}\n.sa-form_label.\\--inline {\n    padding-right: 1.2em;\n    margin-bottom: 0;\n    -ms-flex-negative: 0;\n    flex-shrink: 0;\n}\n.sa-form_label.\\--inline.\\--fixed-width {\n    width: 150px;\n}\n@media (max-width:1023px) {\n    .sa-form_label.\\--inline {\n        margin-bottom: .7em;\n    }\n}\n.sa-form_label.\\--large {\n    font-size: 1.8rem;\n    line-height: 1.5em;\n    margin-bottom: .6em;\n}\n.sa-form_addition {\n    font-size: 1.4rem;\n    font-weight: 500;\n    color: #72888e;\n    padding: .5em .8em;\n    background: #fbfbfb;\n    border-radius: 3px;\n    line-height: 1.5em;\n    display: inline-block;\n    -ms-flex-negative: 0;\n    flex-shrink: 0;\n}\n.sa-form_addition.\\--prefix {\n    box-shadow: inset 0 1px 0 0 #d8e4e7, inset 0 -1px 0 0 #d8e4e7, inset 1px 0 0 0 #d8e4e7;\n    border-right: 0;\n    border-bottom-right-radius: 0;\n    border-top-right-radius: 0;\n}\n.sa-form_addition.\\--prefix.\\--large {\n    font-size: 1.8rem;\n    padding: .8em 1em;\n}\n.sa-form_addition.\\--suffix {\n    box-shadow: inset 0 1px 0 0 #d8e4e7, inset 0 -1px 0 0 #d8e4e7, inset -1px 0 0 0 #d8e4e7;\n    border-left: 0;\n    border-bottom-left-radius: 0;\n    border-top-left-radius: 0;\n}\n.sa-form_addition.\\--suffix.\\--large {\n    font-size: 1.8rem;\n    padding: .8em 1em;\n}\n.sa-form_select {\n    background: #fff;\n    height: 33px;\n    font-size: 1.4rem;\n    font-family: Roboto, Arial, sans-serif;\n    border: 1px solid #d8e4e7;\n    color: #72888e;\n}\n.sa-form_select:focus {\n    outline: none;\n}\n.sa-form_select:disabled {\n    cursor: not-allowed;\n    background: #fbfbfb;\n}\n@media (max-width:767px) {\n    .sa-form_select {\n        width: 100%;\n    }\n}\n@media (min-width:768px) {\n    .sa-form_select.\\--buttons-group-responsive {\n        display: none;\n    }\n}\n.sa-form_select.\\--error {\n    border-color: #ff6e6e;\n}\n.sa-form_toggle-button {\n    position: absolute;\n    transform: translateY(-50%);\n    top: 1.8rem;\n    right: .7em;\n    font-size: 1.6rem;\n    padding: 0;\n    border: 0;\n    background: 0;\n    cursor: pointer;\n    transition: .15s all ease-in-out;\n    color: #72888e;\n}\n.sa-form_toggle-button:disabled {\n    color: #bfcacc;\n    cursor: not-allowed;\n}\n.sa-form_toggle-button:hover:enabled {\n    color: #1897ec;\n}\n.sa-form_toggle-button:focus {\n    outline: none;\n}\n.sa-form_text {\n    font-size: 1.4rem;\n    position: relative;\n    box-shadow: inset 0 0 0 1px #d8e4e7;\n    padding: .5em .7em;\n    color: #72888e;\n    background: #fff;\n    font-family: Roboto, Arial, sans-serif;\n    border-radius: 3px;\n    transition: .1s all ease-in-out;\n    -ms-flex-positive: 1;\n    flex-grow: 1;\n    line-height: 1.5em;\n    border: 0;\n    margin: 0;\n    width: 100%;\n}\n.sa-form_text:enabled:hover {\n    box-shadow: inset 0 0 0 1px #5ac7ff;\n}\n.sa-form_text:enabled:focus {\n    outline: none;\n    box-shadow: inset 0 0 0 1px #1897ec;\n}\n.sa-form_text:disabled {\n    background: #fbfbfb;\n    cursor: not-allowed;\n}\n@media (min-width:480px) {\n    .sa-form_text.\\--small-width {\n        -ms-flex-positive: 0;\n        flex-grow: 0;\n    }\n}\n.sa-form_text.\\--call-to-action-input {\n    border-top-right-radius: 0;\n    border-bottom-right-radius: 0;\n    width: 100%;\n}\n@media (max-width:767px) {\n    .sa-form_text.\\--call-to-action-input {\n        margin-bottom: .7em;\n        border-radius: 3px;\n    }\n}\n.sa-form_text.\\--prefix {\n    border-top-left-radius: 0;\n    border-bottom-left-radius: 0;\n    min-width: 0;\n    width: 100%;\n}\n.sa-form_text.\\--suffix {\n    border-top-right-radius: 0;\n    border-bottom-right-radius: 0;\n    min-width: 0;\n    width: 100%;\n}\n.sa-form_text.\\--large {\n    font-size: 1.8rem;\n    padding: .8em 1em;\n}\n.sa-form_text.\\--textarea {\n    resize: vertical;\n    overflow: hidden;\n}\n.sa-form_text.\\--error {\n    box-shadow: inset 0 0 0 1px #ff6e6e;\n}\n.sa-form_text.\\--error:enabled:hover {\n    box-shadow: inset 0 0 0 1px #f98;\n}\n.sa-form_text.\\--error:enabled:focus {\n    box-shadow: inset 0 0 0 1px #cf415c;\n}\n.sa-form_button {\n    display: inline-block;\n    font-size: 1.4rem;\n    vertical-align: middle;\n    max-width: 100%;\n}\n.sa-form_button.\\--full-width {\n    width: 100%;\n}\n.sa-form_button_icon {\n    color: #5ac7ff;\n    margin-right: 1em;\n    transition: .15s all ease-in-out;\n    vertical-align: sub;\n}\n.sa-form_button_element {\n    color: #72888e;\n    cursor: pointer;\n    background: #fff;\n    box-shadow: inset 0 0 0 1px #d8e4e7;\n    padding: .5em 1.3em;\n    transition: .15s all ease-in-out;\n    text-align: center;\n    border-radius: 3px;\n    border: 0;\n    display: block;\n}\n.sa-form_button_element:hover {\n    background: #b7d2d7;\n    box-shadow: inset 0 0 0 1px #b7d2d7;\n    color: #fff;\n}\n.sa-form_button_element:hover .sa-form_button_icon {\n    color: #fff;\n}\n@media (max-width:767px) {\n    .sa-form_button_element {\n        width: 100%;\n    }\n}\n.sa-form_button_element.\\--logo {\n    padding: .8em 1.5em;\n}\n.sa-form_button_element.\\--fortuneo {\n    background: #a0e442;\n    box-shadow: inset 0 0 0 1px #a0e442;\n    color: #3f5461;\n}\n.sa-form_button_element.\\--fortuneo:hover {\n    background: #c2ee85;\n    box-shadow: inset 0 0 0 1px #c2ee85;\n}\n.sa-form_button_element.\\--large {\n    padding: .8em 1.8em;\n    font-size: 1.6rem;\n}\n.sa-form_button_element.\\--small-text {\n    padding: .8em 1.8em;\n    font-size: 1.4rem;\n}\n.sa-form_button_element.\\--align-left {\n    text-align: left;\n}\n.sa-form_button_input {\n    display: none;\n}\n.sa-form_button_input:checked+.sa-form_button_element {\n    background: #1897ec;\n    box-shadow: inset 0 0 0 1px #1897ec;\n    color: #fff;\n}\n.sa-form_button_input:checked+.sa-form_button_element .sa-form_button_icon {\n    color: #fff;\n}\n.sa-form_button_logo {\n    font-size: 2.3rem;\n}\n.sa-form_buttons-group {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-positive: 1;\n    flex-grow: 1;\n    line-height: 1.5;\n    border-radius: 3px;\n    overflow: hidden;\n}\n@media (max-width:767px) {\n    .sa-form_buttons-group {\n        display: none;\n    }\n}\n.sa-form_buttons-group_button {\n    font-size: 1.4rem;\n    color: #72888e;\n    cursor: pointer;\n    background: #fff;\n    box-shadow: inset 0 0 0 1px #d8e4e7;\n    padding: .5em 1.3em;\n    transition: .15s all ease-in-out;\n    -ms-flex-positive: 1;\n    flex-grow: 1;\n    text-align: center;\n    margin-right: -1px;\n}\n.sa-form_buttons-group_button:last-child {\n    margin-right: 0;\n}\n.sa-form_buttons-group_button:hover:not(.\\--disabled) {\n    background: #b7d2d7;\n    box-shadow: inset 0 0 0 1px #b7d2d7;\n    color: #fff;\n}\n.sa-form_buttons-group_button.\\--disabled {\n    background: #fbfbfb;\n    cursor: not-allowed;\n}\n.sa-form_buttons-group_button.\\--error {\n    box-shadow: inset 0 0 0 1px #ff6e6e;\n}\n.sa-form_buttons-group_input {\n    display: none;\n}\n.sa-form_buttons-group_input:checked+.sa-form_buttons-group_button:not(.\\--disabled) {\n    background: #1897ec;\n    box-shadow: inset 0 0 0 1px #1897ec;\n    color: #fff;\n}\n.sa-form_buttons-group_input:checked+.sa-form_buttons-group_button:not(.\\--disabled).\\--error {\n    box-shadow: inset 0 0 0 1px #ff6e6e;\n    background: #ff6e6e;\n    color: #fff;\n}\n.sa-form_checkbox {\n    display: none;\n}\n.sa-form_checkbox:disabled+.sa-form_checkbox-label {\n    color: #bfcacc;\n}\n.sa-form_checkbox:disabled+.sa-form_checkbox-label, .sa-form_checkbox:disabled+.sa-form_checkbox-label:after {\n    cursor: not-allowed;\n}\n.sa-form_checkbox:disabled+.sa-form_checkbox-label:hover:after {\n    box-shadow: inset 0 0 0 2px #d8e4e7;\n}\n.sa-form_checkbox:checked+.sa-form_checkbox-label:after {\n    background: #1897ec;\n    box-shadow: inset 0 0 0 2px #1897ec;\n}\n.sa-form_checkbox:checked+.sa-form_checkbox-label:before {\n    content: 'check';\n    z-index: 1;\n    color: #fff;\n    left: 2px;\n}\n.sa-form_checkbox-label {\n    position: relative;\n    padding-left: 2em;\n    font-size: 1.4rem;\n    display: block;\n    margin-bottom: .9em;\n    color: #3f5461;\n    font-weight: 400;\n    cursor: pointer;\n    line-height: 1.2em;\n}\n.sa-form_checkbox-label.\\--no-margin {\n    margin-bottom: 0;\n}\n.sa-form_checkbox-label:after, .sa-form_checkbox-label:before {\n    font-family: Material Icons;\n    cursor: pointer;\n    position: absolute;\n    left: 0;\n    top: 50%;\n    transform: translateY(-50%);\n    display: inline-block;\n    transition: .15s all ease-in-out;\n    -webkit-font-smoothing: antialiased;\n    text-rendering: optimizeLegibility;\n    -moz-osx-font-smoothing: grayscale;\n    font-feature-settings: 'liga';\n}\n.sa-form_checkbox-label:after {\n    content: '';\n    width: 18px;\n    height: 18px;\n    box-shadow: inset 0 0 0 2px #d8e4e7;\n    font-size: 2.2rem;\n    border-radius: 3px;\n    color: #bfcacc;\n}\n.sa-form_checkbox-label:hover:after {\n    box-shadow: inset 0 0 0 2px #5ac7ff;\n}\n.sa-form_message {\n    padding: .8em;\n    font-size: 1.4rem;\n    color: #fff;\n    border-radius: 3px;\n    margin-top: 1em;\n    position: relative;\n    width: 100%;\n    padding-right: 2.2em;\n}\n.sa-form_message:after {\n    position: absolute;\n    left: 1.8em;\n    bottom: 100%;\n}\n.sa-form_message.\\--large {\n    padding: 1.8rem;\n}\n.sa-form_message.\\--error {\n    background: #ff6e6e;\n}\n.sa-form_message.\\--error:after {\n    width: 0;\n    height: 0;\n    content: '';\n    z-index: 2;\n    border-bottom: .45em solid #ff6e6e;\n    border-left: .3em solid transparent;\n    border-right: .3em solid transparent;\n}\n.sa-form_message.\\--success {\n    background: #4ad7a3;\n}\n.sa-form_message.\\--success:after {\n    width: 0;\n    height: 0;\n    content: '';\n    z-index: 2;\n    border-bottom: .45em solid #4ad7a3;\n    border-left: .3em solid transparent;\n    border-right: .3em solid transparent;\n}\n.sa-form_message.\\--warning {\n    background: #f5f5f5;\n    color: #72888e;\n}\n.sa-form_message.\\--warning:after {\n    width: 0;\n    height: 0;\n    content: '';\n    z-index: 2;\n    border-bottom: .45em solid #f5f5f5;\n    border-left: .3em solid transparent;\n    border-right: .3em solid transparent;\n}\n.sa-form_message.\\--absolute {\n    position: absolute;\n    margin: 0;\n    top: 100%;\n    left: 0;\n    margin-top: 1em;\n    z-index: 3;\n}\n.sa-form_message_close {\n    position: absolute;\n    font-size: 1.4rem;\n    right: .8em;\n    color: #fff;\n    padding: 0;\n    background: 0;\n    border: 0;\n    cursor: pointer;\n    top: 50%;\n    transform: translateY(-50%);\n}\n.sa-form_message_close:focus {\n    outline: none;\n}\n.sa-form_icon {\n    position: absolute;\n    font-size: 1.4rem;\n    left: -1.3em;\n    top: 50%;\n    transform: translateY(-50%) translateX(-50%);\n}\n.sa-form_icon.\\--success {\n    color: #4ad7a3;\n}\n.sa-form_icon.\\--error {\n    color: #ff6e6e;\n}\n.sa-form_asterisk {\n    color: #bfcacc;\n    margin-left: 3px;\n}\n.sa-form_action-bar {\n    margin-top: 3rem;\n}\n.sa-form_action-bar.\\--small-margin {\n    margin-top: 1.8rem;\n}\n@media (min-width:480px) {\n    .sa-form_action-bar {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-pack: end;\n        justify-content: flex-end\n    }\n    .sa-form_action-bar.\\--align-center {\n        -ms-flex-pack: center;\n        justify-content: center;\n    }\n}\n@media (min-width:480px) {\n    .sa-form_action {\n        margin-left: 3rem;\n    }\n}\n@media (max-width:479px) {\n    .sa-form_action {\n        margin-bottom: 3rem\n    }\n    .sa-form_action.\\--last {\n        margin-bottom: 0\n    }\n    .sa-form_action.\\--small-margin {\n        margin-bottom: 1.8rem;\n    }\n}\n.sa-grid-form {\n    display: -ms-flexbox;\n    display: flex;\n    font-size: 1.4rem;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n    margin-bottom: 1.2em;\n    margin-left: -2em;\n    margin-top: -2em;\n}\n@media (max-width:767px) {\n    .sa-grid-form {\n        margin-left: -1.2em;\n        margin-top: -1.2em;\n    }\n}\n.sa-grid-form_col {\n    width: 100%;\n    padding-left: 2em;\n    margin-top: 2em;\n}\n@media (max-width:767px) {\n    .sa-grid-form_col {\n        padding-left: 1.2em;\n        margin-top: 1.2em;\n    }\n}\n.sa-grid-form_col.\\--centered {\n    -ms-flex-item-align: center;\n    align-self: center;\n}\n.sa-grid-form_col.\\--full {\n    width: 100%;\n}\n@media (max-width:479px) {\n    .sa-grid-form_col.\\--full\\@to-phone {\n        width: 100%;\n    }\n}\n@media (max-width:767px) {\n    .sa-grid-form_col.\\--full\\@to-phablet {\n        width: 100%;\n    }\n}\n@media (max-width:1023px) {\n    .sa-grid-form_col.\\--full\\@to-tablet {\n        width: 100%;\n    }\n}\n@media (min-width:480px) {\n    .sa-grid-form_col.\\--full\\@from-phablet {\n        width: 100%;\n    }\n}\n@media (min-width:768px) {\n    .sa-grid-form_col.\\--full\\@from-tablet {\n        width: 100%;\n    }\n}\n@media (min-width:1024px) {\n    .sa-grid-form_col.\\--full\\@from-desktop {\n        width: 100%;\n    }\n}\n.sa-grid-form_col.\\--half {\n    width: 50%;\n}\n@media (max-width:767px) {\n    .sa-grid-form_col.\\--half\\@to-phablet {\n        width: 50%;\n    }\n}\n@media (max-width:1023px) {\n    .sa-grid-form_col.\\--half\\@to-tablet {\n        width: 50%;\n    }\n}\n@media (min-width:480px) {\n    .sa-grid-form_col.\\--half\\@from-phablet {\n        width: 50%;\n    }\n}\n@media (min-width:768px) {\n    .sa-grid-form_col.\\--half\\@from-tablet {\n        width: 50%;\n    }\n}\n@media (min-width:1024px) {\n    .sa-grid-form_col.\\--half\\@from-desktop {\n        width: 50%;\n    }\n}\n@media (min-width:768px) and (max-width:1023px) {\n    .sa-grid-form_col.\\--half\\@on-tablet {\n        width: 50%;\n    }\n}\n.sa-grid-form_col.\\--one-third {\n    width: 33.3333%;\n}\n@media (max-width:1023px) {\n    .sa-grid-form_col.\\--one-third\\@to-tablet {\n        width: 33.3333%;\n    }\n}\n@media (min-width:768px) {\n    .sa-grid-form_col.\\--one-third\\@from-tablet {\n        width: 33.3333%;\n    }\n}\n@media (min-width:1024px) {\n    .sa-grid-form_col.\\--one-third\\@from-desktop {\n        width: 33.3333%;\n    }\n}\n.sa-grid-form_col.\\--two-thirds {\n    width: 66.6666%;\n}\n@media (max-width:1023px) {\n    .sa-grid-form_col.\\--two-thirds\\@to-tablet {\n        width: 66.6666%;\n    }\n}\n@media (min-width:768px) {\n    .sa-grid-form_col.\\--two-thirds\\@from-tablet {\n        width: 66.6666%;\n    }\n}\n@media (min-width:1024px) {\n    .sa-grid-form_col.\\--two-thirds\\@from-desktop {\n        width: 66.6666%;\n    }\n}\n.sa-grid-form_col.\\--one-quarter {\n    width: 25%;\n}\n@media (min-width:768px) {\n    .sa-grid-form_col.\\--one-quarter\\@from-tablet {\n        width: 25%;\n    }\n}\n@media (min-width:1024px) {\n    .sa-grid-form_col.\\--one-quarter\\@from-desktop {\n        width: 25%;\n    }\n}\n.sa-grid-form_col.\\--three-quarters {\n    width: 75%;\n}\n@media (min-width:768px) {\n    .sa-grid-form_col.\\--three-quarters\\@from-tablet {\n        width: 75%;\n    }\n}\n@media (min-width:1024px) {\n    .sa-grid-form_col.\\--three-quarters\\@from-desktop {\n        width: 75%;\n    }\n}\n.sa-grid-simple {\n    font-size: 1.4rem;\n    margin-left: -2em;\n    display: -ms-flexbox;\n    display: flex;\n}\n@media (max-width:1023px) {\n    .sa-grid-simple {\n        margin-left: -1em;\n    }\n}\n@media (max-width:767px) {\n    .sa-grid-simple {\n        display: block;\n        margin-top: -2em;\n        text-align: center;\n    }\n}\n.sa-grid-simple.\\--multi-rows {\n    margin-bottom: 2em;\n}\n.sa-grid-simple.\\--small {\n    margin-left: -1em;\n}\n@media (max-width:767px) {\n    .sa-grid-simple.\\--small {\n        margin-top: -1em;\n    }\n}\n.sa-grid-simple_col {\n    padding-left: 2em;\n}\n@media (max-width:767px) {\n    .sa-grid-simple_col {\n        margin-top: 2em;\n    }\n}\n.sa-grid-simple_col.\\--half {\n    -ms-flex: 50%;\n    flex: 50%;\n}\n.sa-grid-simple_col.\\--vertical-center {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n    flex-direction: column;\n    -ms-flex-pack: center;\n    justify-content: center;\n}\n.sa-grid-simple_col.\\--small {\n    padding-left: 1em;\n    -ms-flex-positive: initial;\n    flex-grow: initial;\n}\n@media (max-width:767px) {\n    .sa-grid-simple_col.\\--small {\n        margin-top: 1em;\n    }\n}\n.sa-header-connected {\n    background: #fff;\n    height: initial;\n}\n@media (min-width:768px) {\n    .sa-header-connected {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-pack: justify;\n        justify-content: space-between;\n        padding-left: 1.2em;\n        box-shadow: inset 0 -1px 0 0 #d8e4e7;\n    }\n}\n.sa-header-connected_logo-side {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n    height: 42px;\n    -ms-flex-pack: justify;\n    justify-content: space-between;\n    position: relative;\n    z-index: 2;\n    box-shadow: inset 0 -1px 0 0 #d8e4e7;\n    background: #fff;\n}\n@media (min-width:768px) {\n    .sa-header-connected_logo-side {\n        width: calc(240px - 1.2em);\n        box-shadow: inset 0 -1px 0 0 #d8e4e7, inset -1px 0 0 0 #d8e4e7;\n    }\n}\n.sa-header-connected_logo-side.\\--no-sidebar {\n    box-shadow: inset 0 -1px 0 0 #d8e4e7;\n}\n@media (max-width:767px) {\n    .sa-header-connected_logo-side.\\--no-sidebar {\n        padding-left: 1.2em;\n    }\n}\n.sa-header-connected_logo:hover {\n    opacity: .7;\n}\n@media (max-width:767px) {\n    .sa-header-connected_logo {\n        text-align: center;\n    }\n}\n.sa-header-connected_notifications-side {\n    display: -ms-flexbox;\n    display: flex;\n    height: 42px;\n    opacity: 1;\n    margin-top: 0;\n    transition: .3s all ease-in-out;\n    position: relative;\n    z-index: 1;\n}\n@media (max-width:767px) {\n    .sa-header-connected_notifications-side.\\--closed {\n        margin-top: -42px;\n        overflow: hidden;\n        opacity: 0;\n    }\n}\n.sa-header-connected_button {\n    border: 0;\n    background: #fff;\n    position: relative;\n    color: #004c87;\n    font-size: 1.2rem;\n    padding-left: 1.6em;\n    padding-right: 1.6em;\n    margin: 0;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n    margin-right: -1px;\n    box-shadow: inset -1px 0 0 0 #d8e4e7, inset 0 -1px 0 0 #d8e4e7, inset 1px 0 0 0 #d8e4e7;\n    transition: .1s all ease-in-out;\n    font-weight: 400;\n    -ms-flex-pack: center;\n    justify-content: center;\n    -ms-flex-positive: 1;\n    flex-grow: 1;\n}\n.sa-header-connected_button:focus {\n    outline: none;\n}\n.sa-header-connected_button:active, .sa-header-connected_button:hover {\n    background: #1897ec;\n    cursor: pointer;\n    box-shadow: inset -1px 0 0 0 #1897ec, inset 0 -1px 0 0 #1897ec, inset 1px 0 0 0 #1897ec;\n    color: #fff;\n}\n.sa-header-connected_button.\\--square {\n    padding-right: 1em;\n    padding-left: 1em;\n}\n.sa-header-connected_button_text {\n    position: relative;\n}\n@media (max-width:767px) {\n    .sa-header-connected_button_text {\n        display: none;\n    }\n}\n.sa-header-connected_button-arrow {\n    border-radius: 2px;\n    box-shadow: inset 0 0 0 1px #004c87;\n    display: -ms-flexbox;\n    display: flex;\n    padding: 2px 2px 1px;\n    position: relative;\n}\n.sa-header-connected_phablet-control {\n    background: #fff;\n    color: #004c87;\n    border: 0;\n    height: 100%;\n    font-size: 1.4rem;\n    padding-right: 1.2em;\n    padding-left: 1.2em;\n    margin: 0;\n    transition: .1s all ease-in-out;\n    box-shadow: inset 0 -1px 0 0 #d8e4e7;\n}\n@media (min-width:768px) {\n    .sa-header-connected_phablet-control {\n        display: none;\n    }\n}\n.sa-header-connected_phablet-control:focus {\n    outline: none;\n}\n.sa-header-connected_phablet-control:active, .sa-header-connected_phablet-control:hover {\n    cursor: pointer;\n    color: #1897ec;\n}\n.sa-header-connected_notification {\n    font-family: Roboto, Arial, sans-serif;\n    font-weight: 400;\n    display: -ms-flexbox;\n    display: flex;\n    position: absolute;\n    font-size: 1rem;\n    top: -.55em;\n    right: -.8em;\n    line-height: 1.5;\n    border-radius: 2.5rem;\n    min-width: 1.5em;\n    padding: 0 .4rem;\n    -ms-flex-align: center;\n    align-items: center;\n    -ms-flex-pack: center;\n    justify-content: center;\n    background: #cf415c;\n    color: #fff;\n    -webkit-font-smoothing: auto;\n    -moz-osx-font-smoothing: auto;\n}\n.sa-header-connected_notification.\\--text {\n    right: -1.2em;\n}\n.sa-header-connected_notification.\\--counter {\n    background: #fff;\n    color: #1897ec;\n    box-shadow: inset 0 0 0 1px #1897ec;\n}\n.sa-header-connected_notification.\\--dot {\n    height: .8em;\n    width: .8em;\n    min-width: auto;\n    top: -.3em;\n    right: -.3em;\n}\n.sa-header-connected_icon {\n    font-size: 1.6rem;\n    transition: .2s transform ease-in-out;\n    position: relative;\n    max-width: 1.6rem;\n}\n.sa-header-connected_icon.\\--closed {\n    transform: translateY(-1px) rotate(180deg);\n}\n.sa-header-connected_icon.\\--hide {\n    display: none;\n}\n@media (min-width:768px) {\n    .sa-header-connected_icon.\\--hide\\@from-tablet {\n        display: none;\n    }\n}\n.sa-header-disconnected {\n    height: initial;\n    -ms-flex-align: center;\n    -ms-grid-row-align: center;\n    align-items: center;\n    font-size: 1.4rem;\n    -ms-flex-pack: justify;\n    justify-content: space-between;\n    box-shadow: inset 0 -1px 0 0 #d8e4e7;\n    background: #fff;\n}\n@media (min-width:768px) {\n    .sa-header-disconnected {\n        display: -ms-flexbox;\n        display: flex;\n        padding-right: 2em;\n        padding-left: 2em;\n    }\n}\n.sa-header-disconnected_logo {\n    max-width: 165px;\n}\n.sa-header-disconnected_logo:hover {\n    opacity: .7;\n}\n@media (min-width:768px) {\n    .sa-header-disconnected_logo-side {\n        max-width: 165px;\n    }\n}\n@media (max-width:767px) {\n    .sa-header-disconnected_logo-side {\n        width: 100%;\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-align: center;\n        align-items: center;\n        padding-left: 1.2em;\n        box-shadow: inset 0 -1px 0 0 #d8e4e7;\n    }\n}\n@media (min-width:768px) and (max-width:1023px) {\n    .sa-header-disconnected_logo-link {\n        width: 34px;\n        overflow: hidden;\n        display: block;\n    }\n}\n@media (max-width:767px) {\n    .sa-header-disconnected_logo-link {\n        text-align: center;\n        margin: 0 auto;\n    }\n}\n.sa-header-disconnected_navigation-side {\n    opacity: 1;\n    max-height: calc(100vh - 54px);\n    overflow-y: auto;\n    transition: .3s all ease-in-out;\n}\n@media (max-width:767px) {\n    .sa-header-disconnected_navigation-side.\\--closed {\n        opacity: 0;\n        overflow: hidden;\n        max-height: 0;\n        padding: 0;\n    }\n}\n@media (min-width:768px) {\n    .sa-header-disconnected_navigation-side {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-align: center;\n        align-items: center;\n        -ms-flex-positive: 1;\n        flex-grow: 1;\n        padding-left: 2.4rem;\n        -ms-flex-pack: justify;\n        justify-content: space-between;\n    }\n}\n@media (max-width:767px) {\n    .sa-header-disconnected_navigation-side {\n        padding-top: 1em;\n        padding-bottom: 2em;\n        box-shadow: inset 0 -1px 0 0 #d8e4e7;\n    }\n}\n@media (min-width:768px) {\n    .sa-header-disconnected_navigation-side_list-element {\n        display: -ms-inline-flexbox;\n        display: inline-flex;\n        margin-right: 10px;\n    }\n}\n@media (max-width:767px) {\n    .sa-header-disconnected_navigation-side_list-element {\n        text-align: right;\n    }\n}\n.sa-header-disconnected_navigation-side_link {\n    transition: .15s all ease-in-out;\n    font-size: 1.2rem;\n    font-weight: 500;\n    color: #1897ec;\n    padding: 1.6em 1em;\n    line-height: 1.4em;\n}\n.sa-header-disconnected_navigation-side_link:hover {\n    color: #5ac7ff;\n}\n.sa-header-disconnected_navigation-side_link:active {\n    color: #216ab1;\n}\n@media (min-width:768px) {\n    .sa-header-disconnected_navigation-side_link {\n        height: 54px;\n    }\n}\n@media (max-width:767px) {\n    .sa-header-disconnected_navigation-side_link {\n        display: block;\n        padding: 1em 1.2em;\n    }\n}\n.sa-header-disconnected_navigation-side_link.\\--navigation {\n    text-transform: uppercase;\n}\n@media (min-width:768px) and (max-width:1023px) {\n    .sa-header-disconnected_navigation-side_link.\\--navigation {\n        padding: .9em 1em;\n    }\n}\n.sa-header-disconnected_navigation-side_call-to-actions {\n    text-align: right;\n}\n@media (min-width:768px) {\n    .sa-header-disconnected_navigation-side_call-to-actions {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-align: center;\n        align-items: center;\n        width: 210px;\n        -ms-flex-pack: justify;\n        justify-content: space-between;\n        margin-left: 1em;\n    }\n}\n.sa-header-disconnected_text {\n    display: inline-block;\n}\n.sa-header-disconnected_text.\\--break {\n    display: block;\n}\n@media (min-width:768px) and (max-width:1023px) {\n    .sa-header-disconnected_text.\\--break\\@on-tablet {\n        display: block;\n    }\n}\n.sa-header-disconnected_phablet-control {\n    border: 0;\n    background: #fff;\n    color: #216ab1;\n    font-size: 1.4rem;\n    margin: 0;\n    box-shadow: inset 0 -1px 0 0 #d8e4e7;\n    height: 54px;\n    transition: .1s all ease-in-out;\n    cursor: pointer;\n    padding: 0 1.2em;\n}\n.sa-header-disconnected_phablet-control:active, .sa-header-disconnected_phablet-control:hover {\n    color: #1897ec;\n}\n.sa-header-disconnected_phablet-control:focus {\n    outline: none;\n}\n@media (min-width:768px) {\n    .sa-header-disconnected_phablet-control {\n        display: none;\n    }\n}\n.sa-header-disconnected_icon {\n    font-size: 1.6rem;\n}\n@media (max-width:767px) {\n    .sa-header-disconnected_button {\n        margin-right: 1em;\n        margin-top: .8em;\n    }\n}\n.sa-header-form {\n    height: 54px;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n    font-size: 1.4rem;\n    -ms-flex-pack: justify;\n    justify-content: space-between;\n    box-shadow: inset 0 -1px 0 0 #d8e4e7;\n    background: #fff;\n    padding-left: 2em;\n    padding-right: 2em;\n}\n@media (max-width:767px) {\n    .sa-header-form {\n        padding-left: 1.2em;\n        padding-right: 1.2em;\n    }\n}\n.sa-header-form_logo-link:hover {\n    opacity: .7;\n}\n@media (max-width:767px) {\n    .sa-header-form_logo-link {\n        width: 100%;\n        text-align: center;\n    }\n}\n.sa-header-form_link {\n    font-weight: 400;\n    color: #004c87;\n    font-size: 1.2rem;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n    transition: .15s all ease-in-out;\n    cursor: pointer;\n}\n.sa-header-form_link:active, .sa-header-form_link:hover {\n    color: #1897ec;\n}\n.sa-header-form_icon {\n    color: #1897ec;\n    font-size: 1.7rem;\n    margin-right: .5em;\n}\n.sa-header-form_infos-side {\n    width: 250px;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n    -ms-flex-pack: justify;\n    justify-content: space-between;\n}\n@media (max-width:767px) {\n    .sa-header-form_infos-side {\n        display: none;\n    }\n}\n.sa-icon {\n    vertical-align: middle;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n    -ms-flex-pack: center;\n    justify-content: center;\n    -ms-flex-align: center;\n    align-items: center;\n    font-family: inherit;\n}\n.sa-icon.\\--material {\n    font-family: Material Icons;\n}\n.sa-icon.\\--circle {\n    box-shadow: inset 0 0 0 1px #1897ec;\n    border-radius: 50%;\n    width: 3rem;\n    height: 3rem;\n    color: #1897ec;\n    font-size: 1.4rem;\n}\n.sa-icon.\\--circle.\\--success {\n    box-shadow: inset 0 0 0 1px #4ad7a3;\n    color: #4ad7a3;\n}\n.sa-icon.\\--square {\n    border-radius: 3px;\n    width: 2.2rem;\n    height: 2.2rem;\n    color: #1897ec;\n    font-size: 1.4rem;\n    box-shadow: inset 0 0 0 1px #1897ec;\n}\n.sa-icon.\\--square.\\--filled {\n    background: #1897ec;\n    color: #fff;\n}\n.sa-icon.\\--trapped {\n    color: #fff;\n    box-shadow: inset 0 0 0 1px #5ac7ff;\n}\n.sa-info-block {\n    font-size: 1.4rem;\n}\n@media (max-width:1023px) {\n    .sa-info-block {\n        text-align: center;\n    }\n}\n.sa-info-block_title {\n    margin-left: 1.2em;\n}\n@media (max-width:1023px) {\n    .sa-info-block_title {\n        display: block;\n        margin-left: 0;\n        margin-top: 1em;\n    }\n}\n.sa-info-block_header {\n    margin-bottom: 1em;\n    text-align: center;\n}\n@media (min-width:1024px) {\n    .sa-info-block_header {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-align: center;\n        align-items: center;\n    }\n}\n.sa-investment-info {\n    background-color: #fff;\n    box-shadow: inset 0 1px 0 0 #d8e4e7, inset 1px 0 0 0 #d8e4e7, inset -1px 0 0 0 #d8e4e7;\n    border-radius: 3px;\n    overflow: hidden;\n}\n.sa-investment-info_cell {\n    -ms-flex: auto 1 0;\n    flex: auto 1 0;\n    padding: 1em;\n    -ms-flex-preferred-size: 0;\n    flex-basis: 0;\n}\n.sa-investment-info_cell.\\--header {\n    -ms-flex-negative: 1;\n    flex-shrink: 1;\n    text-align: center;\n}\n.sa-investment-info_cell.\\--bordered-left {\n    box-shadow: inset 1px 0 0 0 #d8e4e7;\n}\n.sa-investment-info_cell.\\--small-left {\n    padding-right: .5em;\n}\n.sa-investment-info_cell.\\--small-right {\n    padding-left: .5em;\n}\n.sa-investment-info_head-call-to-action {\n    display: inline-block;\n    margin-left: .5em;\n    margin-top: .5em;\n}\n.sa-investment-info_row {\n    box-shadow: inset 0 -1px 0 0 #d8e4e7;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-pack: distribute;\n    justify-content: space-around;\n}\n.sa-link {\n    display: inline;\n    font-size: inherit;\n    text-decoration: underline;\n    transition: .15s all ease-in-out;\n}\n.sa-link.\\--tertiary {\n    color: #bfcacc;\n}\n.sa-link.\\--slight-pushed {\n    color: #f98;\n}\n.sa-link.\\--slight-success {\n    color: #75e7cd;\n}\n.sa-link, .sa-link:visited {\n    color: inherit;\n}\n.sa-link:hover {\n    color: #1897ec;\n}\n.sa-link:active {\n    color: #216ab1;\n}\n.sa-link.\\--emphasis, .sa-link.\\--emphasis:visited {\n    color: #1897ec;\n}\n.sa-link.\\--emphasis:hover {\n    color: #5ac7ff;\n}\n.sa-link.\\--emphasis:active {\n    color: #216ab1;\n}\n.sa-link.\\--material {\n    font-family: Material Icons;\n}\n.sa-link.\\--large {\n    font-size: 2.4rem;\n}\n.sa-link.\\--trapped:hover {\n    color: #fff;\n}\n.sa-link.\\--icon {\n    padding: 0;\n    border: 0;\n    background: none;\n    cursor: pointer;\n    text-decoration: inherit;\n}\n.sa-link.\\--icon:focus {\n    outline: none;\n}\n.sa-list-flea_element {\n    margin-bottom: .5em;\n}\n.sa-list-flea_element:before {\n    content: '•';\n    font-size: 1.5rem;\n    margin-right: .3em;\n    color: #1897ec;\n}\n.sa-list-flea_element:last-of-type {\n    margin-bottom: 0;\n}\n.sa-list-numbered {\n    counter-reset: a;\n}\n.sa-list-numbered_element {\n    margin-bottom: .3em;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n}\n@media (max-width:767px) {\n    .sa-list-numbered_element {\n        -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n        -ms-flex-align: center;\n        -ms-grid-row-align: center;\n        align-items: center;\n        -ms-flex-pack: center;\n        justify-content: center;\n        text-align: center;\n        -ms-flex-direction: column;\n        flex-direction: column;\n    }\n}\n.sa-list-numbered_element:before {\n    counter-increment: a;\n    content: counter(a);\n    font-size: 1.5rem;\n    color: #fff;\n    background: #216ab1;\n    width: 1.2em;\n    height: 1.2em;\n    font-weight: 700;\n    border-radius: 50%;\n    text-align: center;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n    -ms-flex-align: center;\n    align-items: center;\n    -ms-flex-pack: center;\n    justify-content: center;\n    margin-right: .6em;\n    -ms-flex-negative: 0;\n    flex-shrink: 0;\n    padding: .2em;\n}\n@media (max-width:767px) {\n    .sa-list-numbered_element:before {\n        margin-right: 0;\n    }\n}\n.sa-paragraph-icon {\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    position: relative;\n    -ms-flex-align: baseline;\n    align-items: baseline;\n    padding-left: 2em;\n}\n@media (max-width:767px) {\n    .sa-paragraph-icon {\n        padding-left: 0;\n    }\n}\n.sa-paragraph-icon_image {\n    margin-left: -2em;\n    margin-right: 1em;\n}\n@media (max-width:767px) {\n    .sa-paragraph-icon_image {\n        display: none;\n    }\n}\n.sa-paragraph-icon_image.\\--outside-content {\n    margin-left: -5em;\n}\n.sa-paragraph-icon_content {\n    -ms-flex-positive: 1;\n    flex-grow: 1;\n}\n.sa-paragraph-icon_content.\\--bordered-top {\n    margin-top: 1em;\n    padding-top: 1em;\n    box-shadow: inset 0 1px 0 0 #d8e4e7;\n}\n.sa-paragraph-icon_content.\\--trapped {\n    box-shadow: inset 0 1px 0 0 #5ac7ff;\n}\n.sa-password-verification {\n    margin-top: 5px;\n}\n.sa-password-verification_condition {\n    margin-right: 3rem;\n}\n@media (min-width:480px) {\n    .sa-password-verification_conditions {\n        display: -ms-flexbox;\n        display: flex;\n    }\n}\n.sa-presentation-cupcake {\n    text-align: center;\n    padding: 1em;\n}\n.sa-presentation-cupcake.\\--no-padding {\n    padding: 0;\n}\n.sa-presentation-cupcake_icon {\n    margin-bottom: 1em;\n    min-width: 4em;\n    margin-left: auto;\n    margin-right: auto;\n}\n.sa-presentation-cupcake_icon.\\--small {\n    width: 4em;\n}\n.sa-presentation-cupcake_title {\n    margin: 1em 0;\n}\n.sa-presentation-cupcake_text {\n    margin-top: 1em;\n}\n.sa-presentation-lollipop {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n}\n.sa-presentation-lollipop.\\--rowable {\n    -ms-flex-direction: column;\n    flex-direction: column;\n}\n@media (max-width:767px) {\n    .sa-presentation-lollipop.\\--rowable\\@to-phablet {\n        -ms-flex-direction: column;\n        flex-direction: column;\n    }\n}\n.sa-presentation-lollipop_stick {\n    margin-left: 1.8rem;\n}\n.sa-presentation-lollipop_stick.\\--rowable {\n    margin-left: 0;\n    margin-top: 1.8rem;\n    width: 100%;\n}\n@media (max-width:767px) {\n    .sa-presentation-lollipop_stick.\\--rowable\\@to-phablet {\n        margin-left: 0;\n        margin-top: 1.8rem;\n        width: 100%;\n    }\n}\n.sa-presentation-lollipop_stick_part {\n    margin-bottom: 1.2rem;\n}\n.sa-presentation-lollipop_stick_part.\\--last {\n    margin-bottom: 0;\n}\n.sa-progress-bar {\n    background: #fbfbfb;\n    box-shadow: inset 0 -1px 0 0 #d8e4e7;\n    padding: 1.2em 2em;\n    font-size: 1.4rem;\n    position: relative;\n    line-height: 1.5;\n}\n.sa-progress-bar_line {\n    background: #d8e4e7;\n    height: 2px;\n}\n.sa-progress-bar_line_progress {\n    background: #4ad7a3;\n    height: 2px;\n}\n@media (max-width:767px) {\n    .sa-progress-bar_line {\n        display: none;\n    }\n}\n.sa-progress-bar_steps {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-pack: justify;\n    justify-content: space-between;\n    overflow-x: hidden;\n    transform: translateZ(0);\n}\n@media (max-width:767px) {\n    .sa-progress-bar_steps {\n        display: none;\n    }\n}\n.sa-progress-bar_step {\n    text-align: center;\n    padding-right: 1.2em;\n    font-size: 1.2rem;\n    padding-top: 2px;\n    color: #bfcacc;\n    transition: .15s all ease-in-out;\n}\n.sa-progress-bar_step.\\--first {\n    text-align: left;\n}\n.sa-progress-bar_step.\\--last {\n    text-align: right;\n    padding-right: 0;\n}\n.sa-progress-bar_step.\\--success:hover {\n    color: #4ad7a3;\n}\n.sa-progress-bar_step.\\--success:hover .sa-progress-bar_checkpoint:not(.\\--current) {\n    transform: translateY(-3px);\n}\n.sa-progress-bar_step.\\--success.\\--current {\n    color: #4ad7a3;\n    font-weight: 500;\n}\n.sa-progress-bar_step.\\--error:hover {\n    color: #72888e;\n}\n.sa-progress-bar_step.\\--error:hover .sa-progress-bar_checkpoint:not(.\\--current) {\n    transform: translateY(-3px);\n}\n.sa-progress-bar_step.\\--error.\\--current {\n    color: #72888e;\n    font-weight: 500;\n}\n.sa-progress-bar_checkpoint {\n    height: 14px;\n    width: 14px;\n    border-radius: 50%;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n    -ms-flex-pack: center;\n    justify-content: center;\n    position: relative;\n    transition: .15s all ease-in-out;\n    color: #fff;\n    z-index: 1;\n    -ms-flex-align: center;\n    align-items: center;\n}\n.sa-progress-bar_checkpoint.\\--current {\n    background: #fff;\n    box-shadow: 0 0 0 2px #4ad7a3, inset 0 0 0 3px #4ad7a3;\n    z-index: 0;\n    -ms-flex-align: end;\n    -ms-grid-row-align: flex-end;\n    align-items: flex-end;\n}\n.sa-progress-bar_checkpoint.\\--current:after {\n    content: '';\n    position: absolute;\n    height: 2px;\n    background: #d8e4e7;\n    left: 16px;\n    top: 50%;\n    width: 100vw;\n}\n.sa-progress-bar_checkpoint.\\--current:before {\n    content: '';\n    position: absolute;\n    height: 2px;\n    background: #4ad7a3;\n    right: 16px;\n    top: 50%;\n    width: 100vw;\n}\n.sa-progress-bar_checkpoint.\\--current.\\--error {\n    box-shadow: 0 0 0 2px #72888e, inset 0 0 0 3px #72888e;\n}\n.sa-progress-bar_checkpoint.\\--current.\\--error:before {\n    background: #72888e;\n}\n.sa-progress-bar_checkpoint.\\--current.\\--first {\n    margin-left: 2px;\n}\n.sa-progress-bar_checkpoint.\\--current.\\--last {\n    margin-right: 2px;\n}\n.sa-progress-bar_checkpoint.\\--success {\n    background: #4ad7a3;\n}\n.sa-progress-bar_checkpoint.\\--error {\n    background: #72888e;\n}\n.sa-progress-bar_checkpoint.\\--future {\n    background: #d8e4e7;\n}\n@media (min-width:768px) {\n    .sa-progress-bar_responsive-progress-status {\n        display: none;\n    }\n}\n.sa-progress-bar_check-icon {\n    font-size: 1rem;\n}\n.sa-progress-bar_close-icon {\n    font-size: 1.4rem;\n}\n.sa-slideshow_hider {\n    overflow: hidden;\n}\n.sa-slideshow_view {\n    margin: 0 -.6em;\n}\n.sa-slideshow_view.\\--arrows-side {\n    position: relative;\n    padding-left: 3em;\n    padding-right: 3em;\n}\n@media (max-width:767px) {\n    .sa-slideshow_view.\\--arrows-side {\n        padding-left: 0;\n        padding-right: 0;\n    }\n}\n.sa-slideshow_container {\n    margin-left: 0;\n    transition: margin-left .3s;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-pack: start;\n    justify-content: flex-start;\n    -ms-flex-wrap: nowrap;\n    flex-wrap: nowrap;\n}\n.sa-slideshow_slide {\n    padding: .6em;\n    -ms-flex: 100% 0 0;\n    flex: 100% 0 0;\n    max-width: 100%;\n}\n.sa-slideshow_controls {\n    margin-top: 1em;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-pack: center;\n    justify-content: center;\n    position: relative;\n}\n.sa-slideshow_controls_flea-container {\n    display: inline-block;\n    margin: .1em;\n    padding: 1em;\n    cursor: pointer;\n    border: 0;\n    background: none;\n}\n.sa-slideshow_controls_flea-container:hover .sa-slideshow_controls_flea, .sa-slideshow_controls_flea-container:hover .sa-slideshow_controls_flea.\\--trapped {\n    background: #d8e4e7;\n}\n.sa-slideshow_controls_flea-container:focus {\n    outline: none;\n}\n.sa-slideshow_controls_flea {\n    background: #b7d2d7;\n    height: 8px;\n    width: 8px;\n    border-radius: 50%;\n    display: block;\n    transition: .15s all ease-in-out;\n}\n.sa-slideshow_controls_flea.\\--active, .sa-slideshow_controls_flea.\\--trapped {\n    background: #72888e;\n}\n.sa-slideshow_controls_flea.\\--trapped.\\--active {\n    background: #fbfbfb;\n}\n.sa-slideshow_controller {\n    position: absolute;\n    font-size: 4rem;\n    top: 50%;\n    transform: translateY(-50%);\n    color: #72888e;\n    transition: .15s all ease-in-out;\n    cursor: pointer;\n}\n.sa-slideshow_controller:hover {\n    color: #b7d2d7;\n}\n@media (max-width:767px) {\n    .sa-slideshow_controller {\n        display: none;\n    }\n}\n.sa-slideshow_controller.\\--trapped {\n    color: #b7d2d7;\n}\n.sa-slideshow_controller.\\--trapped:hover {\n    color: #fbfbfb;\n}\n.sa-slideshow_controller.\\--right {\n    right: 0;\n}\n.sa-slideshow_controller.\\--left {\n    left: 0;\n}\n.sa-strate {\n    background: #fbfbfb;\n    box-shadow: inset 0 1px 0 0 #d8e4e7;\n    font-size: 1.4rem;\n    padding-top: 2.3em;\n    padding-bottom: 2.6em;\n}\n.sa-strate_button {\n    margin-top: .6em;\n}\n.sa-sub-header {\n    padding: 4.2rem 0;\n    text-align: center;\n    background: #152f53;\n}\n.sa-text {\n    font-size: 1.4rem;\n    font-weight: 300;\n    color: #3f5461;\n    line-height: 1.5em;\n    margin: 0;\n}\n.sa-text.\\--icon-title {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n}\n.sa-text.\\--inline {\n    display: inline;\n}\n.sa-text.\\--one-liner {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.sa-text.\\--align-center {\n    text-align: center;\n    -ms-flex-pack: center;\n    justify-content: center;\n}\n@media (max-width:767px) {\n    .sa-text.\\--align-center\\@to-phablet {\n        text-align: center;\n        -ms-flex-pack: center;\n        justify-content: center;\n    }\n}\n@media (max-width:1023px) {\n    .sa-text.\\--align-center\\@to-tablet {\n        text-align: center;\n        -ms-flex-pack: center;\n        justify-content: center;\n    }\n}\n.sa-text.\\--align-right {\n    text-align: right;\n}\n.sa-text.\\--bold {\n    font-weight: 500;\n}\n.sa-text.\\--uppercase {\n    text-transform: uppercase;\n}\n.sa-text.\\--peta {\n    font-size: 3.6rem;\n    line-height: 1.3em;\n}\n@media (min-width:768px) {\n    .sa-text.\\--peta\\@from-tablet {\n        font-size: 3.6rem;\n        line-height: 1.3em;\n    }\n}\n.sa-text.\\--tera {\n    font-size: 3rem;\n    line-height: 1.3em;\n}\n.sa-text.\\--giga {\n    font-size: 2.4rem;\n    line-height: 1.3em;\n}\n.sa-text.\\--mega {\n    font-size: 1.8rem;\n    line-height: 1.5em;\n}\n.sa-text.\\--kilo {\n    font-size: 1.6rem;\n    line-height: 1.5em;\n}\n.sa-text.\\--micro {\n    font-size: 1.2rem;\n    line-height: 1.5em;\n}\n.sa-text.\\--nano {\n    font-size: 1rem;\n    line-height: 1.5em;\n}\n.sa-text.\\--emphasis {\n    color: #1897ec;\n}\n.sa-text.\\--emphasis-light {\n    color: #5ac7ff;\n}\n.sa-text.\\--secondary {\n    color: #72888e;\n}\n.sa-text.\\--tertiary {\n    color: #bfcacc;\n}\n.sa-text.\\--success {\n    color: #4ad7a3;\n}\n.sa-text.\\--error {\n    color: #ff6e6e;\n}\n.sa-text.\\--trapped {\n    color: #fff;\n}\n.sa-text.\\--parent-color {\n    color: inherit;\n}\n.sa-text_action {\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n}\n@media (max-width:767px) {\n    .sa-text_action {\n        display: block;\n        padding-top: 1.2rem;\n    }\n}\n@media (min-width:768px) {\n    .sa-text_action {\n        padding-left: 1.2rem;\n    }\n}\n.sa-text_icon {\n    margin-right: .5em;\n    font-size: 1em;\n    -ms-flex-item-align: start;\n    align-self: flex-start;\n    line-height: inherit;\n    -ms-flex: auto 0 0;\n    flex: auto 0 0;\n}\n.sa-text_icon.\\--secondary {\n    color: #d8e4e7;\n}\n.sa-text_icon.\\--success {\n    color: #4ad7a3;\n}\n.sa-separat-or {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n    padding: 0;\n    color: #d8e4e7;\n}\n.sa-separat-or:after {\n    margin: 0 0 0 1rem;\n}\n.sa-separat-or:after, .sa-separat-or:before {\n    content: '';\n    -ms-flex: auto 1 1;\n    flex: auto 1 1;\n    border-bottom: 1px solid #d8e4e7;\n}\n.sa-separat-or:before {\n    margin: 0 1rem 0 0;\n}\n.sa-separat-or.\\--trapped {\n    color: #fff;\n}\n.sa-separat-or.\\--trapped:after, .sa-separat-or.\\--trapped:before {\n    border-bottom-color: #fff;\n}\n.sa-image {\n    display: block;\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 100%;\n}\n.sa-image.\\--full-width {\n    width: 100%;\n}",
+			"file": "/D/Nicolas/Desktop/sa.css",
+			"file_size": 80446,
+			"file_write_time": 131132399527729725,
+			"settings":
+			{
+				"buffer_size": 75590,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/less/compo/button.less",
+			"settings":
+			{
+				"buffer_size": 3362,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/components/navbar/navbar.jade",
+			"settings":
+			{
+				"buffer_size": 1152,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/app.js",
+			"settings":
+			{
+				"buffer_size": 5005,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/less/compo/images.less",
+			"settings":
+			{
+				"buffer_size": 318,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/less/compo/timeline.less",
+			"settings":
+			{
+				"buffer_size": 689,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/less/main.less",
+			"settings":
+			{
+				"buffer_size": 1028,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/less/compo/navbar.less",
+			"settings":
+			{
+				"buffer_size": 1321,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"last_filter": "format",
+		"selected_items":
+		[
+			[
+				"format",
+				"Format CSS: Compact (No Spaces)"
+			],
+			[
+				"css",
+				"Set Syntax: CSS3"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"syntax javasc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"syntax angul",
+				"Set Syntax: HTML (Angular.js)"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"java",
+				"Set Syntax: Java"
+			],
+			[
+				"tabs",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"trailing",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"syntax ang",
+				"Set Syntax: HTML (Angular.js)"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"boil",
+				"Snippet: Simple HTML5 Boilerplate"
+			],
+			[
+				"edi",
+				"Snippet: editorconfig"
+			],
+			[
+				"edito",
+				"SublimeCodeIntel: Dump Import Directories"
+			],
+			[
+				"blade",
+				"Set Syntax: Laravel Blade"
+			],
+			[
+				"Pretty",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"word wr",
+				"Word Wrap: Toggle"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"syntax html",
+				"Set Syntax: HTML"
+			],
+			[
+				"valida",
+				"Pretty JSON: Validate"
+			],
+			[
+				"minif",
+				"Pretty JSON: Minify (compress) JSON"
+			],
+			[
+				"valid",
+				"Pretty JSON: Validate"
+			],
+			[
+				"mini",
+				"Pretty JSON: Minify (compress) JSON"
+			],
+			[
+				"lorem",
+				"Snippet: lorem - One sentence"
+			],
+			[
+				"less",
+				"Set Syntax: LESS"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"beautif",
+				"HTMLBeautify"
+			],
+			[
+				"editor",
+				"Snippet: editorconfig"
+			],
+			[
+				"trails",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"htmlb",
+				"HTMLBeautify"
+			],
+			[
+				"beaut",
+				"HTMLBeautify"
+			],
+			[
+				"trail",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"validate",
+				"Pretty JSON: Validate"
+			],
+			[
+				"convert to ta",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"indent",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"jade",
+				"Set Syntax: Jade"
+			],
+			[
+				"Lore",
+				"Snippet: lorem - One sentence"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"bs3-input-tex",
+				"Snippet: bs3-input-text"
+			],
+			[
+				"bs3-f",
+				"Snippet: bs3-form"
+			],
+			[
+				"ht",
+				"Set Syntax: HTML"
+			],
+			[
+				"space",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"v",
+				"Pretty JSON: Validate"
+			],
+			[
+				"boilet",
+				"Snippet: Simple HTML5 Boilerplate"
+			],
+			[
+				"themr",
+				"Themr: List favorite themes"
+			],
+			[
+				"the",
+				"Themr: List themes"
+			],
+			[
+				"for",
+				"Format CSS: Expanded"
+			],
+			[
+				"trai",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"tra",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"spacs",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"htmlbea",
+				"HTMLBeautify"
+			],
+			[
+				"beau",
+				"HTMLBeautify"
+			],
+			[
+				"htm",
+				"Set Syntax: HTML"
+			],
+			[
+				"jekyll",
+				"Set Syntax: Markdown (Jekyll)"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"twig",
+				"Set Syntax: HTML (Twig)"
+			],
+			[
+				"markdo",
+				"Set Syntax: Markdown"
+			],
+			[
+				"yaml",
+				"Set Syntax: YAML"
+			],
+			[
+				"scss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"beautify",
+				"HTMLBeautify"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"post",
+				"Jekyll: New post"
+			],
+			[
+				"if",
+				"Snippet: if"
+			],
+			[
+				"fron",
+				"Snippet: set the front-matter for a jekyll post"
+			],
+			[
+				"new",
+				"Jekyll: New post"
+			],
+			[
+				"front-",
+				"Snippet: set the front-matter for a jekyll post"
+			],
+			[
+				"markd",
+				"Set Syntax: Markdown (Jekyll)"
+			],
+			[
+				"jek",
+				"Jekyll: Open post..."
+			],
+			[
+				"bs3-n",
+				"Snippet: bs3-navbar"
+			],
+			[
+				"Instal",
+				"Package Control: Install Package"
+			],
+			[
+				"Disab",
+				"Package Control: Disable Package"
+			]
+		],
+		"width": 514.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/E/Workspace/caritathelp-web",
+		"/E/Workspace/caritathelp-web/src",
+		"/E/Workspace/caritathelp-web/src/jade",
+		"/E/Workspace/caritathelp-web/src/jade/modal",
+		"/E/Workspace/caritathelp-web/src/jade/view",
+		"/E/Workspace/caritathelp-web/src/js",
+		"/E/Workspace/caritathelp-web/src/js/components",
+		"/E/Workspace/caritathelp-web/src/js/components/comment",
+		"/E/Workspace/caritathelp-web/src/js/components/navbar",
+		"/E/Workspace/caritathelp-web/src/js/controllers",
+		"/E/Workspace/caritathelp-web/src/js/services",
+		"/E/Workspace/caritathelp-web/src/less",
+		"/E/Workspace/caritathelp-web/src/less/abstract",
+		"/E/Workspace/caritathelp-web/src/less/base",
+		"/E/Workspace/caritathelp-web/src/less/compo",
+		"/E/Workspace/caritathelp-web/src/less/components",
+		"/E/Workspace/caritathelp-web/src/less/modules",
+		"/E/Workspace/caritathelp-web/src/less/pages"
+	],
+	"file_history":
+	[
+		"/E/Workspace/caritathelp-web/src/js/components/timeline/timeline.jade",
+		"/E/Workspace/caritathelp-web/src/less/components/timeline.less",
+		"/E/Workspace/caritathelp-web/src/js/components/news/news.jade",
+		"/E/Workspace/caritathelp-web/src/js/components/comment/comment.jade",
+		"/E/Workspace/caritathelp-web/src/less/compo/table.less",
+		"/E/Workspace/caritathelp-web/src/less/compo/typography.less",
+		"/E/Workspace/caritathelp-web/src/jade/modalLayout.jade",
+		"/E/Workspace/caritathelp-web/src/less/main.less",
+		"/E/Workspace/caritathelp-web/src/jade/view/directory.jade",
+		"/E/Workspace/caritathelp-web/src/js/controllers/associationController.js",
+		"/E/Workspace/caritathelp-web/src/jade/view/profil-association.jade",
+		"/E/Workspace/caritathelp-web/src/js/components/asso_settings/assoSettings.jade",
+		"/E/Workspace/caritathelp-web/src/less/base/base.less",
+		"/E/Workspace/caritathelp-web/src/js/controllers/directoryController.js",
+		"/E/Workspace/caritathelp-web/src/js/controllers/index.js",
+		"/E/Workspace/caritathelp-web/src/less/compo/button.less",
+		"/E/Workspace/caritathelp-web/src/less/base/normalize.less",
+		"/E/Workspace/caritathelp-web/src/less/base/grid.less",
+		"/E/Workspace/caritathelp-web/src/js/controllers/eventController.js",
+		"/E/Workspace/caritathelp-web/src/less/modules/modal.less",
+		"/E/Workspace/caritathelp-web/src/jade/view/partials/event.home.jade",
+		"/E/Workspace/caritathelp-web/src/js/components/user_summary/userSummary.jade",
+		"/E/Workspace/caritathelp-web/src/jade/view/partials/asso.home.jade",
+		"/E/Workspace/caritathelp-web/src/jade/modal/event-invite.jade",
+		"/E/Workspace/caritathelp-web/src/jade/modal/asso-invite.jade",
+		"/E/Workspace/caritathelp-web/src/js/controllers/inboxController.js",
+		"/E/Workspace/caritathelp-web/src/jade/modal/inbox-invite.jade",
+		"/E/Workspace/caritathelp-web/src/less/compo/modal.less",
+		"/E/Workspace/caritathelp-web/src/jade/modal/test.jade",
+		"/E/Workspace/caritathelp-web/package.json",
+		"/E/Workspace/caritathelp-web/src/js/app.js",
+		"/E/Workspace/caritathelp-web/src/jade/view/inbox.jade",
+		"/E/Workspace/caritathelp-web/src/js/services/dataService.js",
+		"/E/Workspace/caritathelp-web/gulpfile.js",
+		"/E/Workspace/caritathelp-web/src/less/pages/landing.less",
+		"/E/Workspace/caritathelp-web/src/less/pages/inbox.less",
+		"/E/Workspace/caritathelp-web/src/less/pages/search.less",
+		"/E/Workspace/caritathelp-web/src/less/pages/event.less",
+		"/E/Workspace/caritathelp-web/src/less/components/actions.less",
+		"/E/Workspace/caritathelp-web/src/less/components/summary.less",
+		"/E/Workspace/caritathelp-web/src/less/modules/settings.less",
+		"/E/Workspace/caritathelp-web/src/less/modules/calendar.less",
+		"/E/Workspace/caritathelp-web/src/less/modules/lists.less",
+		"/E/Workspace/caritathelp-web/src/js/components/friends_list/friendList.jade",
+		"/E/Workspace/caritathelp-web/src/less/modules/associations.less",
+		"/E/Workspace/caritathelp-web/src/js/components/assos_list/assoList.jade",
+		"/E/Workspace/caritathelp-web/src/jade/view/association.jade",
+		"/E/Workspace/caritathelp-web/src/less/abstract/variables.less",
+		"/E/Workspace/caritathelp-web/src/js/components/navbar/navbar.jade",
+		"/E/Workspace/caritathelp-web/src/less/components/navbar.less",
+		"/E/Workspace/caritathelp-web/src/less/compo/navbar.less",
+		"/E/Workspace/caritathelp-web/src/less/components/connect.less",
+		"/E/Workspace/caritathelp-web/src/less/abstract/mixins.less",
+		"/E/Workspace/caritathelp-web/src/less/base/reset.less",
+		"/E/Workspace/caritathelp-web/src/less/compo/images.less",
+		"/E/Workspace/caritathelp-web/src/less/compo/inputs.less",
+		"/E/Workspace/caritathelp-web/src/less/modules/cards.less",
+		"/E/Workspace/caritathelp-web/src/js/components/calendar/calendar.jade",
+		"/E/Workspace/caritathelp-web/src/jade/view/partials/user.friends.jade",
+		"/E/Workspace/caritathelp-web/src/less/compo/form.less",
+		"/E/Workspace/caritathelp-web/src/js/components/user_settings/userSettings.jade",
+		"/E/Workspace/caritathelp-web/src/js/components/register_box/registerBox.jade",
+		"/E/Workspace/caritathelp-web/src/js/components/login_box/loginBox.jade",
+		"/E/Workspace/caritathelp-web/src/js/components/event_settings/eventSettings.jade",
+		"/E/Workspace/caritathelp-web/src/js/components/event_create/eventCreate.jade",
+		"/E/Workspace/caritathelp-web/src/js/components/asso_create/assoCreate.jade",
+		"/E/Workspace/caritathelp-web/src/js/components/asso_create/assoCreate.js",
+		"/E/Workspace/caritathelp-web/src/js/components/register_box/registerBoxController.js",
+		"/E/Workspace/caritathelp-web/src/jade/view/profil-user.jade",
+		"/E/Workspace/caritathelp-web/src/jade/view/profil-event.jade",
+		"/E/Workspace/caritathelp-web/src/less/compo/cover.less",
+		"/E/Workspace/caritathelp-web/src/less/layout/with-cover.less",
+		"/E/Workspace/caritathelp-web/src/jade/layout/with-cover.jade",
+		"/E/Workspace/caritathelp-web/src/less/pages/profil.less",
+		"/E/Workspace/caritathelp-web/src/index.html",
+		"/E/Workspace/caritathelp-web/src/less/layout/landing.less",
+		"/E/Workspace/caritathelp-web/src/jade/view/login.jade",
+		"/E/Workspace/caritathelp-web/src/jade/view/partials/user.settings.jade",
+		"/E/Workspace/caritathelp-web/src/jade/view/register.jade",
+		"/E/Workspace/caritathelp-web/.gitignore",
+		"/E/Workspace/caritathelp-web/src/jade/view/search.jade",
+		"/E/Workspace/caritathelp-styleguide/gulpfile.js",
+		"/E/Workspace/angular-material/dist/angular-material.js",
+		"/E/Workspace/SmartAngelsDocs/Partial/documentation.sidebar.html",
+		"/E/Workspace/SmartAngelsDocs/Resources/private/javascript/src/Config/routing.js",
+		"/E/Workspace/SmartAngelsDocs/Partial/styleguide.sidebar.html",
+		"/E/Workspace/SmartAngelsDocs/Resources/private/javascript/src/app.js",
+		"/E/Workspace/SmartAngelsDocs/index.html",
+		"/E/Workspace/material/docs/gulpfile.js",
+		"/E/Workspace/material/gulpfile.js",
+		"/E/dev/cmder/config/user-aliases.cmd",
+		"/E/Workspace/caritathelp-web/src/libs/css/paper.min.css",
+		"/E/Workspace/caritathelp-web/src/libs/css/bootstrap.css",
+		"/E/Workspace/SmartAngelsDocs/gruntfile.js",
+		"/E/Workspace/caritathelp-web/src/libs/css/bootstrap.min.css",
+		"/C/Users/nicol/AppData/Local/Temp/7zO870F7B19/bootstrap.min.css",
+		"/C/Users/nicol/AppData/Local/Temp/7zO8700E9CA/bootstrap.css",
+		"/E/Workspace/caritathelp-web/public/index.html",
+		"/E/Workspace/styleguide/README.md",
+		"/E/Workspace/caritathelp-borne/package.json",
+		"/E/dev/cmder/config/aliases",
+		"/C/ProgramData/Steam/RLD!/271590/last.txt",
+		"/E/Workspace/caritathelp-web/src/js/components/asso_create/assoCreateController.js",
+		"/E/Workspace/portfolio/package.json",
+		"/E/Workspace/caritathelp-web/src/js/components/event_settings/eventSettingsController.js",
+		"/E/Workspace/caritathelp-web/src/jade/view/event.jade",
+		"/E/Workspace/caritathelp-web/src/js/components/event_settings/eventSettings.js",
+		"/E/Workspace/caritathelp-web/src/js/controllers/LoginController.js",
+		"/E/dev/cmder/vendor/conemu-maximus5/ConEmu.xml",
+		"/E/dev/cmder/vendor/conemu-maximus5/ConEmu/WhatsNew-ConEmu.txt",
+		"/E/Workspace/caritathelp-api/app/controllers/application_controller.rb",
+		"/E/Workspace/smartangels/.git/config",
+		"/E/Workspace/smartangels.git/config",
+		"/E/Workspace/shortener/.git/config",
+		"/E/Workspace/portfolio/.git/config",
+		"/E/Workspace/movie-app/.git/config",
+		"/E/Workspace/league-history/.git/config",
+		"/E/Workspace/devtools/.git/config",
+		"/E/Workspace/express/.git/config",
+		"/E/Workspace/database-app/.git/config",
+		"/E/Workspace/caritathelp-test/.git/config",
+		"/E/Workspace/blog/.git/config",
+		"/E/Workspace/caritathelp-api/.git/config",
+		"/E/Workspace/caritathelp-web/.git/config",
+		"/E/Workspace/caritathelp-web/src/js/components/event_settings/index.js",
+		"/E/Workspace/you-watch/gruntfile.js",
+		"/E/Workspace/you-watch/app/model/settings.json",
+		"/E/Workspace/you-watch/app/main/app.js"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"<open folders>, -public/*, *.less",
+			"<open folders>, -public/*, *.jade",
+			"<open folders>, -public/*",
+			"<open folders>, -public/*, *.jade",
+			"<open folders>, -public/*,",
+			"<open folders>, -public/*, *.jade",
+			"<open folders>, -public/*, ",
+			"<open folders>, -public/*, *.less",
+			"<open folders>, -public/*",
+			"<open folders>, -public/*, *.jade",
+			"<open folders>, -public/*",
+			"<open folders>, -public/*, *.jade",
+			"<open folders>, -public/*",
+			"<open folders>, -public/*, *.less",
+			"<open folders>, -public/*, ",
+			"<open folders>, -public/*, *.less",
+			"<open folders>, -public/*",
+			"<open folders>, -public/*, *.js",
+			"<open folders>, -public/*",
+			"<open folders>, -public/*, *.jade",
+			"<open folders>, -public/*",
+			"<open folders>, -public/*, *.jade",
+			"<open folders>, -public/*",
+			"<open folders>, -public/*, *.less",
+			"<open folders>, -public/*",
+			"<open folders>, -public/*, *.erb",
+			"<open folders>, -public/*",
+			"<open folders>, -public/*, *.less",
+			"<open folders>, -public/*",
+			"<open folders>, -public/*, *.less",
+			"<open folders>, -public/*",
+			"<open folders>, -/public/*",
+			"<open folders>, -public",
+			"<open folders>",
+			"E:\\Workspace\\caritathelp-web\\src\\less, E:\\Workspace\\caritathelp-web\\src\\jade, E:\\Workspace\\caritathelp-web\\src\\js",
+			"<open folders>",
+			"<open folders>, *.js",
+			"<open folders>",
+			"<open folders>, *.scss",
+			"<open folders>",
+			"<open folders>, -public/",
+			"<open folders>, -public",
+			"<open folders>",
+			"<open folders>, *.jade",
+			"<open folders>, *.less",
+			"<open folders>, *.jade",
+			"<open folders>",
+			"<open folders>, *.jade",
+			"<open folders>, *.less",
+			"<open folders>, *.jade",
+			"<open folders>",
+			"<open folders>, *.js",
+			"<open folders>, *.erb",
+			"<open folders>",
+			"<open folders>, *.less",
+			"<open folders>",
+			"<open folders>, *.jade",
+			"<open folders>, -node_modules/*, -data/*, -bin/*, *.jade",
+			"<open folders>, -node_modules/*, -data/*, -bin/*, *.vue",
+			"<open folders>, -node_modules/*, -data/*, -bin/*, *.js",
+			"<open folders>, -node_modules/*, -data/*, -bin/*",
+			"-node_modules/*, -data/*, -bin/*,<open folders>",
+			"-node_modules/*, -data/*, -bin/*,<open folders>, *.less",
+			"-node_modules/*, -data/*, -bin/*,<open folders>, *.js",
+			"-node_modules/*, -data/*, -bin/*,<open folders>",
+			"E:\\Workspace\\wpnew\\wp-content\\themes\\videotube, -node_modules/*, -data/*, -bin/*",
+			"<open folders>, -node_modules/*, -data/*, -bin/*",
+			"<open folders>, -node_modules/*, -data/*, -bin/*, *.js",
+			"<open folders>, -node_modules/*, -data/*, -bin/*",
+			"<open folders>, -node_modules/*",
+			"<open folders>",
+			"<open files>",
+			"<open folders>",
+			"",
+			"<open folders>",
+			"E:\\Workspace\\portfolio\\src\\vendors\\bootstrap\\less",
+			"<open files>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".timeline",
+			"reply--picture",
+			"actu--pi",
+			"--reply",
+			"tabl",
+			".tabl",
+			"table",
+			"table-max",
+			"$",
+			"modal--friends",
+			"modal-footer",
+			"modal-body",
+			"modal-header",
+			".modal",
+			"modal",
+			"friend",
+			"modal",
+			".modal",
+			"meowdal",
+			".search--result",
+			"event--table",
+			"actu--comment",
+			"actu--reply",
+			"comment--body",
+			"comment--boy",
+			"comment--picture",
+			"reply--picture",
+			"actu--reply",
+			"action",
+			".summary",
+			".modal-header",
+			".invite",
+			"listing",
+			"text-list",
+			".friends",
+			".description",
+			".calendar--main",
+			".associations",
+			".element",
+			".navbar",
+			".navbar--right",
+			".navbar--menu",
+			".abso-center()",
+			".background-gradient",
+			"border-radius(",
+			"box-shadow(",
+			".h",
+			".h4",
+			".h3",
+			".h2",
+			".h1",
+			".input-mail",
+			".input-group-addon",
+			"connect--header",
+			"radio--group",
+			"connect--radio",
+			"connect--form",
+			"help-block",
+			"no-padding",
+			".card",
+			".card--title",
+			"img-avatar",
+			"select-group",
+			"btn-small",
+			"btn-primary",
+			".btn",
+			".col-sm-6",
+			"form-control",
+			"form-group",
+			"action-in",
+			"b",
+			"action-in",
+			"form-control",
+			".ch-btn-success",
+			".ch-btn-danger",
+			".ch-btn-primary",
+			".btn",
+			".control-label",
+			".form-group",
+			".help-block",
+			".form-group.col-sm-6",
+			".input-group",
+			"input-group-addon",
+			"form-control",
+			"	form(",
+			"form(",
+			".help-block",
+			".form-control",
+			"label",
+			".form-group",
+			"form",
+			".form-group",
+			".form-control",
+			".control-label",
+			".form-group",
+			".form-control",
+			"label",
+			"..",
+			"form-group",
+			"form",
+			".help-block",
+			".form-group",
+			".ch-form_row",
+			".control-label",
+			".input-group",
+			".input-group-addon",
+			".input-group-addon.input-mail",
+			".form-control",
+			"fieldset",
+			")\n    }",
+			";;",
+			"\n    }\n}",
+			";;",
+			"};",
+			"\n}",
+			"\"\n}",
+			"fieldset",
+			"$",
+			".friends",
+			"friends",
+			"col-status",
+			"content-wrapper",
+			"btn-small",
+			"btn-inversed",
+			"#72888e",
+			"##72888e",
+			"#f98",
+			"#cf415c"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"@",
+			"member",
+			"",
+			".--fail",
+			"",
+			".ch-btn",
+			".ch-form_label",
+			".ch-form_row",
+			".ch-form_message.--error",
+			".ch-form_row",
+			".ch-form_input-group",
+			"ch-form_addition.--prefix",
+			"ch-form_text",
+			".ch-form_message.--error",
+			".ch-form_text",
+			"label.ch-form_label",
+			".ch-form_row",
+			".ch-form_text",
+			".ch-form_label",
+			".ch-form_row",
+			".ch-form_text",
+			"label.ch-form_label",
+			".",
+			".ch-form_row",
+			".ch-form_message.--error",
+			".ch-form_row",
+			".ch-form_label",
+			".ch-form_input-group",
+			".ch-form_addition.--prefix",
+			".ch-form_text",
+			");\n    }",
+			";",
+			";\n    }\n}",
+			";",
+			"}",
+			";\n}",
+			"\";\n}",
+			"@",
+			"@tertiary-active",
+			"@primary-focus",
+			"@tertiary-color",
+			"@success-hover",
+			"@success-color",
+			"@primary-active",
+			"@primary-hover",
+			"@accent-color",
+			"@primary-color",
+			"inset 0 0 0 1px",
+			"rc.2",
+			"rc.4",
+			"guests",
+			"event",
+			"Event",
+			"res",
+			"settings",
+			"Settings",
+			"actions",
+			"Actions",
+			"event",
+			"Event",
+			"vm.",
+			"'",
+			"actions",
+			"assoActions",
+			"ng-click",
+			"assoc_id",
+			"",
+			"'",
+			":vm",
+			"\"vm.",
+			"vm.asso",
+			"",
+			"com",
+			"vmnews.",
+			"tlIdt",
+			"",
+			"sum",
+			"vm.",
+			"",
+			"ng-value",
+			"ng-src",
+			"vm",
+			"cusc",
+			"calendar",
+			"getAssos",
+			"",
+			"--",
+			"state",
+			"\\t",
+			"/t",
+			"useso",
+			"project",
+			"\"role\": \"\",\n\\t\\t\\t\"link\"",
+			"flags",
+			"images",
+			";}",
+			"}\\n",
+			"",
+			"Fenton-Regular",
+			"",
+			">\n\\t\\t\\t\\t<labe",
+			"\\t\\t<i",
+			">\n<i",
+			"\n\\t</a>\n</li>",
+			"<li>\n\\t<a",
+			"\n<li>",
+			"\\t",
+			"user",
+			"User",
+			"user",
+			"comment",
+			"connect_",
+			"error-b",
+			"register",
+			"",
+			"navbar__item",
+			"user2.png",
+			"user1.png",
+			"user2",
+			"user3",
+			"glyphter",
+			"glyph-",
+			"'site/assets",
+			"site/src/assets/",
+			"site/src/assets",
+			"assets",
+			"cusc.user.",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/D/Nicolas/Desktop/sa.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 75590,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								74517,
+								74517
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										74516,
+										74517
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										74433,
+										74434
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"bs_sintax": "plain text",
+							"buffer_scroll_name": "44142774",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai JSON+.tmTheme",
+							"spell_check": false,
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 67328.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/less/compo/button.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3362,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1567,
+								1567
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										1566,
+										1567
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1427,
+										1428
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"bs_sintax": "less",
+							"buffer_scroll_name": "f34fc18c",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai JSON+.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"spell_check": false,
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 660.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/js/components/navbar/navbar.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1152,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								828,
+								828
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										912,
+										913
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										828,
+										829
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"bs_sintax": "jade",
+							"buffer_scroll_name": "22426ba7",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"spell_check": false,
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 60.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "src/js/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5005,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2903,
+								2903
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										2903,
+										2904
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/single_quote.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										2900,
+										2901
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"bs_sintax": "javascript",
+							"buffer_scroll_name": "6203c790",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai JSON+.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"spell_check": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1920.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/less/compo/images.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 318,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								318,
+								318
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"bs_sintax": "less",
+							"buffer_scroll_name": "795b77d2",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai JSON+.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"spell_check": false,
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/less/compo/timeline.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 689,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								684,
+								684
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										685,
+										686
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										671,
+										672
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"bs_sintax": "less",
+							"buffer_scroll_name": "645f10ad",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai JSON+.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"open_with_edit": true,
+							"spell_check": false,
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 120.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/less/main.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1028,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								339,
+								339
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"bs_sintax": "less",
+							"buffer_scroll_name": "f32a9147",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai JSON+.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"spell_check": false,
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 240.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/less/compo/navbar.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1321,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								988,
+								988
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										990,
+										991
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										929,
+										930
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"bs_sintax": "less",
+							"buffer_scroll_name": "05a34055",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai JSON+.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"spell_check": false,
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 300.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.561383285303,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "caritathelp.sublime-project",
+	"replace":
+	{
+		"height": 68.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"grunt",
+				"bootstrap\\Gruntfile.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 185.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}

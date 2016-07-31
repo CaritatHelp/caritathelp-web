@@ -1,15 +1,15 @@
 .ch-grid_col.--one-third_from-tablet
-	.card
-		.text-list
-			.link(ng-class="{active:settings.isSet(1)}")
-				i.fa.fa-home
-				a(ng-click="settings.setTab(1)") General
-			.link(ng-class="{active:settings.isSet(2)}")
-				i.fa.fa-eye
-				a(ng-click="settings.setTab(2)") Photo de profil
-			.link(ng-class="{active:settings.isSet(3)}")
-				i.fa.fa-sign-in
-				a(ng-click="settings.setTab(3)") Invitations
+	.card.ch-sidenav
+		h3.ch-sidenav_title.ch-text.--kilo.--bold Paramètres
+		a.ch-sidenav_link(ng-class="{active:settings.isSet(1)}", ng-click="settings.setTab(1)").
+			#[i.fa.fa-home]
+			General
+		a.ch-sidenav_link(ng-class="{active:settings.isSet(2)}", ng-click="settings.setTab(2)").
+			#[i.fa.fa-eye]
+			Photo de profil
+		a.ch-sidenav_link(ng-class="{active:settings.isSet(3)}", ng-click="settings.setTab(3)").
+			#[i.fa.fa-sign-in]
+			Invitations
 
 .ch-grid_col.--two-thirds_from-tablet
 	//- Messages d'erreur
@@ -23,7 +23,7 @@
 		ng-show="settings.error",
 		ng-bind-html="settings.errorMessage")
 	.card(ng-show="settings.isSet(1)")
-		h4 Paramètres du compte
+		h2.ch-text.--mega Paramètres du compte
 		form.ch-form(
 			novalidate="",
 			name="updateForm",
@@ -127,7 +127,7 @@
 				button#buttonSave.ch-btn(type="submit") Enregistrer
 
 	.card(ng-show="settings.isSet(2)")
-		h4 Photo de profil
+		h2.ch-text.--mega Photo de profil
 		div(ng-show="!settings.changePicture")
 			.alert.alert-info Votre photo de profil est visible par tous les utilisateurs. Cliquez sur le bouton pour la changer.
 			img(ng-src="{{settings.user.picture}}", alt="{{settings.user.firstname}} {{settings.user.lastname}}")
@@ -149,7 +149,7 @@
 			button#buttonCancel.ch-btn.--fail(ng-click="settings.picture = null; settings.changePicture = false", ng-show="settings.picture") Annuler
 
 	.card(ng-show="settings.isSet(3)")
-		h4 Gestion des invitations
+		h2.ch-text.--mega Gestion des invitations
 		section
 			.invite(ng-repeat="notif in settings.notifs", ng-if="settings.notifs.length")
 

@@ -1,18 +1,18 @@
 .ch-grid_col.--one-third_from-tablet
-	.card
-		.text-list
-			.link(ng-class="{active:settings.isSet(1)}")
-				i.fa.fa-home
-				a(ng-click="settings.setTab(1)") General
-			.link(ng-class="{active:settings.isSet(2)}")
-				i.fa.fa-eye
-				a(ng-click="settings.setTab(2)") Photo de profil
-			.link(ng-class="{active:settings.isSet(3)}")
-				i.fa.fa-users
-				a(ng-click="settings.setTab(3)") Membres
-			.link(ng-class="{active:settings.isSet(4)}")
-				i.fa.fa-times
-				a(ng-click="settings.setTab(4)") Supprimer
+	.card.ch-sidenav
+		h3.ch-sidenav_title.ch-text.--kilo.--bold Paramètres
+		a.ch-sidenav_link(ng-class="{active:settings.isSet(1)}", ng-click="settings.setTab(1)").
+			#[i.fa.fa-home]
+			General
+		a.ch-sidenav_link(ng-class="{active:settings.isSet(2)}", ng-click="settings.setTab(2)").
+			#[i.fa.fa-eye]
+			Photo de profil
+		a.ch-sidenav_link(ng-class="{active:settings.isSet(3)}", ng-click="settings.setTab(3)").
+			#[i.fa.fa-users]
+			Membres
+		a.ch-sidenav_link(ng-class="{active:settings.isSet(4)}", ng-click="settings.setTab(4)").
+			#[i.fa.fa-times]
+			Supprimer
 
 .ch-grid_col.--two-thirds_from-tablet
 	//- Messages de succes
@@ -28,7 +28,7 @@
 
 	//- Paramètres généraux
 	.card(ng-show="settings.isSet(1)")
-		h2.ch-text.--mega Paramètres de l'association
+		h2.ch-text.--mega Paramètres généraux
 		form.ch-form(
 			novalidate="",
 			name="updateForm",

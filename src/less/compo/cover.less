@@ -37,3 +37,20 @@
 	color: #262626;
 	background-color: rgba(255, 255, 255, 0.1);
 }
+
+.ch-profil_nav {
+	display: flex;
+	line-height: 1.6;
+}
+.ch-profil_nav-button {
+	display: flex;
+	flex-grow: 1;
+	align-items: center;
+	justify-content: center;
+	padding: 1em 0;
+	border-radius: 0;
+	i {padding-right: .75em;}
+	&.active {
+		background-color: @primary-active;
+	}
+}

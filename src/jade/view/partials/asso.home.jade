@@ -1,10 +1,9 @@
 .ch-grid
 	.ch-grid_col.--one-third_from-tablet
-		.description
-			header
-				.description--title Description
-			section
-				.description--text {{vm.asso.description}}
+		.card
+			h3.ch-card_header.ch-text.--mega.--bold Description
+			.ch-text {{vm.asso.description}}
+
 		//-Bloc d'informations latéral
 		.rights.alert(ng-class="vm.rights.class") {{vm.rights.message}}
 		//- Actions possibles pour l'utilisateur

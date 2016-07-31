@@ -5,27 +5,22 @@
 		.ch-profil_picture
 			img(ng-src="{{vm.user.picture}}")
 		.ch-profil_name {{vm.user.firstname}} {{vm.user.lastname}}
-	.btn-pref.btn-group.btn-group-justified.btn-group-lg(style="display:flex")
-		.btn-group
-			a(ui-sref="profil.home", ui-sref-active="active").btn.btn-primary
+	.ch-profil_nav
+		button.ch-btn.ch-profil_nav-button(ui-sref="profil.home", ui-sref-active="active")
 				i.fa.fa-home
 				.hidden-xs Accueil
-		.btn-group
-			a(ui-sref="profil.friends", ui-sref-active="active").btn.btn-primary
-				i.fa.fa-users
-				.hidden-xs Friends
-		.btn-group
-			a(ui-sref="profil.assos", ui-sref-active="active").btn.btn-primary
-				i.fa.fa-truck
-				.hidden-xs Associations
-		.btn-group
-			a(ui-sref="profil.calendar", ui-sref-active="active").btn.btn-primary
-				i.fa.fa-calendar
-				.hidden-xs Calendrier
-		.btn-group(ng-if="vm.isCurrent")
-			a(ui-sref="profil.settings", ui-sref-active="active").btn.btn-primary
-				i.fa.fa-cog
-				.hidden-xs Paramètres
+		button.ch-btn.ch-profil_nav-button(ui-sref="profil.friends", ui-sref-active="active")
+			i.fa.fa-users
+			.hidden-xs Friends
+		button.ch-btn.ch-profil_nav-button(ui-sref="profil.assos", ui-sref-active="active")
+			i.fa.fa-truck
+			.hidden-xs Associations
+		button.ch-btn.ch-profil_nav-button(ui-sref="profil.calendar", ui-sref-active="active")
+			i.fa.fa-calendar
+			.hidden-xs Calendrier
+		button.ch-btn.ch-profil_nav-button(ui-sref="profil.settings", ui-sref-active="active")
+			i.fa.fa-cog
+			.hidden-xs Paramètres
 
 
 	.tabs

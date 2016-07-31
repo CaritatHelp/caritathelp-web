@@ -1,0 +1,22 @@
+.ch-sidenav {
+	display: flex;
+	flex-direction: column;
+	.ch-sidenav_title {margin-bottom: .5em;}
+	.ch-sidenav_link	{
+		display: flex;
+		align-items: center;
+		line-height: 1.8;
+		cursor: pointer;
+		i {
+			width: 1.2em;
+			margin-right: .5em;
+			font-size: 1.2em;
+			color: inherit;
+			text-align: center;
+		}
+	}
+	.active {
+		color: @link-color;
+		i {color: @link-color;}
+	}
+}

@@ -16,6 +16,18 @@
 	}
 	.no-padding {padding:0;}
 
+	.ch-card_header {
+		padding-bottom: .275em;
+		margin-bottom: .725em;
+		border-bottom: 1px solid #d4dbe0;
+	}
+	.ch-card_footer {
+	  padding-top: .275em;
+	  margin-top: .725em;
+	  border-top: 1px solid #d4dbe0;
+	}
+
+
 //Settings des liens
 	a {
 		color: inherit;
@@ -36,4 +48,16 @@
 	line-height: 1.2;
 	text-align: center;
 	border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+// Cartes friend/asso profil
+.listing {
+	.friend, .association, .event {
+		display: flex;
+		align-items: center;
+		.name {
+			flex-grow: 1;
+			padding: 0 1em;
+		}
+	}
 }

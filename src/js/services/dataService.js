@@ -213,13 +213,11 @@ module.exports = /*@ngInject*/ function ($http) {
 		var parameters = 'content=' + content;
 		return $http.post(buildUrl('news', null, 'volunteer_status', parameters));
 	};
-	DataService.postAssoNews = function (assoc_id, content) {
-		var parameters = 'content=' + content + '&assoc_id=' + assoc_id;
-		return $http.post(buildUrl('news', null, 'assoc_status', parameters));
+	DataService.postAssoNews = function (assoc_id, content, privacy) {
+		return this.postNews(content, 'association', assoc_id, privacy);
 	};
-	DataService.postEventNews = function (event_id, content) {
-		var parameters = 'content=' + content + '&event_id=' + event_id;
-		return $http.post(buildUrl('news', null, 'event_status', parameters));
+	DataService.postEventNews = function (event_id, content, privacy) {
+		return this.postNews(content, 'event', event_id, privacy);
 	};
 	DataService.postNews = function (content, type, id, privacy) {
 		var parameters = 'content=' + content;

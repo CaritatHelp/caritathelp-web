@@ -5,23 +5,19 @@
 		.ch-profil_picture
 			img(ng-src="http://api.caritathelp.me{{vm.asso.thumb_path}}", alt="{{vm.asso.name}}")
 		.ch-profil_name {{vm.asso.name}}
-	.btn-pref.btn-group.btn-group-justified.btn-group-lg(style="display:flex")
-		.btn-group
-			a(ui-sref="association.home", ui-sref-active="active").btn.btn-primary
-				i.fa.fa-home
-				.hidden-xs Accueil
-		.btn-group
-			a(ui-sref="association.members", ui-sref-active="active").btn.btn-primary
+	.ch-profil_nav
+		button.ch-btn.ch-profil_nav-button(ui-sref="association.home", ui-sref-active="active")
+			i.fa.fa-home
+			.hidden-xs Accueil
+		button.ch-btn.ch-profil_nav-button(ui-sref="association.members", ui-sref-active="active")
 				i.fa.fa-users
 				.hidden-xs Membres
-		.btn-group
-			a(ui-sref="association.calendar", ui-sref-active="active").btn.btn-primary
-				i.fa.fa-calendar
-				.hidden-xs Calendrier
-		.btn-group(ng-if="vm.asso.rights == 'owner' || vm.asso.rights == 'admin'")
-			a(ui-sref="association.settings", ui-sref-active="active").btn.btn-primary
-				i.fa.fa-cog
-				.hidden-xs Administration
+		button.ch-btn.ch-profil_nav-button(ui-sref="association.calendar", ui-sref-active="active")
+			i.fa.fa-calendar
+			.hidden-xs Calendrier
+		button.ch-btn.ch-profil_nav-button(ui-sref="association.settings", ui-sref-active="active", ng-if="vm.asso.rights == 'owner' || vm.asso.rights == 'admin'")
+			i.fa.fa-cog
+			.hidden-xs Administration
 
 	.tabs
 		ui-view(ng-show="vm.loaded")

@@ -7,20 +7,20 @@
 	display: block;
 	padding: .25em .5em;
 	font-weight: bold;
-	color: @navbar-hover;
-	background-color: @button-color;
+	color: @accent-color;
+	background-color: @primary-color;
 	transition: none;
 	.fa {
 		width: 21px;
 		padding-right: .5rem;
 		margin-right: .4rem;
 		text-align: center;
-		border-right: 1px solid @navbar-hover;
+		border-right: 1px solid @accent-color;
 	}
 	&:hover {
-		color: @link-color;
+		color: @primary-color;
 		cursor: pointer;
-		background-color: @navbar-hover;
-		.fa {border-right: 1px solid @button-color;}
+		background-color: @accent-color;
+		.fa {border-right: 1px solid @primary-color;}
 	}
 }

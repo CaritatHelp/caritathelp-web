@@ -1,0 +1,36 @@
+/*Code for Customized Scrollbars begins here! */
+
+::-webkit-scrollbar {
+	width: 5px; /* Width of the vertical scrollbar button */
+	height: 5px; /* Height of the horizontal scrollbar button */
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+	display: none;
+	height: 10px; /* Height of the entiry vertical scrollbar */
+	width: 10px; /* Width of the entiry horizontal scrollbar */
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+	background-color: none; /* Background of the Scrollbar */
+}
+
+::-webkit-scrollbar-button:horizontal:increment {
+	background-color: none; /* Background of the Scrollbar */
+}
+
+::-webkit-scrollbar-track-piece {
+	background-color: #ccc; /* Background of the track */
+	-webkit-border-radius: 0px; /* Border Radius of the track */
+}
+
+::-webkit-scrollbar-thumb:vertical {
+	background-color: #999; /* Background of Thumb */
+	-webkit-border-radius: 0px; /* Border Radius of the Scrollbar */
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+	background-color: #999; /* Background of Thumb */
+	-webkit-border-radius: 0px; /* Border Radius of the Scrollbar */
+}

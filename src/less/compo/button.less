@@ -15,17 +15,10 @@
 	&:focus {outline: none;}
 	&:hover {background: @primary-hover;}
 	&:active {background: @primary-active;}
-	&:disabled {background: @tertiary-color; cursor: not-allowed;}
+	&:disabled {background: @primary-active; cursor: not-allowed;}
 	&.\--large {font-size: 1.6rem;}
 	&.\--full {display: block; width: 100%;}
 	.fa {
-		font-size: 1em;
-		line-height: 1.5em;
-		display: inline;
-		height: auto;
-		width: auto;
-		padding-right: .2em;
-		vertical-align: baseline;
 	}
 	&.\--inverse {
 		background: @accent-color;

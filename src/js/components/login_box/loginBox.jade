@@ -31,4 +31,8 @@
 					required
 					)
 		a(ui-sref="register") Pas de compte ?
-		button#buttonConnect.ch-btn.pull-right(type="submit") Connexion
+		button#buttonConnect.ch-btn.pull-right(type="submit", ng-show="!login.connecting").
+			Connexion
+		button#buttonConnect.ch-btn.pull-right(type="submit", ng-show="login.connecting", disabled).
+			#[i.fa.fa-spin.fa-spinner]
+			Connexion

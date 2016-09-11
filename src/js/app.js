@@ -1,8 +1,5 @@
 'use strict';
 
-global.jQuery = require('jquery');
-require('bootstrap');
-
 // Modules angular
 var angular = require('angular');
 require('angular-sanitize');

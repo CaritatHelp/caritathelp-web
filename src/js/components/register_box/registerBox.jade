@@ -141,5 +141,6 @@
 				input.ch-form_button-input(type="radio", name="radioGender", id="radioWoman", value="femme", ng-model="register.gender")
 				label.ch-form_button-element(for="radioWoman") Femme
 
-		a(ui-sref="login") Déjà un compte ?
-		button#buttonRegister.ch-btn.pull-right(type="submit") S'enregistrer
+		.ch-form_row
+			a(ui-sref="login") Déjà un compte ?
+			button#buttonRegister.ch-btn.pull-right(type="submit") S'enregistrer

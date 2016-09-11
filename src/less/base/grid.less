@@ -28,72 +28,60 @@
 	max-width: 100%;
 	margin-top: 3rem;
 	padding: 0 1.5rem;
-	&:first-child {
-		@media (min-width: 768px) {
-			padding-left: 4.5rem;
-		}
-	}
+	&:first-child {@media (min-width: 768px) {padding-left: 4.5rem;}}
 	@media (max-width: 767px) {
 		margin-top: 1.8rem;
 		padding-left: 1.8rem;
 	}
+}
 
-	@media (min-width: 768px) {
-		.\--half_from-tablet {
-			flex: 50% 0 0;
-			max-width: 50%;
-		}
-
-		.\--one-third_from-tablet {
-			flex: 33.3333% 0 0;
-			max-width: 33.3333%;
-		}
-
-		.\--two-thirds_from-tablet {
-			flex: 66.6666% 0 0;
-			max-width: 66.6666%;
-		}
-
-		.\--one-quarter_from-tablet {
-			flex: 25% 0 0;
-			max-width: 25%;
-		}
-
-		.\--three-quarters_from-tablet {
-			flex: 75% 0 0;
-			max-width: 75%;
-		}
+@media (min-width: 768px) {
+	.\--half_from-tablet {
+		flex: 50% 0 0;
+		max-width: 50%;
 	}
-	@media (max-width: 1023px) and (min-width: 768px) {
-		.\--half_tablet {
-			flex: 50% 0 0;
-			max-width: 50%;
-		}
+	.\--one-third_from-tablet {
+		flex: 33.3333% 0 0;
+		max-width: 33.3333%;
 	}
-	@media (min-width: 1024px) {
-		.\--half_desktop {
-			flex: 50% 0 0;
-			max-width: 50%;
-		}
-
-		.\--one-third_desktop {
-			flex: 33.3333% 0 0;
-			max-width: 33.3333%;
-		}
-
-		.\--two-thirds_desktop {
-			flex: 66.6666% 0 0;
-			max-width: 66.6666%;
-		}
-
-		.\--one-quarter_desktop {
-			flex: 25% 0 0;
-			max-width: 25%;
-		}
-
-		.--three-quarters_desktop {
-			flex: 75% 0 0;
-			max-width: 75%;
-		}
+	.\--two-thirds_from-tablet {
+		flex: 66.6666% 0 0;
+		max-width: 66.6666%;
+	}
+	.\--one-quarter_from-tablet {
+		flex: 25% 0 0;
+		max-width: 25%;
+	}
+	.\--three-quarters_from-tablet {
+		flex: 75% 0 0;
+		max-width: 75%;
+	}
+}
+@media (max-width: 1023px) and (min-width: 768px) {
+	.\--half_tablet {
+		flex: 50% 0 0;
+		max-width: 50%;
+	}
+}
+@media (min-width: 1024px) {
+	.\--half_desktop {
+		flex: 50% 0 0;
+		max-width: 50%;
+	}
+	.\--one-third_desktop {
+		flex: 33.3333% 0 0;
+		max-width: 33.3333%;
+	}
+	.\--two-thirds_desktop {
+		flex: 66.6666% 0 0;
+		max-width: 66.6666%;
+	}
+	.\--one-quarter_desktop {
+		flex: 25% 0 0;
+		max-width: 25%;
+	}
+	.--three-quarters_desktop {
+		flex: 75% 0 0;
+		max-width: 75%;
 	}
 }

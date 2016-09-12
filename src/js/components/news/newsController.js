@@ -14,7 +14,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 			getLink();
 			dsc.getNewsComments(vm.actu.id)
 				.success(function (data) {
-					vm.comments = data.response;
+					vm.comments = data.response.comments;
 				});
 		});
 

@@ -10,7 +10,7 @@ require('angular-ui-bootstrap');
 require('angular-base64-upload');
 require('angular-ui-router');
 
-var app = angular.module('caritathelp', ['ngSanitize', 'ngMessages', 'LocalStorageModule', 'ui.bootstrap', 'naif.base64', 'ui.router']);
+var app = angular.module('caritathelp', ['ngSanitize', 'ngMessages', 'LocalStorageModule', 'ui.bootstrap', 'naif.base64', 'ui.router', 'angularModalService']);
 
 require('./services');
 require('./directives');

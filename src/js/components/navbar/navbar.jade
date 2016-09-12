@@ -7,7 +7,7 @@ nav.ch-navbar(ng-if="nav.isConnected()")
 			a.ch-navbar_item(ui-sref="home", ui-sref-active="active")
 				span Accueil
 				i.fa.fa-home
-			a.ch-navbar_item(ui-sref="profil.home", ui-sref-active="active")
+			a.ch-navbar_item(ui-sref="profil.home({id:{{nav.user.id}}})", ui-sref-active="active")
 				span Profil
 				i.fa.fa-user
 			a.ch-navbar_item(ui-sref="associations", ui-sref-active="active")

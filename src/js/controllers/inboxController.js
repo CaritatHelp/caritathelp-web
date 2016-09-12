@@ -55,7 +55,7 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 		modal.showModal({
 			templateUrl: 'modal/inbox-invite.html',
 			controller: function (close, dataService, $scope) {
-				var angular = require('angular');
+				// var angular = require('angular');
 
 				dataService.getVolunteers()
 					.success(function (data) {
@@ -67,7 +67,7 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 					close();
 				};
 				$scope.addFriend = function (friendId) {
-					angular.element('#invite-' + friendId).html('Ajouté').attr('disabled', true);
+					//angular.element('#invite-' + friendId).html('Ajouté').attr('disabled', true);
 					vm.creator.push(friendId);
 				};
 				$scope.confirmCreation = function () {

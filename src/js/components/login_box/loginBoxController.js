@@ -4,8 +4,6 @@ module.exports = /*@ngInject*/ function (dataService, userService, $location) {
 	var dsc = dataService;
 	var usc = userService;
 
-	var angular = require('angular');
-
 	//variables d'erreur locales
 	_this.error = false;
 	_this.errorMessage = '';
@@ -26,8 +24,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $location) {
 			_this.errorMessage = 'Veuillez entrer votre addresse mail et votre mot de passe.';
 			return;
 		}
-
-		angular.element('#buttonConnect').prepend('<i class="fa fa-spin fa-spinner"></i> ').attr('disabled', true);
+		_this.connecting = true;
 		//Requete de login
 		dsc.login(_this.mail, _this.password)
 			.success(function (data) {
@@ -47,7 +44,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $location) {
 				_this.error = 'true';
 				_this.errorMessage = 'Impossible de joindre le serveur, veuillez réessayer dans quelques minutes.';
 			}).finally(function () {
-				angular.element('#buttonConnect').html('Connexion').attr('disabled', false);
+				_this.connecting = false;
 			});
 	};
 };

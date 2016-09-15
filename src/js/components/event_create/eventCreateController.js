@@ -24,13 +24,11 @@ module.exports = /*@ngInject*/ function ($state, dataService) {
 		// Parametres: assoId titre description place begin end
 		dsc.createEvent(vm.asso, vm.title, vm.description, vm.place, vm.begin, vm.end)
 			.success(function (data) {
-				if (data.status === 200) {
-					$state.transitionTo('event.home', {id: data.response.id});
-				} else {
-					//Erreur serveur
-					vm.error = true;
-					vm.errorMessage = data.message;
-				}
+				$state.transitionTo('event.home', {id: data.response.id});
+			})
+			.error(function (data) {
+				vm.error = true;
+				vm.errorMessage = data.message;
 			});
 	};
 };

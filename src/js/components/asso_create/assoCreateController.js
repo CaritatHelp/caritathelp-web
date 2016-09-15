@@ -11,13 +11,11 @@ module.exports = /*@ngInject*/ function ($state, dataService) {
 		// Parametres: nom description birthday city latitude longitude
 		dsc.createAsso(vm.name, vm.description, null, vm.city, null, null)
 			.success(function (data) {
-				if (data.status === 200) {
-					$state.transitionTo('association.home', {id: data.response.id});
-				} else {
-					//Erreur serveur
-					vm.error = true;
-					vm.errorMessage = data.message;
-				}
+				$state.transitionTo('association.home', {id: data.response.id});
+			})
+			.error(function (data) {
+				vm.error = true;
+				vm.errorMessage = data.message;
 			});
 	};
 };

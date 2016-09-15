@@ -25,10 +25,8 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 	vm.postComment = function () {
 		dsc.postComment(vm.newsId, vm.newComment)
 			.success(function (data) {
-				if (data.status === 200) {
-					vm.comments.push(data.response);
-					vm.newComment = '';
-				}
+				vm.comments.push(data.response);
+				vm.newComment = '';
 			});
 	};
 };

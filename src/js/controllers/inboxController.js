@@ -73,10 +73,8 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 				$scope.confirmCreation = function () {
 					dsc.createChatroom(vm.creator)
 						.success(function (data) {
-							if (data.status === 200) {
-								vm.active = data.response;
-								vm.chatrooms.unshift(data.response);
-							}
+							vm.active = data.response;
+							vm.chatrooms.unshift(data.response);
 						});
 					close();
 				};

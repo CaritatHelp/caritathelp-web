@@ -46,26 +46,20 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams)
 		if (vm.type == 'volunteer' || vm.type == 'home') {
 			dsc.postVolunteerNews($stateParams.id ? $stateParams.id : vm.currentUser.id, vm.newNews)
 				.success(function (data) {
-					if (data.status === 200) {
-						vm.news.unshift(data.response);
-						vm.newNews = '';
-					}
+					vm.news.unshift(data.response);
+					vm.newNews = '';
 				});
 		} else if (vm.type == 'association') {
 			dsc.postAssoNews($stateParams.id, vm.newNews)
 				.success(function (data) {
-					if (data.status === 200) {
-						vm.news.unshift(data.response);
-						vm.newNews = '';
-					}
+					vm.news.unshift(data.response);
+					vm.newNews = '';
 				});
 		} else if (vm.type == 'event') {
 			dsc.postEventNews($stateParams.id, vm.newNews)
 				.success(function (data) {
-					if (data.status === 200) {
-						vm.news.unshift(data.response);
-						vm.newNews = '';
-					}
+					vm.news.unshift(data.response);
+					vm.newNews = '';
 				});
 		}
 	};

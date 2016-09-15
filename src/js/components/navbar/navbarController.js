@@ -1,9 +1,10 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($scope, $state, dataService, userService, ModalService) {
+module.exports = /*@ngInject*/ function ($scope, $state, dataService, userService, ModalService, notifService) {
 	var vm = this;
 	var dsc = dataService;
 	var usc = userService;
 	var modal = ModalService;
+	var notifs = notifService;
 
 	$scope.$watch(function () {return usc.user();}, function () {vm.user = usc.user();}, true);
 

@@ -31,7 +31,7 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $sta
 	}
 
 	vm.updateEvent = function () {
-		angular.element('#buttonSave').prepend('<i class="fa fa-spin fa-spinner"></i> ').attr('disabled', true);
+		angular.element(document).find('#buttonSave').prepend('<i class="fa fa-spin fa-spinner"></i> ').attr('disabled', true);
 		dsc.updateEvent(vm.event.id, vm.event.title, vm.event.description, vm.event.place, vm.event.begin, vm.event.end)
 			.success(function () {
 				vm.success = 'L\'évènement a bien été modifié';
@@ -44,7 +44,7 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $route, $sta
 					.success(function (data) {
 						vm.event = data.response;
 					});
-				angular.element('#buttonSave').html('Enregistrer').attr('disabled', false);
+				angular.element(document).find('#buttonSave').html('Enregistrer').attr('disabled', false);
 			});
 	};
 

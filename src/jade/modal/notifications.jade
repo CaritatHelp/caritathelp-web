@@ -1,0 +1,15 @@
+extends ../modalLayout
+
+block header
+	.ch-modal_title Notifications
+	button.ch-btn.--icon.--trapped.--tertiary.--pill(ng-click="modal.dismiss()")
+		i.fa.fa-times
+
+block content
+	section.friend(ng-repeat="friend in friends")
+
+
+block footer
+	.ch-modal_footer-info
+	.ch-modal_footer-actions
+		button.ch-btn.--fail(ng-click="modal.dismiss()") Fermer

@@ -12,9 +12,6 @@ module.exports = /*@ngInject*/ function (userService, $stateParams, $state, data
 
 	if ($stateParams.id) {
 		vm.user.id = $stateParams.id;
-		if ($stateParams.id == vm.current.id) { // eslint-disable-line eqeqeq
-			$state.transitionTo('profil.home');
-		}
 	} else {
 		vm.isCurrent = true;
 		vm.user.id = vm.current.id;

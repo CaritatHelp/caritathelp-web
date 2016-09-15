@@ -7,7 +7,7 @@ nav.ch-navbar(ng-if="nav.isConnected()")
 			a.ch-navbar_item(ui-sref="home", ui-sref-active="active")
 				span Accueil
 				i.fa.fa-home
-			a.ch-navbar_item(ui-sref="profil.home({id:{{nav.user.id}}})", ui-sref-active="active")
+			a.ch-navbar_item(ui-sref="profil.home({id:{{nav.user.id}}})", ui-sref-active="{'active':'profil'}")
 				span Profil
 				i.fa.fa-user
 			a.ch-navbar_item(ui-sref="associations", ui-sref-active="active")
@@ -33,7 +33,7 @@ nav.ch-navbar(ng-if="nav.isConnected()")
 					ng-model="nav.research"
 				)
 		.ch-navbar_user
-			a.ch-navbar_item(href="#notifModal", data-toggle="modal")
+			a.ch-navbar_item(ng-click="nav.openNotifications()")
 				i.fa.fa-bell
 			a.ch-navbar_picture.img-rounded(ui-sref="home")
 				img(ng-src="{{nav.user.picture}}", alt="{{nav.user.firstname}} {{nav.user.lastname}}")

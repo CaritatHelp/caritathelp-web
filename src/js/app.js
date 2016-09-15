@@ -1,5 +1,7 @@
 'use strict';
 
+global.jQuery = require('jquery');
+
 // Modules angular
 var angular = require('angular');
 require('angular-sanitize');
@@ -61,7 +63,7 @@ app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProv
 
 		// User profil
 		.state('profil', {
-			url: '/profil/{id}',
+			url: '/profil/:id',
 			templateUrl: 'view/profil-user.html',
 			controller: 'profilController',
 			controllerAs: 'vm',

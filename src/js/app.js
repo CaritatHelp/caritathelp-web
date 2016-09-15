@@ -8,11 +8,21 @@ require('angular-sanitize');
 require('angular-messages');
 require('angular-local-storage');
 require('angular-modal-service');
+require('angular-websocket');
 require('angular-ui-bootstrap');
-require('angular-base64-upload');
 require('angular-ui-router');
+require('angular-base64-upload');
 
-var app = angular.module('caritathelp', ['ngSanitize', 'ngMessages', 'LocalStorageModule', 'ui.bootstrap', 'naif.base64', 'ui.router', 'angularModalService']);
+var app = angular.module('caritathelp', [
+	'ngSanitize',
+	'ngMessages',
+	'LocalStorageModule',
+	'angularModalService',
+	'ngWebSocket',
+	'ui.bootstrap',
+	'ui.router',
+	'naif.base64'
+]);
 
 require('./services');
 require('./directives');

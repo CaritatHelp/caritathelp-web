@@ -11,10 +11,14 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 	dsc.getNew(vm.newsId)
 		.success(function (data) {
 			vm.actu = data.response;
-			getLink();
+			console.log(vm.actu.group_type == 'Volunteer' && vm.actu.volunteer_id === vm.actu.group_id);
+			if (vm.actu.group_type == 'Volunteer' && vm.actu.volunteer_id === vm.actu.group_id) {
+				vm.actu.hideReceiver = true;
+			}
+
 			dsc.getNewsComments(vm.actu.id)
 				.success(function (data) {
-					vm.comments = data.response.comments;
+					vm.comments = data.response;
 				});
 		});
 
@@ -26,15 +30,5 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 					vm.newComment = '';
 				}
 			});
-	};
-
-	function getLink() {
-		if (vm.actu.volunteer_id) {
-			vm.link = $state.href('profil.home', {id: vm.actu.volunteer_id});
-		} else if (vm.actu.assoc_id) {
-			vm.link = $state.href('association.home', {id:  vm.actu.assoc_id});
-		} else if (vm.actu.event_id) {
-			vm.link = $state.href('event.home', {id: vm.actu.event_id});
-		}
 	};
 };

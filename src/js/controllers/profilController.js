@@ -6,34 +6,27 @@ module.exports = /*@ngInject*/ function (userService, $stateParams, $state, data
 	var angular = require('angular');
 
 	vm.current = usc.user();
-	vm.isCurrent = false;
+	vm.isCurrent = vm.current.id == $stateParams.id; // eslint-disable-line eqeqeq
 	vm.user = {};
 	vm.loaded = false;
 
-	if ($stateParams.id) {
-		vm.user.id = $stateParams.id;
-	} else {
-		vm.isCurrent = true;
-		vm.user.id = vm.current.id;
-	}
-
-	dsc.getVolunteer(vm.user.id)
+	dsc.getVolunteer($stateParams.id)
 		.success(function (data) {
 			vm.user = data.response;
 			vm.user.picture = 'http://api.caritathelp.me' + data.response.thumb_path;
 			vm.loaded++;
 		});
-	dsc.getFriends(vm.user.id)
+	dsc.getFriends($stateParams.id)
 		.success(function (data) {
 			vm.user.friends = data.response;
 			vm.loaded++;
 		});
-	dsc.getEvents(vm.user.id)
+	dsc.getEvents($stateParams.id)
 		.success(function (data) {
 			vm.user.events = data.response;
 			vm.loaded++;
 		});
-	dsc.getAssos(vm.user.id)
+	dsc.getAssos($stateParams.id)
 		.success(function (data) {
 			vm.user.assos = data.response;
 			vm.loaded++;

@@ -4,7 +4,7 @@ module.exports = /*@ngInject*/ function ($http) {
 	var servurl = 'http://staging.caritathelp.me/';
 	// var servurl = 'http://localhost:3000/';
 	var DataService = {};
-	var logEnabled = false;
+	var logEnabled = true;
 	var token = null;
 
 	function buildUrl(route, identifier, subroute, parameters) {
@@ -166,6 +166,7 @@ module.exports = /*@ngInject*/ function ($http) {
 		return $http.get(buildUrl('associations', id, 'main_picture', null));
 	};
 	DataService.getAssoNews = function (id) {
+		console.log(buildUrl('associations', id, 'news', null));
 		return $http.get(buildUrl('associations', id, 'news', null));
 	};
 
@@ -215,33 +216,22 @@ module.exports = /*@ngInject*/ function ($http) {
 	DataService.getNewsList = function () {
 		return $http.get(buildUrl('news', null, null, null));
 	};
-	DataService.postVolunteerNews = function (content) {
-		var parameters = 'content=' + content;
-		return $http.post(buildUrl('news', null, 'volunteer_status', parameters));
+	DataService.postNews = function (content, group_type, group_id, privacy) {
+		// @TODO: add title, news_type and as_group
+		var parameters = 'content=' + content + '&news_type=Status&group_id=' + group_id + '&group_type=' + group_type;
+		if (privacy) {
+			parameters += '&private=true';
+		}
+		return $http.post(buildUrl('news', null, 'wall_message', parameters));
+	};
+	DataService.postVolunteerNews = function (volunteer_id, content, privacy) {
+		return this.postNews(content, 'Volunteer', volunteer_id, privacy);
 	};
 	DataService.postAssoNews = function (assoc_id, content, privacy) {
-		return this.postNews(content, 'association', assoc_id, privacy);
+		return this.postNews(content, 'Assoc', assoc_id, privacy);
 	};
 	DataService.postEventNews = function (event_id, content, privacy) {
-		return this.postNews(content, 'event', event_id, privacy);
-	};
-	DataService.postNews = function (content, type, id, privacy) {
-		var parameters = 'content=' + content;
-		switch (type) {
-			case 'volunteer':
-				parameters += '&friend_id=' + id;
-				break;
-			case 'association':
-				parameters += '&assoc_id' + id;
-				break;
-			case 'event':
-				parameters += '&event_id=' + id;
-				break;
-			default:
-				break;
-		}
-		parameters += '&public=' + (privacy ? 'true' : 'false');
-		return $http.post(buildUrl('news', null, 'wall_message', parameters));
+		return this.postNews(content, 'Event', event_id, privacy);
 	};
 	DataService.getNew = function (id) {
 		return $http.get(buildUrl('news', id, null, null));

@@ -1,16 +1,26 @@
 .card
 	.ch-actu(data-id="{{vmnews.newsId}}")
 		.ch-actu_aside
-			a(ng-href="{{vmnews.link}}")
-				img.ch-avatar(ng-src="http://api.caritathelp.me{{vmnews.actu.thumb_path}}", alt="{{vmnews.actu.sender_name}}")
+			a(ui-sref="profil.home({id:vmnews.actu.volunteer_id})")
+				img.ch-avatar(ng-src="http://api.caritathelp.me{{vmnews.actu.volunteer_thumb_path}}", alt="{{vmnews.actu.volunteer_name}}")
 
 		.ch-actu_content
 			.ch-actu_header
-				a.ch-text.--kilo.--bold(ng-href="{{vmnews.link}}") {{vmnews.actu.sender_name}}
+				.ch-actu_sender.ch-text.--kilo.--bold
+					a(ui-sref="profil.home({id:vmnews.actu.volunteer_id})") {{vmnews.actu.volunteer_name}}
+
+					span(ng-if="!vmnews.actu.hideReceiver")
+						i.fa.fa-caret-right
+						a(ui-sref="profil.home({id:vmnews.actu.group_id})", ng-if="vmnews.actu.group_type === 'Volunteer'") {{vmnews.actu.group_name}}
+						a(ui-sref="association.home({id:vmnews.actu.group_id})", ng-if="vmnews.actu.group_type === 'Assoc'") {{vmnews.actu.group_name}}
+						a(ui-sref="event.home({id:vmnews.actu.group_id})", ng-if="vmnews.actu.group_type === 'Event'") {{vmnews.actu.group_name}}
+
+
 				.ch-text.--tertiary.--micro {{vmnews.actu.created_at | date: "dd/MM à HH:mm"}}
 			.ch-actu_text.ch-text {{vmnews.actu.content}}
 			.ch-comments(ng-repeat="com in vmnews.comments | orderBy:'+created_at'")
 				comment(com="com")
+
 	.ch-reply
 		a(ui-sref="profil.home({id:{{vmnews.current.id}}})")
 			img.ch-avatar.--small(ng-src="{{vmnews.current.picture}}", alt="{{vmnews.current.firstname}} {{vmnews.current.lastname}}")
@@ -18,12 +28,12 @@
 			novalidate="",
 			name="postComment",
 			ng-submit="vmnews.postComment()"
-			)
+		)
 			.ch-form_input-group.--button-input
 				input.ch-form_text.--button-input(
 					type="text",
 					placeholder="Poster un commentaire",
 					ng-model="vmnews.newComment"
-					)
+				)
 				button.ch-btn.--button-input.--tertiary
 					i.fa.fa-play

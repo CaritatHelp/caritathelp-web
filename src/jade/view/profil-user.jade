@@ -18,13 +18,13 @@
 		button.ch-btn.ch-profil_nav-button(ui-sref="profil.calendar", ui-sref-active="active")
 			i.fa.fa-calendar
 			.hidden-xs Calendrier
-		button.ch-btn.ch-profil_nav-button(ui-sref="profil.settings", ui-sref-active="active")
+		button.ch-btn.ch-profil_nav-button(ui-sref="profil.settings", ui-sref-active="active", ng-if="profil.isCurrent")
 			i.fa.fa-cog
 			.hidden-xs Paramètres
 
 
 	.tabs
-		ui-view(ng-show="true")
+		ui-view(ng-show="vm.loaded == 4")
 		.profil--loader(ng-show="vm.loaded != 4")
 			i.fa.fa-spin.fa-refresh
 			.loader--info Chargement du profil

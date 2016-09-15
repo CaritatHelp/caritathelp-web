@@ -63,7 +63,7 @@ app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProv
 
 		// User profil
 		.state('profil', {
-			url: '/profil/:id',
+			url: '/profil/{id}',
 			templateUrl: 'view/profil-user.html',
 			controller: 'profilController',
 			controllerAs: 'vm',

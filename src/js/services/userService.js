@@ -10,27 +10,6 @@ module.exports = /*@ngInject*/ function (localStorageService, dataService) {
 		user = ls.get('currentUser');
 	}
 
-	//Refresh de la liste d'amis et des assos totues les 5 minutes
-	// if (user) {
-	// 	$interval(function () {
-	// 		dsc.getFriends(user.id, token)
-	// 			.success(function (data) {
-	// 				user.friends = data.response;
-	// 				ls.set('currentUser', user);
-	// 			});
-	// 		dsc.getAssos(user.id, token)
-	// 			.success(function (data) {
-	// 				user.assos = data.response;
-	// 				ls.set('currentUser', user);
-	// 			});
-	// 		dsc.getEvents(user.id, token)
-	// 			.success(function (data) {
-	// 				user.events = data.response;
-	// 				ls.set('currentUser', user);
-	// 			});
-	// 	}, 300000);
-	// }
-
 	//Sauvegarde des données de l'utilisateur
 	function fillUser(datas) {
 		user = {};

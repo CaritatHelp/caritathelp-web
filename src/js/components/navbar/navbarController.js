@@ -1,16 +1,15 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($state, dataService, userService, ModalService) {
+module.exports = /*@ngInject*/ function ($scope, $state, dataService, userService, ModalService) {
 	var vm = this;
 	var dsc = dataService;
 	var usc = userService;
 	var modal = ModalService;
 
-	vm.user = usc.user();
+	$scope.$watch(function () {return usc.user();}, function () {vm.user = usc.user();}, true);
 
 	vm.logout = function () {
 		dsc.logout();
 		usc.disconnect();
-		$state.go('login');
 	};
 
 	vm.isConnected = function () {

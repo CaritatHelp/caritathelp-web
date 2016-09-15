@@ -19,7 +19,7 @@ module.exports = /*@ngInject*/ function ($stateParams, userService, dataService)
 		vm.alink = 'profil.assos({id:' + id + '})';
 	} else {
 		vm.user = usc.user();
-		vm.plink = "profil.home";
+		vm.plink = "profil.home({id:" + vm.user.id + "})";
 		vm.flink = 'profil.friends';
 		vm.alink = 'profil.assos';
 	}

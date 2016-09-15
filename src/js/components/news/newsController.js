@@ -11,7 +11,6 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 	dsc.getNew(vm.newsId)
 		.success(function (data) {
 			vm.actu = data.response;
-			console.log(vm.actu.group_type == 'Volunteer' && vm.actu.volunteer_id === vm.actu.group_id);
 			if (vm.actu.group_type == 'Volunteer' && vm.actu.volunteer_id === vm.actu.group_id) {
 				vm.actu.hideReceiver = true;
 			}

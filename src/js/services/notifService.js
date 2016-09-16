@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = /*@ngInject*/ function ($websocket) {
-	var dataStream = $websocket('wss://staging.caritathelp.me:8081/notifications');
+	var dataStream = $websocket('wss://staging.caritathelp.me:8081');
 
 	var notifications = [];
 

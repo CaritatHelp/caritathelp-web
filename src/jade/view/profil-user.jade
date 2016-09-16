@@ -7,20 +7,20 @@
 		.ch-profil_name {{vm.user.firstname}} {{vm.user.lastname}}
 	.ch-profil_nav
 		button.ch-btn.ch-profil_nav-button(ui-sref="profil.home", ui-sref-active="active")
-				i.fa.fa-home
-				.hidden-xs Accueil
+			i.fa.fa-home
+			span Accueil
 		button.ch-btn.ch-profil_nav-button(ui-sref="profil.friends", ui-sref-active="active")
 			i.fa.fa-users
-			.hidden-xs Friends
+			span Friends
 		button.ch-btn.ch-profil_nav-button(ui-sref="profil.assos", ui-sref-active="active")
 			i.fa.fa-truck
-			.hidden-xs Associations
+			span Associations
 		button.ch-btn.ch-profil_nav-button(ui-sref="profil.calendar", ui-sref-active="active")
 			i.fa.fa-calendar
-			.hidden-xs Calendrier
+			span Calendrier
 		button.ch-btn.ch-profil_nav-button(ui-sref="profil.settings", ui-sref-active="active", ng-if="profil.isCurrent")
 			i.fa.fa-cog
-			.hidden-xs Paramètres
+			span Paramètres
 
 
 	.tabs

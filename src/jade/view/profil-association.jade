@@ -8,16 +8,16 @@
 	.ch-profil_nav
 		button.ch-btn.ch-profil_nav-button(ui-sref="association.home", ui-sref-active="active")
 			i.fa.fa-home
-			.hidden-xs Accueil
+			span Accueil
 		button.ch-btn.ch-profil_nav-button(ui-sref="association.members", ui-sref-active="active")
-				i.fa.fa-users
-				.hidden-xs Membres
+			i.fa.fa-users
+			span Membres
 		button.ch-btn.ch-profil_nav-button(ui-sref="association.calendar", ui-sref-active="active")
 			i.fa.fa-calendar
-			.hidden-xs Calendrier
+			span Calendrier
 		button.ch-btn.ch-profil_nav-button(ui-sref="association.settings", ui-sref-active="active", ng-if="vm.asso.rights == 'owner' || vm.asso.rights == 'admin'")
 			i.fa.fa-cog
-			.hidden-xs Administration
+			span Administration
 
 	.tabs
 		ui-view(ng-show="vm.loaded")

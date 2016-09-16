@@ -14,7 +14,7 @@
 				)
 				button.ch-btn.--button-input(type="submit")
 					i.fa.fa-play
-	section.news(ng-repeat="actu in timeline.news")
+	section.news(ng-repeat="actu in timeline.news | orderBy: '-created_at'")
 		news(news-id="actu.id")
 .timeline--loader(ng-show="!timeline.loaded")
 	.fa.fa-spin.fa-refresh

@@ -8,13 +8,13 @@
 	.ch-profil_nav
 		button.ch-btn.ch-profil_nav-button(ui-sref="event.home", ui-sref-active="active")
 			i.fa.fa-home
-			.hidden-xs Accueil
+			span Accueil
 		button.ch-btn.ch-profil_nav-button(ui-sref="event.guests", ui-sref-active="active")
 			i.fa.fa-users
-			.hidden-xs Participants
-		button.ch-btn.ch-profil_nav-button(ui-sref="event.settings", ui-sref-active="active")
+			span Participants
+		button.ch-btn.ch-profil_nav-button(ui-sref="event.settings", ui-sref-active="active", ng-if="vm.event.rights == 'host' || vm.event.rights == 'admin'")
 			i.fa.fa-cog
-			.hidden-xs Paramètres
+			span Paramètres
 
 	.tabs
 		ui-view(ng-show="vm.loaded")

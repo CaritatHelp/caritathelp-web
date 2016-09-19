@@ -50,7 +50,7 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams,
 
 	function getRightsMessages() {
 		switch (vm.event.rights) {
-			case 'none':
+			case null:
 				vm.rights.message = 'Vous ne participez pas à cet évènement';
 				vm.rights.class = 'alert-warning';
 				break;

@@ -58,7 +58,7 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 
 	function getRightsMessages() {
 		switch (vm.asso.rights) {
-			case 'none':
+			case null:
 				vm.rights.message = 'Vous n\'êtes pas membre de cette association';
 				vm.rights.class = 'alert-warning';
 				break;

@@ -7,7 +7,6 @@ module.exports = /*@ngInject*/ function ($websocket) {
 
 	dataStream.onMessage(function (message) {
 		notifications.push(JSON.parse(message.data));
-		console.log(message.data);
 	});
 
 	var methods = {

@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, userService, $state) {
+module.exports = /*@ngInject*/ function (dataService, userService) {
 	var vm = this;
 	var usc = userService;
 	var dsc = dataService;

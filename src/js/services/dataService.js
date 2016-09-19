@@ -1,7 +1,7 @@
 'use strict';
 /* eslint camelcase: "off", max-lines: "off" */
 module.exports = /*@ngInject*/ function ($http) {
-	var servurl = 'http://staging.caritathelp.me/';
+	var servurl = 'http://api.caritathelp.me/';
 	// var servurl = 'http://localhost:3000/';
 	var DataService = {};
 	var logEnabled = false;

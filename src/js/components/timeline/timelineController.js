@@ -4,7 +4,7 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams)
 	var dsc = dataService;
 	var usc = userService;
 
-	vm.news = {};
+	vm.news = [];
 	vm.currentUser = usc.user();
 	vm.loaded = false;
 	//Sauvegarde du type de timeline

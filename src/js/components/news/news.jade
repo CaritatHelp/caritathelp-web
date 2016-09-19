@@ -18,7 +18,7 @@
 
 				.ch-text.--tertiary.--micro {{vmnews.actu.created_at | date: "dd/MM à HH:mm"}}
 			.ch-actu_text.ch-text {{vmnews.actu.content}}
-			.ch-comments(ng-repeat="com in vmnews.comments | orderBy:'+created_at'")
+			.ch-comments(ng-repeat="com in vmnews.comments | orderBy: '+created_at'")
 				comment(com="com")
 
 	.ch-reply

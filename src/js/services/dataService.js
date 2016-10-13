@@ -39,6 +39,14 @@ module.exports = /*@ngInject*/ function ($http) {
 			data: data
 		});
 	}
+	function patch(route, data) {
+		return $http({
+			method: 'PATCH',
+			url: servurl + route,
+			headers: headers,
+			data: data
+		});
+	}
 
 	_this.setToken = function (tokn) {
 		token = tokn;
@@ -98,7 +106,8 @@ module.exports = /*@ngInject*/ function ($http) {
 			lastname: lastname,
 			birthday: birthday
 		};
-		return put('volunteers', parameters);
+		console.log(parameters);
+		return patch('auth', parameters);
 	};
 
 	_this.getNotifs = function () {
@@ -384,9 +393,8 @@ module.exports = /*@ngInject*/ function ($http) {
 		return $http({
 			url: servurl + 'pictures',
 			method: 'POST',
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+			headers: Object.assign(headers, {'Content-Type': 'application/x-www-form-urlencoded'}),
 			data: {
-				token: token,
 				file: file,
 				filename: filename,
 				original_filename: original,

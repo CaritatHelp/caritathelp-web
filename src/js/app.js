@@ -1,7 +1,5 @@
 'use strict';
 
-global.jQuery = require('jquery');
-
 // Modules angular
 var angular = require('angular');
 require('angular-sanitize');
@@ -53,9 +51,7 @@ app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProv
 	$stateProvider
 		.state('login', {
 			url: '/login',
-			templateUrl: 'view/login.html',
-			controller: 'loginController',
-			controllerAs: 'login'
+			templateUrl: 'view/login.html'
 		})
 		.state('home', {
 			url: '/home',
@@ -66,9 +62,7 @@ app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProv
 		})
 		.state('register', {
 			url: '/register',
-			templateUrl: 'view/register.html',
-			controller: 'registerController',
-			controllerAs: 'register'
+			templateUrl: 'view/register.html'
 		})
 
 		// User profil

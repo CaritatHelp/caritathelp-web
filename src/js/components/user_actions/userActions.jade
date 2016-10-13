@@ -1,5 +1,5 @@
 .actions--user
-	.action(ng-if="actions.user.friendship == 'none'")
+	.action(ng-if="!actions.user.friendship")
 		a(ng-click="actions.addFriend()").
 			#[i.fa.fa-plus]
 			Ajouter en ami

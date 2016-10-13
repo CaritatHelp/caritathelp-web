@@ -32,8 +32,6 @@
 					)
 		.ch-form_row
 			a(ui-sref="register") Pas de compte ?
-			button.ch-btn.pull-right(type="submit", ng-show="!login.connecting").
-				Connexion
-			button.ch-btn.pull-right(type="submit", ng-show="login.connecting", disabled).
-				#[i.fa.fa-spin.fa-spinner]
+			button.ch-btn.pull-right(type="submit", ng-disabled="login.connecting", disabled).
+				#[i.fa.fa-spin.fa-spinner(ng-show="login.connecting")]
 				Connexion

@@ -2,7 +2,6 @@
 module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 	var vm = this;
 	var dsc = dataService;
-	var angular = require('angular');
 
 	vm.tab = 1;
 
@@ -24,7 +23,7 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 		});
 
 	vm.updateAsso = function () {
-		angular.element('#buttonSave').prepend('<i class="fa fa-spin fa-spinner"></i> ').attr('disabled', true);
+		vm.updating = true;
 		dsc.updateAsso(vm.asso.id, vm.asso.name, vm.asso.description, vm.asso.birthday, vm.asso.city, null, null)
 			.success(function () {
 				vm.success = 'Votre association a bien été modifiée';
@@ -37,12 +36,12 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 					.success(function (data) {
 						vm.asso = data.response;
 					});
-				angular.element('#buttonSave').html('Enregistrer').attr('disabled', false);
+				vm.updating = false;
 			});
 	};
 
 	vm.updatePicture = function () {
-		angular.element('#buttonPicture').prepend('<i class="fa fa-spin fa-spinner"></i> ').attr('disabled', true);
+		vm.updating = true;
 		dsc.postPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename, true)
 			.success(function () {
 				vm.success = "L'image a bien été mise à jour";
@@ -53,10 +52,9 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 			})
 			.error(function (data) {
 				vm.error = data.message;
-				angular.element('#buttonPicture').html('Enregistrer').attr('disabled', false);
 			})
-			.then(function () {
-				angular.element('#buttonPicture').html('Enregistrer').attr('disabled', false);
+			.finally(function () {
+				vm.updating = false;
 			});
 	};
 

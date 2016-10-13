@@ -4,8 +4,6 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 	var dsc = dataService;
 	var usc = userService;
 
-	var angular = require('angular');
-
 	//variables d'erreur locales
 	_this.error = false;
 	_this.errorMessage = '';
@@ -39,7 +37,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 		_this.errorMessage = '';
 	}
 
-	this.register = function () {
+	_this.register = function () {
 		reset();
 		cleanup();
 		if (verif()) {
@@ -47,7 +45,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 			return;
 		}
 
-		angular.element('#buttonRegister').prepend('<i class="fa fa-spin fa-spinner"></i> ').attr('disabled', true);
+		_this.connecting = true;
 
 		//Register request
 		dsc.register(_this.mail, _this.password, _this.firstname, _this.lastname, _this.birthday, _this.gender)
@@ -67,7 +65,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 				_this.errorMessage = 'Impossible de joindre le serveur, veuillez réessayer dans quelques minutes.';
 			})
 			.finally(function () {
-				angular.element('#buttonRegister').html('S\'enregister').attr('disabled', false);
+				_this.connecting = false;
 			});
 	};
 	this.checkBirthdate = function (rf) {

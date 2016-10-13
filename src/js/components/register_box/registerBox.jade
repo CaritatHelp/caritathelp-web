@@ -143,4 +143,6 @@
 
 		.ch-form_row
 			a(ui-sref="login") Déjà un compte ?
-			button#buttonRegister.ch-btn.pull-right(type="submit") S'enregistrer
+			button.ch-btn.pull-right(type="submit", ng-disabled="register.connecting", disabled).
+				#[i.fa.fa-spin.fa-spinner(ng-show="register.connecting")]
+				S'enregistrer

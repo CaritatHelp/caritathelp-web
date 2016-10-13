@@ -23,24 +23,22 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 
 	vm.updateVolunteer = function () {
 		//mail, password, firstname, lastname, birthday, gender
-		angular.element('#buttonSave').prepend('<i class="fa fa-spin fa-spinner"></i> ').attr('disabled', true);
+		vm.updating = true;
 		dsc.updateVolunteer(vm.user.mail, vm.password, vm.user.firstname, vm.user.lastname, null)
-			.success(function () {
-				$state.transitionTo('profil.settings');
+			.then(function () {
 				vm.success = true;
 				vm.successMessage = 'Votre profil a bien été modifié';
-			})
-			.error(function (data) {
+			}, function (data) {
 				vm.error = true;
 				vm.errorMessage = data.message;
 			})
 			.finally(function () {
-				angular.element('#buttonSave').html('Enregistrer').attr('disabled', false);
+				vm.updating = false;
 			});
 	};
 
 	vm.updatePicture = function () {
-		angular.element('#buttonPicture').prepend('<i class="fa fa-spin fa-spinner"></i> ').attr('disabled', true);
+		vm.updating = true;
 		dsc.postPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename, true)
 			.success(function (data) {
 				dsc.getMainPicture(vm.user.id)
@@ -49,11 +47,8 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 						usc.setPicture(vm.user.picture);
 					});
 			})
-			.error(function (data) {
-				angular.element('#buttonPicture').html('Enregistrer').attr('disabled', false);
-			})
-			.then(function () {
-				angular.element('#buttonPicture').html('Enregistrer').attr('disabled', false);
+			.finally(function () {
+				vm.updating = false;
 			});
 	};
 

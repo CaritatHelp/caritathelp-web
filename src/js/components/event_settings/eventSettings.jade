@@ -96,7 +96,9 @@
 						i.fa.fa-calendar
 
 			.pull-right
-				button#buttonSave.ch-btn(type="submit") Enregistrer
+				button.ch-btn(type="submit", ng-disabled="settings.updating").
+					#[i.fa.fa-spin.fa-spinner(ng-show="setting.updating")]
+					Enregistrer
 
 	//- Photo de profil
 	.card(ng-show="settings.isSet(2)")
@@ -118,8 +120,10 @@
 						required="",
 						accept="image/*"
 						)
-			button#buttonPicture.ch-btn(ng-click="settings.updatePicture()") Enregistrer
-			button#buttonCancel.ch-btn.--fail(ng-click="settings.picture = null; settings.changePicture = false", ng-show="settings.picture") Annuler
+			button.ch-btn(ng-click="settings.updatePicture()", ng-disabled="settings.updating").
+				#[i.fa.fa-spin.fa-spinner(ng-show="setting.updating")]
+				Enregistrer
+			button.ch-btn.--fail(ng-click="settings.picture = null; settings.changePicture = false", ng-show="settings.picture") Annuler
 
 	//- Gestion membres
 	.card(ng-show="settings.isSet(3)")

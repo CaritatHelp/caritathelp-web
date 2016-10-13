@@ -3,7 +3,6 @@ module.exports = /*@ngInject*/ function (userService, $stateParams, $state, data
 	var vm = this;
 	var usc = userService;
 	var dsc = dataService;
-	var angular = require('angular');
 
 	vm.current = usc.user();
 	vm.isCurrent = vm.current.id == $stateParams.id; // eslint-disable-line eqeqeq
@@ -31,13 +30,4 @@ module.exports = /*@ngInject*/ function (userService, $stateParams, $state, data
 			vm.user.assos = data.response;
 			vm.loaded++;
 		});
-
-	vm.addFriend = function () {
-		angular.element('#addFriend').html('<i class="fa fa-spin fa-spinner"></i> ').attr('disabled', true);
-		dsc.addFriend(vm.user.id)
-			.success(function () {
-				vm.user.friendship = 'invitation sent';
-				angular.element('#addFriend').html('Demande envoyée').attr('disabled', true);
-			});
-	};
 };

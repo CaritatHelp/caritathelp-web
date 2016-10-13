@@ -87,11 +87,9 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams,
 				};
 				this.invite = function (friendId) {
 					dataService.inviteEvent(friendId, vm.event.id)
-						.success(function (data) {
-							console.log(data);
+						.success(function () {
 						})
-						.error(function (data) {
-							console.log(data);
+						.error(function () {
 						});
 					close();
 				};

@@ -95,11 +95,9 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 				};
 				$scope.inviteFriend = function (friendId) {
 					dataService.inviteAsso(friendId, vm.asso.id)
-						.success(function (data) {
-							console.log(data);
+						.success(function () {
 						})
-						.error(function (data) {
-							console.log(data);
+						.error(function () {
 						});
 					close();
 				};

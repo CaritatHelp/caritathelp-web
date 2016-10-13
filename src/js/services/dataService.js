@@ -12,7 +12,7 @@ module.exports = /*@ngInject*/ function ($http) {
 			method: 'GET',
 			url: servurl + route,
 			headers: headers,
-			data: data
+			params: data
 		});
 	}
 	function post(route, data) {
@@ -66,11 +66,18 @@ module.exports = /*@ngInject*/ function ($http) {
 	};
 
 	_this.logout = function () {
-		return $http.post('logout');
+		return post('auth/sign_out');
 	};
 	_this.register = function (mail, password, firstname, lastname, birthday, gender) {
-		var parameters = 'mail=' + mail + '&password=' + password + '&firstname=' + firstname + '&lastname=' + lastname + '&birthday=' + birthday + '&gender=' + gender;
-		return $http.post(servurl + 'volunteers' + parameters);
+		var parameters = {
+			mail: mail,
+			password: password,
+			firstname: firstname,
+			lastname: lastname,
+			birthday: birthday,
+			gender: gender
+		};
+		return $http.post(servurl + 'auth', parameters);
 	};
 
 //Volunteers
@@ -359,7 +366,6 @@ module.exports = /*@ngInject*/ function ($http) {
 		return remove('guests/kick', parameters);
 	};
 	_this.invitedEvent = function (id) {
-		console.log(id);
 		return get('guests/invited', {event_id: id});
 	};
 	_this.uninviteEvent = function (volunteer_id, event_id) {
@@ -397,7 +403,7 @@ module.exports = /*@ngInject*/ function ($http) {
 		return get('chatrooms/' + id);
 	};
 	_this.createChatroom = function (volunteers) {
-		return post('chatrooms', {volunteers: volunteers});
+		return post('chatrooms', {'volunteers[]': volunteers});
 	};
 	_this.getVolunteersChatroom = function (id) {
 		return get('chatrooms/' + id + '/volunteers');

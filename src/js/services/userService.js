@@ -6,8 +6,8 @@ module.exports = /*@ngInject*/ function (localStorageService, dataService) {
 	var user = null;
 
 	if (ls.get('connected')) {
-		dsc.setToken(ls.get('token'));
 		user = ls.get('currentUser');
+		dsc.setHeaders(ls.get('headers'));
 	}
 
 	//Sauvegarde des données de l'utilisateur
@@ -33,10 +33,10 @@ module.exports = /*@ngInject*/ function (localStorageService, dataService) {
 		user: function () {
 			return (user) ? user : false;
 		},
-		connect: function (datas) {
+		connect: function (datas, headers) {
 			//Sauvegarde du token
-			dsc.setToken(datas.token);
-			ls.set('token', datas.token);
+			dsc.setHeaders(headers);
+			ls.set('headers', headers);
 
 			//sauvegarde de l'user
 			user = fillUser(datas);
@@ -63,10 +63,10 @@ module.exports = /*@ngInject*/ function (localStorageService, dataService) {
 		},
 		disconnect: function () {
 			user = null;
-			dsc.setToken(null);
+			dsc.setHeaders(null);
 
 			//On retire les cookies du localhost
-			ls.remove('token');
+			ls.remove('headers');
 			ls.remove('currentUser');
 			ls.remove('connected');
 			console.log('User disconnected');

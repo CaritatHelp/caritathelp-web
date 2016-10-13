@@ -27,22 +27,22 @@ module.exports = /*@ngInject*/ function (dataService, userService, $location) {
 		_this.connecting = true;
 		//Requete de login
 		dsc.login(_this.mail, _this.password)
-			.success(function (data) {
-				if (data.status === 200) {
-					//On remplit le service USC
-					usc.connect(data.response);
-					//redirection vers la page d'accueil
-					$location.path('/home');
-				} else {
-					//Mdp ou email invalide
-					_this.error = 'true';
-					_this.errorMessage = 'Votre compte n\'a pas été reconnu. Veuillez vérifier vos informations';
-				}
+			.success(function (data, status, headers) {
+				//On remplit le service USC
+				usc.connect(data.response, {
+					'access-token': headers('access-token'),
+					uid: headers('uid'),
+					client: headers('client')
+				});
+				//redirection vers la page d'accueil
+				$location.path('/home');
 			})
 			.error(function () {
 				//erreur client
 				_this.error = 'true';
 				_this.errorMessage = 'Impossible de joindre le serveur, veuillez réessayer dans quelques minutes.';
+				_this.error = 'true';
+				_this.errorMessage = 'Votre compte n\'a pas été reconnu. Veuillez vérifier vos informations';
 			}).finally(function () {
 				_this.connecting = false;
 			});

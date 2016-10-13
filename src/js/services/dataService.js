@@ -1,22 +1,53 @@
 'use strict';
 /* eslint camelcase: "off", max-lines: "off" */
 module.exports = /*@ngInject*/ function ($http) {
-	var servurl = 'http://api.caritathelp.me/';
+	var servurl = 'http://staging.caritathelp.me/';
 	// var servurl = 'http://localhost:3000/';
-	var DataService = {};
-	var logEnabled = false;
+	var _this = {};
 	var token = null;
+	var headers = {};
 
-	function buildUrl(route, identifier, subroute, parameters) {
-		var url = servurl + route + (identifier ? '/' + identifier : '') + (subroute ? '/' + subroute : '') + '?token=' + token + (parameters ? '&' + parameters : '');
-		if (logEnabled) {
-			console.log('API call: ' + url);
-		}
-		return url;
+	function get(route, data) {
+		return $http({
+			method: 'GET',
+			url: servurl + route,
+			headers: headers,
+			data: data
+		});
+	}
+	function post(route, data) {
+		return $http({
+			method: 'POST',
+			url: servurl + route,
+			headers: headers,
+			data: data
+		});
+	}
+	function put(route, data) {
+		return $http({
+			method: 'PUT',
+			url: servurl + route,
+			headers: headers,
+			data: data
+		});
+	}
+	function remove(route, data) {
+		return $http({
+			method: 'DELETE',
+			url: servurl + route,
+			headers: headers,
+			data: data
+		});
 	}
 
-	DataService.setToken = function (tokn) {
+	_this.setToken = function (tokn) {
 		token = tokn;
+	};
+	_this.getToken = function () {
+		return token;
+	};
+	_this.setHeaders = function (object) {
+		headers = object;
 	};
 
 /*Implémenté:
@@ -27,340 +58,323 @@ module.exports = /*@ngInject*/ function ($http) {
 */
 
 //Login - Logout - Register (POSTVolunteer)
-	DataService.login = function (mail, password) {
-		return $http.post(servurl + 'login?mail=' + mail + '&password=' + password);
+	_this.login = function (mail, password) {
+		return $http.post(servurl + 'auth/sign_in', {
+			email: mail,
+			password: password
+		});
 	};
-	DataService.logout = function () {
-		return $http.post(buildUrl('logout', null, null, null));
+
+	_this.logout = function () {
+		return $http.post('logout');
 	};
-	DataService.register = function (mail, password, firstname, lastname, birthday, gender) {
+	_this.register = function (mail, password, firstname, lastname, birthday, gender) {
 		var parameters = 'mail=' + mail + '&password=' + password + '&firstname=' + firstname + '&lastname=' + lastname + '&birthday=' + birthday + '&gender=' + gender;
 		return $http.post(servurl + 'volunteers' + parameters);
 	};
 
 //Volunteers
 	//Retourne la liste des volontaires
-	DataService.getVolunteers = function () {
-		return $http.get(buildUrl('volunteers', null, null, null));
+	_this.getVolunteers = function () {
+		return get('volunteers');
 	};
 	//Retourne le volontaire $id
-	DataService.getVolunteer = function (id) {
-		return $http.get(buildUrl('volunteers', id, null, null));
+	_this.getVolunteer = function (id) {
+		return get('volunteers/' + id);
 	};
 	//Mise à jour du volontaire $id
-	DataService.updateVolunteer = function (mail, password, firstname, lastname, birthday) {
-		var parameters = 'mail=' + mail + '&password=' + password + '&firstname=' + firstname + '&lastname=' + lastname + '&birthday=' + birthday;
-		return $http.put(buildUrl('volunteers', null, null, parameters));
+	_this.updateVolunteer = function (mail, password, firstname, lastname, birthday) {
+		var parameters = {
+			mail: mail,
+			password: password,
+			firstname: firstname,
+			lastname: lastname,
+			birthday: birthday
+		};
+		return put('volunteers', parameters);
 	};
-	DataService.getNotifs = function () {
-		return $http.get(buildUrl('notifications', null, null, null));
+
+	_this.getNotifs = function () {
+		return get('notifications');
 	};
-	DataService.getFriends = function (id) {
-		return $http.get(buildUrl('volunteers', id, 'friends', null));
+	_this.getFriends = function (id) {
+		return get('volunteers/' + id + '/friends');
 	};
-	DataService.getAssos = function (id) {
-		return $http.get(buildUrl('volunteers', id, 'associations', null));
+	_this.getAssos = function (id) {
+		return get('volunteers/' + id + '/associations');
 	};
-	DataService.getEvents = function (id) {
-		return $http.get(buildUrl('volunteers', id, 'events', null));
+	_this.getEvents = function (id) {
+		return get('volunteers/' + id + '/events');
 	};
-	DataService.getPictures = function (id) {
-		return $http.get(buildUrl('volunteers', id, 'pictures', null));
+	_this.getPictures = function (id) {
+		return get('volunteers/' + id + '/pictures');
 	};
-	DataService.getMainPicture = function (id) {
-		return $http.get(buildUrl('volunteers', id, 'main_picture', null));
+	_this.getMainPicture = function (id) {
+		return get('volunteers/' + id + '/main_picture');
 	};
-	DataService.getNews = function (id) {
-		return $http.get(buildUrl('volunteers', id, 'news', null));
+	_this.getNews = function (id) {
+		return get('volunteers/' + id + '/news');
 	};
-	DataService.getFriendRequests = function () {
-		return $http.get(buildUrl('volunteers', null, 'friend_requests', null));
+	_this.getFriendRequests = function () {
+		return get('volunteers/friend_requests');
 	};
 
 //Recherche
-	DataService.search = function (research) {
-		var parameters = 'research=' + research;
-		return $http.get(buildUrl('search', null, null, parameters));
+	_this.search = function (research) {
+		return get('search', {research: research});
 	};
 
 //Friendship
-	DataService.addFriend = function (id) {
-		var parameters = 'volunteer_id=' + id;
-		return $http.post(buildUrl('friendship', null, 'add', parameters));
+	_this.addFriend = function (id) {
+		return post('friendship/add', {volunteer_id: id});
 	};
-	DataService.replyFriend = function (id, acceptance) {
-		var parameters = 'notif_id=' + id + '&acceptance=' + acceptance;
-		return $http.post(buildUrl('friendship', null, 'reply', parameters));
+	_this.replyFriend = function (id, acceptance) {
+		var parameters = {notif_id: id, acceptance: acceptance};
+		return post('friendship/reply', parameters);
 	};
-	DataService.removeFriend = function (id) {
-		var parameters = 'id=' + id;
-		return $http.delete(buildUrl('friendship', null, 'remove', parameters));
+	_this.removeFriend = function (id) {
+		return remove('friendship/remove', {id: id});
 	};
-	DataService.receivedInvitations = function () {
-		return $http.get(buildUrl('friendship', null, 'received_invitations', null));
+	_this.receivedInvitations = function () {
+		return get('friendship/received_invitations');
 	};
 
 //Association
-	DataService.getAssoList = function () {
-		return $http.get(buildUrl('associations', null, null, null));
+	_this.getAssoList = function () {
+		return get('associations');
 	};
-	DataService.createAsso = function (name, description, birthday, city, latitude, longitude) {
-		var parameters = 'name=' + name + '&description=' + description;
-		if (birthday) {
-			parameters = parameters + '&birthday=' + birthday;
-		}
-		if (city) {
-			parameters = parameters + '&city=' + city;
-		}
-		if (latitude) {
-			parameters = parameters + '&latitude=' + city;
-		}
-		if (longitude) {
-			parameters = parameters + '&longitude=' + city;
-		}
-		parameters = parameters + '&token=' + token;
-		return $http.post(buildUrl('associations', null, null, parameters));
+	_this.createAsso = function (name, description, birthday, city, latitude, longitude) {
+		var parameters = {
+			name: name,
+			description: description,
+			birthday: birthday,
+			city: city,
+			latitude: latitude,
+			longitude: longitude
+		};
+		return post('associations', parameters);
 	};
-	DataService.getAsso = function (id) {
-		return $http.get(buildUrl('associations', id, null, null));
+	_this.getAsso = function (id) {
+		return get('associations/' + id);
 	};
-	DataService.getAssoMembers = function (id) {
-		return $http.get(buildUrl('associations', id, 'members', null));
+	_this.getAssoMembers = function (id) {
+		return get('associations/' + id + '/members');
 	};
-	DataService.getAssoEvents = function (id) {
-		return $http.get(buildUrl('associations', id, 'events', null));
+	_this.getAssoEvents = function (id) {
+		return get('associations/' + id + '/events');
 	};
-	//Mise à jour de l'asso $id
-	DataService.updateAsso = function (id, name, description, birthday, city, latitude, longitude) {
-		var parameters = '';
-		if (name) {
-			parameters = parameters + '&name=' + name;
-		}
-		if (description) {
-			parameters = parameters + '&description=' + description;
-		}
-		if (birthday) {
-			parameters = parameters + '&birthday=' + birthday;
-		}
-		if (city) {
-			parameters = parameters + '&city=' + city;
-		}
-		if (latitude) {
-			parameters = parameters + '&latitude=' + city;
-		}
-		if (longitude) {
-			parameters = parameters + '&longitude=' + city;
-		}
-		return $http.put(buildUrl('associations', id, null, parameters));
+	_this.updateAsso = function (id, name, description, birthday, city, latitude, longitude) {
+		var parameters = {
+			name: name,
+			description: description,
+			birthday: birthday,
+			city: city,
+			latitude: latitude,
+			longitude: longitude
+		};
+		return put('associations/' + id, parameters);
 	};
-	DataService.deleteAsso = function (id) {
-		return $http.delete(buildUrl('associations', id, null, null));
+	_this.deleteAsso = function (id) {
+		return remove('associations/' + id);
 	};
-	DataService.getAssoInvited = function () {
-		return $http.get(buildUrl('associations', null, 'invited', null));
+	_this.getAssoInvited = function () {
+		return get('associations/invited');
 	};
-	DataService.getAssoPictures = function (id) {
-		return $http.get(buildUrl('associations', id, 'pictures', null));
+	_this.getAssoPictures = function (id) {
+		return get('associations/' + id + '/pictures');
 	};
-	DataService.getAssoMainPicture = function (id) {
-		return $http.get(buildUrl('associations', id, 'main_picture', null));
+	_this.getAssoMainPicture = function (id) {
+		return get('associations/' + id + '/main_picture');
 	};
-	DataService.getAssoNews = function (id) {
-		console.log(buildUrl('associations', id, 'news', null));
-		return $http.get(buildUrl('associations', id, 'news', null));
+	_this.getAssoNews = function (id) {
+		return get('associations/' + id + '/news');
 	};
 
 //Membership
-	DataService.joinAsso = function (id) {
-		var parameters = 'assoc_id=' + id;
-		return $http.post(buildUrl('membership', null, 'join', parameters));
+	_this.joinAsso = function (id) {
+		return post('membership/join', {assoc_id: id});
 	};
-	DataService.replyDemandAsso = function (id, status) {
-		var parameters = 'notif_id=' + id + '&acceptance=' + status;
-		return $http.post(buildUrl('membership', null, 'reply_member', parameters));
+	_this.replyDemandAsso = function (id, status) {
+		var parameters = {notif_id: id, acceptance: status};
+		return post('membership/reply_member', parameters);
 	};
-	DataService.inviteAsso = function (volunteer_id, assoc_id) {
-		var parameters = 'assoc_id=' + assoc_id + '&volunteer_id=' + volunteer_id;
-		return $http.post(buildUrl('membership', null, 'invite', parameters));
+	_this.inviteAsso = function (volunteer_id, assoc_id) {
+		var parameters = {assoc_id: assoc_id, volunteer_id: volunteer_id};
+		return post('membership/invite', parameters);
 	};
-	DataService.replyInviteAsso = function (id, status) {
-		var parameters = 'notif_id=' + id + '&acceptance=' + status;
-		return $http.post(buildUrl('membership', null, 'reply_invite', parameters));
+	_this.replyInviteAsso = function (id, status) {
+		var parameters = {notif_id: id, acceptance: status};
+		return post('membership/reply_invite', parameters);
 	};
-	DataService.leaveAsso = function (id) {
-		var parameters = 'assoc_id=' + id;
-		return $http.delete(buildUrl('membership', null, 'leave', parameters));
+	_this.leaveAsso = function (id) {
+		return remove('membership/leave', {assoc_id: id});
 	};
-	DataService.upgradeRightsAsso = function (volunteer_id, assoc_id, rights) {
-		var parameters = 'assoc_id=' + assoc_id + '&volunteer_id=' + volunteer_id + '&rights=' + rights;
-		return $http.put(buildUrl('membership', null, 'upgrade', parameters));
+	_this.upgradeRightsAsso = function (volunteer_id, assoc_id, rights) {
+		var parameters = {assoc_id: assoc_id, volunteer_id: volunteer_id, rights: rights};
+		return put('membership/upgrade', parameters);
 	};
-	DataService.kickAsso = function (volunteer_id, assoc_id) {
-		var parameters = 'assoc_id=' + assoc_id + '&volunteer_id=' + volunteer_id;
-		return $http.delete(buildUrl('membership', null, 'kick', parameters));
+	_this.kickAsso = function (volunteer_id, assoc_id) {
+		var parameters = {assoc_id: assoc_id, volunteer_id: volunteer_id};
+		return remove('membership/kick', parameters);
 	};
-	DataService.invitedAsso = function (id) {
-		var parameters = 'assoc_id=' + id;
-		return $http.get(buildUrl('membership', null, 'invited', parameters));
+	_this.invitedAsso = function (id) {
+		return get('membership/invited', {assoc_id: id});
 	};
-	DataService.uninviteAsso = function (volunteer_id, assoc_id) {
-		var parameters = 'assoc_id=' + assoc_id + '&volunteer_id=' + volunteer_id;
-		return $http.delete(buildUrl('membership', null, 'uninvite', parameters));
+	_this.uninviteAsso = function (volunteer_id, assoc_id) {
+		var parameters = {assoc_id: assoc_id, volunteer_id: volunteer_id};
+		return remove('membership/uninvite', parameters);
 	};
-	DataService.waitingAsso = function (id) {
-		var parameters = 'assoc_id=' + id;
-		return $http.get(buildUrl('membership', null, 'waiting', parameters));
+	_this.waitingAsso = function (id) {
+		return get('membership/waiting', {assoc_id: id});
 	};
 
 //News
-	DataService.getNewsList = function () {
-		return $http.get(buildUrl('news', null, null, null));
+	_this.getNewsList = function () {
+		return get('news');
 	};
-	DataService.postNews = function (content, group_type, group_id, privacy) {
+	_this.postNews = function (content, group_type, group_id, privacy) {
 		// @TODO: add title, news_type and as_group
-		var parameters = 'content=' + content + '&news_type=Status&group_id=' + group_id + '&group_type=' + group_type;
-		if (privacy) {
-			parameters += '&private=true';
-		}
-		return $http.post(buildUrl('news', null, 'wall_message', parameters));
+		var parameters = {
+			content: content,
+			news_type: 'Status',
+			group_id: group_id,
+			group_type: group_type,
+			privacy: privacy
+		};
+		return post('news/wall_message', parameters);
 	};
-	DataService.postVolunteerNews = function (volunteer_id, content, privacy) {
-		return this.postNews(content, 'Volunteer', volunteer_id, privacy);
+	_this.postVolunteerNews = function (volunteer_id, content, privacy) {
+		return _this.postNews(content, 'Volunteer', volunteer_id, privacy);
 	};
-	DataService.postAssoNews = function (assoc_id, content, privacy) {
-		return this.postNews(content, 'Assoc', assoc_id, privacy);
+	_this.postAssoNews = function (assoc_id, content, privacy) {
+		return _this.postNews(content, 'Assoc', assoc_id, privacy);
 	};
-	DataService.postEventNews = function (event_id, content, privacy) {
-		return this.postNews(content, 'Event', event_id, privacy);
+	_this.postEventNews = function (event_id, content, privacy) {
+		return _this.postNews(content, 'Event', event_id, privacy);
 	};
-	DataService.getNew = function (id) {
-		return $http.get(buildUrl('news', id, null, null));
+	_this.getNew = function (id) {
+		return get('news/' + id);
 	};
-	DataService.getNewsComments = function (id) {
-		return $http.get(buildUrl('news', id, 'comments', null));
+	_this.getNewsComments = function (id) {
+		return get('news/' + id + '/comments');
 	};
 
 //Comments
-	DataService.postComment = function (news_id, content) {
-		var parameters = 'new_id=' + news_id + '&content=' + content;
-		return $http.post(buildUrl('comments', null, null, parameters));
+	_this.postComment = function (news_id, content) {
+		var parameters = {new_id: news_id, content: content};
+		return post('comments', parameters);
 	};
-	DataService.updateComment = function (id, content) {
-		var parameters = 'content=' + content;
-		return $http.put(buildUrl('comments', id, null, parameters));
+	_this.updateComment = function (id, content) {
+		return put('comments/' + id, {content: content});
 	};
-	DataService.getComment = function (id) {
-		return $http.get(buildUrl('comments', id, null, null));
+	_this.getComment = function (id) {
+		return get('comments/' + id);
 	};
-	DataService.deleteComment = function (id) {
-		return $http.delete(buildUrl('comments', id, null, null));
+	_this.deleteComment = function (id) {
+		return remove('comments/' + id);
 	};
 
 //Events
-	DataService.getEventList = function () {
-		return $http.get(buildUrl('events', null, null, null));
+	_this.getEventList = function () {
+		return get('events');
 	};
-	DataService.createEvent = function (assoc_id, title, description, place, begin, end) {
-		var parameters = 'assoc_id=' + assoc_id + '&title=' + title + '&description=' + description;
-		if (place) {
-			parameters = parameters + '&place=' + place;
-		}
-		if (begin) {
-			parameters = parameters + '&begin=' + begin;
-		}
-		if (end) {
-			parameters = parameters + '&end=' + end;
-		}
-		return $http.post(buildUrl('events', null, null, parameters));
+	_this.createEvent = function (assoc_id, title, description, place, begin, end) {
+		var parameters = {
+			assoc_id: assoc_id,
+			title: title,
+			description: description,
+			place: place,
+			begin: begin,
+			end: end
+		};
+		return post('events', parameters);
 	};
-	DataService.getEvent = function (id) {
-		return $http.get(buildUrl('events', id, null, null));
+	_this.getEvent = function (id) {
+		return get('events/' + id);
 	};
-	DataService.getGuestEvent = function (id) {
-		return $http.get(buildUrl('events', id, 'guests', null));
+	_this.getGuestEvent = function (id) {
+		return get('events/' + id + '/guests');
 	};
-	DataService.updateEvent = function (id, title, description, place, begin, end) {
-		var parameters = '';
-		if (title) {
-			parameters = parameters + '&title=' + title;
-		}
-		if (description) {
-			parameters = parameters + '&description=' + description;
-		}
-		if (place) {
-			parameters = parameters + '&place=' + place;
-		}
-		if (begin) {
-			parameters = parameters + '&begin=' + begin;
-		}
-		if (end) {
-			parameters = parameters + '&end=' + end;
-		}
-		return $http.put(buildUrl('events', id, null, parameters));
+	_this.updateEvent = function (id, title, description, place, begin, end) {
+		var parameters = {
+			title: title,
+			description: description,
+			place: place,
+			begin: begin,
+			end: end
+		};
+		return put('events/' + id, parameters);
 	};
-	DataService.getOwnedEvent = function () {
-		return $http.get(buildUrl('events', null, 'owned', null));
+	_this.getOwnedEvent = function () {
+		return get('events/owned');
 	};
-	DataService.getEventInvited = function () {
-		return $http.get(buildUrl('events', null, 'invited', null));
+	_this.getEventInvited = function () {
+		return get('events/invited');
 	};
-	DataService.getEventPictures = function (id) {
-		return $http.get(buildUrl('events', id, 'pictures', null));
+	_this.getEventPictures = function (id) {
+		return get('events/' + id + '/pictures');
 	};
-	DataService.getEventMainPicture = function (id) {
-		return $http.get(buildUrl('events', id, 'main_picture', null));
+	_this.getEventMainPicture = function (id) {
+		return get('events/' + id + '/main_picture');
 	};
-	DataService.getEventNews = function (id) {
-		return $http.get(buildUrl('events', id, 'news', null));
+	_this.getEventNews = function (id) {
+		return get('events/' + id + '/news');
 	};
-	DataService.deleteEvent = function (id) {
-		return $http.delete(buildUrl('events', id, null, null));
+	_this.deleteEvent = function (id) {
+		return remove('events/' + id);
 	};
 
 //Guests
-	DataService.joinEvent = function (id) {
-		var parameters = 'event_id=' + id;
-		return $http.post(buildUrl('guests', null, 'join', parameters));
+	_this.joinEvent = function (id) {
+		return post('guests/join', {event_id: id});
 	};
-	DataService.replyDemandEvent = function (id, status) {
-		var parameters = 'notif_id=' + id + '&acceptance=' + status;
-		return $http.post(buildUrl('guests', null, 'reply_guest', parameters));
+	_this.replyDemandEvent = function (id, status) {
+		var parameters = {notif_id: id, acceptance: status};
+		return post('guests/reply_guest', parameters);
 	};
-	DataService.inviteEvent = function (volunteer_id, event_id) {
-		var parameters = 'event_id=' + event_id + '&volunteer_id=' + volunteer_id;
-		return $http.post(buildUrl('guests', null, 'invite', parameters));
+	_this.inviteEvent = function (volunteer_id, event_id) {
+		var parameters = {event_id: event_id, volunteer_id: volunteer_id};
+		return post('guests/invite', parameters);
 	};
-	DataService.replyInviteEvent = function (id, status) {
-		var parameters = 'notif_id=' + id + '&acceptance=' + status;
-		return $http.post(buildUrl('guests', null, 'reply_invite', parameters));
+	_this.replyInviteEvent = function (id, status) {
+		var parameters = {notif_id: id, acceptance: status};
+		return post('guests/reply_invite', parameters);
 	};
-	DataService.leaveEvent = function (id) {
-		var parameters = 'event_id=' + id;
-		return $http.delete(buildUrl('guests', null, 'leave', parameters));
+	_this.leaveEvent = function (id) {
+		return remove('guests/leave', {event_id: id});
 	};
-	DataService.upgradeRightsEvent = function (volunteer_id, event_id, rights) {
-		var parameters = 'event_id=' + event_id + '&volunteer_id=' + volunteer_id + '&rights=' + rights;
-		return $http.put(buildUrl('guests', null, 'upgrade', parameters));
+	_this.upgradeRightsEvent = function (volunteer_id, event_id, rights) {
+		var parameters = {
+			event_id: event_id,
+			volunteer_id: volunteer_id,
+			rights: rights
+		};
+		return put('guests/upgrade', parameters);
 	};
-	DataService.kickEvent = function (volunteer_id, event_id) {
-		var parameters = 'event_id=' + event_id + '&volunteer_id=' + volunteer_id;
-		return $http.delete(buildUrl('guests', null, 'kick', parameters));
+	_this.kickEvent = function (volunteer_id, event_id) {
+		var parameters = {
+			event_id: event_id,
+			volunteer_id: volunteer_id
+		};
+		return remove('guests/kick', parameters);
 	};
-	DataService.invitedEvent = function (id) {
-		var parameters = 'event_id=' + id;
-		return $http.get(buildUrl('guests', null, 'invited', parameters));
+	_this.invitedEvent = function (id) {
+		console.log(id);
+		return get('guests/invited', {event_id: id});
 	};
-	DataService.uninviteEvent = function (volunteer_id, event_id) {
-		var parameters = 'event_id=' + event_id + '&volunteer_id=' + volunteer_id;
-		return $http.delete(buildUrl('guests', null, 'uninvite', parameters));
+	_this.uninviteEvent = function (volunteer_id, event_id) {
+		var parameters = {
+			event_id: event_id,
+			volunteer_id: volunteer_id
+		};
+		return remove('guests/uninvite', parameters);
 	};
-	DataService.waitingEvent = function (id) {
-		var parameters = 'event_id=' + id;
-		return $http.get(buildUrl('guests', null, 'waiting', parameters));
+	_this.waitingEvent = function (id) {
+		return get('guests/waiting', {event_id: id});
 	};
 
 //Pictures
-	DataService.postPicture = function (file, filename, original, main) {
+	_this.postPicture = function (file, filename, original, main) {
 		return $http({
 			url: servurl + 'pictures',
 			method: 'POST',
@@ -376,37 +390,30 @@ module.exports = /*@ngInject*/ function ($http) {
 	};
 
 //Messages
-	DataService.getChatrooms = function () {
-		return $http.get(buildUrl('chatrooms', null, null, null));
+	_this.getChatrooms = function () {
+		return get('chatrooms');
 	};
-	DataService.getChatroom = function (id) {
-		return $http.get(buildUrl('chatrooms', id, null, null));
+	_this.getChatroom = function (id) {
+		return get('chatrooms/' + id);
 	};
-	DataService.createChatroom = function (volunteers) {
-		var parameters = 'volunteers[]=' + volunteers[0];
-		for (var i = 1; volunteers[i]; i++) {
-			parameters = parameters + '&volunteers[]=' + volunteers[i];
-		}
-		return $http.post(buildUrl('chatrooms', null, null, parameters));
+	_this.createChatroom = function (volunteers) {
+		return post('chatrooms', {volunteers: volunteers});
 	};
-	DataService.getVolunteersChatroom = function (id) {
-		return $http.get(buildUrl('chatrooms', id, 'volunteers', null));
+	_this.getVolunteersChatroom = function (id) {
+		return get('chatrooms/' + id + '/volunteers');
 	};
-	DataService.setNameChatroom = function (id, name) {
-		var parameters = 'name=' + name;
-		return $http.put(buildUrl('chatrooms', id, 'set_name', parameters));
+	_this.setNameChatroom = function (id, name) {
+		return put('chatrooms/' + id + '/set_name', {name: name});
 	};
-	DataService.addVolunteersChatroom = function (id, volunteers) {
-		var parameters = 'volunteers=' + volunteers;
-		return $http.put(buildUrl('chatrooms', id, 'add_volunteers ', parameters));
+	_this.addVolunteersChatroom = function (id, volunteers) {
+		return put('chatrooms' + id + '/add_volunteers ', {volunteers: volunteers});
 	};
-	DataService.sendMessageChatroom = function (id, message) {
-		var parameters = 'content=' + message;
-		return $http.put(buildUrl('chatrooms', id, 'new_message', parameters));
+	_this.sendMessageChatroom = function (id, message) {
+		return put('chatrooms/' + id + '/new_message', {content: message});
 	};
-	DataService.leaveChatroom = function (id) {
-		return $http.delete(buildUrl('chatrooms', id, 'leave', null));
+	_this.leaveChatroom = function (id) {
+		return remove('chatrooms/' + id + '/leave');
 	};
 
-	return DataService;
+	return _this;
 };

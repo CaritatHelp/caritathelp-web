@@ -34,19 +34,16 @@
 					name="sendMessage",
 					ng-submit="sendMessage.$valid && inbox.sendMessage()"
 				)
-					fieldset.ch-form_row
+					fieldset.ch-form_row.--no-margin
 						.ch-form_input-group.--button-input
 							input.ch-form_text.--button-input(
 								type="text",
 								id="inputMessage",
 								placeholder="Message",
-								ng-model="inbox.message",
-								required=""
+								ng-model="inbox.message"
 							)
 							button.ch-btn.--button-input.--tertiary(type="submit")
 								i.fa.fa-reply
-						.ch-form_message.--error(ng-messages="sendMessage.inputMessage.$error", ng-show="sendMessage.$submitted")
-							p Votre message ne peut pas être vide
 
 			//- Affichage des messages
 			.chatroom--messages.card

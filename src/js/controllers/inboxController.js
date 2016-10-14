@@ -11,15 +11,15 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 	vm.current = usc.user();
 
 	dsc.getChatrooms()
-		.success(function (data) {
-			vm.chatrooms = data.response;
+		.then(function (response) {
+			vm.chatrooms = response.data.response;
 			vm.loaded = true;
 		});
 
 	vm.setChatroom = function (conv) {
 		dsc.getChatroom(conv.id)
-			.success(function (data) {
-				vm.messages = data.response;
+			.then(function (response) {
+				vm.messages = response.data.response;
 				vm.active = conv;
 			});
 	};
@@ -30,25 +30,26 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 	};
 	vm.leaveChatroom = function () {
 		dsc.leaveChatroom(vm.active.id)
-			.success(function () {
+			.then(function () {
 				vm.active = null;
 			})
 			.finally(function () {
 				dsc.getChatrooms()
-					.success(function (data) {
-						vm.chatrooms = data.response;
+					.then(function (response) {
+						vm.chatrooms = response.data.response;
 						vm.loaded = true;
 					});
 			});
 	};
 
 	vm.sendMessage = function () {
-		dsc.sendMessageChatroom(vm.active.id, vm.message)
-			.success(function (data) {
-				vm.messages.push(data.response);
-				vm.message = '';
-			})
-		;
+		if (vm.message !== '') {
+			dsc.sendMessageChatroom(vm.active.id, vm.message)
+				.then(function (response) {
+					vm.messages.push(response.data.response);
+					vm.message = '';
+				});
+		}
 	};
 
 	vm.openInvite = function () {
@@ -56,8 +57,8 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 			templateUrl: 'modal/inbox-invite.html',
 			controller: function (close, dataService, $scope) {
 				dataService.getVolunteers()
-					.success(function (data) {
-						$scope.friends = data.response;
+					.then(function (response) {
+						$scope.friends = response.data.response;
 					});
 
 				$scope.dismiss = function () {
@@ -69,9 +70,9 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 				};
 				$scope.confirmCreation = function () {
 					dsc.createChatroom(vm.creator)
-						.success(function (data) {
-							vm.active = data.response;
-							vm.chatrooms.unshift(data.response);
+						.then(function (response) {
+							vm.active = response.data.response;
+							vm.chatrooms.unshift(response.data.response);
 						});
 					close();
 				};

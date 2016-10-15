@@ -46,12 +46,12 @@ gulp.task('styles', function () {
 
 gulp.task('components', function() {
 	gulp.src('src/js/components/**/*.jade')
-	  .pipe(g.plumber({
+		.pipe(g.plumber({
 			errorHandler: function (error) {
 				console.log(error.message);
 				this.emit('end');
 			}
-	  }))
+		}))
 		.pipe(g.jade({pretty:true}))
 		.pipe(gulp.dest('public/js/'))
 		.pipe(browserSync.reload({stream:true}));
@@ -133,7 +133,7 @@ gulp.task('serve', function () {
 		server: {baseDir: './public'},
 		online: false,
 		port: 3003
-  });
+	});
 });
 
 gulp.task('watch', function () {

@@ -6,21 +6,21 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 
 	if ($stateParams.id) {
 		dsc.getEvent($stateParams.id)
-			.success(function (data) {
+			.then(function (data) {
 				vm.event = data.response;
 				vm.event.begin = new Date(vm.event.begin);
 				vm.event.end = new Date(vm.event.end);
 
 				dsc.getGuestEvent($stateParams.id)
-					.success(function (data) {
+					.then(function (data) {
 						vm.event.guests = data.response;
 					});
 				dsc.invitedEvent($stateParams.id)
-					.success(function (data) {
+					.then(function (data) {
 						vm.event.invited = data.response;
 					});
 				dsc.waitingEvent($stateParams.id)
-					.success(function (data) {
+					.then(function (data) {
 						vm.event.waiting = data.response;
 					});
 			});
@@ -29,15 +29,14 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 	vm.updateEvent = function () {
 		vm.updating = true;
 		dsc.updateEvent(vm.event.id, vm.event.title, vm.event.description, vm.event.place, vm.event.begin, vm.event.end)
-			.success(function () {
+			.then(function () {
 				vm.success = 'L\'évènement a bien été modifié';
-			})
-			.error(function (data) {
-				vm.error = data.message;
+			}, function (data) {
+				vm.addError(data.message);
 			})
 			.finally(function () {
 				dsc.getEvent($stateParams.id)
-					.success(function (data) {
+					.then(function (data) {
 						vm.event = data.response;
 					});
 				vm.updating = false;
@@ -47,15 +46,14 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 	vm.updatePicture = function () {
 		vm.updating = true;
 		dsc.postPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename, true)
-			.success(function () {
+			.then(function () {
 				vm.success = "L'image a bien été mise à jour";
 				dsc.getEventMainPicture(vm.event.id)
-					.success(function (data) {
+					.then(function (data) {
 						vm.event.thumb_path = data.thumb_path;
 					});
-			})
-			.error(function (data) {
-				vm.error = data.message;
+			}, function (data) {
+				vm.addError(data.message);
 			})
 			.finally(function () {
 				vm.updating = false;
@@ -64,22 +62,21 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 
 	vm.deleteEvent = function () {
 		dsc.deleteEvent(vm.event.id)
-			.success(function () {
+			.then(function () {
 				$state.transitionTo('home');
 			});
 	};
 
 	vm.promoteUser = function (userId) {
 		dsc.upgradeRightsEvent(userId, vm.event.id, 'admin')
-			.success(function () {
+			.then(function () {
 				vm.success = 'L\'invité a bien été promu';
-			})
-			.error(function (data) {
-				vm.error = data.message;
+			}, function (data) {
+				vm.addError(data.message);
 			})
 			.finally(function () {
 				dsc.getGuestEvent($stateParams.id)
-					.success(function (data) {
+					.then(function (data) {
 						vm.event.guests = data.response;
 					});
 			});
@@ -87,15 +84,14 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 
 	vm.demoteUser = function (userId) {
 		dsc.upgradeRightsEvent(userId, vm.event.id, 'member')
-			.success(function () {
+			.then(function () {
 				vm.success = 'L\'invité a bien été rétrogradé';
-			})
-			.error(function (data) {
-				vm.error = data.message;
+			}, (function (data) {
+				vm.addError(data.message);
 			})
 			.finally(function () {
 				dsc.getGuestEvent($stateParams.id)
-					.success(function (data) {
+					.then(function (data) {
 						vm.event.guests = data.response;
 					});
 			});
@@ -103,15 +99,14 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 
 	vm.kickUser = function(userId) {
 		dsc.kickEvent(userId, vm.event.id)
-			.success(function () {
+			.then(function () {
 				vm.success = 'L\'invité a bien été expulsé';
-			})
-			.error(function (data) {
-				vm.error = data.message;
+			}, function (data) {
+				vm.addError(data.message);
 			})
 			.finally(function () {
 				dsc.getGuestEvent($stateParams.id)
-					.success(function (data) {
+					.then(function (data) {
 						vm.event.guests = data.response;
 					});
 			});
@@ -119,27 +114,29 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 
 	vm.replyDemand = function(notifId, answer, index) {
 		dsc.replyDemandEvent(notifId, answer)
-			.success(function () {
+			.then(function () {
 				vm.event.waiting.splice(index, 1);
 				vm.success = 'La demande a bien été traitée';
-			})
-			.error(function (data) {
-				vm.error = data.message;
+			}, function (data) {
+				vm.addError(data.message);
 			})
 			.finally(function () {
 				dsc.getGuestEvent($stateParams.id)
-					.success(function (data) {
+					.then(function (data) {
 						vm.event.guests = data.response;
 					});
 			});
 	};
 
-	this.setTab = function (activeTab) {
+	vm.addError = function (message) {
+		vm.error = message;
+	};
+	vm.setTab = function (activeTab) {
 		vm.success = false;
 		vm.error = false;
-		this.tab = activeTab;
+		vm.tab = activeTab;
 	};
-	this.isSet = function (tab) {
-		return this.tab === tab;
+	vm.isSet = function (tab) {
+		return vm.tab === tab;
 	};
 };

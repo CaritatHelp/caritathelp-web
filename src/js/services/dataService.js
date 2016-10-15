@@ -106,7 +106,6 @@ module.exports = /*@ngInject*/ function ($http) {
 			lastname: lastname,
 			birthday: birthday
 		};
-		console.log(parameters);
 		return patch('auth', parameters);
 	};
 

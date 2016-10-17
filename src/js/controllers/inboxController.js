@@ -1,8 +1,9 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, userService, ModalService) {
+module.exports = ['$state', '$stateParams', 'dataService', 'userService', 'ModalService', 'DataVolunteers', function ($state, $stateParams, dataService, userService, ModalService, DataVolunteers) {
 	var vm = this;
 	var dsc = dataService;
 	var usc = userService;
+	var volunteers = DataVolunteers;
 	var modal = ModalService;
 
 	vm.loaded = false;
@@ -56,7 +57,7 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 		modal.showModal({
 			templateUrl: 'modal/inbox-invite.html',
 			controller: function (close, dataService, $scope) {
-				dataService.getVolunteers()
+				volunteers.all()
 					.then(function (response) {
 						$scope.friends = response.data.response;
 					});
@@ -79,4 +80,4 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 			}
 		});
 	};
-};
+}];

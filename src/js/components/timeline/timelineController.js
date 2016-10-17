@@ -1,8 +1,9 @@
 'use strict';
-module.exports = /*@ngInject*/ function (userService, dataService, $stateParams) {
+module.exports = /*@ngInject*/ function (userService, dataService, $stateParams, DataVolunteers) {
 	var vm = this;
 	var dsc = dataService;
 	var usc = userService;
+	var volunteers = DataVolunteers;
 
 	vm.news = [];
 	vm.currentUser = usc.user();
@@ -17,7 +18,7 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams)
 	//Récupération de la liste des news
 	if (vm.type == 'volunteer') {
 		vm.id = $stateParams.id ? $stateParams.id : vm.currentUser.id;
-		dsc.getNews(vm.id)
+		volunteers.news(vm.id)
 			.success(function (data) {
 				vm.news = data.response;
 				vm.loaded = true;

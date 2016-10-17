@@ -1,11 +1,13 @@
 'use strict';
 
-module.exports = /*@ngInject*/ function ($websocket) {
-	var dataStream = $websocket('ws://ws.api.caritathelp.me');
+module.exports = ['$websocket', function ($websocket) {
+	var dataStream = $websocket('ws://ws.api.caritathelp.me/notifications');
+	// var headers = dataService.getHeaders();
 
 	var notifications = [];
 
 	dataStream.onMessage(function (message) {
+		console.log(message);
 		notifications.push(JSON.parse(message.data));
 	});
 
@@ -17,4 +19,4 @@ module.exports = /*@ngInject*/ function ($websocket) {
 	};
 
 	return methods;
-};
+}];

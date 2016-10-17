@@ -1,11 +1,15 @@
 'use strict';
-module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalService', function ($scope, $state, dataService, userService, ModalService) {
+module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalService', 'notifService', function ($scope, $state, dataService, userService, ModalService, notifService) {
 	var vm = this;
 	var dsc = dataService;
 	var usc = userService;
+	var nsc = notifService;
 	var modal = ModalService;
 
 	$scope.$watch(function () {return usc.user();}, function () {vm.user = usc.user();}, true);
+
+	vm.notifs = nsc;
+	console.log(vm.notifs);
 
 	vm.logout = function () {
 		dsc.logout();

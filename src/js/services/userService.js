@@ -1,8 +1,9 @@
 'use strict';
 
-module.exports = ['localStorageService', 'dataService', function (localStorageService, dataService) {
+module.exports = ['localStorageService', 'dataService', 'DataVolunteers', function (localStorageService, dataService, DataVolunteers) {
 	var ls = localStorageService;
 	var dsc = dataService;
+	var volunteers = DataVolunteers;
 	var user = null;
 
 	if (ls.get('connected')) {
@@ -41,17 +42,17 @@ module.exports = ['localStorageService', 'dataService', function (localStorageSe
 			//sauvegarde de l'user
 			user = fillUser(datas);
 			//Récupération des assos et amis de l'user
-			dsc.getFriends(datas.id, datas.token)
+			volunteers.friends(datas.id, datas.token)
 				.then(function (data) {
 					user.friends = data.response;
 					ls.set('currentUser', user);
 				});
-			dsc.getAssos(datas.id, datas.token)
+			volunteers.associations(datas.id, datas.token)
 				.then(function (data) {
 					user.assos = data.response;
 					ls.set('currentUser', user);
 				});
-			dsc.getEvents(datas.id, datas.token)
+			volunteers.events(datas.id, datas.token)
 				.then(function (data) {
 					user.events = data.response;
 					ls.set('currentUser', user);

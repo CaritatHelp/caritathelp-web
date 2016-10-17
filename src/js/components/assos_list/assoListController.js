@@ -1,8 +1,8 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($stateParams, dataService, userService) {
+module.exports = /*@ngInject*/ function ($stateParams, userService, DataVolunteers) {
 	var vm = this;
 	var usc = userService;
-	var dsc = dataService;
+	var volunteers = DataVolunteers;
 
 	if (vm.userId) {
 		getUser(vm.userId);
@@ -14,11 +14,11 @@ module.exports = /*@ngInject*/ function ($stateParams, dataService, userService)
 	}
 
 	function getUser(id) {
-		dsc.getVolunteer(id)
-			.success(function (data) {
+		volunteers.get(id)
+			.then(function (data) {
 				vm.user = data.response;
-				dsc.getAssos(id)
-					.success(function (data) {
+				volunteers.associations(id)
+					.then(function (data) {
 						vm.assos = data.response;
 					});
 			});

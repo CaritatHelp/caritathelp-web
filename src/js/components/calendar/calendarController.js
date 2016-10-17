@@ -1,8 +1,9 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, userService, $stateParams) {
+module.exports = /*@ngInject*/ function (dataService, userService, $stateParams, DataVolunteers) {
 	var vm = this;
 	var dsc = dataService;
 	var usc = userService;
+	var volunteers = DataVolunteers;
 
 	vm.currentUser = usc.user();
 	vm.loaded = -1;
@@ -28,8 +29,8 @@ module.exports = /*@ngInject*/ function (dataService, userService, $stateParams)
 				vm.loaded++;
 			});
 		//Events rejoints par l'user
-		dsc.getEvents(vm.id)
-			.success(function (data) {
+		volunteers.events(vm.id)
+			.then(function (data) {
 				vm.joined = data.response;
 				vm.loaded++;
 			});

@@ -56,8 +56,6 @@ app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProv
 		.state('home', {
 			url: '/home',
 			templateUrl: 'view/home.html',
-			controller: 'homeController',
-			controllerAs: 'vm',
 			authenticate: true
 		})
 		.state('register', {

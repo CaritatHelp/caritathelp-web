@@ -1,7 +1,8 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, userService) {
+module.exports = /*@ngInject*/ function (dataService, userService, DataVolunteers) {
 	var vm = this;
 	var dsc = dataService;
+	var volunteers = DataVolunteers;
 	var usc = userService;
 
 //Listing des associations
@@ -15,8 +16,8 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 	vm.startCreating = function () {
 		vm.creating = true;
 	};
-	dsc.getAssos(vm.current.id)
-		.success(function (data) {
+	volunteers.associations(vm.current.id)
+		.then(function (data) {
 			vm.belong = data.response;
 			vm.loaded.user = true;
 		});

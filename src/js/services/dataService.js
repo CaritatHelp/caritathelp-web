@@ -4,7 +4,6 @@ module.exports = ['$http', function ($http) {
 	var servurl = 'http://staging.caritathelp.me/';
 	// var servurl = 'http://localhost:3000/';
 	var _this = {};
-	var token = null;
 	var headers = {};
 
 	function get(route, data) {
@@ -48,14 +47,27 @@ module.exports = ['$http', function ($http) {
 		});
 	}
 
-	_this.setToken = function (tokn) {
-		token = tokn;
+	_this.get = function (route, data) {
+		return $http({
+			method: 'GET',
+			url: servurl + route,
+			headers: headers,
+			params: data
+		});
 	};
-	_this.getToken = function () {
-		return token;
+	_this.patch = function (route, data) {
+		return $http({
+			method: 'PATCH',
+			url: servurl + route,
+			headers: headers,
+			data: data
+		});
 	};
 	_this.setHeaders = function (object) {
 		headers = object;
+	};
+	_this.getHeaders = function () {
+		return headers;
 	};
 
 /*Implémenté:

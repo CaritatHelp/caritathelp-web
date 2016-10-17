@@ -1,10 +1,9 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($scope, $state, dataService, userService, ModalService, notifService) {
+module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalService', function ($scope, $state, dataService, userService, ModalService) {
 	var vm = this;
 	var dsc = dataService;
 	var usc = userService;
 	var modal = ModalService;
-	var notifs = notifService;
 
 	$scope.$watch(function () {return usc.user();}, function () {vm.user = usc.user();}, true);
 
@@ -24,8 +23,7 @@ module.exports = /*@ngInject*/ function ($scope, $state, dataService, userServic
 	vm.openNotifications = function () {
 		modal.showModal({
 			templateUrl: 'modal/notifications.html',
-			controller: function (close, $scope, dataService) {
-
+			controller: function (close) {
 				this.dismiss = function () {
 					close();
 				};
@@ -33,4 +31,4 @@ module.exports = /*@ngInject*/ function ($scope, $state, dataService, userServic
 			controllerAs: 'modal'
 		});
 	};
-};
+}];

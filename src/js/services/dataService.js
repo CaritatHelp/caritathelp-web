@@ -1,6 +1,6 @@
 'use strict';
 /* eslint camelcase: "off", max-lines: "off" */
-module.exports = /*@ngInject*/ function ($http) {
+module.exports = ['$http', function ($http) {
 	var servurl = 'http://staging.caritathelp.me/';
 	// var servurl = 'http://localhost:3000/';
 	var _this = {};
@@ -429,4 +429,4 @@ module.exports = /*@ngInject*/ function ($http) {
 	};
 
 	return _this;
-};
+}];

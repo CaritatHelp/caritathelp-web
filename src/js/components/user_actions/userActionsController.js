@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = ['$stateParams', 'userService', 'dataService', function ($stateParams, userService, dataService) {
 	var vm = this;
 	var usc = userService;
@@ -8,7 +9,7 @@ module.exports = ['$stateParams', 'userService', 'dataService', function ($state
 		dsc.getVolunteer($stateParams.id)
 			.then(function (data) {
 				vm.user = data.response;
-			})
+			});
 	} else {
 		vm.user = usc.user();
 	}

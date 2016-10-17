@@ -1,5 +1,6 @@
 'use strict';
-module.exports = ['$stateParams', '$state', 'dataService', function ($stateParams, $state, dataService) {
+
+module.exports = ['$state', '$stateParams', 'dataService', function ($state, $stateParams, dataService) {
 	var vm = this;
 	var dsc = dataService;
 

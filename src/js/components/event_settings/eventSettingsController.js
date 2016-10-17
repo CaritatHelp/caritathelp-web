@@ -86,7 +86,7 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 		dsc.upgradeRightsEvent(userId, vm.event.id, 'member')
 			.then(function () {
 				vm.success = 'L\'invité a bien été rétrogradé';
-			}, (function (data) {
+			}, function (data) {
 				vm.addError(data.message);
 			})
 			.finally(function () {

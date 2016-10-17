@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = /*@ngInject*/ function (localStorageService, dataService) {
+module.exports = ['localStorageService', 'dataService', function (localStorageService, dataService) {
 	var ls = localStorageService;
 	var dsc = dataService;
 	var user = null;
@@ -42,17 +42,17 @@ module.exports = /*@ngInject*/ function (localStorageService, dataService) {
 			user = fillUser(datas);
 			//Récupération des assos et amis de l'user
 			dsc.getFriends(datas.id, datas.token)
-				.success(function (data) {
+				.then(function (data) {
 					user.friends = data.response;
 					ls.set('currentUser', user);
 				});
 			dsc.getAssos(datas.id, datas.token)
-				.success(function (data) {
+				.then(function (data) {
 					user.assos = data.response;
 					ls.set('currentUser', user);
 				});
 			dsc.getEvents(datas.id, datas.token)
-				.success(function (data) {
+				.then(function (data) {
 					user.events = data.response;
 					ls.set('currentUser', user);
 				});
@@ -76,4 +76,4 @@ module.exports = /*@ngInject*/ function (localStorageService, dataService) {
 			ls.set('currentUser', user);
 		}
 	};
-};
+}];

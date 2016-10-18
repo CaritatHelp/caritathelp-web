@@ -39,7 +39,7 @@ module.exports = ['dataService', function (dataService) {
 	this.delete = function (id) {
 		return data.remove('associations/' + id);
 	};
-	this.invited = function () {
+	this.invites = function () {
 		return data.get('associations/invited');
 	};
 	this.pictures = function (id) {

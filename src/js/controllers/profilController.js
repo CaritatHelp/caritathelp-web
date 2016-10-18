@@ -10,7 +10,7 @@ module.exports = ['$state', '$stateParams', 'userService', 'DataVolunteers', fun
 	vm.loaded = false;
 
 	volunteers.get($stateParams.id)
-		.success(function (response) {
+		.then(function (response) {
 			vm.user = response.data.response;
 			vm.user.picture = 'http://api.caritathelp.me' + response.data.response.thumb_path;
 			vm.loaded++;
@@ -26,7 +26,7 @@ module.exports = ['$state', '$stateParams', 'userService', 'DataVolunteers', fun
 			vm.loaded++;
 		});
 	volunteers.associations($stateParams.id)
-		.success(function (response) {
+		.then(function (response) {
 			vm.user.assos = response.data.response;
 			vm.loaded++;
 		});

@@ -47,6 +47,14 @@ module.exports = ['$http', function ($http) {
 			params: data
 		});
 	};
+	_this.post = function (route, data) {
+		return $http({
+			method: 'POST',
+			url: servurl + route,
+			headers: headers,
+			data: data
+		});
+	};
 	_this.patch = function (route, data) {
 		return $http({
 			method: 'PATCH',

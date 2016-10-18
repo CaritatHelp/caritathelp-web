@@ -11,11 +11,11 @@ module.exports = ['dataService', 'userService', 'DataVolunteers', 'DataAssociati
 	vm.tab = 1;
 	vm.invited = {};
 
-	associations.invited()
+	associations.invites()
 		.then(function (response) {
 			vm.invited.assos = response.data.response;
 		});
-	events.invited()
+	events.invites()
 		.then(function (response) {
 			vm.invited.events = response.data.response;
 		});

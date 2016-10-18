@@ -1,17 +1,18 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
+module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService', function ($state, $stateParams, DataEvents, dataService) {
 	var vm = this;
 	var dsc = dataService;
+	var events = DataEvents;
 	vm.tab = 1;
 
 	if ($stateParams.id) {
-		dsc.getEvent($stateParams.id)
+		events.get($stateParams.id)
 			.then(function (data) {
 				vm.event = data.response;
 				vm.event.begin = new Date(vm.event.begin);
 				vm.event.end = new Date(vm.event.end);
 
-				dsc.getGuestEvent($stateParams.id)
+				events.guests($stateParams.id)
 					.then(function (data) {
 						vm.event.guests = data.response;
 					});
@@ -28,14 +29,14 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 
 	vm.updateEvent = function () {
 		vm.updating = true;
-		dsc.updateEvent(vm.event.id, vm.event.title, vm.event.description, vm.event.place, vm.event.begin, vm.event.end)
+		events.update(vm.event.id, vm.event.title, vm.event.description, vm.event.place, vm.event.begin, vm.event.end)
 			.then(function () {
 				vm.success = 'L\'évènement a bien été modifié';
 			}, function (data) {
 				vm.addError(data.message);
 			})
 			.finally(function () {
-				dsc.getEvent($stateParams.id)
+				events.get($stateParams.id)
 					.then(function (data) {
 						vm.event = data.response;
 					});
@@ -48,7 +49,7 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 		dsc.postPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename, true)
 			.then(function () {
 				vm.success = "L'image a bien été mise à jour";
-				dsc.getEventMainPicture(vm.event.id)
+				events.mainPicture(vm.event.id)
 					.then(function (data) {
 						vm.event.thumb_path = data.thumb_path;
 					});
@@ -61,7 +62,7 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 	};
 
 	vm.deleteEvent = function () {
-		dsc.deleteEvent(vm.event.id)
+		events.delete(vm.event.id)
 			.then(function () {
 				$state.transitionTo('home');
 			});
@@ -90,7 +91,7 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 				vm.addError(data.message);
 			})
 			.finally(function () {
-				dsc.getGuestEvent($stateParams.id)
+				events.guests($stateParams.id)
 					.then(function (data) {
 						vm.event.guests = data.response;
 					});
@@ -105,7 +106,7 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 				vm.addError(data.message);
 			})
 			.finally(function () {
-				dsc.getGuestEvent($stateParams.id)
+				events.guests($stateParams.id)
 					.then(function (data) {
 						vm.event.guests = data.response;
 					});
@@ -121,7 +122,7 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 				vm.addError(data.message);
 			})
 			.finally(function () {
-				dsc.getGuestEvent($stateParams.id)
+				events.guests($stateParams.id)
 					.then(function (data) {
 						vm.event.guests = data.response;
 					});
@@ -139,4 +140,4 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams, $state) {
 	vm.isSet = function (tab) {
 		return vm.tab === tab;
 	};
-};
+}];

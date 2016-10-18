@@ -1,39 +1,37 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, userService, ModalService) {
+module.exports = ['$state', '$stateParams', 'dataService', 'userService', 'ModalService', 'DataAssociations', function ($state, $stateParams, dataService, userService, ModalService, DataAssociations) {
 	var vm = this;
 	var usc = userService;
 	var dsc = dataService;
 	var modal = ModalService;
+	var associations = DataAssociations;
 
 	vm.current = usc.user();
 	vm.loaded = false;
 	vm.asso = {};
 	vm.rights = {};
 
-	dsc.getAsso($stateParams.id)
-		.success(function (data) {
-			vm.asso = data.response;
-			//Récupération des membres
-			dsc.getAssoMembers($stateParams.id)
-				.success(function (data) {
-					vm.asso.members = data.response;
+	associations.get($stateParams.id)
+		.then(function (response) {
+			vm.asso = response.data.response;
+			associations.members($stateParams.id)
+				.then(function (response) {
+					vm.asso.members = response.data.response;
 					vm.loaded = true;
 				});
 			getRightsMessages();
-		})
-		.error(function () {
+		}, function () {
 			$state.transitionTo('associations');
 		});
 
 	vm.joinAsso = function () {
 		dsc.joinAsso(vm.asso.id)
-			.success(function () {
+			.then(function () {
 				vm.asso.rights = 'waiting';
 				vm.rights.message = 'Vous avez fait une demande pour rejoindre cette association. Un administrateur vous répondra prochainement';
 				vm.rights.class = 'alert-info';
-			})
-			.error(function (data) {
-				vm.error = (data.message);
+			}, function (response) {
+				vm.error = (response.data.message);
 			});
 	};
 	vm.cancelJoin = function () {
@@ -43,15 +41,15 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 	};
 	vm.leaveAsso = function () {
 		dsc.leaveAsso(vm.asso.id)
-			.success(function () {
+			.then(function () {
 				vm.asso.rights = 'none';
 				vm.rights.message = 'Vous n\'êtes pas membre de cette association';
 				vm.rights.class = 'alert-warning';
 			});
 	};
 	vm.deleteAsso = function () {
-		dsc.deleteAsso(vm.asso.id)
-			.success(function () {
+		associations.delete(vm.asso.id)
+			.then(function () {
 				$state.transitionTo('home');
 			});
 	};
@@ -95,13 +93,12 @@ module.exports = /*@ngInject*/ function ($state, $stateParams, dataService, user
 				};
 				$scope.inviteFriend = function (friendId) {
 					dataService.inviteAsso(friendId, vm.asso.id)
-						.success(function () {
-						})
-						.error(function () {
+						.then(function () {
+						}, function () {
 						});
 					close();
 				};
 			}
 		});
 	};
-};
+}];

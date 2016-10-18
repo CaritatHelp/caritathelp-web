@@ -1,18 +1,20 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, userService) {
+module.exports = ['dataService', 'userService', 'DataAssociations', 'DataEvents', function (dataService, userService, DataAssociations, DataEvents) {
 	var vm = this;
 	var usc = userService;
 	var dsc = dataService;
+	var associations = DataAssociations;
+	var events = DataEvents;
 
 	vm.user = usc.user();
 	vm.tab = 1;
 	vm.invited = {};
 
-	dsc.getAssoInvited()
+	associations.invited()
 		.then(function (data) {
 			vm.invited.assos = data.response;
 		});
-	dsc.getEventInvited()
+	events.invited()
 		.then(function (data) {
 			vm.invited.events = data.response;
 		});
@@ -99,4 +101,4 @@ module.exports = /*@ngInject*/ function (dataService, userService) {
 	vm.isSet = function (tab) {
 		return vm.tab === tab;
 	};
-};
+}];

@@ -1,20 +1,21 @@
 'use strict';
-module.exports = /*@ngInject*/ function (userService, dataService, $stateParams, $state, ModalService) {
+module.exports = ['$state', '$stateParams', 'userService', 'dataService', 'ModalService', 'DataEvents', function ($state, $stateParams, userService, dataService, ModalService, DataEvents) {
 	var vm = this;
 	var dsc = dataService;
 	var usc = userService;
 	var modal = ModalService;
+	var events = DataEvents;
 
 	vm.current = usc.user();
 	vm.event = {};
 	vm.loaded = false;
 	vm.rights = {};
 
-	dsc.getEvent($stateParams.id)
-		.success(function (data) {
+	events.get($stateParams.id)
+		.then(function (data) {
 			vm.event = data.response;
-			dsc.getGuestEvent($stateParams.id)
-				.success(function (data) {
+			events.guests($stateParams.id)
+				.then(function (data) {
 					vm.event.guests = data.response;
 					vm.loaded = true;
 				});
@@ -23,12 +24,11 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams,
 
 	vm.joinEvent = function () {
 		dsc.joinEvent(vm.event.id)
-			.success(function () {
+			.then(function () {
 				vm.event.rights = 'waiting';
 				vm.rights.message = 'Vous avez fait une demande pour participer à cet évènement. Un organisateur vous répondra prochainement';
 				vm.rights.class = 'alert-info';
-			})
-			.error(function (data) {
+			}, function (data) {
 				vm.error = (data.message);
 			});
 	};
@@ -37,13 +37,13 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams,
 	};
 	vm.leaveEvent = function () {
 		dsc.leaveEvent(vm.event.id)
-			.success(function () {
+			.then(function () {
 				vm.event.rights = null;
 			});
 	};
 	vm.deleteEvent = function () {
-		dsc.deleteEvent(vm.event.id)
-			.success(function () {
+		events.delete(vm.event.id)
+			.then(function () {
 				$state.transitionTo('home');
 			});
 	};
@@ -87,9 +87,8 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams,
 				};
 				this.invite = function (friendId) {
 					dataService.inviteEvent(friendId, vm.event.id)
-						.success(function () {
-						})
-						.error(function () {
+						.then(function () {
+						}, function () {
 						});
 					close();
 				};
@@ -97,4 +96,4 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams,
 			controllerAs: 'modal'
 		});
 	};
-};
+}];

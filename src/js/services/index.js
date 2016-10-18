@@ -7,3 +7,5 @@ app.factory('userService', require('./userService'));
 app.factory('notifService', require('./notifService'));
 
 app.service('DataVolunteers', require('./API/DataVolunteers'));
+app.service('DataAssociations', require('./API/DataAssociations'));
+app.service('DataEvents', require('./API/DataEvents'));

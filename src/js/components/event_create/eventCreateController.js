@@ -1,7 +1,7 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($state, dataService) {
+module.exports = ['$state', 'DataEvents', function ($state, DataEvents) {
 	var vm = this;
-	var dsc = dataService;
+	var events = DataEvents;
 
 	vm.error = false;
 	vm.errorMessage = '';
@@ -22,13 +22,12 @@ module.exports = /*@ngInject*/ function ($state, dataService) {
 
 	vm.createEvent = function () {
 		// Parametres: assoId titre description place begin end
-		dsc.createEvent(vm.asso, vm.title, vm.description, vm.place, vm.begin, vm.end)
-			.success(function (data) {
+		events.create(vm.asso, vm.title, vm.description, vm.place, vm.begin, vm.end)
+			.then(function (data) {
 				$state.transitionTo('event.home', {id: data.response.id});
-			})
-			.error(function (data) {
+			}, function (data) {
 				vm.error = true;
 				vm.errorMessage = data.message;
 			});
 	};
-};
+}];

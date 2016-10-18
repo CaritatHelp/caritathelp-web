@@ -1,9 +1,11 @@
 'use strict';
-module.exports = /*@ngInject*/ function (userService, dataService, $stateParams, DataVolunteers) {
+module.exports = ['$stateParams', 'userService', 'dataService', 'DataVolunteers', 'DataAssociations', 'DataEvents', function ($stateParams, userService, dataService, DataVolunteers, DataAssociations, DataEvents) {
 	var vm = this;
 	var dsc = dataService;
 	var usc = userService;
 	var volunteers = DataVolunteers;
+	var associations = DataAssociations;
+	var events = DataEvents;
 
 	vm.news = [];
 	vm.currentUser = usc.user();
@@ -19,26 +21,26 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams,
 	if (vm.type == 'volunteer') {
 		vm.id = $stateParams.id ? $stateParams.id : vm.currentUser.id;
 		volunteers.news(vm.id)
-			.success(function (data) {
-				vm.news = data.response;
+			.then(function (response) {
+				vm.news = response.data.response;
 				vm.loaded = true;
 			});
 	} else if (vm.type == 'association') {
-		dsc.getAssoNews($stateParams.id)
-			.success(function (data) {
-				vm.news = data.response;
+		associations.news($stateParams.id)
+			.then(function (response) {
+				vm.news = response.data.response;
 				vm.loaded = true;
 			});
 	} else if (vm.type == 'event') {
-		dsc.getEventNews($stateParams.id)
-			.success(function (data) {
-				vm.news = data.response;
+		events.news($stateParams.id)
+			.then(function (response) {
+				vm.news = response.data.response;
 				vm.loaded = true;
 			});
 	} else if (!$stateParams.id) {
 		dsc.getNewsList()
-			.success(function (data) {
-				vm.news = data.response;
+			.then(function (response) {
+				vm.news = response.data.response;
 				vm.loaded = true;
 			});
 	}
@@ -64,4 +66,4 @@ module.exports = /*@ngInject*/ function (userService, dataService, $stateParams,
 				});
 		}
 	};
-};
+}];

@@ -1,17 +1,18 @@
 'use strict';
 
-module.exports = ['$state', '$stateParams', 'dataService', function ($state, $stateParams, dataService) {
+module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations', function ($state, $stateParams, dataService, DataAssociations) {
 	var vm = this;
 	var dsc = dataService;
+	var associations = DataAssociations;
 
 	vm.tab = 1;
 
-	dsc.getAsso($stateParams.id)
-		.then(function (data) {
-			vm.asso = data.response;
-			dsc.getAssoMembers($stateParams.id)
-				.then(function (data) {
-					vm.asso.members = data.response;
+	associations.get($stateParams.id)
+		.then(function (response) {
+			vm.asso = response.data.response;
+			associations.members($stateParams.id)
+				.then(function (response) {
+					vm.asso.members = response.data.response;
 				});
 			dsc.invitedAsso($stateParams.id)
 				.then(function (data) {
@@ -25,16 +26,16 @@ module.exports = ['$state', '$stateParams', 'dataService', function ($state, $st
 
 	vm.updateAsso = function () {
 		vm.updating = true;
-		dsc.updateAsso(vm.asso.id, vm.asso.name, vm.asso.description, vm.asso.birthday, vm.asso.city, null, null)
+		associations.update(vm.asso.id, vm.asso.name, vm.asso.description, vm.asso.birthday, vm.asso.city, null, null)
 			.then(function () {
 				vm.success = 'Votre association a bien été modifiée';
-			}, function (data) {
-				vm.error = data.message;
+			}, function (response) {
+				vm.error = response.data.message;
 			})
 			.finally(function () {
-				dsc.getAsso($stateParams.id)
-					.then(function (data) {
-						vm.asso = data.response;
+				associations.get($stateParams.id)
+					.then(function (response) {
+						vm.asso = response.data.response;
 					});
 				vm.updating = false;
 			});
@@ -45,12 +46,12 @@ module.exports = ['$state', '$stateParams', 'dataService', function ($state, $st
 		dsc.postPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename, true)
 			.then(function () {
 				vm.success = "L'image a bien été mise à jour";
-				dsc.getAssoMainPicture(vm.asso.id)
-					.then(function (data) {
-						vm.asso.thumb_path = data.thumb_path;
+				associations.mainPicture(vm.asso.id)
+					.then(function (response) {
+						vm.asso.thumb_path = response.data.response.thumb_path;
 					});
-			}, function (data) {
-				vm.error = data.message;
+			}, function (response) {
+				vm.error = response.data.message;
 			})
 			.finally(function () {
 				vm.updating = false;
@@ -58,7 +59,7 @@ module.exports = ['$state', '$stateParams', 'dataService', function ($state, $st
 	};
 
 	vm.deleteAsso = function () {
-		dsc.deleteAsso(vm.asso.id)
+		associations.delete(vm.asso.id)
 			.then(function () {
 				$state.transitionTo('home');
 			});
@@ -68,13 +69,13 @@ module.exports = ['$state', '$stateParams', 'dataService', function ($state, $st
 		dsc.upgradeRightsAsso(userId, vm.asso.id, 'admin')
 			.then(function () {
 				vm.success = 'Le membre a bien été promu';
-			}, function (data) {
-				vm.error = data.message;
+			}, function (response) {
+				vm.error = response.data.message;
 			})
 			.finally(function () {
-				dsc.getAssoMembers($stateParams.id)
-					.then(function (data) {
-						vm.asso.members = data.response;
+				associations.members($stateParams.id)
+					.then(function (response) {
+						vm.asso.members = response.data.response;
 					});
 			});
 	};
@@ -83,13 +84,13 @@ module.exports = ['$state', '$stateParams', 'dataService', function ($state, $st
 		dsc.upgradeRightsAsso(userId, vm.asso.id, 'member')
 			.then(function () {
 				vm.success = 'Le membre a bien été rétrogradé';
-			}, function (data) {
-				vm.error = data.message;
+			}, function (response) {
+				vm.error = response.data.message;
 			})
 			.finally(function () {
-				dsc.getAssoMembers($stateParams.id)
-					.then(function (data) {
-						vm.asso.members = data.response;
+				associations.members($stateParams.id)
+					.then(function (response) {
+						vm.asso.members = response.data.response;
 					});
 			});
 	};
@@ -98,13 +99,13 @@ module.exports = ['$state', '$stateParams', 'dataService', function ($state, $st
 		dsc.kickAsso(userId, vm.asso.id)
 			.then(function () {
 				vm.success = 'Le membre a bien été expulsé';
-			}, function (data) {
-				vm.error = data.message;
+			}, function (response) {
+				vm.error = response.data.message;
 			})
 			.finally(function () {
-				dsc.getAssoMembers($stateParams.id)
-					.then(function (data) {
-						vm.asso.members = data.response;
+				associations.members($stateParams.id)
+					.then(function (response) {
+						vm.asso.members = response.data.response;
 					});
 			});
 	};
@@ -114,13 +115,13 @@ module.exports = ['$state', '$stateParams', 'dataService', function ($state, $st
 			.then(function () {
 				vm.asso.waiting.splice(index, 1);
 				vm.success = 'La demande a bien été traitée';
-			}, function (data) {
-				vm.error = data.message;
+			}, function (response) {
+				vm.error = response.data.message;
 			})
 			.finally(function () {
-				dsc.getAssoMembers($stateParams.id)
-					.then(function (data) {
-						vm.asso.members = data.response;
+				associations.members($stateParams.id)
+					.then(function (response) {
+						vm.asso.members = response.data.response;
 					});
 			});
 	};

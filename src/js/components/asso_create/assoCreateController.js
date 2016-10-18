@@ -1,7 +1,7 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($state, dataService) {
+module.exports = ['$state', 'DataAssociations', function ($state, DataAssociations) {
 	var vm = this;
-	var dsc = dataService;
+	var associations = DataAssociations;
 
 	vm.error = false;
 	vm.errorMessage = '';
@@ -9,13 +9,12 @@ module.exports = /*@ngInject*/ function ($state, dataService) {
 	vm.createAsso = function () {
 		vm.date = new Date();
 		// Parametres: nom description birthday city latitude longitude
-		dsc.createAsso(vm.name, vm.description, null, vm.city, null, null)
-			.success(function (data) {
+		associations.create(vm.name, vm.description, null, vm.city, null, null)
+			.then(function (data) {
 				$state.transitionTo('association.home', {id: data.response.id});
-			})
-			.error(function (data) {
+			}, function (data) {
 				vm.error = true;
 				vm.errorMessage = data.message;
 			});
 	};
-};
+}];

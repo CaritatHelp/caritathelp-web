@@ -1,9 +1,10 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, userService, $stateParams, DataVolunteers) {
+module.exports = ['$stateParams', 'userService', 'DataVolunteers', 'DataAssociations', 'DataEvents', function ($stateParams, userService, DataVolunteers, DataAssociations, DataEvents) {
 	var vm = this;
-	var dsc = dataService;
 	var usc = userService;
 	var volunteers = DataVolunteers;
+	var associations = DataAssociations;
+	var events = DataEvents;
 
 	vm.currentUser = usc.user();
 	vm.loaded = -1;
@@ -23,34 +24,34 @@ module.exports = /*@ngInject*/ function (dataService, userService, $stateParams,
 		vm.type = 'volunteer';
 		vm.id = $stateParams.id ? $stateParams.id : vm.currentUser.id;
 		//Tous les events existants
-		dsc.getEventList()
-			.success(function (data) {
-				vm.events = data.response;
+		events.all()
+			.then(function (response) {
+				vm.events = response.data.response;
 				vm.loaded++;
 			});
 		//Events rejoints par l'user
 		volunteers.events(vm.id)
-			.then(function (data) {
-				vm.joined = data.response;
+			.then(function (response) {
+				vm.joined = response.data.response;
 				vm.loaded++;
 			});
 	} else if (vm.calType === 'association') {
 		vm.tab = 2;
 		vm.type = 'association';
 		vm.id = $stateParams.id;
-		dsc.getAsso(vm.id)
-			.success(function (data) {
-				if (data.response.rights === 'owner' || data.response.rights === 'admin') {
+		associations.get(vm.id)
+			.then(function (response) {
+				if (response.data.response.rights === 'owner' || response.data.response.rights === 'admin') {
 					vm.rights = 'edit';
 				} else {
 					vm.rights = null;
 				}
 			});
 		//Events créés par l'asso
-		dsc.getAssoEvents(vm.id)
-			.success(function (data) {
-				vm.events = data.response;
+		associations.events(vm.id)
+			.then(function (response) {
+				vm.events = response.data.response;
 				vm.loaded = true;
 			});
 	}
-};
+}];

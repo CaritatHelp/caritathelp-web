@@ -9,7 +9,6 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 	$scope.$watch(function () {return usc.user();}, function () {vm.user = usc.user();}, true);
 
 	vm.notifs = nsc;
-	console.log(vm.notifs);
 
 	vm.logout = function () {
 		dsc.logout();

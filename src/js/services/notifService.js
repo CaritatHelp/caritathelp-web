@@ -1,5 +1,4 @@
 'use strict';
-
 module.exports = ['$websocket', function ($websocket) {
 	var dataStream = $websocket('ws://ws.api.caritathelp.me/notifications');
 	// var headers = dataService.getHeaders();

@@ -1,5 +1,4 @@
 'use strict';
-
 module.exports = ['dataService', function (dataService) {
 	var data = dataService;
 
@@ -20,7 +19,7 @@ module.exports = ['dataService', function (dataService) {
 		return data.patch('auth', parameters);
 	};
 
-	this.getNotifs = function () {
+	this.notifications = function () {
 		return data.get('notifications');
 	};
 	this.friends = function (id) {
@@ -32,7 +31,7 @@ module.exports = ['dataService', function (dataService) {
 	this.events = function (id) {
 		return data.get('volunteers/' + id + '/events');
 	};
-	this.getPictures = function (id) {
+	this.pictures = function (id) {
 		return data.get('volunteers/' + id + '/pictures');
 	};
 	this.getMainPicture = function (id) {
@@ -41,7 +40,7 @@ module.exports = ['dataService', function (dataService) {
 	this.news = function (id) {
 		return data.get('volunteers/' + id + '/news');
 	};
-	this.getFriendRequests = function () {
+	this.friendRequests = function () {
 		return data.get('volunteers/friend_requests');
 	};
 }];

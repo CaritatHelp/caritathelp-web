@@ -26,16 +26,16 @@ module.exports = ['$stateParams', 'userService', 'DataVolunteers', function ($st
 
 	function getUser(id) {
 		volunteers.get(id)
-			.then(function (data) {
-				vm.user = data.response;
-				vm.user.picture = "http://api.caritathelp.me" + data.response.thumb_path;
+			.then(function (response) {
+				vm.user = response.data.response;
+				vm.user.picture = "http://api.caritathelp.me" + response.data.response.thumb_path;
 				volunteers.friends(id)
-					.then(function (data) {
-						vm.user.friends = data.response;
+					.then(function (response) {
+						vm.user.friends = response.data.response;
 					});
 				volunteers.associations(id)
-					.then(function (data) {
-						vm.user.assos = data.response;
+					.then(function (response) {
+						vm.user.assos = response.data.response;
 					});
 			})
 	}

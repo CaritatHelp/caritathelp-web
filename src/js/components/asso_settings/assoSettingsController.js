@@ -15,12 +15,12 @@ module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations', f
 					vm.asso.members = response.data.response;
 				});
 			associations.invited($stateParams.id)
-				.then(function (data) {
-					vm.asso.invited = data.response;
+				.then(function (response) {
+					vm.asso.invited = response.data.response;
 				});
 			associations.waiting($stateParams.id)
-				.then(function (data) {
-					vm.asso.waiting = data.response;
+				.then(function (response) {
+					vm.asso.waiting = response.data.response;
 				});
 		});
 

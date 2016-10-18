@@ -15,11 +15,11 @@ module.exports = /*@ngInject*/ function ($stateParams, userService, DataVoluntee
 
 	function getUser(id) {
 		volunteers.get(id)
-			.then(function (data) {
-				vm.user = data.response;
+			.then(function (response) {
+				vm.user = response.data.response;
 				volunteers.associations(id)
-					.then(function (data) {
-						vm.assos = data.response;
+					.then(function (response) {
+						vm.assos = response.data.response;
 					});
 			});
 	}

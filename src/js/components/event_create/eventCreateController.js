@@ -23,11 +23,11 @@ module.exports = ['$state', 'DataEvents', function ($state, DataEvents) {
 	vm.createEvent = function () {
 		// Parametres: assoId titre description place begin end
 		events.create(vm.asso, vm.title, vm.description, vm.place, vm.begin, vm.end)
-			.then(function (data) {
-				$state.transitionTo('event.home', {id: data.response.id});
-			}, function (data) {
+			.then(function (response) {
+				$state.transitionTo('event.home', {id: response.data.response.id});
+			}, function (response) {
 				vm.error = true;
-				vm.errorMessage = data.message;
+				vm.errorMessage = response.data.message;
 			});
 	};
 }];

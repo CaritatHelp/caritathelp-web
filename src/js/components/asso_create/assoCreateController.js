@@ -10,11 +10,11 @@ module.exports = ['$state', 'DataAssociations', function ($state, DataAssociatio
 		vm.date = new Date();
 		// Parametres: nom description birthday city latitude longitude
 		associations.create(vm.name, vm.description, null, vm.city, null, null)
-			.then(function (data) {
-				$state.transitionTo('association.home', {id: data.response.id});
-			}, function (data) {
+			.then(function (response) {
+				$state.transitionTo('association.home', {id: response.data.response.id});
+			}, function (response) {
 				vm.error = true;
-				vm.errorMessage = data.message;
+				vm.errorMessage = response.data.message;
 			});
 	};
 }];

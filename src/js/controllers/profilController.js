@@ -10,24 +10,24 @@ module.exports = ['$state', '$stateParams', 'userService', 'DataVolunteers', fun
 	vm.loaded = false;
 
 	volunteers.get($stateParams.id)
-		.success(function (data) {
-			vm.user = data.response;
-			vm.user.picture = 'http://api.caritathelp.me' + data.response.thumb_path;
+		.success(function (response) {
+			vm.user = response.data.response;
+			vm.user.picture = 'http://api.caritathelp.me' + response.data.response.thumb_path;
 			vm.loaded++;
 		});
 	volunteers.friends($stateParams.id)
-		.then(function (data) {
-			vm.user.friends = data.response;
+		.then(function (response) {
+			vm.user.friends = response.data.response;
 			vm.loaded++;
 		});
 	volunteers.events($stateParams.id)
-		.then(function (data) {
-			vm.user.events = data.response;
+		.then(function (response) {
+			vm.user.events = response.data.response;
 			vm.loaded++;
 		});
 	volunteers.associations($stateParams.id)
-		.success(function (data) {
-			vm.user.assos = data.response;
+		.success(function (response) {
+			vm.user.assos = response.data.response;
 			vm.loaded++;
 		});
 }];

@@ -7,22 +7,22 @@ module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService', functio
 
 	if ($stateParams.id) {
 		events.get($stateParams.id)
-			.then(function (data) {
-				vm.event = data.response;
+			.then(function (response) {
+				vm.event = response.data.response;
 				vm.event.begin = new Date(vm.event.begin);
 				vm.event.end = new Date(vm.event.end);
 
 				events.guests($stateParams.id)
-					.then(function (data) {
-						vm.event.guests = data.response;
+					.then(function (response) {
+						vm.event.guests = response.data.response;
 					});
 				events.invited($stateParams.id)
-					.then(function (data) {
-						vm.event.invited = data.response;
+					.then(function (response) {
+						vm.event.invited = response.data.response;
 					});
 				events.waiting($stateParams.id)
-					.then(function (data) {
-						vm.event.waiting = data.response;
+					.then(function (response) {
+						vm.event.waiting = response.data.response;
 					});
 			});
 	}
@@ -32,13 +32,13 @@ module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService', functio
 		events.update(vm.event.id, vm.event.title, vm.event.description, vm.event.place, vm.event.begin, vm.event.end)
 			.then(function () {
 				vm.success = 'L\'évènement a bien été modifié';
-			}, function (data) {
-				vm.addError(data.message);
+			}, function (response) {
+				vm.addError(response.data.message);
 			})
 			.finally(function () {
 				events.get($stateParams.id)
-					.then(function (data) {
-						vm.event = data.response;
+					.then(function (response) {
+						vm.event = response.data.response;
 					});
 				vm.updating = false;
 			});
@@ -50,11 +50,11 @@ module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService', functio
 			.then(function () {
 				vm.success = "L'image a bien été mise à jour";
 				events.mainPicture(vm.event.id)
-					.then(function (data) {
-						vm.event.thumb_path = data.thumb_path;
+					.then(function (response) {
+						vm.event.thumb_path = response.data.thumb_path;
 					});
-			}, function (data) {
-				vm.addError(data.message);
+			}, function (response) {
+				vm.addError(response.data.message);
 			})
 			.finally(function () {
 				vm.updating = false;
@@ -72,13 +72,13 @@ module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService', functio
 		events.rights(userId, vm.event.id, 'admin')
 			.then(function () {
 				vm.success = 'L\'invité a bien été promu';
-			}, function (data) {
-				vm.addError(data.message);
+			}, function (response) {
+				vm.addError(response.data.message);
 			})
 			.finally(function () {
 				events.guests($stateParams.id)
-					.then(function (data) {
-						vm.event.guests = data.response;
+					.then(function (response) {
+						vm.event.guests = response.data.response;
 					});
 			});
 	};
@@ -87,13 +87,13 @@ module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService', functio
 		events.rights(userId, vm.event.id, 'member')
 			.then(function () {
 				vm.success = 'L\'invité a bien été rétrogradé';
-			}, function (data) {
-				vm.addError(data.message);
+			}, function (response) {
+				vm.addError(response.data.message);
 			})
 			.finally(function () {
 				events.guests($stateParams.id)
-					.then(function (data) {
-						vm.event.guests = data.response;
+					.then(function (response) {
+						vm.event.guests = response.data.response;
 					});
 			});
 	};
@@ -102,13 +102,13 @@ module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService', functio
 		events.kick(userId, vm.event.id)
 			.then(function () {
 				vm.success = 'L\'invité a bien été expulsé';
-			}, function (data) {
-				vm.addError(data.message);
+			}, function (response) {
+				vm.addError(response.data.message);
 			})
 			.finally(function () {
 				events.guests($stateParams.id)
-					.then(function (data) {
-						vm.event.guests = data.response;
+					.then(function (response) {
+						vm.event.guests = response.data.response;
 					});
 			});
 	};
@@ -118,13 +118,13 @@ module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService', functio
 			.then(function () {
 				vm.event.waiting.splice(index, 1);
 				vm.success = 'La demande a bien été traitée';
-			}, function (data) {
-				vm.addError(data.message);
+			}, function (response) {
+				vm.addError(response.data.message);
 			})
 			.finally(function () {
 				events.guests($stateParams.id)
-					.then(function (data) {
-						vm.event.guests = data.response;
+					.then(function (response) {
+						vm.event.guests = response.data.response;
 					});
 			});
 	};

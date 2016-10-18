@@ -15,11 +15,11 @@ module.exports = ['$stateParams', 'userService', 'DataVolunteers', function ($st
 
 	function getUser(id) {
 		volunteers.get(id)
-			.then(function (data) {
-				vm.user = data.response;
+			.then(function (response) {
+				vm.user = response.data.response;
 				volunteers.friends(id)
-					.then(function (data) {
-						vm.friends = data.response;
+					.then(function (response) {
+						vm.friends = response.data.response;
 					});
 			})
 	}

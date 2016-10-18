@@ -31,9 +31,9 @@ module.exports = ['dataService', 'userService', 'DataVolunteers', 'DataAssociati
 			.then(function () {
 				vm.success = true;
 				vm.successMessage = 'Votre profil a bien été modifié';
-			}, function (data) {
+			}, function (response) {
 				vm.error = true;
-				vm.errorMessage = data.message;
+				vm.errorMessage = response.data.message;
 			})
 			.finally(function () {
 				vm.updating = false;
@@ -61,8 +61,8 @@ module.exports = ['dataService', 'userService', 'DataVolunteers', 'DataAssociati
 				vm.invited.assos.splice(index, 1);
 				vm.success = true;
 				vm.successMessage = 'La demande a bien été traitée';
-			}, function (data) {
-				vm.error = data.message;
+			}, function (response) {
+				vm.error = response.data.message;
 			});
 	};
 
@@ -72,8 +72,8 @@ module.exports = ['dataService', 'userService', 'DataVolunteers', 'DataAssociati
 				vm.invited.events.splice(index, 1);
 				vm.success = true;
 				vm.successMessage = 'La demande a bien été traitée';
-			}, function (data) {
-				vm.error = data.message;
+			}, function (response) {
+				vm.error = response.data.message;
 			});
 	};
 
@@ -83,8 +83,8 @@ module.exports = ['dataService', 'userService', 'DataVolunteers', 'DataAssociati
 				vm.invited.friends.splice(index, 1);
 				vm.success = true;
 				vm.successMessage = 'La demande a bien été traitée';
-			}, function (data) {
-				vm.error = data.message;
+			}, function (response) {
+				vm.error = response.data.message;
 			});
 	};
 

@@ -11,11 +11,11 @@ module.exports = ['$state', '$stateParams', 'userService', 'ModalService', 'Data
 	vm.rights = {};
 
 	events.get($stateParams.id)
-		.then(function (data) {
-			vm.event = data.response;
+		.then(function (response) {
+			vm.event = response.data.response;
 			events.guests($stateParams.id)
-				.then(function (data) {
-					vm.event.guests = data.response;
+				.then(function (response) {
+					vm.event.guests = response.data.response;
 					vm.loaded = true;
 				});
 			getRightsMessages();
@@ -27,8 +27,8 @@ module.exports = ['$state', '$stateParams', 'userService', 'ModalService', 'Data
 				vm.event.rights = 'waiting';
 				vm.rights.message = 'Vous avez fait une demande pour participer à cet évènement. Un organisateur vous répondra prochainement';
 				vm.rights.class = 'alert-info';
-			}, function (data) {
-				vm.error = (data.message);
+			}, function (response) {
+				vm.error = (response.data.message);
 			});
 	};
 	vm.cancelJoin = function () {

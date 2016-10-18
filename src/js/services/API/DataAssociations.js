@@ -51,4 +51,42 @@ module.exports = ['dataService', function (dataService) {
 	this.news = function (id) {
 		return data.get('associations/' + id + '/news');
 	};
+
+	//Membership
+	this.join = function (id) {
+		return data.post('membership/join', {assoc_id: id});
+	};
+	this.replyDemand = function (id, status) {
+		var parameters = {notif_id: id, acceptance: status};
+		return data.post('membership/reply_member', parameters);
+	};
+	this.invite = function (volunteer_id, assoc_id) {
+		var parameters = {assoc_id: assoc_id, volunteer_id: volunteer_id};
+		return data.post('membership/invite', parameters);
+	};
+	this.replyInvite = function (id, status) {
+		var parameters = {notif_id: id, acceptance: status};
+		return data.post('membership/reply_invite', parameters);
+	};
+	this.leave = function (id) {
+		return data.remove('membership/leave', {assoc_id: id});
+	};
+	this.rights = function (volunteer_id, assoc_id, rights) {
+		var parameters = {assoc_id: assoc_id, volunteer_id: volunteer_id, rights: rights};
+		return data.put('membership/upgrade', parameters);
+	};
+	this.kick = function (volunteer_id, assoc_id) {
+		var parameters = {assoc_id: assoc_id, volunteer_id: volunteer_id};
+		return data.remove('membership/kick', parameters);
+	};
+	this.invited = function (id) {
+		return data.get('membership/invited', {assoc_id: id});
+	};
+	this.uninvite = function (volunteer_id, assoc_id) {
+		var parameters = {assoc_id: assoc_id, volunteer_id: volunteer_id};
+		return data.remove('membership/uninvite', parameters);
+	};
+	this.waiting = function (id) {
+		return data.get('membership/waiting', {assoc_id: id});
+	};
 }];

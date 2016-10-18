@@ -14,11 +14,11 @@ module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations', f
 				.then(function (response) {
 					vm.asso.members = response.data.response;
 				});
-			dsc.invitedAsso($stateParams.id)
+			associations.invited($stateParams.id)
 				.then(function (data) {
 					vm.asso.invited = data.response;
 				});
-			dsc.waitingAsso($stateParams.id)
+			associations.waiting($stateParams.id)
 				.then(function (data) {
 					vm.asso.waiting = data.response;
 				});
@@ -66,7 +66,7 @@ module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations', f
 	};
 
 	vm.promoteUser = function (userId) {
-		dsc.upgradeRightsAsso(userId, vm.asso.id, 'admin')
+		associations.rights(userId, vm.asso.id, 'admin')
 			.then(function () {
 				vm.success = 'Le membre a bien été promu';
 			}, function (response) {
@@ -81,7 +81,7 @@ module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations', f
 	};
 
 	vm.demoteUser = function (userId) {
-		dsc.upgradeRightsAsso(userId, vm.asso.id, 'member')
+		associations.rights(userId, vm.asso.id, 'member')
 			.then(function () {
 				vm.success = 'Le membre a bien été rétrogradé';
 			}, function (response) {
@@ -96,7 +96,7 @@ module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations', f
 	};
 
 	vm.kickUser = function (userId) {
-		dsc.kickAsso(userId, vm.asso.id)
+		associations.kick(userId, vm.asso.id)
 			.then(function () {
 				vm.success = 'Le membre a bien été expulsé';
 			}, function (response) {
@@ -111,7 +111,7 @@ module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations', f
 	};
 
 	vm.replyDemand = function(notifId, answer, index) {
-		dsc.replyDemandAsso(notifId, answer)
+		associations.replyDemand(notifId, answer)
 			.then(function () {
 				vm.asso.waiting.splice(index, 1);
 				vm.success = 'La demande a bien été traitée';

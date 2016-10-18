@@ -8,7 +8,7 @@ module.exports = ['dataService', function (dataService) {
 	this.get = function (id) {
 		return data.get('volunteers/' + id);
 	};
-	this.updateVolunteer = function (mail, password, firstname, lastname, birthday) {
+	this.update = function (mail, password, firstname, lastname, birthday) {
 		var parameters = {
 			mail: mail,
 			password: password,
@@ -34,7 +34,7 @@ module.exports = ['dataService', function (dataService) {
 	this.pictures = function (id) {
 		return data.get('volunteers/' + id + '/pictures');
 	};
-	this.getMainPicture = function (id) {
+	this.mainPicture = function (id) {
 		return data.get('volunteers/' + id + '/main_picture');
 	};
 	this.news = function (id) {
@@ -42,5 +42,20 @@ module.exports = ['dataService', function (dataService) {
 	};
 	this.friendRequests = function () {
 		return data.get('volunteers/friend_requests');
+	};
+
+	//Friendship
+	this.add = function (id) {
+		return data.post('friendship/add', {volunteer_id: id});
+	};
+	this.reply = function (id, acceptance) {
+		var parameters = {notif_id: id, acceptance: acceptance};
+		return data.post('friendship/reply', parameters);
+	};
+	this.remove = function (id) {
+		return data.remove('friendship/remove', {id: id});
+	};
+	this.pending = function () {
+		return data.get('friendship/received_invitations');
 	};
 }];

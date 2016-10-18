@@ -50,4 +50,52 @@ module.exports = ['dataService', function (dataService) {
 	this.delete = function (id) {
 		return data.remove('events/' + id);
 	};
+
+	//Guests
+	this.join = function (id) {
+		return post('guests/join', {event_id: id});
+	};
+	this.replyDemand = function (id, status) {
+		var parameters = {notif_id: id, acceptance: status};
+		return post('guests/reply_guest', parameters);
+	};
+	this.invite = function (volunteer_id, event_id) {
+		var parameters = {event_id: event_id, volunteer_id: volunteer_id};
+		return post('guests/invite', parameters);
+	};
+	this.replyInvite = function (id, status) {
+		var parameters = {notif_id: id, acceptance: status};
+		return post('guests/reply_invite', parameters);
+	};
+	this.leave = function (id) {
+		return remove('guests/leave', {event_id: id});
+	};
+	this.rights = function (volunteer_id, event_id, rights) {
+		var parameters = {
+			event_id: event_id,
+			volunteer_id: volunteer_id,
+			rights: rights
+		};
+		return put('guests/upgrade', parameters);
+	};
+	this.kick = function (volunteer_id, event_id) {
+		var parameters = {
+			event_id: event_id,
+			volunteer_id: volunteer_id
+		};
+		return remove('guests/kick', parameters);
+	};
+	this.invited = function (id) {
+		return get('guests/invited', {event_id: id});
+	};
+	this.uninvite = function (volunteer_id, event_id) {
+		var parameters = {
+			event_id: event_id,
+			volunteer_id: volunteer_id
+		};
+		return remove('guests/uninvite', parameters);
+	};
+	this.waiting = function (id) {
+		return get('guests/waiting', {event_id: id});
+	};
 }];

@@ -1,8 +1,9 @@
 'use strict';
-module.exports = ['dataService', 'userService', 'DataAssociations', 'DataEvents', function (dataService, userService, DataAssociations, DataEvents) {
+module.exports = ['dataService', 'userService', 'DataVolunteers', 'DataAssociations', 'DataEvents', function (dataService, userService, DataVolunteers, DataAssociations, DataEvents) {
 	var vm = this;
 	var usc = userService;
 	var dsc = dataService;
+	var volunteers = DataVolunteers;
 	var associations = DataAssociations;
 	var events = DataEvents;
 
@@ -11,22 +12,22 @@ module.exports = ['dataService', 'userService', 'DataAssociations', 'DataEvents'
 	vm.invited = {};
 
 	associations.invited()
-		.then(function (data) {
-			vm.invited.assos = data.response;
+		.then(function (response) {
+			vm.invited.assos = response.data.response;
 		});
 	events.invited()
-		.then(function (data) {
-			vm.invited.events = data.response;
+		.then(function (response) {
+			vm.invited.events = response.data.response;
 		});
-	dsc.receivedInvitations()
-		.then(function (data) {
-			vm.invited.friends = data.response;
+	volunteers.pending()
+		.then(function (response) {
+			vm.invited.friends = response.data.response;
 		});
 
 	vm.updateVolunteer = function () {
 		//mail, password, firstname, lastname, birthday, gender
 		vm.updating = true;
-		dsc.updateVolunteer(vm.user.mail, vm.password, vm.user.firstname, vm.user.lastname, null)
+		volunteers.update(vm.user.mail, vm.password, vm.user.firstname, vm.user.lastname, null)
 			.then(function () {
 				vm.success = true;
 				vm.successMessage = 'Votre profil a bien été modifié';
@@ -43,9 +44,9 @@ module.exports = ['dataService', 'userService', 'DataAssociations', 'DataEvents'
 		vm.updating = true;
 		dsc.postPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename, true)
 			.then(function () {
-				dsc.getMainPicture(vm.user.id)
-					.then(function (data) {
-						vm.user.picture = 'http://api.caritathelp.me' + data.thumb_path;
+				volunteers.mainPicture(vm.user.id)
+					.then(function (response) {
+						vm.user.picture = 'http://api.caritathelp.me' + response.data.thumb_path;
 						usc.setPicture(vm.user.picture);
 					});
 			})
@@ -55,7 +56,7 @@ module.exports = ['dataService', 'userService', 'DataAssociations', 'DataEvents'
 	};
 
 	vm.answerAsso = function (notifId, acceptance, index) {
-		dsc.replyInviteAsso(notifId, acceptance)
+		associations.replyInvite(notifId, acceptance)
 			.then(function () {
 				vm.invited.assos.splice(index, 1);
 				vm.success = true;
@@ -66,7 +67,7 @@ module.exports = ['dataService', 'userService', 'DataAssociations', 'DataEvents'
 	};
 
 	vm.answerEvent = function (notifId, acceptance, index) {
-		dsc.replyInviteEvent(notifId, acceptance)
+		events.replyInvite(notifId, acceptance)
 			.then(function () {
 				vm.invited.events.splice(index, 1);
 				vm.success = true;
@@ -77,7 +78,7 @@ module.exports = ['dataService', 'userService', 'DataAssociations', 'DataEvents'
 	};
 
 	vm.answerFriend = function (notifId, acceptance, index) {
-		dsc.replyFriend(notifId, acceptance)
+		volunteers.reply(notifId, acceptance)
 			.then(function () {
 				vm.invited.friends.splice(index, 1);
 				vm.success = true;

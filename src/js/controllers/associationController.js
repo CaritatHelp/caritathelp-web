@@ -1,8 +1,7 @@
 'use strict';
-module.exports = ['$state', '$stateParams', 'dataService', 'userService', 'ModalService', 'DataAssociations', function ($state, $stateParams, dataService, userService, ModalService, DataAssociations) {
+module.exports = ['$state', '$stateParams', 'userService', 'ModalService', 'DataAssociations', function ($state, $stateParams, userService, ModalService, DataAssociations) {
 	var vm = this;
 	var usc = userService;
-	var dsc = dataService;
 	var modal = ModalService;
 	var associations = DataAssociations;
 
@@ -25,7 +24,7 @@ module.exports = ['$state', '$stateParams', 'dataService', 'userService', 'Modal
 		});
 
 	vm.joinAsso = function () {
-		dsc.joinAsso(vm.asso.id)
+		associations.join(vm.asso.id)
 			.then(function () {
 				vm.asso.rights = 'waiting';
 				vm.rights.message = 'Vous avez fait une demande pour rejoindre cette association. Un administrateur vous répondra prochainement';
@@ -40,7 +39,7 @@ module.exports = ['$state', '$stateParams', 'dataService', 'userService', 'Modal
 		vm.rights.class = 'alert-warning';
 	};
 	vm.leaveAsso = function () {
-		dsc.leaveAsso(vm.asso.id)
+		associations.leave(vm.asso.id)
 			.then(function () {
 				vm.asso.rights = 'none';
 				vm.rights.message = 'Vous n\'êtes pas membre de cette association';
@@ -86,16 +85,13 @@ module.exports = ['$state', '$stateParams', 'dataService', 'userService', 'Modal
 	vm.openInvite = function () {
 		modal.showModal({
 			templateUrl: 'modal/asso-invite.html',
-			controller: function (close, $scope, dataService) {
+			controller: function (close, $scope, DataAssociations) {
 				$scope.friends = vm.current.friends;
 				$scope.dismiss = function () {
 					close();
 				};
 				$scope.inviteFriend = function (friendId) {
-					dataService.inviteAsso(friendId, vm.asso.id)
-						.then(function () {
-						}, function () {
-						});
+					DataAssociations.invite(friendId, vm.asso.id);
 					close();
 				};
 			}

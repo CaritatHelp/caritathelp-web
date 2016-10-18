@@ -1,7 +1,6 @@
 'use strict';
-module.exports = ['$state', '$stateParams', 'userService', 'dataService', 'ModalService', 'DataEvents', function ($state, $stateParams, userService, dataService, ModalService, DataEvents) {
+module.exports = ['$state', '$stateParams', 'userService', 'ModalService', 'DataEvents', function ($state, $stateParams, userService, ModalService, DataEvents) {
 	var vm = this;
-	var dsc = dataService;
 	var usc = userService;
 	var modal = ModalService;
 	var events = DataEvents;
@@ -23,7 +22,7 @@ module.exports = ['$state', '$stateParams', 'userService', 'dataService', 'Modal
 		});
 
 	vm.joinEvent = function () {
-		dsc.joinEvent(vm.event.id)
+		events.join(vm.event.id)
 			.then(function () {
 				vm.event.rights = 'waiting';
 				vm.rights.message = 'Vous avez fait une demande pour participer à cet évènement. Un organisateur vous répondra prochainement';
@@ -36,7 +35,7 @@ module.exports = ['$state', '$stateParams', 'userService', 'dataService', 'Modal
 		vm.event.rights = null;
 	};
 	vm.leaveEvent = function () {
-		dsc.leaveEvent(vm.event.id)
+		events.leave(vm.event.id)
 			.then(function () {
 				vm.event.rights = null;
 			});
@@ -80,13 +79,13 @@ module.exports = ['$state', '$stateParams', 'userService', 'dataService', 'Modal
 	vm.openInvite = function () {
 		modal.showModal({
 			templateUrl: 'modal/event-invite.html',
-			controller: function (close, $scope, dataService) {
+			controller: function (close, $scope, DataEvents) {
 				this.members = vm.current.friends;
 				this.dismiss = function () {
 					close();
 				};
 				this.invite = function (friendId) {
-					dataService.inviteEvent(friendId, vm.event.id)
+					DataEvents.invite(friendId, vm.event.id)
 						.then(function () {
 						}, function () {
 						});

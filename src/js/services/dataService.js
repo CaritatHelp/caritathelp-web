@@ -106,59 +106,6 @@ module.exports = ['$http', function ($http) {
 		return get('search', {research: research});
 	};
 
-//Friendship
-	_this.addFriend = function (id) {
-		return post('friendship/add', {volunteer_id: id});
-	};
-	_this.replyFriend = function (id, acceptance) {
-		var parameters = {notif_id: id, acceptance: acceptance};
-		return post('friendship/reply', parameters);
-	};
-	_this.removeFriend = function (id) {
-		return remove('friendship/remove', {id: id});
-	};
-	_this.receivedInvitations = function () {
-		return get('friendship/received_invitations');
-	};
-
-//Membership
-	_this.joinAsso = function (id) {
-		return post('membership/join', {assoc_id: id});
-	};
-	_this.replyDemandAsso = function (id, status) {
-		var parameters = {notif_id: id, acceptance: status};
-		return post('membership/reply_member', parameters);
-	};
-	_this.inviteAsso = function (volunteer_id, assoc_id) {
-		var parameters = {assoc_id: assoc_id, volunteer_id: volunteer_id};
-		return post('membership/invite', parameters);
-	};
-	_this.replyInviteAsso = function (id, status) {
-		var parameters = {notif_id: id, acceptance: status};
-		return post('membership/reply_invite', parameters);
-	};
-	_this.leaveAsso = function (id) {
-		return remove('membership/leave', {assoc_id: id});
-	};
-	_this.upgradeRightsAsso = function (volunteer_id, assoc_id, rights) {
-		var parameters = {assoc_id: assoc_id, volunteer_id: volunteer_id, rights: rights};
-		return put('membership/upgrade', parameters);
-	};
-	_this.kickAsso = function (volunteer_id, assoc_id) {
-		var parameters = {assoc_id: assoc_id, volunteer_id: volunteer_id};
-		return remove('membership/kick', parameters);
-	};
-	_this.invitedAsso = function (id) {
-		return get('membership/invited', {assoc_id: id});
-	};
-	_this.uninviteAsso = function (volunteer_id, assoc_id) {
-		var parameters = {assoc_id: assoc_id, volunteer_id: volunteer_id};
-		return remove('membership/uninvite', parameters);
-	};
-	_this.waitingAsso = function (id) {
-		return get('membership/waiting', {assoc_id: id});
-	};
-
 //News
 	_this.getNewsList = function () {
 		return get('news');
@@ -206,52 +153,6 @@ module.exports = ['$http', function ($http) {
 	};
 
 //Guests
-	_this.joinEvent = function (id) {
-		return post('guests/join', {event_id: id});
-	};
-	_this.replyDemandEvent = function (id, status) {
-		var parameters = {notif_id: id, acceptance: status};
-		return post('guests/reply_guest', parameters);
-	};
-	_this.inviteEvent = function (volunteer_id, event_id) {
-		var parameters = {event_id: event_id, volunteer_id: volunteer_id};
-		return post('guests/invite', parameters);
-	};
-	_this.replyInviteEvent = function (id, status) {
-		var parameters = {notif_id: id, acceptance: status};
-		return post('guests/reply_invite', parameters);
-	};
-	_this.leaveEvent = function (id) {
-		return remove('guests/leave', {event_id: id});
-	};
-	_this.upgradeRightsEvent = function (volunteer_id, event_id, rights) {
-		var parameters = {
-			event_id: event_id,
-			volunteer_id: volunteer_id,
-			rights: rights
-		};
-		return put('guests/upgrade', parameters);
-	};
-	_this.kickEvent = function (volunteer_id, event_id) {
-		var parameters = {
-			event_id: event_id,
-			volunteer_id: volunteer_id
-		};
-		return remove('guests/kick', parameters);
-	};
-	_this.invitedEvent = function (id) {
-		return get('guests/invited', {event_id: id});
-	};
-	_this.uninviteEvent = function (volunteer_id, event_id) {
-		var parameters = {
-			event_id: event_id,
-			volunteer_id: volunteer_id
-		};
-		return remove('guests/uninvite', parameters);
-	};
-	_this.waitingEvent = function (id) {
-		return get('guests/waiting', {event_id: id});
-	};
 
 //Pictures
 	_this.postPicture = function (file, filename, original, main) {

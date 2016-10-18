@@ -16,11 +16,11 @@ module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService', functio
 					.then(function (data) {
 						vm.event.guests = data.response;
 					});
-				dsc.invitedEvent($stateParams.id)
+				events.invited($stateParams.id)
 					.then(function (data) {
 						vm.event.invited = data.response;
 					});
-				dsc.waitingEvent($stateParams.id)
+				events.waiting($stateParams.id)
 					.then(function (data) {
 						vm.event.waiting = data.response;
 					});
@@ -69,14 +69,14 @@ module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService', functio
 	};
 
 	vm.promoteUser = function (userId) {
-		dsc.upgradeRightsEvent(userId, vm.event.id, 'admin')
+		events.rights(userId, vm.event.id, 'admin')
 			.then(function () {
 				vm.success = 'L\'invité a bien été promu';
 			}, function (data) {
 				vm.addError(data.message);
 			})
 			.finally(function () {
-				dsc.getGuestEvent($stateParams.id)
+				events.guests($stateParams.id)
 					.then(function (data) {
 						vm.event.guests = data.response;
 					});
@@ -84,7 +84,7 @@ module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService', functio
 	};
 
 	vm.demoteUser = function (userId) {
-		dsc.upgradeRightsEvent(userId, vm.event.id, 'member')
+		events.rights(userId, vm.event.id, 'member')
 			.then(function () {
 				vm.success = 'L\'invité a bien été rétrogradé';
 			}, function (data) {
@@ -99,7 +99,7 @@ module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService', functio
 	};
 
 	vm.kickUser = function(userId) {
-		dsc.kickEvent(userId, vm.event.id)
+		events.kick(userId, vm.event.id)
 			.then(function () {
 				vm.success = 'L\'invité a bien été expulsé';
 			}, function (data) {
@@ -114,7 +114,7 @@ module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService', functio
 	};
 
 	vm.replyDemand = function(notifId, answer, index) {
-		dsc.replyDemandEvent(notifId, answer)
+		events.replyDemand(notifId, answer)
 			.then(function () {
 				vm.event.waiting.splice(index, 1);
 				vm.success = 'La demande a bien été traitée';

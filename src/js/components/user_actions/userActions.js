@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function () {
+module.exports = function () {
 	return {
 		templateUrl: 'js/user_actions/userActions.html',
 		controller: 'userActionsController',

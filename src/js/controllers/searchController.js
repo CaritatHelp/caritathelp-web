@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, $stateParams) {
+module.exports = ['dataService', '$stateParams', function (dataService, $stateParams) {
 	var vm = this;
 	var dsc = dataService;
 
@@ -8,8 +8,8 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams) {
 	vm.research = $stateParams.search;
 
 	dsc.search(vm.research)
-		.success(function (data) {
-			vm.result = data.response;
+		.then(function (response) {
+			vm.result = response.data.response;
 			vm.loaded = true;
 			if (!vm.result.length) {
 				vm.error = 'Pas de résultats';
@@ -27,4 +27,4 @@ module.exports = /*@ngInject*/ function (dataService, $stateParams) {
 			vm.filter = filtre;
 		}
 	};
-};
+}];

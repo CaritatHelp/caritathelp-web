@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, userService, $state) {
+module.exports = ['dataService', 'userService', '$state', function (dataService, userService, $state) {
 	var _this = this;
 	var dsc = dataService;
 	var usc = userService;
@@ -49,8 +49,8 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 
 		//Register request
 		dsc.register(_this.mail, _this.password, _this.firstname, _this.lastname, _this.birthday, _this.gender)
-			.success(function (data) {
-				if (data.status === 200) {
+			.then(function (response) {
+				if (response.data.status === 200) {
 					usc.connect(data.response);
 					$state.transitionTo('home');
 				} else {
@@ -58,8 +58,7 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 					_this.error = true;
 					_this.errorMessage = data.message;
 				}
-			})
-			.error(function () {
+			}, function () {
 				//erreur client
 				_this.error = 'true';
 				_this.errorMessage = 'Impossible de joindre le serveur, veuillez réessayer dans quelques minutes.';
@@ -76,4 +75,4 @@ module.exports = /*@ngInject*/ function (dataService, userService, $state) {
 		}
 		return false;
 	};
-};
+}];

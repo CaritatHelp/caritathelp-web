@@ -1,7 +1,7 @@
 'use strict';
-module.exports = /*@ngInject*/ function () {
+module.exports = function () {
 	return {
-		controller: 'eventController',
+		controller: function () {},
 		controllerAs: 'event',
 		templateUrl: 'js/event/event.html'
 	};

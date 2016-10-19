@@ -1,5 +1,7 @@
 'use strict';
-module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalService', 'notifService', function ($scope, $state, dataService, userService, ModalService, notifService) {
+module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalService', 'notifService',
+	function ($scope, $state, dataService, userService, ModalService, notifService) {
+
 	var vm = this;
 	var dsc = dataService;
 	var usc = userService;

@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function (dataService, userService, $location) {
+module.exports = ['dataService', 'userService', '$location', function (dataService, userService, $location) {
 	var _this = this;
 	var dsc = dataService;
 	var usc = userService;
@@ -47,4 +47,4 @@ module.exports = /*@ngInject*/ function (dataService, userService, $location) {
 				_this.connecting = false;
 			});
 	};
-};
+}];

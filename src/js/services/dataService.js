@@ -22,22 +22,6 @@ module.exports = ['$http', function ($http) {
 			data: data
 		});
 	}
-	function put(route, data) {
-		return $http({
-			method: 'PUT',
-			url: servurl + route,
-			headers: headers,
-			data: data
-		});
-	}
-	function remove(route, data) {
-		return $http({
-			method: 'DELETE',
-			url: servurl + route,
-			headers: headers,
-			data: data
-		});
-	}
 
 	_this.get = function (route, data) {
 		return $http({
@@ -114,54 +98,6 @@ module.exports = ['$http', function ($http) {
 		return get('search', {research: research});
 	};
 
-//News
-	_this.getNewsList = function () {
-		return get('news');
-	};
-	_this.postNews = function (content, group_type, group_id, privacy) {
-		// @TODO: add title, news_type and as_group
-		var parameters = {
-			content: content,
-			news_type: 'Status',
-			group_id: group_id,
-			group_type: group_type,
-			privacy: privacy
-		};
-		return post('news/wall_message', parameters);
-	};
-	_this.postVolunteerNews = function (volunteer_id, content, privacy) {
-		return _this.postNews(content, 'Volunteer', volunteer_id, privacy);
-	};
-	_this.postAssoNews = function (assoc_id, content, privacy) {
-		return _this.postNews(content, 'Assoc', assoc_id, privacy);
-	};
-	_this.postEventNews = function (event_id, content, privacy) {
-		return _this.postNews(content, 'Event', event_id, privacy);
-	};
-	_this.getNew = function (id) {
-		return get('news/' + id);
-	};
-	_this.getNewsComments = function (id) {
-		return get('news/' + id + '/comments');
-	};
-
-//Comments
-	_this.postComment = function (news_id, content) {
-		var parameters = {new_id: news_id, content: content};
-		return post('comments', parameters);
-	};
-	_this.updateComment = function (id, content) {
-		return put('comments/' + id, {content: content});
-	};
-	_this.getComment = function (id) {
-		return get('comments/' + id);
-	};
-	_this.deleteComment = function (id) {
-		return remove('comments/' + id);
-	};
-
-//Guests
-
 //Pictures
 	_this.postPicture = function (file, filename, original, main) {
 		return $http({
@@ -175,32 +111,6 @@ module.exports = ['$http', function ($http) {
 				is_main: main
 			}
 		});
-	};
-
-//Messages
-	_this.getChatrooms = function () {
-		return get('chatrooms');
-	};
-	_this.getChatroom = function (id) {
-		return get('chatrooms/' + id);
-	};
-	_this.createChatroom = function (volunteers) {
-		return post('chatrooms', {'volunteers[]': volunteers});
-	};
-	_this.getVolunteersChatroom = function (id) {
-		return get('chatrooms/' + id + '/volunteers');
-	};
-	_this.setNameChatroom = function (id, name) {
-		return put('chatrooms/' + id + '/set_name', {name: name});
-	};
-	_this.addVolunteersChatroom = function (id, volunteers) {
-		return put('chatrooms' + id + '/add_volunteers ', {volunteers: volunteers});
-	};
-	_this.sendMessageChatroom = function (id, message) {
-		return put('chatrooms/' + id + '/new_message', {content: message});
-	};
-	_this.leaveChatroom = function (id) {
-		return remove('chatrooms/' + id + '/leave');
 	};
 
 	return _this;

@@ -1,24 +1,25 @@
 'use strict';
-module.exports = ['$state', '$stateParams', 'dataService', 'userService', 'ModalService', 'DataVolunteers', function ($state, $stateParams, dataService, userService, ModalService, DataVolunteers) {
+module.exports = ['$state', '$stateParams', 'userService', 'ModalService', 'DataVolunteers', 'DataChat',
+function ($state, $stateParams, userService, ModalService, DataVolunteers, DataChat) {
 	var vm = this;
-	var dsc = dataService;
 	var usc = userService;
 	var volunteers = DataVolunteers;
 	var modal = ModalService;
+	var chat = DataChat;
 
 	vm.loaded = false;
 	vm.chatrooms = {};
 	vm.active = false;
 	vm.current = usc.user();
 
-	dsc.getChatrooms()
+	chat.all()
 		.then(function (response) {
 			vm.chatrooms = response.data.response;
 			vm.loaded = true;
 		});
 
 	vm.setChatroom = function (conv) {
-		dsc.getChatroom(conv.id)
+		chat.get(conv.id)
 			.then(function (response) {
 				vm.messages = response.data.response;
 				vm.active = conv;
@@ -30,12 +31,12 @@ module.exports = ['$state', '$stateParams', 'dataService', 'userService', 'Modal
 		vm.openInvite();
 	};
 	vm.leaveChatroom = function () {
-		dsc.leaveChatroom(vm.active.id)
+		chat.leave(vm.active.id)
 			.then(function () {
 				vm.active = null;
 			})
 			.finally(function () {
-				dsc.getChatrooms()
+				chat.all()
 					.then(function (response) {
 						vm.chatrooms = response.data.response;
 						vm.loaded = true;
@@ -45,7 +46,7 @@ module.exports = ['$state', '$stateParams', 'dataService', 'userService', 'Modal
 
 	vm.sendMessage = function () {
 		if (vm.message !== '') {
-			dsc.sendMessageChatroom(vm.active.id, vm.message)
+			chat.send(vm.active.id, vm.message)
 				.then(function (response) {
 					vm.messages.push(response.data.response);
 					vm.message = '';
@@ -70,7 +71,7 @@ module.exports = ['$state', '$stateParams', 'dataService', 'userService', 'Modal
 					vm.creator.push(friendId);
 				};
 				$scope.confirmCreation = function () {
-					dsc.createChatroom(vm.creator)
+					chat.create(vm.creator)
 						.then(function (response) {
 							vm.active = response.data.response;
 							vm.chatrooms.unshift(response.data.response);

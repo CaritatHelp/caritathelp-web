@@ -1,5 +1,5 @@
 'use strict';
-module.exports = /*@ngInject*/ function ($stateParams, userService, DataVolunteers) {
+module.exports = ['$stateParams', 'userService', 'DataVolunteers', function ($stateParams, userService, DataVolunteers) {
 	var vm = this;
 	var usc = userService;
 	var volunteers = DataVolunteers;
@@ -23,4 +23,4 @@ module.exports = /*@ngInject*/ function ($stateParams, userService, DataVoluntee
 					});
 			});
 	}
-};
+}];

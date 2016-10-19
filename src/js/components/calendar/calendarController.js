@@ -1,5 +1,7 @@
 'use strict';
-module.exports = ['$stateParams', 'userService', 'DataVolunteers', 'DataAssociations', 'DataEvents', function ($stateParams, userService, DataVolunteers, DataAssociations, DataEvents) {
+module.exports = ['$stateParams', 'userService', 'DataVolunteers', 'DataAssociations', 'DataEvents',
+	function ($stateParams, userService, DataVolunteers, DataAssociations, DataEvents) {
+
 	var vm = this;
 	var usc = userService;
 	var volunteers = DataVolunteers;

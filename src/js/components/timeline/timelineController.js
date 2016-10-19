@@ -1,11 +1,13 @@
 'use strict';
-module.exports = ['$stateParams', 'userService', 'dataService', 'DataVolunteers', 'DataAssociations', 'DataEvents', function ($stateParams, userService, dataService, DataVolunteers, DataAssociations, DataEvents) {
+module.exports = ['$stateParams', 'userService', 'DataVolunteers', 'DataAssociations', 'DataEvents', 'DataNews',
+	function ($stateParams, userService, DataVolunteers, DataAssociations, DataEvents, DataNews) {
+
 	var vm = this;
-	var dsc = dataService;
 	var usc = userService;
 	var volunteers = DataVolunteers;
 	var associations = DataAssociations;
 	var events = DataEvents;
+	var news = DataNews;
 
 	vm.news = [];
 	vm.currentUser = usc.user();
@@ -38,7 +40,7 @@ module.exports = ['$stateParams', 'userService', 'dataService', 'DataVolunteers'
 				vm.loaded = true;
 			});
 	} else if (!$stateParams.id) {
-		dsc.getNewsList()
+		news.all()
 			.then(function (response) {
 				vm.news = response.data.response;
 				vm.loaded = true;
@@ -47,19 +49,19 @@ module.exports = ['$stateParams', 'userService', 'dataService', 'DataVolunteers'
 
 	vm.postNews = function () {
 		if (vm.type == 'volunteer' || vm.type == 'home') {
-			dsc.postVolunteerNews($stateParams.id ? $stateParams.id : vm.currentUser.id, vm.newNews)
+			news.volunteers($stateParams.id ? $stateParams.id : vm.currentUser.id, vm.newNews)
 				.success(function (data) {
 					vm.news.unshift(data.response);
 					vm.newNews = '';
 				});
 		} else if (vm.type == 'association') {
-			dsc.postAssoNews($stateParams.id, vm.newNews)
+			news.associations($stateParams.id, vm.newNews)
 				.success(function (data) {
 					vm.news.unshift(data.response);
 					vm.newNews = '';
 				});
 		} else if (vm.type == 'event') {
-			dsc.postEventNews($stateParams.id, vm.newNews)
+			news.events($stateParams.id, vm.newNews)
 				.success(function (data) {
 					vm.news.unshift(data.response);
 					vm.newNews = '';

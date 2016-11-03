@@ -10,8 +10,7 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 
 	$scope.$watch(function () {return usc.user();}, function () {vm.user = usc.user();}, true);
 
-	vm.test = nsc;
-	console.log('Notifs:', vm.test);
+	vm.notifs = nsc.notifications;
 
 	vm.logout = function () {
 		dsc.logout();
@@ -31,6 +30,7 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 			templateUrl: 'modal/notifications.html',
 			controllerAs: 'modal',
 			controller: function (close, $scope, DataVolunteers) {
+				$scope.notifs = vm.notifs;
 				DataVolunteers.notifications()
 					.then(function (response) {
 						$scope.notifs = response.data.response;

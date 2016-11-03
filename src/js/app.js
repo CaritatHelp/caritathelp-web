@@ -1,5 +1,7 @@
 'use strict';
 
+global._ = require('underscore');
+
 // Modules angular
 var angular = require('angular');
 require('angular-sanitize');
@@ -21,6 +23,9 @@ var app = angular.module('caritathelp', [
 	'ui.router',
 	'naif.base64'
 ]);
+app.factory('_', ['$window', function ($window) {
+	return $window._;
+}]);
 
 require('./services');
 require('./directives');

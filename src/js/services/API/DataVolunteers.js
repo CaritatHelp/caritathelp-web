@@ -58,4 +58,8 @@ module.exports = ['dataService', function (dataService) {
 	this.pending = function () {
 		return data.get('friendship/received_invitations');
 	};
+
+	this.read = function (id) {
+		return data.put('notifications/' + id + '/read');
+	}
 }];

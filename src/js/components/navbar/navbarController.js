@@ -10,7 +10,8 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 
 	$scope.$watch(function () {return usc.user();}, function () {vm.user = usc.user();}, true);
 
-	vm.notifs = nsc;
+	vm.test = nsc;
+	console.log('Notifs:', vm.test);
 
 	vm.logout = function () {
 		dsc.logout();
@@ -28,12 +29,22 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 	vm.openNotifications = function () {
 		modal.showModal({
 			templateUrl: 'modal/notifications.html',
-			controller: function (close) {
+			controllerAs: 'modal',
+			controller: function (close, $scope, DataVolunteers) {
+				DataVolunteers.notifications()
+					.then(function (response) {
+						$scope.notifs = response.data.response;
+					});
+				this.read = function (notifId) {
+					DataVolunteers.read(notifId)
+						.then(function (response) {
+							$scope.notifs = _.reject($scope.notifs, function (el) {return el.id == notifId;});
+						});
+				}
 				this.dismiss = function () {
 					close();
 				};
-			},
-			controllerAs: 'modal'
+			}
 		});
 	};
 }];

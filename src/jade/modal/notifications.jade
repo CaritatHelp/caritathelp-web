@@ -6,7 +6,12 @@ block header
 		i.fa.fa-times
 
 block content
-	section.friend(ng-repeat="friend in friends")
+	section.notif(ng-repeat="notif in notifs")
+		a(ui-sref="profil.home({id:notif.sender_id})")
+			img(ng-src="http://api.caritathelp.me{{notif.sender_thumb_path}}", alt="{{notif.sender_name}}")
+		a(ui-sref="profil.home({id:notif.sender_id})").friend--name {{notif.sender_name}}
+		button.ch-btn(ng-click="modal.read(notif.id)", id="read-{{notif.id}}") Marquer lu
+
 
 
 block footer

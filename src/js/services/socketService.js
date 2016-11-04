@@ -1,5 +1,5 @@
 'use strict';
-module.exports = ['$websocket', 'dataService', function ($websocket, dataService) {
+module.exports = ['$websocket', 'dataService', '_', function ($websocket, dataService, _) {
 	var ws = $websocket('ws://ws.staging.caritathelp.me');
 	var headers = dataService.getHeaders();
 	var notifications = [];
@@ -12,10 +12,7 @@ module.exports = ['$websocket', 'dataService', function ($websocket, dataService
 	});
 
 	ws.onMessage(function (message) {
-		// var alerte = JSON.parse(message.data);
-
-		// if (alerte.type === 'message') {}
-		console.log(JSON.parse(message.data));
+		console.log('Message received', message);
 		notifications.push(JSON.parse(message.data));
 	});
 
@@ -23,7 +20,13 @@ module.exports = ['$websocket', 'dataService', function ($websocket, dataService
 		notifications: notifications,
 		send: function (message) {
 			ws.send(message);
-		}
+		},
+		emergencies: _.filter(notifications, function (not) {
+			return not.notif_type === 'Emergency';
+		}),
+		messages: _.filter(notifications, function (not) {
+			return not.notif_type === 'message';
+		})
 	};
 
 	return methods;

@@ -86,10 +86,7 @@ function ($state, $stateParams, userService, ModalService, DataEvents) {
 					close();
 				};
 				this.invite = function (friendId) {
-					DataEvents.invite(friendId, vm.event.id)
-						.then(function () {
-						}, function () {
-						});
+					DataEvents.invite(friendId, vm.event.id);
 					close();
 				};
 			},

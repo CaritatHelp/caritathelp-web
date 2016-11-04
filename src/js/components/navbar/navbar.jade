@@ -34,6 +34,7 @@ nav.ch-navbar(ng-if="nav.isConnected()")
 				)
 		.ch-navbar_user
 			a.ch-navbar_item(ng-click="nav.openNotifications()")
-				i.fa.fa-bell
+				i.fa.fa-bell(ng-class="{'fa-spin': nav.new}")
 			a.ch-navbar_picture.img-rounded(ui-sref="home")
 				img(ng-src="{{nav.user.picture}}", alt="{{nav.user.firstname}} {{nav.user.lastname}}")
+	pre {{ nav.test }}

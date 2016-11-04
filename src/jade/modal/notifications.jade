@@ -6,11 +6,27 @@ block header
 		i.fa.fa-times
 
 block content
-	section.notif(ng-repeat="notif in notifs")
+	section.notification(ng-repeat="notif in notifs")
 		a(ui-sref="profil.home({id:notif.sender_id})")
 			img(ng-src="http://api.caritathelp.me{{notif.sender_thumb_path}}", alt="{{notif.sender_name}}")
-		a(ui-sref="profil.home({id:notif.sender_id})").friend--name {{notif.sender_name}}
-		button.ch-btn(ng-click="modal.read(notif.id)", id="read-{{notif.id}}") Marquer lu
+		//- Ajout en ami
+		.notification--body.ch-text(ng-if="notif.notif_type === 'AddFriend'").
+			#[a(ui-sref="profil.home({id:notif.sender_id})") {{notif.sender_name}}]
+			vous a ajouté à ses amis
+		.notification--actions(ng-if="notif.notif_type === 'AddFriend'")
+			button.ch-btn(ng-click="answerFriend(notif.id, true)")
+				i.fa.fa-check
+			button.ch-btn.--fail(ng-click="answerFriend(notif.id, false)")
+				i.fa.fa-times
+		//- Emergency
+		.notification--body.ch-text(ng-if="notif.notif_type === 'Emergency'").
+			#[a(ui-sref="profil.home({id:notif.sender_id})") {{notif.event_name}}]
+			est en état d'urgence
+		.notification--action(ng-if="notif.notif_type === 'Emergency'")
+			a.ch-btn(ui-sref="event.home({id:notif.sender_id})") Voir l'évènement
+
+	section.notification(ng-show="!notifs.length").
+		Aucune notification récente
 
 
 

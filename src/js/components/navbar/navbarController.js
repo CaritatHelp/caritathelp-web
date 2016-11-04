@@ -16,9 +16,9 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 	ws.onMessage(function (response) {
 		var message = JSON.parse(response.data);
 		console.log('Notif!', message)
-		if (message.notif_type !== 'Emergency') {
+		// if (message.notif_type !== 'Emergency') {
 			vm.notifications.push(message);
-		}
+		// }
 	});
 
 	$scope.$watch(function () {return usc.user();}, function () {vm.user = usc.user();}, true);

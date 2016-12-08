@@ -29,7 +29,7 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 			vm.notifications = response.data.response;
 			console.table(vm.notifications);
 		}, function () {
-			vm.logout();
+			// vm.logout();
 		});
 
 	vm.logout = function () {
@@ -52,6 +52,7 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 			controllerAs: 'modal',
 			controller: function (close, $scope, DataVolunteers) {
 				$scope.notifs = vm.notifications;
+				$scope.apiurl = dsc.getApiUrl();
 
 				$scope.answerFriend = function (notifId, acceptance) {
 					DataVolunteers.reply(notifId, acceptance)
@@ -65,7 +66,6 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 					$scope.notifs = _.reject($scope.notifs, function (el) {return el.id == notifId;});
 					vm.notifications = $scope.notifs;
 				}
-
 				this.dismiss = function () {
 					close();
 				};

@@ -6,6 +6,7 @@ module.exports = ['userService', 'DataNews', function (userService, DataNews) {
 
 	vm.comments = [];
 	vm.current = usc.user();
+	vm.apiurl = news.apiurl;
 
 	vm.actu = {};
 	news.get(vm.newsId)

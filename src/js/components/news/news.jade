@@ -2,7 +2,7 @@
 	.ch-actu(data-id="{{vmnews.newsId}}")
 		.ch-actu_aside
 			a(ui-sref="profil.home({id:vmnews.actu.volunteer_id})")
-				img.ch-avatar(ng-src="http://api.caritathelp.me{{vmnews.actu.volunteer_thumb_path}}", alt="{{vmnews.actu.volunteer_name}}")
+				img.ch-avatar(ng-src="{{ vmnews.apiurl + vmnews.actu.volunteer_thumb_path}}", alt="{{vmnews.actu.volunteer_name}}")
 
 		.ch-actu_content
 			.ch-actu_header

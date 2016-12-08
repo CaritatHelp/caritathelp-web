@@ -8,7 +8,7 @@ block header
 block content
 	section.notification(ng-repeat="notif in notifs")
 		a(ui-sref="profil.home({id:notif.sender_id})")
-			img(ng-src="http://api.caritathelp.me{{notif.sender_thumb_path}}", alt="{{notif.sender_name}}")
+			img(ng-src="{{apiurl + notif.sender_thumb_path}}", alt="{{notif.sender_name}}")
 		//- Ajout en ami
 		.notification--body.ch-text(ng-if="notif.notif_type === 'AddFriend'").
 			#[a(ui-sref="profil.home({id:notif.sender_id})") {{notif.sender_name}}]
@@ -25,16 +25,27 @@ block content
 			est en état d'urgence
 		.notification--action(ng-if="notif.notif_type === 'Emergency'")
 			a.ch-btn(ui-sref="event.home({id:notif.sender_id})") Voir l'évènement
-		.notification--body(ng-if="notif.notif_type !== 'AddFriend' && notif.notif_type !== 'Emergency'") {{notif}}
 
 		//- Nouveau membre
 		.notification--body.ch-text(ng-if="notif.notif_type === 'NewMember'").
 			#[a(ui-sref="profil.home({id:notif.sender_id})") {{notif.sender_name}}]
-			vous a ajouté invité dans l'association
-		a(ui-sref="asso.home({id:notif.assoc_id})", ng-if="notif.notif_type === 'NewMember'")
-			img(ng-src="http://api.caritathelp.me{{notif.receiver_thumb_path}}", alt="{{notif.assoc_name}}")
+			a rejoint votre association
+		a(ui-sref="association.home({id:notif.assoc_id})", ng-if="notif.notif_type === 'NewMember'")
+			img(ng-src="{{apiurl + notif.receiver_thumb_path}}", alt="{{notif.assoc_name}}")
 		.notification--body.ch-text(ng-if="notif.notif_type === 'NewMember'").
-			#[a(ui-sref="asso.home({id:notif.assoc_id})") {{notif.assoc_name}}]
+			#[a(ui-sref="association.home({id:notif.assoc_id})") {{notif.assoc_name}}]
+
+		//- Invitation asso
+		.notification--body.ch-text(ng-if="notif.notif_type === 'JoinAssoc'").
+			#[a(ui-sref="profil.home({id:notif.sender_id})") {{notif.sender_name}}]
+			vous a ajouté invité dans l'association
+		a(ui-sref="association.home({id:notif.assoc_id})", ng-if="notif.notif_type === 'JoinAssoc'")
+			img(ng-src="{{apiurl + notif.receiver_thumb_path}}", alt="{{notif.assoc_name}}")
+		.notification--body.ch-text(ng-if="notif.notif_type === 'JoinAssoc'").
+			#[a(ui-sref="association.home({id:notif.assoc_id})") {{notif.assoc_name}}]
+
+		.notification--body(
+			ng-if="notif.notif_type !== 'AddFriend' && notif.notif_type !== 'Emergency' && notif.notif_type !== 'NewMember' && notif.notif_type !== 'JoinAssoc'") {{notif}}
 
 		.notification--actions(ng-if="notif.notif_type === 'AddFriend'")
 			button.ch-btn(ng-click="answerFriend(notif.id, true)")

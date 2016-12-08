@@ -1,6 +1,6 @@
 .ch-comment
 	a(ui-sref="profil.home({id: {{comment.com.volunteer_id}}})")
-		img.ch-avatar.--small(ng-src="http://api.caritathelp.me{{comment.com.thumb_path}}", alt="{{comment.com.firstname}} {{comment.com.lastname}}")
+		img.ch-avatar.--small(ng-src="{{ vmnews.apiurl + comment.com.thumb_path}}", alt="{{comment.com.firstname}} {{comment.com.lastname}}")
 	.ch-comment_content
 		header.ch-comment_header
 			a.ch-text.--bold(ui-sref="profil.home({id: {{comment.com.volunteer_id}}})") {{comment.com.firstname}} {{comment.com.lastname}}

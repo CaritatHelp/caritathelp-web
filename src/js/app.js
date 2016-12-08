@@ -48,6 +48,7 @@ require('./components/comment');
 require('./components/calendar');
 require('./components/event_create');
 require('./components/event_settings');
+require('./components/shelter_actions');
 
 app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
 	localStorageServiceProvider.setPrefix('caritathelp').setNotify(true, true);
@@ -164,6 +165,26 @@ app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProv
 		.state('event.settings', {
 			url: '/settings',
 			templateUrl: 'view/partials/event.settings.html',
+			authenticate: true
+		})
+
+		// Shelter profil
+		.state('shelter', {
+			url: '/shelter/{id:int}',
+			templateUrl: 'view/profil-shelter.html',
+			controller: 'shelterController',
+			controllerAs: 'vm',
+			abstract: true,
+			authenticate: true
+		})
+		.state('shelter.home', {
+			url: '',
+			templateUrl: 'view/partials/shelter.home.html',
+			authenticate: true
+		})
+		.state('shelter.settings', {
+			url: '/settings',
+			templateUrl: 'view/partials/shelter.settings.html',
 			authenticate: true
 		})
 

@@ -8,3 +8,4 @@ app.controller('associationController', require('./associationController'));
 app.controller('searchController', require('./searchController'));
 app.controller('eventController', require('./eventController'));
 app.controller('inboxController', require('./inboxController'));
+app.controller('shelterController', require('./shelterController'));

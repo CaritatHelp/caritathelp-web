@@ -83,15 +83,12 @@
 				tbody
 					tr(ng-repeat="shelter in settings.asso.shelters")
 						td
-							a(ui-sref="profil.home({id:{{shelter.id}}})").
+							a(ui-sref="shelter.home({id:{{shelter.id}}})").
 								#[img.ch-avatar.--small(ng-src="{{settings.apiurl + shelter.thumb_path}}")]
 								{{shelter.name}}
-						td
-							{{ shelter.address }}, {{ shelter.zipcode }} {{ shelter.city }}
-						td
-							{{ shelter.total_places }}
-						td
-							{{ shelter.free_places }}
+						td {{ shelter.address }}, {{ shelter.zipcode }} {{ shelter.city }}
+						td {{ shelter.total_places }}
+						td {{ shelter.free_places }}
 
 	//- Photo de profil
 	.card(ng-show="settings.isSet(2)")

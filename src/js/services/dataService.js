@@ -23,6 +23,10 @@ module.exports = ['$http', function ($http) {
 		});
 	}
 
+	_this.getApiUrl = function () {
+		return servurl;
+	};
+
 	_this.get = function (route, data) {
 		return $http({
 			method: 'GET',

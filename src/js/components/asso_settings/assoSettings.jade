@@ -4,6 +4,9 @@
 		a.ch-sidenav_link(ng-class="{active:settings.isSet(1)}", ng-click="settings.setTab(1)").
 			#[i.fa.fa-home]
 			General
+		a.ch-sidenav_link(ng-class="{active:settings.isSet(5)}", ng-click="settings.setTab(5)").
+			#[i.fa.fa-hotel]
+			Gestion des centres
 		a.ch-sidenav_link(ng-class="{active:settings.isSet(2)}", ng-click="settings.setTab(2)").
 			#[i.fa.fa-eye]
 			Photo de profil
@@ -65,12 +68,37 @@
 					#[i.fa.fa-spin.fa-spinner(ng-show="settings.updating")]
 					Enregistrer
 
+	//- Gestion des centres
+	.card(ng-show="settings.isSet(5)")
+		h2.ch-text.--mega Gestions des centres
+		.card
+			h4.ch-text.--mega Liste des centres
+			table.--first-emphasis(ng-if="settings.asso.shelters.length")
+				thead
+					tr
+						th Nom
+						th Adresse
+						th Places
+						th Places occupées
+				tbody
+					tr(ng-repeat="shelter in settings.asso.shelters")
+						td
+							a(ui-sref="profil.home({id:{{shelter.id}}})").
+								#[img.ch-avatar.--small(ng-src="{{settings.apiurl + shelter.thumb_path}}")]
+								{{shelter.name}}
+						td
+							{{ shelter.address }}, {{ shelter.zipcode }} {{ shelter.city }}
+						td
+							{{ shelter.total_places }}
+						td
+							{{ shelter.free_places }}
+
 	//- Photo de profil
 	.card(ng-show="settings.isSet(2)")
 		h2.ch-text.--mega Photo de profil
 		div(ng-show="!settings.changePicture")
 			.alert.alert-info Cette photo est visible par tous les utilisateurs. Cliquez sur le bouton pour la changer.
-			img.ch-avatar.--big(ng-src="http://api.caritathelp.me{{settings.asso.thumb_path}}", alt="{{settings.asso.name}}")
+			img.ch-avatar.--big(ng-src="{{settings.apiurl + settings.asso.thumb_path}}", alt="{{settings.asso.name}}")
 			button.ch-btn(ng-click="settings.changePicture = true") Changer la photo
 		div(ng-show="settings.changePicture")
 			.progress(ng-show="settings.picture.progress >= 0")
@@ -104,7 +132,7 @@
 					tr(ng-repeat="waiter in settings.asso.waiting")
 						td
 							a(ui-sref="profil.home({id:{{waiter.id}}})").
-								#[img.ch-avatar.--small(ng-src="http://api.caritathelp.me{{waiter.thumb_path}}")]
+								#[img.ch-avatar.--small(ng-src="{{settings.apiurl + waiter.thumb_path}}")]
 								{{waiter.firstname}} {{waiter.lastname}}
 						td
 							btn.btn.btn-xs.btn-success(title="Accepter la demande", ng-click="settings.replyDemand(waiter.notif_id, true, $index)")
@@ -118,7 +146,7 @@
 				tr(ng-repeat="invite in settings.asso.invited")
 					td
 						a(ui-sref="profil.home({id:{{invite.id}}})").
-							#[img.ch-avatar.--small(ng-src="http://api.caritathelp.me{{invite.thumb_path}}")]
+							#[img.ch-avatar.--small(ng-src="{{settings.apiurl + invite.thumb_path}}")]
 							{{invite.firstname}} {{invite.lastname}}
 			.alert.alert-info(ng-if="!settings.asso.invited.length") Aucune invitation en attente
 		.card
@@ -133,7 +161,7 @@
 					tr(ng-repeat="member in settings.asso.members")
 						td
 							a(ui-sref="profil.home({id:{{member.id}}})").
-								#[img.ch-avatar.--small(ng-src="http://api.caritathelp.me{{member.thumb_path}}")]
+								#[img.ch-avatar.--small(ng-src="{{settings.apiurl + member.thumb_path}}")]
 								{{member.firstname}} {{member.lastname}}
 						td {{member.rights}}
 						td
@@ -143,6 +171,8 @@
 								i.fa.fa-thumbs-up
 							button.btn.btn-xs.btn-danger(title="Expulser le membre", ng-click="settings.kickUser(member.id)", ng-if="member.rights != 'owner'")
 								i.fa.fa-times
+
+	//- Suppression
 	.card(ng-show="settings.isSet(4)")
 		h2.ch-text.--mega Suppression de l'évènement
 		.alert.alert-danger.

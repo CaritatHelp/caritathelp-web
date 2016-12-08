@@ -6,8 +6,9 @@ module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations',
 	var vm = this;
 	var dsc = dataService;
 	var associations = DataAssociations;
+	vm.apiurl = dataService.getApiUrl();
 
-	vm.tab = 1;
+	vm.tab = 5;
 
 	associations.get($stateParams.id)
 		.then(function (response) {
@@ -23,6 +24,11 @@ module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations',
 			associations.waiting($stateParams.id)
 				.then(function (response) {
 					vm.asso.waiting = response.data.response;
+				});
+			associations.shelters($stateParams.id)
+				.then(function (response) {
+					vm.asso.shelters = response.data.response;
+					console.log(response.data.response);
 				});
 		});
 

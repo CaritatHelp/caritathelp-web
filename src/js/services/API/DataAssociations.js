@@ -26,6 +26,9 @@ module.exports = ['dataService', function (dataService) {
 	this.events = function (id) {
 		return data.get('associations/' + id + '/events');
 	};
+	this.shelters = function (id) {
+		return data.get('associations/' + id + '/shelters');
+	};
 	this.update = function (id, name, description, birthday, city, latitude, longitude) {
 		var parameters = {
 			name: name,

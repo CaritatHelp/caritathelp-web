@@ -11,3 +11,4 @@ app.service('DataAssociations', require('./API/DataAssociations'));
 app.service('DataEvents', require('./API/DataEvents'));
 app.service('DataNews', require('./API/DataNews'));
 app.service('DataChat', require('./API/DataChat'));
+app.service('DataShelters', require('./API/DataShelters'));

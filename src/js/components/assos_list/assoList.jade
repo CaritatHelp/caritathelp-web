@@ -2,5 +2,5 @@
 	h4.ch-text.--kilo.--bold Associsson
 	.association(ng-repeat="asso in list.assos")
 		a(ui-sref="association.home({id:{{asso.id}}})", title="{{asso.name}}")
-			img.ch-avatar(ng-if="asso.thumb_path", ng-src="http://api.caritathelp.me{{asso.thumb_path}}", alt="{{asso.name}}", class="img-circle")
+			img.ch-avatar(ng-if="asso.thumb_path", ng-src="{{list.apiurl + asso.thumb_path}}", alt="{{asso.name}}", class="img-circle")
 		a.name.ch-text(ui-sref="association.home({id:{{asso.id}}})") {{asso.name}}

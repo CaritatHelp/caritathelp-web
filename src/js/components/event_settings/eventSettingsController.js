@@ -6,6 +6,7 @@ module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService',
 	var dsc = dataService;
 	var events = DataEvents;
 	vm.tab = 1;
+	vm.apiurl = events.apiurl;
 
 	if ($stateParams.id) {
 		events.get($stateParams.id)

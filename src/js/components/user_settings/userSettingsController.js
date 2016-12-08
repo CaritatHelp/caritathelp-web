@@ -10,6 +10,7 @@ module.exports = ['dataService', 'userService', 'DataVolunteers', 'DataAssociati
 	vm.user = usc.user();
 	vm.tab = 1;
 	vm.invited = {};
+	vm.apiurl = volunteers.apiurl;
 
 	associations.invites()
 		.then(function (response) {
@@ -46,7 +47,7 @@ module.exports = ['dataService', 'userService', 'DataVolunteers', 'DataAssociati
 			.then(function () {
 				volunteers.mainPicture(vm.user.id)
 					.then(function (response) {
-						vm.user.picture = 'http://api.caritathelp.me' + response.data.thumb_path;
+						vm.user.picture = volunteers.apiurl + response.data.thumb_path;
 						usc.setPicture(vm.user.picture);
 					});
 			})

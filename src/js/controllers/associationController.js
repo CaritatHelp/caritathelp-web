@@ -5,6 +5,7 @@ function ($state, $stateParams, userService, ModalService, DataAssociations) {
 	var usc = userService;
 	var modal = ModalService;
 	var associations = DataAssociations;
+	vm.apiurl = associations.apiurl;
 
 	vm.current = usc.user();
 	vm.loaded = false;
@@ -88,6 +89,7 @@ function ($state, $stateParams, userService, ModalService, DataAssociations) {
 			templateUrl: 'modal/asso-invite.html',
 			controller: function (close, $scope, DataAssociations) {
 				$scope.friends = vm.current.friends;
+				$scope.apiurl = vm.apiurl;
 				$scope.dismiss = function () {
 					close();
 				};

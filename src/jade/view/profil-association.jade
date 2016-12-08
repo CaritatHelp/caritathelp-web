@@ -3,7 +3,7 @@
 		.ch-profil_background
 			img.bscard-bkimg(ng-src="img/cover/fuzeria.jpg")
 		.ch-profil_picture
-			img(ng-src="http://api.caritathelp.me{{vm.asso.thumb_path}}", alt="{{vm.asso.name}}")
+			img(ng-src="{{vm.apiurl + vm.asso.thumb_path}}", alt="{{vm.asso.name}}")
 		.ch-profil_name {{vm.asso.name}}
 	.ch-profil_nav
 		button.ch-btn.ch-profil_nav-button(ui-sref="association.home", ui-sref-active="active")

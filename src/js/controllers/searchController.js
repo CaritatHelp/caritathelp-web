@@ -2,6 +2,7 @@
 module.exports = ['dataService', '$stateParams', function (dataService, $stateParams) {
 	var vm = this;
 	var dsc = dataService;
+	vm.apiurl = dsc.getApiUrl();
 
 	vm.filter = 0;
 	vm.loaded = false;

@@ -5,6 +5,7 @@ function ($state, $stateParams, userService, ModalService, DataEvents) {
 	var usc = userService;
 	var modal = ModalService;
 	var events = DataEvents;
+	vm.apiurl = DataEvents.apiurl;
 
 	vm.current = usc.user();
 	vm.event = {};
@@ -82,6 +83,7 @@ function ($state, $stateParams, userService, ModalService, DataEvents) {
 			templateUrl: 'modal/event-invite.html',
 			controller: function (close, $scope, DataEvents) {
 				this.members = vm.current.friends;
+				$scope.apiurl = vm.apiurl;
 				this.dismiss = function () {
 					close();
 				};

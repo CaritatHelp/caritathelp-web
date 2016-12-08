@@ -24,7 +24,7 @@ module.exports = ['localStorageService', 'dataService', 'DataVolunteers', functi
 		user.longitude = datas.longitude;
 		user.allowgps = datas.allowgps;
 		user.notifications = datas.notifications;
-		user.picture = 'http://api.caritathelp.me' + datas.thumb_path;
+		user.picture = dsc.getApiUrl() + datas.thumb_path;
 		return user;
 	}
 

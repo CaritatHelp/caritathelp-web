@@ -2,6 +2,7 @@
 /* eslint camelcase: "off", max-lines: "off" */
 module.exports = ['dataService', function (dataService) {
 	var data = dataService;
+	this.apiurl = data.getApiUrl();
 
 	this.all = function () {
 		return data.get('associations');

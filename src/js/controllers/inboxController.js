@@ -11,6 +11,7 @@ function ($state, $stateParams, userService, ModalService, DataVolunteers, DataC
 	vm.chatrooms = {};
 	vm.active = false;
 	vm.current = usc.user();
+	vm.apiurl = volunteers.apiurl;
 
 	chat.all()
 		.then(function (response) {
@@ -58,6 +59,7 @@ function ($state, $stateParams, userService, ModalService, DataVolunteers, DataC
 		modal.showModal({
 			templateUrl: 'modal/inbox-invite.html',
 			controller: function (close, dataService, $scope) {
+				$scope.apiurl = vm.apiurl;
 				volunteers.all()
 					.then(function (response) {
 						$scope.friends = response.data.response;

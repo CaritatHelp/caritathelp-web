@@ -8,7 +8,7 @@ block header
 block content
 	section.friend(ng-repeat="friend in friends")
 		a(ui-sref="profil.home({id:friend.id})")
-			img(ng-src="http://api.caritathelp.me{{friend.thumb_path}}", alt="{{friend.firstname}} {{friend.lastname}}")
+			img(ng-src="{{apiurl + friend.thumb_path}}", alt="{{friend.firstname}} {{friend.lastname}}")
 		a(ui-sref="profil.home({id:friend.id})").friend--name {{friend.firstname}} {{friend.lastname}}
 		button.ch-btn(ng-click="addFriend(friend.id)", id="invite-{{friend.id}}") Inviter
 

@@ -1,9 +1,9 @@
 .ch-profil
 	.ch-profil_cover
 		.ch-profil_background
-			img.bscard-bkimg(ng-src="http://api.caritathelp.me{{vm.event.thumb_path}}", alt="{{vm.event.name}}")
+			img.bscard-bkimg(ng-src="{{vm.apiurl + vm.event.thumb_path}}", alt="{{vm.event.title}}")
 		.ch-profil_picture
-			img(ng-src="http://api.caritathelp.me{{vm.event.thumb_path}}", alt="{{vm.event.name}}")
+			img(ng-src="{{vm.apiurl + vm.event.thumb_path}}", alt="{{vm.event.title}}")
 		.ch-profil_name {{vm.event.title}}
 	.ch-profil_nav
 		button.ch-btn.ch-profil_nav-button(ui-sref="event.home", ui-sref-active="active")

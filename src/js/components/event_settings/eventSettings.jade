@@ -105,7 +105,7 @@
 		h2.ch-text.--mega Photo de profil
 		div(ng-show="!settings.changePicture")
 			.alert.alert-info Cette photo est visible par tous les utilisateurs. Cliquez sur le bouton pour la changer.
-			img(ng-src="http://api.caritathelp.me{{settings.event.thumb_path}}", alt="{{settings.event.title}}")
+			img(ng-src="{{settings.apiurl + settings.event.thumb_path}}", alt="{{settings.event.title}}")
 			button.ch-btn(ng-click="settings.changePicture = true") Changer la photo
 		div(ng-show="settings.changePicture")
 			.progress(ng-show="settings.picture.progress >= 0")
@@ -139,7 +139,7 @@
 					tr(ng-repeat="waiter in settings.event.waiting")
 						td
 							a(ui-sref="profil.home({id:{{waiter.id}}})").
-								#[img(ng-src="http://api.caritathelp.me{{waiter.thumb_path}}")]
+								#[img(ng-src="{{settings.apiurl + waiter.thumb_path}}")]
 								{{waiter.firstname}} {{waiter.lastname}}
 						td
 							btn.btn.btn-xs.btn-success(title="Accepter la demande", ng-click="settings.replyDemand(waiter.notif_id, true, $index)")
@@ -153,7 +153,7 @@
 				tr(ng-repeat="invite in settings.event.invited")
 					td
 						a(ui-sref="profil.home({id:{{invite.id}}})").
-							#[img(ng-src="http://api.caritathelp.me{{invite.thumb_path}}")]
+							#[img(ng-src="{{settings.apiurl + invite.thumb_path}}")]
 							{{invite.firstname}} {{invite.lastname}}
 			.alert.alert-info(ng-if="!settings.event.invited.length") Aucune invitation en attente
 
@@ -169,7 +169,7 @@
 					tr(ng-repeat="guest in settings.event.guests")
 						td
 							a(ui-sref="profil.home({id:{{guest.id}}})").
-								#[img(ng-src="http://api.caritathelp.me{{guest.thumb_path}}")]
+								#[img(ng-src="{{settings.apiurl + guest.thumb_path}}")]
 								{{guest.firstname}} {{guest.lastname}}
 						td.col-status {{guest.rights}}
 						td

@@ -3,6 +3,7 @@ module.exports = ['$stateParams', 'userService', 'DataVolunteers', function ($st
 	var vm = this;
 	var usc = userService;
 	var volunteers = DataVolunteers;
+	vm.apiurl = volunteers.apiurl;
 
 	if (vm.userId) {
 		getUser(vm.userId);

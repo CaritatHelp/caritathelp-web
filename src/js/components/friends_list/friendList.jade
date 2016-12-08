@@ -2,5 +2,5 @@
 	h4.ch-text.--kilo.--bold Amis
 	.friend(ng-repeat="friend in friendlist.friends")
 		a(ui-sref="profil.home({id: {{friend.id}}})", title="{{friend.firstname}} {{friend.lastname}}")
-			img.ch-avatar(ng-src="http://api.caritathelp.me{{friend.thumb_path}}", alt="{{friend.firstname}} {{friend.lastname}}", class="img-circle")
+			img.ch-avatar(ng-src="{{friendlist.apiurl + friend.thumb_path}}", alt="{{friend.firstname}} {{friend.lastname}}", class="img-circle")
 		a.name.ch-text(ui-sref="profil.home({id: {{friend.id}}})") {{friend.firstname}} {{friend.lastname}}

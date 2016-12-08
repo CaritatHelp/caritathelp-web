@@ -2,7 +2,7 @@
 	.ch-grid_col.--one-third_from-tablet(ng-repeat="asso in vm.user.assos")
 		.card.summary
 			a.summary--picture(ui-sref="association.home({id: {{asso.id}}})")
-				img.picture(ng-src="http://api.caritathelp.me{{asso.thumb_path}}", alt="{{asso.name}}")
+				img.picture(ng-src="{{vm.apiurl + asso.thumb_path}}", alt="{{asso.name}}")
 			a.summary-name(ui-sref="association.home({id: {{asso.id}}})") {{asso.name}}
 			.summary--stats
 				a.stat.

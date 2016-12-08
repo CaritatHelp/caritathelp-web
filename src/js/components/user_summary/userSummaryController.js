@@ -28,7 +28,7 @@ module.exports = ['$stateParams', 'userService', 'DataVolunteers', function ($st
 		volunteers.get(id)
 			.then(function (response) {
 				vm.user = response.data.response;
-				vm.user.picture = "http://api.caritathelp.me" + response.data.response.thumb_path;
+				vm.user.picture = volunteers.apiurl + response.data.response.thumb_path;
 				volunteers.friends(id)
 					.then(function (response) {
 						vm.user.friends = response.data.response;

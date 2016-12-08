@@ -4,6 +4,7 @@ function ($state, $stateParams, userService, DataVolunteers) {
 	var vm = this;
 	var volunteers = DataVolunteers;
 	var usc = userService;
+	vm.apiurl = volunteers.apiurl;
 
 	vm.current = usc.user();
 	vm.isCurrent = vm.current.id == $stateParams.id; // eslint-disable-line eqeqeq
@@ -13,7 +14,7 @@ function ($state, $stateParams, userService, DataVolunteers) {
 	volunteers.get($stateParams.id)
 		.then(function (response) {
 			vm.user = response.data.response;
-			vm.user.picture = 'http://api.caritathelp.me' + response.data.response.thumb_path;
+			vm.user.picture = volunteers.apiurl + response.data.response.thumb_path;
 			vm.loaded++;
 		});
 	volunteers.friends($stateParams.id)

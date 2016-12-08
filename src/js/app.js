@@ -48,7 +48,7 @@ require('./components/comment');
 require('./components/calendar');
 require('./components/event_create');
 require('./components/event_settings');
-require('./components/shelter_actions');
+require('./components/shelters_list');
 
 app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
 	localStorageServiceProvider.setPrefix('caritathelp').setNotify(true, true);

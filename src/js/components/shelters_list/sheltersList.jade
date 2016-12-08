@@ -1,0 +1,6 @@
+.card.listing
+	h4.ch-text.--kilo.--bold Autres centres
+	.association(ng-repeat="shelter in list.shelters")
+		a(ui-sref="shelter.home({id:{{shelter.id}}})", title="{{shelter.name}}")
+			img.ch-avatar(ng-if="shelter.thumb_path", ng-src="{{list.apiurl + shelter.thumb_path}}", alt="{{shelter.name}}", class="img-circle")
+		a.name.ch-text(ui-sref="shelter.home({id:{{shelter.id}}})") {{shelter.name}}

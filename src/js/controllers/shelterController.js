@@ -17,8 +17,8 @@ function ($state, $stateParams, userService, DataShelters, DataAssociations) {
 			associations.get(vm.shelter.assoc_id)
 				.then(function (response) {
 					vm.asso = response.data.response;
-				})
-			vm.loaded = true;
+				});
 			console.log(vm.shelter);
+			vm.loaded = true;
 		});
 }];

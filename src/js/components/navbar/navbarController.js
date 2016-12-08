@@ -28,6 +28,8 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 		.then(function (response) {
 			vm.notifications = response.data.response;
 			console.table(vm.notifications);
+		}, function () {
+			vm.logout();
 		});
 
 	vm.logout = function () {

@@ -18,6 +18,7 @@ block content
 				i.fa.fa-check
 			button.ch-btn.--fail(ng-click="answerFriend(notif.id, false)")
 				i.fa.fa-times
+
 		//- Emergency
 		.notification--body.ch-text(ng-if="notif.notif_type === 'Emergency'").
 			#[a(ui-sref="profil.home({id:notif.sender_id})") {{notif.event_name}}]
@@ -25,6 +26,21 @@ block content
 		.notification--action(ng-if="notif.notif_type === 'Emergency'")
 			a.ch-btn(ui-sref="event.home({id:notif.sender_id})") Voir l'évènement
 		.notification--body(ng-if="notif.notif_type !== 'AddFriend' && notif.notif_type !== 'Emergency'") {{notif}}
+
+		//- Nouveau membre
+		.notification--body.ch-text(ng-if="notif.notif_type === 'NewMember'").
+			#[a(ui-sref="profil.home({id:notif.sender_id})") {{notif.sender_name}}]
+			vous a ajouté invité dans l'association
+		a(ui-sref="asso.home({id:notif.assoc_id})", ng-if="notif.notif_type === 'NewMember'")
+			img(ng-src="http://api.caritathelp.me{{notif.receiver_thumb_path}}", alt="{{notif.assoc_name}}")
+		.notification--body.ch-text(ng-if="notif.notif_type === 'NewMember'").
+			#[a(ui-sref="asso.home({id:notif.assoc_id})") {{notif.assoc_name}}]
+
+		.notification--actions(ng-if="notif.notif_type === 'AddFriend'")
+			button.ch-btn(ng-click="answerFriend(notif.id, true)")
+				i.fa.fa-check
+			button.ch-btn.--fail(ng-click="answerFriend(notif.id, false)")
+				i.fa.fa-times
 
 	section.notification(ng-show="!notifs.length").
 		Aucune notification récente

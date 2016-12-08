@@ -1,14 +1,16 @@
 'use strict';
 
-module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations',
-	function ($state, $stateParams, dataService, DataAssociations) {
+module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations', 'DataShelters',
+	function ($state, $stateParams, dataService, DataAssociations, DataShelters) {
 
 	var vm = this;
 	var dsc = dataService;
 	var associations = DataAssociations;
+	var shelters = DataShelters;
 	vm.apiurl = dataService.getApiUrl();
 
 	vm.tab = 5;
+	vm.adding = false;
 
 	associations.get($stateParams.id)
 		.then(function (response) {
@@ -28,7 +30,6 @@ module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations',
 			associations.shelters($stateParams.id)
 				.then(function (response) {
 					vm.asso.shelters = response.data.response;
-					console.log(response.data.response);
 				});
 		});
 
@@ -133,6 +134,20 @@ module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations',
 					});
 			});
 	};
+
+	vm.addShelter = function () {
+		vm.creating = true;
+		shelters.create(vm.asso.id, vm.shelter.name, vm.shelter.address, vm.shelter.zipcode, vm.shelter.city, vm.shelter.total_places, vm.shelter.free_places, vm.shelter.description)
+			.then(function (response) {
+				$state.transitionTo('shelter', {id: response.data.response.id});
+			}, function (response) {
+				vm.error = response.data.message;
+			})
+			.finally(function () {
+				vm.creating = false;
+				vm.adding = false;
+			});
+	}
 
 	vm.setTab = function (activeTab) {
 		vm.success = false;

@@ -59,7 +59,7 @@ module.exports = ['localStorageService', 'dataService', 'DataVolunteers', functi
 
 			//Variable connected pour les checks (pas forcément utile mais osef)
 			ls.set('connected', true);
-			console.log('User connected: ' + user.mail);
+			console.log('User connected: ' + headers.uid);
 		},
 		disconnect: function () {
 			user = null;

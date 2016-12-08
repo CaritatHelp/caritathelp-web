@@ -1,5 +1,10 @@
 .ch-grid
 	.ch-grid_col.--one-third_from-tablet
+		.actions--user
+			.action(ng-if="vm.asso.rights == 'host' || vm.asso.rights == 'admin'")
+				a(ui-sref="shelter.settings").
+					#[i.fa.fa-pencil]
+					Editer ce centre
 		shelters-list(asso-id="vm.shelter.assoc_id")
 	.ch-grid_col.--two-thirds_from-tablet
 		.card
@@ -37,5 +42,5 @@
 				.ch-text.--inline {{ vm.shelter.mail }}
 		.card(ng-if="vm.asso")
 			h2.ch-text.--kilo.
-				Géré par
+				Géré par l'association
 				#[a(ui-sref="association.home({id:vm.shelter.assoc_id})") {{ vm.asso.name }}]

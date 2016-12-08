@@ -6,6 +6,7 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 	var dsc = dataService;
 	var usc = userService;
 	var modal = ModalService;
+	vm.notifications = [];
 
 	//WEBSOCKET !!
 	var ws = $websocket('ws://ws.staging.caritathelp.me');
@@ -27,7 +28,7 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 	DataVolunteers.notifications()
 		.then(function (response) {
 			vm.notifications = response.data.response;
-			// console.table(vm.notifications);
+			console.table(vm.notifications);
 		}, function () {
 			// vm.logout();
 		});

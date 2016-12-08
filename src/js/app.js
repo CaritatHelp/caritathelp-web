@@ -174,17 +174,6 @@ app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProv
 			templateUrl: 'view/profil-shelter.html',
 			controller: 'shelterController',
 			controllerAs: 'vm',
-			abstract: true,
-			authenticate: true
-		})
-		.state('shelter.home', {
-			url: '',
-			templateUrl: 'view/partials/shelter.home.html',
-			authenticate: true
-		})
-		.state('shelter.settings', {
-			url: '/settings',
-			templateUrl: 'view/partials/shelter.settings.html',
 			authenticate: true
 		})
 

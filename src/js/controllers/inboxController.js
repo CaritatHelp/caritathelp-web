@@ -45,6 +45,15 @@ function ($state, $stateParams, userService, ModalService, DataVolunteers, DataC
 			});
 	};
 
+	vm.changeTitle = function () {
+		chat.name(vm.active.id, vm.active.name)
+			.then(function (response) {
+				vm.setChatroom(response.data.response);
+				vm.active = vm.active.id;
+				vm.editing = false;
+			});
+	};
+
 	vm.sendMessage = function () {
 		if (vm.message !== '') {
 			chat.send(vm.active.id, vm.message)

@@ -18,15 +18,23 @@
 
 			//- Haut de la carte
 			.chatroom--header
-				header.title(ng-if="inbox.active.name") {{inbox.active.name}}
-				header.title(ng-if="!inbox.active.name") Conversation sans nom
-				.chatroom--actions
-					button.ch-btn.--secondary(ng-click="inbox.inviteChatroom()")
+				header.title(ng-if="inbox.active.name" ng-show="!inbox.editing") {{inbox.active.name}}
+				header.title(ng-if="!inbox.active.name" ng-show="!inbox.editing") Conversation sans nom
+				.chatroom--actions(ng-show="!inbox.editing")
+					button.ch-btn.--secondary(ng-click="inbox.editing = true")
 						i.fa.fa-pencil
-					button.ch-btn.--secondary(ng-click="inbox.inviteChatroom()")
+					button.ch-btn.--secondary(ng-click="inbox.inviteChatroom()", title="Changer le titre")
 						i.fa.fa-user-plus
 					button.ch-btn.--fail(ng-click="inbox.leaveChatroom()")
 						i.fa.fa-sign-out
+				//- Edit title
+				header.title(ng-show="inbox.editing")
+					input.ch-form_text(type="text", ng-model="inbox.active.name", placeholder="{{inbox.active.name}}")
+				.chatroom--actions(ng-show="inbox.editing")
+					button.ch-btn.--quaternary(ng-click="inbox.changeTitle()", ng-show="inbox.editing")
+						i.fa.fa-space-shuttle
+					button.ch-btn.--fail(ng-click="inbox.editing = false")
+						i.fa.fa-times
 
 			.chatroom--sender.card
 				form.ch-form(

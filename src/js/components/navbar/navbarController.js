@@ -19,6 +19,7 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 		console.log('Notif!', message)
 		// if (message.notif_type !== 'Emergency') {
 			vm.notifications.push(message);
+			vm.new = true;
 		// }
 	});
 
@@ -28,7 +29,7 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 	DataVolunteers.notifications()
 		.then(function (response) {
 			vm.notifications = response.data.response;
-			nav.new = vm.notifications.length;
+			vm.new = vm.notifications.length;
 			console.table(vm.notifications);
 		}, function () {
 			// vm.logout();

@@ -50,9 +50,9 @@
 				.message--wrapper(ng-repeat="message in inbox.messages | orderBy: '-created_at'", ng-class="{'message--sent':message.volunteer_id == inbox.current.id}")
 					.message
 						.message--aside
-							img(ng-src="{{inbox.current.picture}}")
+							img.ch-avatar(ng-src="{{inbox.apiurl + message.thumb_path}}")
 						.message--body
 							.message--content.card {{message.content}}
-							.message--footer {{message.volunteer_id}} {{message.created_at| date: "le dd MMMM à HH:mm"}}
+							.message--footer {{message.fullname}} {{message.created_at| date: "le dd/MM à HH:mm"}}
 				.alert.alert-warning(ng-show="inbox.active && !inbox.messages.length") Il n'y a pas encore de messages dans cette conversation
 		.alert.alert-info(ng-show="!inbox.messages.length && !inbox.active") Sélectionnez une conversation dans la barre latérale pour l'afficher ici, ou bien commencez en une nouvelle

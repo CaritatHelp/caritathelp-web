@@ -28,6 +28,7 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 	DataVolunteers.notifications()
 		.then(function (response) {
 			vm.notifications = response.data.response;
+			nav.new = vm.notifications.length;
 			console.table(vm.notifications);
 		}, function () {
 			// vm.logout();

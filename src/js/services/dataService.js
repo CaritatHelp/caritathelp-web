@@ -59,6 +59,14 @@ module.exports = ['$http', function ($http) {
 			data: data
 		});
 	};
+	_this.remove = function (route, data) {
+		return $http({
+			method: 'DELETE',
+			url: servurl + route,
+			headers: headers,
+			data: data
+		});
+	};
 
 	_this.setHeaders = function (object) {
 		headers = object;

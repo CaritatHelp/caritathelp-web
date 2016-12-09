@@ -1,5 +1,5 @@
 .ch-grid(ng-class="{'--centered': !vm.user.assos.length}")
-	.ch-grid_col.--one-third_from-tablet(ng-repeat="asso in vm.user.assos")
+	.ch-grid_col.--one-third_from-tablet(ng-repeat="asso in vm.user.assos", style="margin-top:7em;")
 		.card.summary
 			a.summary--picture(ui-sref="association.home({id: {{asso.id}}})")
 				img.picture(ng-src="{{vm.apiurl + asso.thumb_path}}", alt="{{asso.name}}")

@@ -226,9 +226,9 @@
 								#[img.ch-avatar.--small(ng-src="{{settings.apiurl + waiter.thumb_path}}")]
 								{{waiter.firstname}} {{waiter.lastname}}
 						td
-							btn.btn.btn-xs.btn-success(title="Accepter la demande", ng-click="settings.replyDemand(waiter.notif_id, true, $index)")
+							button.ch-btn.--success(title="Accepter la demande", ng-click="settings.replyDemand(waiter.notif_id, true, $index)")
 								i.fa.fa-check
-							btn.btn.btn-xs.btn-danger(title="Refuser la demande", ng-click="settings.replyDemand(waiter.notif_id, false, $index)")
+							button.ch-btn.--fail(title="Refuser la demande", ng-click="settings.replyDemand(waiter.notif_id, false, $index)")
 								i.fa.fa-times
 			.alert.alert-info(ng-if="!settings.asso.waiting.length") Aucune demande en attente
 		.card
@@ -256,11 +256,11 @@
 								{{member.firstname}} {{member.lastname}}
 						td {{member.rights}}
 						td
-							button.btn.btn-xs.btn-warning(title="Rétrograder le membre", ng-click="settings.demoteUser(member.id)", ng-if="member.rights == 'admin'")
+							button.ch-btn.--secondary(title="Rétrograder le membre", ng-click="settings.demoteUser(member.id)", ng-if="member.rights == 'admin'")
 								i.fa.fa-thumbs-down
-							button.btn.btn-xs.btn-info(title="Promouvoir en admin", ng-click="settings.promoteUser(member.id)", ng-if="member.rights == 'member'")
+							button.ch-btn.--tertiary(title="Promouvoir en admin", ng-click="settings.promoteUser(member.id)", ng-if="member.rights == 'member'")
 								i.fa.fa-thumbs-up
-							button.btn.btn-xs.btn-danger(title="Expulser le membre", ng-click="settings.kickUser(member.id)", ng-if="member.rights != 'owner'")
+							button.ch-btn.--fail(title="Expulser le membre", ng-click="settings.kickUser(member.id)", ng-if="member.rights != 'owner'")
 								i.fa.fa-times
 
 	//- Suppression

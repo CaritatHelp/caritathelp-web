@@ -9,7 +9,7 @@
 		//- Actions possibles pour l'utilisateur
 		.asso-actions
 			//- Rejoindre l'association
-			.action(ng-if="vm.asso.rights == 'none'")
+			.action(ng-if="!vm.asso.rights")
 				a(ng-click="vm.joinAsso()").
 					#[i.fa.fa-plus]
 					Rejoindre cette association

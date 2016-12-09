@@ -9,7 +9,7 @@ module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations', '
 	var shelters = DataShelters;
 	vm.apiurl = dataService.getApiUrl();
 
-	vm.tab = 5;
+	vm.tab = 1;
 	vm.adding = false;
 
 	associations.get($stateParams.id)

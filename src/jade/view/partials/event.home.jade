@@ -22,7 +22,7 @@
 					#[i.fa.fa-check]
 					Vous avez été invité à cet évenement
 			//- Non membre
-			.action(ng-if="vm.event.rights == 'none'")
+			.action(ng-if="!vm.event.rights")
 				a(ng-click="vm.joinEvent()").
 					#[i.fa.fa-plus]
 					Participer à cet évenement

@@ -16,20 +16,20 @@ function ($state, $stateParams, userService, DataVolunteers) {
 			vm.user = response.data.response;
 			vm.user.picture = volunteers.apiurl + response.data.response.thumb_path;
 			vm.loaded++;
-		});
-	volunteers.friends($stateParams.id)
-		.then(function (response) {
-			vm.user.friends = response.data.response;
-			vm.loaded++;
-		});
-	volunteers.events($stateParams.id)
-		.then(function (response) {
-			vm.user.events = response.data.response;
-			vm.loaded++;
-		});
-	volunteers.associations($stateParams.id)
-		.then(function (response) {
-			vm.user.assos = response.data.response;
-			vm.loaded++;
+			volunteers.friends($stateParams.id)
+				.then(function (response) {
+					vm.user.friends = response.data.response;
+					vm.loaded++;
+				});
+			volunteers.events($stateParams.id)
+				.then(function (response) {
+					vm.user.events = response.data.response;
+					vm.loaded++;
+				});
+			volunteers.associations($stateParams.id)
+				.then(function (response) {
+					vm.user.assos = response.data.response;
+					vm.loaded++;
+				});
 		});
 }];

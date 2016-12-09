@@ -1,5 +1,5 @@
 .card.summary.no-padding
-	.summary--cover(style="background-image:url(img/cover/skyline.jpg)")
+	.summary--cover(style="background-image:url({{sum.user.picture}})")
 	a.summary--picture(ui-sref="{{sum.plink}}")
 		img.picture(ng-src="{{sum.user.picture}}", alt="{{sum.user.firstname}} {{sum.user.lastname}}")
 	a.summary--name(ui-sref="{{sum.plink}}") {{sum.user.firstname}} {{sum.user.lastname}}

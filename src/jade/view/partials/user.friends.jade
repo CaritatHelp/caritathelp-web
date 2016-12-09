@@ -3,7 +3,7 @@
 		user-summary(user-id="friend.id")
 	.ch-grid_col.--two-thirds_from-tablet(ng-if="!vm.user.friends.length && vm.isCurrent")
 		.card Vous n'avez pas encore d'amis ! Utilisez la barre de recherche pour en retrouver.
-	.ch-grid_col.--two-thirds_from-tablet(ng-if="!vm.user.friends.length && !vm.isCurrent && vm.user.friendship === 'none'")
+	.ch-grid_col.--two-thirds_from-tablet(ng-if="!vm.user.friends.length && !vm.isCurrent && !vm.user.friendship")
 		.card
 			p Cet utilisateur n'a pas encore d'amis !
 			p Si vous le connaissez en dehors de CaritatHelp, ajoutez le à vos amis !

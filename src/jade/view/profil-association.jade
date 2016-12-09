@@ -1,7 +1,7 @@
 .ch-profil
 	.ch-profil_cover
 		.ch-profil_background
-			img.bscard-bkimg(ng-src="img/cover/fuzeria.jpg")
+			img.bscard-bkimg(ng-src="{{vm.apiurl + vm.asso.thumb_path}}", alt="{{vm.asso.name}}")
 		.ch-profil_picture
 			img(ng-src="{{vm.apiurl + vm.asso.thumb_path}}", alt="{{vm.asso.name}}")
 		.ch-profil_name {{vm.asso.name}}

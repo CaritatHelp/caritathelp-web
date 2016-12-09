@@ -16,11 +16,8 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 	});
 	ws.onMessage(function (response) {
 		var message = JSON.parse(response.data);
-		console.log('Notif!', message)
-		// if (message.notif_type !== 'Emergency') {
-			vm.notifications.push(message);
-			vm.new = true;
-		// }
+		console.log('Notif!', message);
+		vm.notifications.push(message);
 	});
 
 	$scope.$watch(function () {return usc.user();}, function () {vm.user = usc.user();}, true);
@@ -29,7 +26,6 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 	DataVolunteers.notifications()
 		.then(function (response) {
 			vm.notifications = response.data.response;
-			vm.new = vm.notifications.length;
 			console.table(vm.notifications);
 		}, function () {
 			// vm.logout();

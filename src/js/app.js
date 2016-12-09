@@ -170,7 +170,7 @@ app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProv
 
 		// Shelter profil
 		.state('shelter', {
-			url: '/shelter/{id:int}',
+			url: '/centre/{id:int}',
 			templateUrl: 'view/profil-shelter.html',
 			controller: 'shelterController',
 			controllerAs: 'vm',

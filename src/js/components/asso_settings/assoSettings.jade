@@ -83,7 +83,7 @@
 				tbody
 					tr(ng-repeat="shelter in settings.asso.shelters")
 						td
-							a(ui-sref="shelter.home({id:{{shelter.id}}})").
+							a(ui-sref="shelter({id:{{shelter.id}}})").
 								#[img.ch-avatar.--small(ng-src="{{settings.apiurl + shelter.thumb_path}}")]
 								{{shelter.name}}
 						td {{ shelter.address }}, {{ shelter.zipcode }} {{ shelter.city }}

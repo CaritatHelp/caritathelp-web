@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = ['$state', '$stateParams', 'userService', 'ModalService', 'DataAssociations',
 function ($state, $stateParams, userService, ModalService, DataAssociations) {
 	var vm = this;

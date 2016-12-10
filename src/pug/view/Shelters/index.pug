@@ -1,0 +1,23 @@
+.ch-profil
+	.ch-profil_cover
+		.ch-profil_background
+			img.bscard-bkimg(ng-src="{{vm.apiurl + vm.event.thumb_path}}", alt="{{vm.event.title}}")
+		.ch-profil_picture
+			img(ng-src="{{vm.apiurl + vm.event.thumb_path}}", alt="{{vm.event.title}}")
+		.ch-profil_name {{vm.event.title}}
+	.ch-profil_nav
+		button.ch-btn.ch-profil_nav-button(ui-sref="event.home", ui-sref-active="active")
+			i.fa.fa-home
+			span Accueil
+		button.ch-btn.ch-profil_nav-button(ui-sref="event.guests", ui-sref-active="active")
+			i.fa.fa-users
+			span Participants
+		button.ch-btn.ch-profil_nav-button(ui-sref="event.settings", ui-sref-active="active", ng-if="vm.event.rights == 'host' || vm.event.rights == 'admin'")
+			i.fa.fa-cog
+			span Paramètres
+
+	.tabs
+		ui-view(ng-show="vm.loaded")
+		.profil--loader(ng-show="!vm.loaded")
+			i.fa.fa-spin.fa-refresh
+			.loader--info Chargement du profil

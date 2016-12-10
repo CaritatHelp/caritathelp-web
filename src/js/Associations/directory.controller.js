@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = ['userService', 'DataVolunteers', 'DataAssociations',
 function (userService, DataVolunteers, DataAssociations) {
 	var vm = this;

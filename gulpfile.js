@@ -11,15 +11,15 @@ var runSequence = require('run-sequence'),
 		source = require('vinyl-source-stream'),
 		ngAnnotate = require('gulp-ng-annotate');
 
-gulp.task('jade', function () {
-	gulp.src(['src/jade/**/*.jade'])
+gulp.task('pug', function () {
+	gulp.src(['src/pug/**/*.pug'])
 		.pipe(g.plumber({
 			errorHandler: function (error) {
 				console.log(error.message);
 				this.emit('end');
 			}
 		}))
-		.pipe(g.jade({pretty:true}))
+		.pipe(g.pug({pretty:true}))
 		.pipe(gulp.dest('public/'))
 		.pipe(browserSync.reload({stream:true}));
 });
@@ -98,7 +98,7 @@ gulp.task('scripts', ['browserify'], function() {
 		.pipe(g.uglify())
 		.pipe(gulp.dest('public/js/'))
 		.pipe(browserSync.reload({stream:true}));
-	clean('public/js/app.js');
+	// clean('public/js/app.js');
 });
 
 gulp.task('copy', function () {
@@ -121,7 +121,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('build', function () {
-	runSequence(['styles', 'browserify', 'components', 'jade', 'copy']);
+	runSequence(['styles', 'browserify', 'components', 'pug', 'copy']);
 });
 
 gulp.task('reload', function () {
@@ -138,7 +138,7 @@ gulp.task('serve', function () {
 
 gulp.task('watch', function () {
 	gulp.watch('src/less/**/*.less', ['styles']);
-	gulp.watch('src/jade/**/*.jade', ['jade']);
+	gulp.watch('src/pug/**/*.pug', ['pug']);
 	gulp.watch('src/js/**/*.js', ['browserify']);
 	gulp.watch('src/js/**/*.jade', ['components']);
 	gulp.watch('src/js/**/*.tpl.html', ['copy']);

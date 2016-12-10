@@ -1,15 +1,14 @@
 'use strict';
+
 /* eslint camelcase: "off", max-lines: "off" */
-module.exports = ['$http', function ($http) {
-	var servurl = 'http://staging.caritathelp.me/';
-	// var servurl = 'http://localhost:3000/';
+module.exports = ['$http', 'API_URL', function ($http, API_URL) {
 	var _this = {};
 	var headers = {};
 
 	function get(route, data) {
 		return $http({
 			method: 'GET',
-			url: servurl + route,
+			url: API_URL + route,
 			headers: headers,
 			params: data
 		});
@@ -17,20 +16,20 @@ module.exports = ['$http', function ($http) {
 	function post(route, data) {
 		return $http({
 			method: 'POST',
-			url: servurl + route,
+			url: API_URL + route,
 			headers: headers,
 			data: data
 		});
 	}
 
 	_this.getApiUrl = function () {
-		return servurl;
+		return API_URL;
 	};
 
 	_this.get = function (route, data) {
 		return $http({
 			method: 'GET',
-			url: servurl + route,
+			url: API_URL + route,
 			headers: headers,
 			params: data
 		});
@@ -38,7 +37,7 @@ module.exports = ['$http', function ($http) {
 	_this.post = function (route, data) {
 		return $http({
 			method: 'POST',
-			url: servurl + route,
+			url: API_URL + route,
 			headers: headers,
 			data: data
 		});
@@ -46,7 +45,7 @@ module.exports = ['$http', function ($http) {
 	_this.patch = function (route, data) {
 		return $http({
 			method: 'PATCH',
-			url: servurl + route,
+			url: API_URL + route,
 			headers: headers,
 			data: data
 		});
@@ -54,7 +53,7 @@ module.exports = ['$http', function ($http) {
 	_this.put = function (route, data) {
 		return $http({
 			method: 'PUT',
-			url: servurl + route,
+			url: API_URL + route,
 			headers: headers,
 			data: data
 		});
@@ -62,7 +61,7 @@ module.exports = ['$http', function ($http) {
 	_this.remove = function (route, data) {
 		return $http({
 			method: 'DELETE',
-			url: servurl + route,
+			url: API_URL + route,
 			headers: headers,
 			data: data
 		});
@@ -84,7 +83,7 @@ module.exports = ['$http', function ($http) {
 
 //Login - Logout - Register (POSTVolunteer)
 	_this.login = function (mail, password) {
-		return $http.post(servurl + 'auth/sign_in', {
+		return $http.post(API_URL + 'auth/sign_in', {
 			email: mail,
 			password: password
 		});
@@ -102,7 +101,7 @@ module.exports = ['$http', function ($http) {
 			birthday: birthday,
 			gender: gender
 		};
-		return $http.post(servurl + 'auth', parameters);
+		return $http.post(API_URL + 'auth', parameters);
 	};
 
 //Recherche
@@ -111,16 +110,44 @@ module.exports = ['$http', function ($http) {
 	};
 
 //Pictures
-	_this.postPicture = function (file, filename, original, main) {
+	_this.postPicture = function (file, filename, original) {
 		return $http({
-			url: servurl + 'pictures',
+			url: API_URL + 'pictures',
 			method: 'POST',
 			headers: Object.assign(headers, {'Content-Type': 'application/x-www-form-urlencoded'}),
 			data: {
 				file: file,
 				filename: filename,
 				original_filename: original,
-				is_main: main
+				is_main: true
+			}
+		});
+	};
+	_this.postAssoPicture = function (file, filename, original, assoc_id) {
+		return $http({
+			url: API_URL + 'pictures',
+			method: 'POST',
+			headers: headers,
+			data: {
+				file: file,
+				filename: filename,
+				original_filename: original,
+				assoc_id: assoc_id,
+				is_main: true
+			}
+		});
+	};
+	_this.postEventPicture = function (file, filename, original, event_id) {
+		return $http({
+			url: API_URL + 'pictures',
+			method: 'POST',
+			headers: headers,
+			data: {
+				file: file,
+				filename: filename,
+				original_filename: original,
+				event_id: event_id,
+				is_main: true
 			}
 		});
 	};

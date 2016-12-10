@@ -21,15 +21,28 @@ var app = angular.module('caritathelp', [
 	'ngWebSocket',
 	'ui.bootstrap',
 	'ui.router',
-	'naif.base64'
+	'naif.base64',
+	'caritathelp.volunteers',
+	'caritathelp.associations',
+	'caritathelp.events',
+	'caritathelp.shelters',
+	'caritathelp.inbox',
+	'caritathelp.service.template'
 ]);
 app.factory('_', ['$window', function ($window) {
 	return $window._;
 }]);
+app.constant('API_URL', 'http://staging.caritathelp.me/');
 
+require('./Associations/associations.module');
+require('./Events/events.module');
+require('./Shelters/shelters.module');
+require('./Volunteers/volunteers.module');
+require('./Inbox/inbox.module');
+require('./Search/search.module');
+require('./Providers/Template');
 require('./services');
 require('./directives');
-require('./controllers');
 
 // Composants réutilisables
 require('./components/login_box');
@@ -50,149 +63,24 @@ require('./components/event_create');
 require('./components/event_settings');
 require('./components/shelters_list');
 
-app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProvider, TemplateProvider) {
 	localStorageServiceProvider.setPrefix('caritathelp').setNotify(true, true);
+	var Template = TemplateProvider.$get();
 
 	$urlRouterProvider.otherwise('/login');
 	$stateProvider
 		.state('login', {
 			url: '/login',
-			templateUrl: 'view/login.html'
+			templateUrl: Template.view('login')
 		})
 		.state('home', {
 			url: '/home',
-			templateUrl: 'view/home.html',
+			templateUrl: Template.view('home'),
 			authenticate: true
 		})
 		.state('register', {
 			url: '/register',
-			templateUrl: 'view/register.html'
-		})
-
-		// User profil
-		.state('profil', {
-			url: '/profil/{id}',
-			templateUrl: 'view/profil-user.html',
-			controller: 'profilController',
-			controllerAs: 'vm',
-			abstract: true,
-			authenticate: true
-		})
-		.state('profil.home', {
-			url: '',
-			templateUrl: 'view/partials/user.home.html',
-			authenticate: true
-		})
-		.state('profil.friends', {
-			url: '/friends',
-			templateUrl: 'view/partials/user.friends.html',
-			authenticate: true
-		})
-		.state('profil.assos', {
-			url: '/associations',
-			templateUrl: 'view/partials/user.assos.html',
-			authenticate: true
-		})
-		.state('profil.calendar', {
-			url: '/calendar',
-			templateUrl: 'view/partials/user.calendar.html',
-			authenticate: true
-		})
-		.state('profil.settings', {
-			url: '/settings',
-			templateUrl: 'view/partials/user.settings.html',
-			authenticate: true
-		})
-
-		// Toutes les assos
-		.state('associations', {
-			url: '/association',
-			templateUrl: 'view/directory.html',
-			controller: 'directoryController',
-			controllerAs: 'vm',
-			authenticate: true
-		})
-
-		// Asso profil
-		.state('association', {
-			url: '/association/{id}',
-			templateUrl: 'view/profil-association.html',
-			controller: 'associationController',
-			controllerAs: 'vm',
-			abstract: true,
-			authenticate: true
-		})
-		.state('association.home', {
-			url: '',
-			templateUrl: 'view/partials/asso.home.html',
-			authenticate: true
-		})
-		.state('association.members', {
-			url: '/members',
-			templateUrl: 'view/partials/asso.members.html',
-			authenticate: true
-		})
-		.state('association.calendar', {
-			url: '/calendar',
-			templateUrl: 'view/partials/asso.calendar.html',
-			authenticate: true
-		})
-		.state('association.settings', {
-			url: '/settings',
-			templateUrl: 'view/partials/asso.settings.html',
-			authenticate: true
-		})
-
-		// Event profil
-		.state('event', {
-			url: '/event/{id:int}',
-			templateUrl: 'view/profil-event.html',
-			controller: 'eventController',
-			controllerAs: 'vm',
-			abstract: true,
-			authenticate: true
-		})
-		.state('event.home', {
-			url: '',
-			templateUrl: 'view/partials/event.home.html',
-			authenticate: true
-		})
-		.state('event.guests', {
-			url: '/guests',
-			templateUrl: 'view/partials/event.guests.html',
-			authenticate: true
-		})
-		.state('event.settings', {
-			url: '/settings',
-			templateUrl: 'view/partials/event.settings.html',
-			authenticate: true
-		})
-
-		// Shelter profil
-		.state('shelter', {
-			url: '/centre/{id:int}',
-			templateUrl: 'view/profil-shelter.html',
-			controller: 'shelterController',
-			controllerAs: 'vm',
-			authenticate: true
-		})
-
-		//Recherche
-		.state('search', {
-			url: '/recherche/{search}',
-			templateUrl: 'view/search.html',
-			controller: 'searchController',
-			controllerAs: 'search',
-			authenticate: true
-		})
-
-		//Messagerie
-		.state('inbox', {
-			url: '/messagerie',
-			templateUrl: 'view/inbox.html',
-			controller: 'inboxController',
-			controllerAs: 'inbox',
-			authenticate: true
+			templateUrl: Template.view('register')
 		})
 	;
 });

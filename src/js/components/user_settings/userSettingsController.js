@@ -43,7 +43,7 @@ module.exports = ['dataService', 'userService', 'DataVolunteers', 'DataAssociati
 
 	vm.updatePicture = function () {
 		vm.updating = true;
-		dsc.postPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename, true)
+		dsc.postPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename)
 			.then(function () {
 				volunteers.mainPicture(vm.user.id)
 					.then(function (response) {

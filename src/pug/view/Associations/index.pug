@@ -15,7 +15,7 @@
 		button.ch-btn.ch-profil_nav-button(ui-sref="association.calendar", ui-sref-active="active")
 			i.fa.fa-calendar
 			span Calendrier
-		button.ch-btn.ch-profil_nav-button(ui-sref="association.settings", ui-sref-active="active", ng-if="vm.asso.rights == 'owner' || vm.asso.rights == 'admin'")
+		button.ch-btn.ch-profil_nav-button(ui-sref="association.settings.general", ui-sref-active="active", ng-if="vm.asso.rights == 'owner' || vm.asso.rights == 'admin'")
 			i.fa.fa-cog
 			span Administration
 

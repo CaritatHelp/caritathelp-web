@@ -6,7 +6,7 @@ module.exports = ['dataService', function (dataService) {
 	this.all = function () {
 		return data.get('shelters');
 	};
-	this.create = function (assoc_id, name, address, zipcode, city, total_places, free_places, description, phone, mail, latitude, longitude, tags) {
+	this.create = function (assoc_id, name, address, zipcode, city, total_places, free_places, description, phone, mail) {
 		var parameters = {
 			assoc_id: assoc_id,
 			name: name,
@@ -24,7 +24,7 @@ module.exports = ['dataService', function (dataService) {
 	this.get = function (id) {
 		return data.get('shelters/' + id);
 	};
-	this.update = function (id, assoc_id, name, address, zipcode, city, total_places, free_places, description, phone, mail, latitude, longitude, tags) {
+	this.update = function (id, assoc_id, name, address, zipcode, city, total_places, free_places, description, phone, mail) {
 		var parameters = {
 			assoc_id: assoc_id,
 			name: name,

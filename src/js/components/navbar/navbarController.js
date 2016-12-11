@@ -64,7 +64,7 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 					DataVolunteers.read(notifId);
 					$scope.notifs = _.reject($scope.notifs, function (el) {return el.id == notifId;});
 					vm.notifications = $scope.notifs;
-				}
+				};
 				this.dismiss = function () {
 					close();
 				};

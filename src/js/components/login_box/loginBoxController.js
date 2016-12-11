@@ -12,10 +12,8 @@ module.exports = ['dataService', 'userService', '$location', function (dataServi
 		if (_this.mail === undefined || _this.mail === '') {
 			return false;
 		}
-		if (_this.password === undefined || _this.password === '') {
-			return false;
-		}
-		return true;
+		return !(_this.password === undefined || _this.password === '');
+
 	}
 
 	_this.login = function () {

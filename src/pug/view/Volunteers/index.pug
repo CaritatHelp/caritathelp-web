@@ -18,7 +18,7 @@
 		button.ch-btn.ch-profil_nav-button(ui-sref="profil.calendar", ui-sref-active="active")
 			i.fa.fa-calendar
 			span Calendrier
-		button.ch-btn.ch-profil_nav-button(ui-sref="profil.settings", ui-sref-active="active", ng-if="vm.isCurrent")
+		button.ch-btn.ch-profil_nav-button(ui-sref="profil.settings.general", ui-sref-active="{'active':'profil.settings'}", ng-if="vm.isCurrent")
 			i.fa.fa-cog
 			span Paramètres
 

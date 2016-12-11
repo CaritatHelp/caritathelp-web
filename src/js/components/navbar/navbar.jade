@@ -10,10 +10,10 @@ nav.ch-navbar(ng-if="nav.isConnected()")
 			a.ch-navbar_item(ui-sref="profil.home({id:{{nav.user.id}}})", ui-sref-active="{'active':'profil'}")
 				span Profil
 				i.fa.fa-user
-			a.ch-navbar_item(ui-sref="associations", ui-sref-active="active")
+			a.ch-navbar_item(ui-sref="associations.directory", ui-sref-active="{'active':'associations', 'active':'association'}")
 				span Associations
 				i.fa.fa-truck
-			a.ch-navbar_item(ui-sref="inbox")
+			a.ch-navbar_item(ui-sref="inbox", ui-sref-active="active")
 				span Messagerie
 				i.fa.fa-envelope
 			a.ch-navbar_item(ng-click="nav.logout()", href="#")

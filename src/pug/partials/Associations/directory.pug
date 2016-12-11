@@ -1,0 +1,50 @@
+//-Message si l'utilisateur n'est membre d'aucune association
+.card(ng-if="!directory.belong.length")
+	section.
+		Vous n'êtes membre d'aucune association ! <br> Vous pouvez en créer une en cliquant sur le bouton situé dans la barre de navigation à gauche, ou bien en rejoindre une déjà existante en la séléctionnant dans la liste ci-dessous.
+//-Associations dont l'utilisateur est membre
+.card(ng-if="directory.belong.length")
+	.user-assos(ng-show="directory.loaded.user")
+		h2.ch-text.--mega Vos associations
+		table.--highlight.--first-emphasis
+			thead
+				tr
+					th Nom
+					th Ville
+					th Membres
+					th Status
+			tbody
+				tr(ng-repeat="assoc in directory.belong")
+					td
+						a(ui-sref="association.home({id: {{assoc.id}}})") {{assoc.name}}
+					td(ng-if="assoc.city") {{assoc.city}}
+					td(ng-if="!assoc.city") Non renseigné
+					td {{assoc.nb_friends_members}}
+					td {{assoc.rights}}
+	.assolist--loader(ng-show="!directory.loaded.user")
+		i.fa.fa-spin.fa-refresh
+		.loader--info Chargement
+//-Liste de toutes les assos moins celles dont l'user est membre
+.card
+	.no-asso(ng-show="directory.loaded.list")
+		h2.ch-text.--mega Toutes les associations
+		table.--highlight.--first-emphasis
+			thead
+				tr
+					th Nom
+					th Ville
+					th Membres
+			tbody
+				tr(ng-repeat="assoc in directory.assos")
+					td
+						a(ui-sref="association.home({id: {{assoc.id}}})") {{assoc.name}}
+					td(ng-if="assoc.city") {{assoc.city}}
+					td(ng-if="!assoc.city") Non renseigné
+					//- Ortographe amis
+					td(ng-if="!assoc.nb_members") {{assoc.nb_members}}
+					td(ng-if="assoc.nb_members && assoc.nb_friends_members == '0'") {{assoc.nb_members}}
+					td(ng-if="assoc.nb_members && assoc.nb_friends_members == '1'") {{assoc.nb_members}} ({{assoc.nb_friends_members}} ami)
+					td(ng-if="assoc.nb_members && assoc.nb_friends_members > 1") {{assoc.nb_members}} ({{assoc.nb_friends_members}} amis)
+	.assolist--loader(ng-show="!directory.loaded.list")
+		i.fa.fa-spin.fa-refresh
+		.loader--info Chargement

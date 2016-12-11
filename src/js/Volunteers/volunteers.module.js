@@ -29,7 +29,7 @@ volunteers.config(function ($stateProvider, $urlRouterProvider, TemplateProvider
 			authenticate: true
 		})
 		.state('profil.friends', {
-			url: '/friends',
+			url: '/amis',
 			templateUrl: Template.view('Volunteers/friends'),
 			authenticate: true
 		})
@@ -39,15 +39,35 @@ volunteers.config(function ($stateProvider, $urlRouterProvider, TemplateProvider
 			authenticate: true
 		})
 		.state('profil.calendar', {
-			url: '/calendar',
+			url: '/calendrier',
 			templateUrl: Template.view('Volunteers/calendar'),
 			authenticate: true
 		})
+
 		.state('profil.settings', {
-			url: '/settings',
+			url: '/parametres',
 			templateUrl: Template.view('Volunteers/settings'),
+			controller: require('./Settings/settings.controller'),
+			controllerAs: 'settings',
+			abstract: true,
 			authenticate: true
-		});
+		})
+		.state('profil.settings.general', {
+			url: '',
+			templateUrl: Template.partial('Volunteers/general'),
+			authenticate: true
+		})
+		.state('profil.settings.picture', {
+			url: '/avatar',
+			templateUrl: Template.partial('Volunteers/picture'),
+			authenticate: true
+		})
+		.state('profil.settings.invites', {
+			url: '/invitations',
+			templateUrl: Template.partial('Volunteers/invites'),
+			authenticate: true
+		})
+	;
 });
 
 module.export = volunteers;

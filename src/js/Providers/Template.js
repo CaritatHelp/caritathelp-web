@@ -10,7 +10,7 @@ template.provider('Template', [function TemplateProvider() {
 		},
 
 		partial: function (name) {
-			return 'view/partials/' + name + '.html';
+			return 'partials/' + name + '.html';
 		},
 
 		modal: function (name) {

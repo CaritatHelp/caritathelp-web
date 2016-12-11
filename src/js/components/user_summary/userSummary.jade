@@ -1,15 +1,15 @@
 .card.summary.no-padding
 	.summary--cover(style="background-color:green")
-	a.summary--picture(ui-sref="{{sum.plink}}")
+	a.summary--picture(ui-sref="profil.home({id: sum.user.id})")
 		img.picture(ng-src="{{sum.user.picture}}", alt="{{sum.user.firstname}} {{sum.user.lastname}}")
-	a.summary--name(ui-sref="{{sum.plink}}") {{sum.user.firstname}} {{sum.user.lastname}}
+	a.summary--name(ui-sref="profil.home({id: sum.user.id})") {{sum.user.firstname}} {{sum.user.lastname}}
 	.summary--stats
 		a.stat(href="#", ng-if="sum.user.city").
 			Location
 			#[h5.nb {{sum.user.city}}]
-		a.stat(ui-sref="{{sum.flink}}").
+		a.stat(ui-sref="profil.friends({id: sum.user.id})").
 			Amis
 			#[h5.nb {{sum.user.friends.length}}]
-		a.stat(ui-sref="{{sum.alink}}").
+		a.stat(ui-sref="profil.assos({id: sum.user.id})").
 			Assos
 			#[h5.nb {{sum.user.assos.length}}]

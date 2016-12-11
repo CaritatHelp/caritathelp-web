@@ -1,5 +1,5 @@
 'use strict';
-module.exports = ['$stateParams', 'DataAssociations', 'DataShelters', function ($stateParams, DataAssociations, DataShelters) {
+module.exports = ['$stateParams', 'DataAssociations', 'DataShelters', '_', function ($stateParams, DataAssociations, DataShelters, _) {
 	var vm = this;
 	var associations = DataAssociations;
 	var shelters = DataShelters;
@@ -17,7 +17,9 @@ module.exports = ['$stateParams', 'DataAssociations', 'DataShelters', function (
 	function getShelters(id) {
 		associations.shelters(id)
 			.then(function (response) {
-				vm.shelters = response.data.response;
+				vm.shelters = _.filter(response.data.response, function (shelter) {
+					return shelter.id === $stateParams.id;
+				});
 			});
 	}
 }];

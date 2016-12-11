@@ -1,0 +1,38 @@
+//- Paramètres généraux
+.card
+	h2.ch-text.--mega Paramètres généraux
+	form.ch-form(
+		novalidate="",
+		name="updateForm",
+		ng-submit="updateForm.$valid && settings.updateAsso()"
+		)
+		fieldset.ch-form_row
+			label.ch-form_label(for="inputName") Nom
+			input.ch-form_text(
+				type="text",
+				id="inputName",
+				placeholder="Titre",
+				ng-model="settings.asso.name"
+				)
+
+		fieldset.ch-form_row
+			label.ch-form_label(for="inputDescription") Description
+			textarea.ch-form_text(
+				id="inputDescription",
+				placeholder="Description",
+				ng-model="settings.asso.description",
+				)
+
+		fieldset.ch-form_row
+			label.ch-form_label(for="inputLocation") Ville
+			input.ch-form_text(
+				type="text",
+				id="inputLocation",
+				placeholder="Location",
+				ng-model="settings.asso.city"
+				)
+
+		.pull-right
+			button.ch-btn(type="submit", ng-disabled="settings.updating").
+				#[i.fa.fa-spin.fa-spinner(ng-show="settings.updating")]
+				Enregistrer

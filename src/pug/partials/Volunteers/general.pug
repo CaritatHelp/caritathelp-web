@@ -1,0 +1,104 @@
+.card
+	h2.ch-text.--mega Paramètres du compte
+	form.ch-form(
+		novalidate="",
+		name="updateForm",
+		ng-submit="updateForm.$valid && settings.updateVolunteer()"
+		)
+
+		fieldset.ch-form_row
+			label.ch-form_label(for="inputFirstName") Prénom
+			.ch-form_input-group
+				span.ch-form_addition.--prefix
+					i.fa.fa-user
+				input.ch-form_text(
+					type="text",
+					name="inputFirstName",
+					placeholder="Prénom",
+					ng-model="settings.user.firstname"
+					)
+			.ch-form_message.--error(ng-messages="updateForm.inputFirstName.$error", ng-show="updateForm.$submitted && updateForm.inputFirstName.$invalid")
+				p(ng-message="required") Ce champs est requis
+
+		fieldset.ch-form_row
+			label.ch-form_label(for="inputLastName") Nom
+			.ch-form_input-group
+				span.ch-form_addition.--prefix
+					i.fa.fa-user
+				input.ch-form_text(
+					type="text",
+					name="inputLastName",
+					placeholder="Nom",
+					ng-model="settings.user.lastname"
+				)
+			.ch-form_message.--error(ng-messages="updateForm.inputLastName.$error", ng-show="updateForm.$submitted && updateForm.inputLastName.$invalid")
+				p(ng-message="required") Ce champs est requis
+
+		fieldset.ch-form_row
+			label.ch-form_label(for="inputMail") Adresse e-mail
+			.ch-form_input-group
+				span.ch-form_addition.--prefix
+					i.fa.fa-envelope
+				input.ch-form_text(
+					type="email",
+					name="inputMail",
+					placeholder="Adresse e-mail",
+					ng-model="settings.user.mail"
+				)
+			.ch-form_message.--error(ng-messages="updateForm.inputMail.$error", ng-show="updateForm.$submitted && updateForm.inputMail.$invalid")
+				p(ng-message="required") Ce champs est requis
+
+		fieldset.ch-form_row
+			label.ch-form_label(for="inputBirthday") Date de naissance
+			.ch-form_input-group
+				span.ch-form_addition.--prefix
+					button(
+						type="button",
+						ng-click="settings.openBirthdate()"
+					)
+						i.fa.fa-calendar
+				input.ch-form_text(
+					type="text",
+					ng-model="settings.user.birthday",
+					uib-datepicker-popup="dd/MM/yyyy",
+					is-open="settings.popupBirthdate.opened",
+					datepickerOptions="dateOptions",
+					close-text="Fermer"
+				)
+
+		fieldset.ch-form_row
+			label.ch-form_label(for="inputPassword") Mot de passe
+			.ch-form_input-group
+				span.ch-form_addition.--prefix
+					i.fa.fa-lock
+				input.ch-form_text(
+					type="password",
+					name="inputPassword",
+					required="",
+					ng-model="settings.password"
+				)
+			.ch-form_message.--error(ng-messages="updateForm.inputPassword.$error", ng-show="updateForm.$submitted && updateForm.inputPassword.$invalid")
+				p(ng-message="required") Ce champs est requis
+
+		fieldset.ch-form_row
+			label.ch-form_label(for="inputConfirm") Confirmation
+			.ch-form_input-group
+				span.ch-form_addition.--prefix
+					i.fa.fa-lock
+				input.ch-form_text(
+					type="password",
+					name="inputConfirm",
+					required="",
+					ng-model="settings.confirm"
+					compare-to="settings.password"
+				)
+			.ch-form_message.--error(
+				ng-messages="updateForm.inputConfirm.$error",
+				ng-show="(updateForm.$submitted || updateForm.inputConfirm.$touched) && updateForm.inputConfirm.$invalid"
+			)
+				p(ng-message="required") Ce champs est requis
+				p(ng-message="compareTo") Les mots de passe ne correspondent pas
+		.pull-right
+			button.ch-btn(type="submit", ng-disabled="settings.updating").
+				#[i.fa.fa-spin.fa-spinner(ng-show="settings.updating")]
+				Enregistrer

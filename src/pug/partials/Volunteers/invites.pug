@@ -1,0 +1,57 @@
+.card
+	h2.ch-text.--mega Gestion des invitations
+	section
+		.invite
+
+			//- Invitation dans une asso
+			.invite--asso(ng-repeat="asso in settings.invited.assos")
+				.invite--text
+					//- .invite--from
+					//- 	a(ui-sref="profil.home({id:{{asso.id}}})").
+					//- 		#[img(ng-src="{{settings.apiurl + asso.thumb_path}}")]
+					//- 		{{asso.name}}
+					.invite--description Vous avez été invité à rejoindre l'association
+					.invite--to
+						a(ui-sref="association.home({id:{{asso.id}}})").
+							#[img.ch-avatar(ng-src="{{settings.apiurl + asso.thumb_path}}")]
+							{{asso.name}}
+				.invite--actions
+					button.ch-btn(ng-click="settings.answerAsso(asso.notif_id, true, $index)")
+						i.fa.fa-check
+					button.ch-btn.--fail(ng-click="settings.answerAsso(asso.notif_id, false, $index)")
+						i.fa.fa-times
+
+			//- Invitation dans un event
+			.invite--event(ng-repeat="event in settings.invited.events")
+				.invite--text
+					//- .invite--from
+					//- 	a(ui-sref="profil.home({id:{{event.id}}})").
+					//- 		#[img(ng-src="{{settings.apiurl + event.thumb_path}}")]
+					//- 		{{event.title}}
+					.invite--description Vous avez été invité à participer à l'évènement
+					.invite--to
+						a(ui-sref="event.home({id:{{event.id}}})").
+							#[img.ch-avatar(ng-src="{{settings.apiurl + event.thumb_path}}")]
+							{{event.title}}
+				.invite--actions
+					button.ch-btn(ng-click="settings.answerEvent(event.notif_id, true, $index)")
+						i.fa.fa-check
+					button.ch-btn.--fail(ng-click="settings.answerEvent(event.notif_id, false, $index)")
+						i.fa.fa-times
+
+			//- Invitation d'ami
+			.invite--friend(ng-repeat="user in settings.invited.friends")
+				.invite--text
+					a(ui-sref="profil.home({id:{{user.id}}})")
+						img.ch-avatar(ng-src="{{settings.apiurl + user.thumb_path}}")
+					.ch-text.
+						#[a(ui-sref="profil.home({id:{{user.id}}})") {{user.firstname}} {{user.lastname}}]
+						vous a ajouté à ses amis
+				.invite--actions
+					button.ch-btn(ng-click="settings.answerFriend(user.notif_id, true, $index)")
+						i.fa.fa-check
+					button.ch-btn.--fail(ng-click="settings.answerFriend(user.notif_id, false, $index)")
+						i.fa.fa-times
+
+		//- Empty
+		.alert.alert-info(ng-if="!settings.invited.length") Vous n'avez pas d'invitations récentes

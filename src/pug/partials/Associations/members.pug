@@ -1,0 +1,53 @@
+//- Gestion membres
+.card
+	h2.ch-text.--mega Gestion des membres
+	.card
+		h4.ch-text.--kilo Demandes en attente
+		table.--first-emphasis(ng-if="settings.asso.waiting.length")
+			thead
+				tr
+					th Nom
+					th Action
+			tbody
+				tr(ng-repeat="waiter in settings.asso.waiting")
+					td
+						a(ui-sref="profil.home({id:{{waiter.id}}})").
+							#[img.ch-avatar.--small(ng-src="{{settings.apiurl + waiter.thumb_path}}")]
+							{{waiter.firstname}} {{waiter.lastname}}
+					td
+						button.ch-btn.--success(title="Accepter la demande", ng-click="settings.replyDemand(waiter.notif_id, true, $index)")
+							i.fa.fa-check
+						button.ch-btn.--fail(title="Refuser la demande", ng-click="settings.replyDemand(waiter.notif_id, false, $index)")
+							i.fa.fa-times
+		.alert.alert-info(ng-if="!settings.asso.waiting.length") Aucune demande en attente
+	.card
+		h4.ch-text.--kilo Invitations en cours
+		table.--first-emphasis(ng-if="settings.asso.invited.length")
+			tr(ng-repeat="invite in settings.asso.invited")
+				td
+					a(ui-sref="profil.home({id:{{invite.id}}})").
+						#[img.ch-avatar.--small(ng-src="{{settings.apiurl + invite.thumb_path}}")]
+						{{invite.firstname}} {{invite.lastname}}
+		.alert.alert-info(ng-if="!settings.asso.invited.length") Aucune invitation en attente
+	.card
+		h4.ch-text.--kilo Membres
+		table.--first-emphasis
+			thead
+				tr
+					th Nom
+					th Status
+					th Action
+			tbody
+				tr(ng-repeat="member in settings.asso.members")
+					td
+						a(ui-sref="profil.home({id:{{member.id}}})").
+							#[img.ch-avatar.--small(ng-src="{{settings.apiurl + member.thumb_path}}")]
+							{{member.firstname}} {{member.lastname}}
+					td {{member.rights}}
+					td
+						button.ch-btn.--secondary(title="Rétrograder le membre", ng-click="settings.demoteUser(member.id)", ng-if="member.rights == 'admin'")
+							i.fa.fa-thumbs-down
+						button.ch-btn.--tertiary(title="Promouvoir en admin", ng-click="settings.promoteUser(member.id)", ng-if="member.rights == 'member'")
+							i.fa.fa-thumbs-up
+						button.ch-btn.--fail(title="Expulser le membre", ng-click="settings.kickUser(member.id)", ng-if="member.rights != 'owner'")
+							i.fa.fa-times

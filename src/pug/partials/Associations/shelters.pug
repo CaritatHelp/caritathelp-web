@@ -1,0 +1,115 @@
+//- Gestion des centres
+.card
+	h2.ch-text.--mega Gestions des centres
+	.card(ng-show="!settings.adding")
+		h4.ch-text.--mega Liste des centres
+		table.--first-emphasis(ng-if="settings.asso.shelters.length")
+			thead
+				tr
+					th Nom
+					th Adresse
+					th Places
+					th Places occupées
+			tbody
+				tr(ng-repeat="shelter in settings.asso.shelters")
+					td
+						a(ui-sref="shelter({id:{{shelter.id}}})").
+							#[img.ch-avatar.--small(ng-src="{{settings.apiurl + shelter.thumb_path}}")]
+							{{shelter.name}}
+					td {{ shelter.address }}, {{ shelter.zipcode }} {{ shelter.city }}
+					td {{ shelter.total_places }}
+					td {{ shelter.free_places }}
+	.pull-right(ng-show="!settings.adding")
+		button.ch-btn(ng-click="settings.adding = true") Ajouter un centre
+	.card(ng-show="settings.adding")
+		form.ch-form(
+			novalidate="",
+			name="addShelter",
+			ng-submit="addShelter.$valid && settings.addShelter()"
+			)
+
+			fieldset.ch-form_row
+				label.ch-form_label(for="inputName") Nom
+				input.ch-form_text(
+					type="text",
+					name="inputName",
+					placeholder="Nom",
+					ng-model="settings.shelter.name"
+					required=""
+					)
+			.ch-form_message.--error(ng-messages="addShelter.inputName.$error", ng-show="addShelter.$submitted && addShelter.inputName.$invalid")
+				p(ng-message="required") Ce champs est requis
+
+			fieldset.ch-form_row
+				label.ch-form_label(for="inputAddress") Addresse
+				input.ch-form_text(
+					type="text",
+					name="inputAddress",
+					placeholder="Addresse",
+					ng-model="settings.shelter.address"
+					required=""
+					)
+			.ch-form_message.--error(ng-messages="addShelter.inputAddress.$error", ng-show="addShelter.$submitted && addShelter.inputAddress.$invalid")
+				p(ng-message="required") Ce champs est requis
+
+			fieldset.ch-form_row
+				label.ch-form_label(for="inputCity") Ville
+				input.ch-form_text(
+					type="text",
+					name="inputCity",
+					placeholder="Ville",
+					ng-model="settings.shelter.city"
+					required=""
+					)
+			.ch-form_message.--error(ng-messages="addShelter.inputCity.$error", ng-show="addShelter.$submitted && addShelter.inputCity.$invalid")
+				p(ng-message="required") Ce champs est requis
+
+			fieldset.ch-form_row
+				label.ch-form_label(for="inputZipcode") Code Postal
+				input.ch-form_text(
+					type="text",
+					name="inputZipcode",
+					placeholder="Nom",
+					ng-model="settings.shelter.zipcode"
+					required=""
+					)
+			.ch-form_message.--error(ng-messages="addShelter.inputZipcode.$error", ng-show="addShelter.$submitted && addShelter.inputZipcode.$invalid")
+				p(ng-message="required") Ce champs est requis
+
+			fieldset.ch-form_row
+				label.ch-form_label(for="inputTotal") Places disponibles
+				input.ch-form_text(
+					type="text",
+					name="inputTotal",
+					placeholder="Places disponibles",
+					ng-model="settings.shelter.total_places"
+					required=""
+					)
+			.ch-form_message.--error(ng-messages="addShelter.inputTotal.$error", ng-show="addShelter.$submitted && addShelter.inputTotal.$invalid")
+				p(ng-message="required") Ce champs est requis
+
+			fieldset.ch-form_row
+				label.ch-form_label(for="inputOccupied") Places occupées
+				input.ch-form_text(
+					type="text",
+					name="inputOccupied",
+					placeholder="Places occupées",
+					ng-model="settings.shelter.free_places"
+					required=""
+					)
+			.ch-form_message.--error(ng-messages="addShelter.inputOccupied.$error", ng-show="addShelter.$submitted && addShelter.inputOccupied.$invalid")
+				p(ng-message="required") Ce champs est requis
+
+			fieldset.ch-form_row
+				label.ch-form_label(for="inputDescription") Description
+				textarea.ch-form_text(
+					id="inputDescription",
+					placeholder="Description",
+					ng-model="settings.shelter.description"
+					)
+
+			.pull-right
+				button.ch-btn.--fail(ng-click="settings.adding = false") Annuler
+				button.ch-btn(type="submit", ng-disabled="settings.creating").
+					#[i.fa.fa-spin.fa-spinner(ng-show="settings.creating")]
+					Enregistrer

@@ -1,1 +1,26 @@
-user-settings.ch-grid(ng-if="vm.isCurrent")
+.ch-grid(ng-if="vm.isCurrent")
+	.ch-grid_col.--one-third_from-tablet
+		.card.ch-sidenav
+			h3.ch-sidenav_title.ch-text.--kilo.--bold Paramètres
+			a.ch-sidenav_link(ui-sref="profil.settings.general", ui-sref-active="active").
+				#[i.fa.fa-home]
+				General
+			a.ch-sidenav_link(ui-sref="profil.settings.picture", ui-sref-active="active").
+				#[i.fa.fa-eye]
+				Photo de profil
+			a.ch-sidenav_link(ui-sref="profil.settings.invites", ui-sref-active="active").
+				#[i.fa.fa-sign-in]
+				Invitations
+
+	.ch-grid_col.--two-thirds_from-tablet
+		//- Messages d'erreur
+		.alert.alert-info(
+			role="alert",
+			ng-show="settings.success",
+			ng-bind-html="settings.successMessage")
+		//- Messages d'erreur
+		.alert.alert-danger(
+			role="alert",
+			ng-show="settings.error",
+			ng-bind-html="settings.errorMessage")
+		ui-view

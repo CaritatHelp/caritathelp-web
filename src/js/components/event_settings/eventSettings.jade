@@ -142,9 +142,9 @@
 								#[img(ng-src="{{settings.apiurl + waiter.thumb_path}}")]
 								{{waiter.firstname}} {{waiter.lastname}}
 						td
-							btn.btn.btn-xs.btn-success(title="Accepter la demande", ng-click="settings.replyDemand(waiter.notif_id, true, $index)")
+							btn.ch-btn.btn-success(title="Accepter la demande", ng-click="settings.replyDemand(waiter.notif_id, true, $index)")
 								i.fa.fa-check
-							btn.btn.btn-xs.btn-danger(title="Refuser la demande", ng-click="settings.replyDemand(waiter.notif_id, false, $index)")
+							btn.ch-btn.--fail(title="Refuser la demande", ng-click="settings.replyDemand(waiter.notif_id, false, $index)")
 								i.fa.fa-times
 			.alert.alert-info(ng-if="!settings.event.waiting.length") Aucune demande en attente
 		.card
@@ -169,15 +169,15 @@
 					tr(ng-repeat="guest in settings.event.guests")
 						td
 							a(ui-sref="profil.home({id:{{guest.id}}})").
-								#[img(ng-src="{{settings.apiurl + guest.thumb_path}}")]
+								#[img.ch-avatar(ng-src="{{settings.apiurl + guest.thumb_path}}")]
 								{{guest.firstname}} {{guest.lastname}}
 						td.col-status {{guest.rights}}
 						td
-							button.btn.btn-xs.btn-warning(title="Rétrograder l'invité", ng-click="settings.demoteUser(guest.id)", ng-if="guest.rights == 'admin'")
+							button.ch-btn.--secondary(title="Rétrograder l'invité", ng-click="settings.demoteUser(guest.id)", ng-if="guest.rights == 'admin'")
 								i.fa.fa-thumbs-down
-							button.btn.btn-xs.btn-info(title="Promouvoir en admin", ng-click="settings.promoteUser(guest.id)", ng-if="guest.rights == 'member'")
+							button.ch-btn.--tertiary(title="Promouvoir en admin", ng-click="settings.promoteUser(guest.id)", ng-if="guest.rights == 'member'")
 								i.fa.fa-thumbs-up
-							button.btn.btn-xs.btn-danger(title="Expulser l'invité", ng-click="settings.kickUser(guest.id)", ng-if="guest.rights != 'host'")
+							button.ch-btn.--fail(title="Expulser l'invité", ng-click="settings.kickUser(guest.id)", ng-if="guest.rights != 'host'")
 								i.fa.fa-times
 
 	//- Suppression event

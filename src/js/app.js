@@ -22,13 +22,13 @@ var app = angular.module('caritathelp', [
 	'ui.bootstrap',
 	'ui.router',
 	'naif.base64',
+	'caritathelp.service.template',
 	'caritathelp.authentication',
 	'caritathelp.volunteers',
 	'caritathelp.associations',
 	'caritathelp.events',
 	'caritathelp.shelters',
-	'caritathelp.inbox',
-	'caritathelp.service.template'
+	'caritathelp.inbox'
 ]);
 app.factory('_', ['$window', function ($window) {
 	return $window._;
@@ -46,22 +46,6 @@ require('./Providers/Template');
 
 require('./services');
 
-// Composants réutilisables
-// require('./components/login_box');
-// require('./components/register_box');
-// require('./components/navbar');
-// require('./components/user_summary');
-// require('./components/timeline');
-
-// require('./components/user_actions');
-// require('./components/friends_list');
-// require('./components/assos_list');
-// require('./components/news');
-// require('./components/comment');
-// require('./components/calendar');
-// require('./components/event_create');
-// require('./components/shelters_list');
-
 app.config(function (localStorageServiceProvider) {
 	localStorageServiceProvider.setPrefix('caritathelp').setNotify(true, true);
 });
@@ -69,7 +53,7 @@ app.config(function (localStorageServiceProvider) {
 app.run(function ($rootScope, $state, userService) {
 	$rootScope.$on('$stateChangeStart', function (event, toState) {
 		if (toState.authenticate && !userService.user()) {
-			$state.transitionTo('connexion');
+			$state.transitionTo('login');
 			event.preventDefault();
 		} else if (!toState.authenticate && userService.user()) {
 			$state.transitionTo('home');

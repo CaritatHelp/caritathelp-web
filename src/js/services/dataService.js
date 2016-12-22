@@ -1,6 +1,6 @@
 'use strict';
 
-/* eslint camelcase: "off", max-lines: "off" */
+/* max-lines: "off" */
 module.exports = ['$http', 'API_URL', function ($http, API_URL) {
 	var _this = {};
 	var headers = {};

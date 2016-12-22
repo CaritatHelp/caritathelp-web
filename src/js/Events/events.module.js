@@ -1,16 +1,12 @@
 'use strict';
 
+require('../Components/Timeline/Timeline');
+
 var events = require('angular').module('caritathelp.events', [
-	'ui.router',
-	'caritathelp.service.template'
+	'caritathelp.component.timeline'
 ]);
 
-require('../Providers/Template');
-require('../services');
-require('../directives');
-
-events.config(function ($stateProvider, $urlRouterProvider, TemplateProvider) {
-	$urlRouterProvider.otherwise('/login');
+events.config(function ($stateProvider, TemplateProvider) {
 	var Template = TemplateProvider.$get();
 
 	$stateProvider
@@ -36,7 +32,7 @@ events.config(function ($stateProvider, $urlRouterProvider, TemplateProvider) {
 		.state('event.settings', {
 			url: '/parametres',
 			templateUrl: Template.view('Events/settings'),
-			controller: require('./Settings/settings.controller'),
+			controller: require('./settings.controller'),
 			controllerAs: 'settings',
 			abstract: true,
 			authenticate: true

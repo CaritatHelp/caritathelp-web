@@ -10,7 +10,7 @@ websocket.factory('socketService', ['$websocket', 'dataService', '_', function (
 	ws.onOpen(function () {
 		ws.send({
 			token: 'token',
-			user_uid: headers.uid /* eslint camelcase: "off" */
+			user_uid: headers.uid
 		});
 	});
 
@@ -35,4 +35,4 @@ websocket.factory('socketService', ['$websocket', 'dataService', '_', function (
 	return methods;
 }]);
 
-module.export = websocket;
+module.exports = websocket;

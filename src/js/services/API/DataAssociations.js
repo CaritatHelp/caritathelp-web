@@ -1,5 +1,5 @@
 'use strict';
-/* eslint camelcase: "off", max-lines: "off" */
+/* max-lines: "off" */
 module.exports = ['dataService', function (dataService) {
 	var data = dataService;
 	this.apiurl = data.getApiUrl();

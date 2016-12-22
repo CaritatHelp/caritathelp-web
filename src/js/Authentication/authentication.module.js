@@ -1,17 +1,20 @@
 'use strict';
 
-var authentication = require('angular').module('caritathelp.authentication', [
-	'ui.router',
-	'caritathelp.service.template'
-]);
+require('../Components/Navbar');
+require('../Components/Timeline/Timeline');
+require('../Components/Auth/Register');
+require('../Components/Auth/Login');
+require('../Components/UserSummary');
+require('../Modules/CompareTo');
 
-require('../Providers/Template');
-require('../services');
-require('../components/navbar');
-require('../components/register_box');
-require('../components/login_box');
-require('../components/timeline');
-require('../directives');
+var authentication = require('angular').module('caritathelp.authentication', [
+	'caritathelp.component.auth.register',
+	'caritathelp.component.auth.login',
+	'caritathelp.component.navbar',
+	'caritathelp.component.timeline',
+	'caritathelp.component.user_summary',
+	'caritathelp.validator.compare_to'
+]);
 
 authentication.config(function ($stateProvider, $urlRouterProvider, TemplateProvider) {
 	$urlRouterProvider.otherwise('/connexion');
@@ -33,5 +36,4 @@ authentication.config(function ($stateProvider, $urlRouterProvider, TemplateProv
 		});
 });
 
-module.export = authentication;
-
+module.exports = authentication;

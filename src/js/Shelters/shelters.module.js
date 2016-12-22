@@ -1,16 +1,12 @@
 'use strict';
 
+require('../Components/Lists/Shelters');
+
 var shelters = require('angular').module('caritathelp.shelters', [
-	'ui.router',
-	'caritathelp.service.template'
+	'caritathelp.component.list.shelters'
 ]);
 
-require('../Providers/Template');
-require('../services');
-require('../directives');
-
-shelters.config(function ($stateProvider, $urlRouterProvider, TemplateProvider) {
-	$urlRouterProvider.otherwise('/login');
+shelters.config(function ($stateProvider, TemplateProvider) {
 	var Template = TemplateProvider.$get();
 
 	$stateProvider
@@ -23,4 +19,4 @@ shelters.config(function ($stateProvider, $urlRouterProvider, TemplateProvider) 
 		});
 });
 
-module.export = shelters;
+module.exports = shelters;

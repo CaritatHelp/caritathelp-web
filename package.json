@@ -82,7 +82,8 @@
       ],
       "linebreak-style": 0,
       "xo/filename-case": 0,
-      "max-params": 0
+      "max-params": 0,
+      "camelcase": 0
     }
   }
 }

@@ -1,15 +1,10 @@
 'use strict';
 
 var inbox = require('angular').module('caritathelp.inbox', [
-	'ui.router',
 	'caritathelp.service.template'
 ]);
 
-require('../services');
-require('../directives');
-
-inbox.config(function ($stateProvider, $urlRouterProvider, TemplateProvider) {
-	$urlRouterProvider.otherwise('/login');
+inbox.config(function ($stateProvider, TemplateProvider) {
 	var Template = TemplateProvider.$get();
 
 	$stateProvider
@@ -22,5 +17,5 @@ inbox.config(function ($stateProvider, $urlRouterProvider, TemplateProvider) {
 		});
 });
 
-module.export = inbox;
+module.exports = inbox;
 

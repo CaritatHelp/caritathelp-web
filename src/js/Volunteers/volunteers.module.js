@@ -1,16 +1,24 @@
 'use strict';
 
-require('../Providers/Template');
-require('../components/calendar');
-require('../components/user_summary');
+require('../Components/Timeline/Timeline');
+require('../Components/UserSummary');
+require('../Components/UserActions');
+require('../Components/Calendar');
+require('../Components/Lists/Assos');
+require('../Components/Lists/Friends');
+require('../Modules/CompareTo');
 
 var volunteers = require('angular').module('caritathelp.volunteers', [
-	'ui.router',
-	'caritathelp.service.template'
+	'caritathelp.component.timeline',
+	'caritathelp.component.user_summary',
+	'caritathelp.component.user_actions',
+	'caritathelp.component.calendar',
+	'caritathelp.component.list.assos',
+	'caritathelp.component.list.friends',
+	'caritathelp.validator.compare_to'
 ]);
 
-
-volunteers.config(function ($stateProvider, $urlRouterProvider, TemplateProvider) {
+volunteers.config(function ($stateProvider, TemplateProvider) {
 	var Template = TemplateProvider.$get();
 
 	$stateProvider
@@ -46,7 +54,7 @@ volunteers.config(function ($stateProvider, $urlRouterProvider, TemplateProvider
 		.state('profil.settings', {
 			url: '/parametres',
 			templateUrl: Template.view('Volunteers/settings'),
-			controller: require('./Settings/settings.controller'),
+			controller: require('./settings.controller'),
 			controllerAs: 'settings',
 			abstract: true,
 			authenticate: true
@@ -69,4 +77,4 @@ volunteers.config(function ($stateProvider, $urlRouterProvider, TemplateProvider
 	;
 });
 
-module.export = volunteers;
+module.exports = volunteers;

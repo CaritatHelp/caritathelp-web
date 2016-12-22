@@ -1,0 +1,76 @@
+.ch-grid_col.--one-third_from-tablet
+	.card.ch-sidenav
+		h3.ch-sidenav_title.ch-text.--kilo.--bold Calendrier
+		a.ch-sidenav_link(
+			ng-if="calendar.type == 'volunteer'",
+			ng-class="{active:calendar.isSet(1)}",
+			ng-click="calendar.setTab(1)"
+			).
+			#[i.fa.fa-calendar-check-o]
+			Evènements en cours
+		a.ch-sidenav_link(
+			ng-if="calendar.type != 'volunteer' || calendar.isCurrent",
+			ng-class="{active:calendar.isSet(2)}",
+			ng-click="calendar.setTab(2)"
+			).
+			#[i.fa.fa-calendar]
+			Tous les évènements
+		a.ch-sidenav_link(
+			ng-if="calendar.type == 'association' && calendar.rights == 'edit'",
+			ng-class="{active:calendar.isSet(3)}",
+			ng-click="calendar.setTab(3)"
+			).
+			#[i.fa.fa-calendar-plus-o]
+			Créer un évenement
+.ch-grid_col.--two-thirds_from-tablet
+	.ch-calendar.card(ng-show="calendar.loaded")
+		//-Affichage de l'ensemble des évenements auxquels l'utilisateur peut participer
+		.calendar--all(ng-show="calendar.isSet(2)")
+			h2.ch-text.--mega Tous les évènements
+			//-Affichage d'un évenement
+			.card.ch-event(ng-repeat="event in calendar.events")
+				header
+					.ch-event_title.ch-text.--bold {{event.title}}
+					.ch-event_host.ch-text.--secondary Organisé par <a ui-sref="association.home({id:{{event.assoc_id}}})">{{event.assoc_name}}</a>
+				section.ch-text.
+					Du {{event.begin}} au {{event.end}}<br>
+					Lieu: {{event.place}}<br>
+					{{event.nb_guest}} participants, dont <strong>{{event.nb_friends_members}}</strong> amis
+				footer
+					.ch-event_status(ng-if="event.rights == 'admin'") Vous êtes administrateur de cet évènement
+					.ch-event_status(ng-if="event.rights == 'host'") Vous êtes le créateur de cet évènement
+					.ch-event_status(ng-if="event.rights == 'member'") Vous participez à cet évènement
+					.ch-event_status(ng-if="!event.rights") Vous ne participez pas à cet évènement
+					a.ch-btn.--secondary(ui-sref="event.home({id:{{event.id}}})").
+						#[.fa.fa-info-circle]
+						Plus d'informations
+			.alert.alert-info(ng-if="!calendar.events.length") Aucun évènement organisé actuellement.
+
+		//- Evenements auxquels l'utilisateur participer
+		.calendar--joined(ng-if="calendar.type == 'volunteer'", ng-show="calendar.isSet(1)")
+			h2.ch-text.--mega Participation
+			//-Affichage d'un évenement (même que le précédent)
+			.card.ch-event(ng-repeat="event in calendar.joined")
+				header
+					.ch-event_title.ch-text.--bold {{event.title}}
+					.ch-event_host.ch-text.--secondary Organisé par <a ui-sref="association.home({id:{{event.assoc_id}}})">{{event.assoc_name}}</a>
+				section.
+					Du {{event.begin}} au {{event.end}}<br>
+					Lieu: {{event.place}}<br>
+					{{event.nb_guest}} participants, dont <strong>{{event.nb_friends_members}}</strong> amis
+				footer
+					.ch-event_status(ng-if="event.rights == 'admin'") Vous êtes administrateur de cet évènement
+					.ch-event_status(ng-if="event.rights == 'host'") Vous êtes le créateur de cet évènement
+					.ch-event_status(ng-if="event.rights == 'member'") Vous participez à cet évènement
+					.ch-event_status(ng-if="!event.rights") Vous ne participez pas à cet évènement
+					a.ch-btn.--secondary(ui-sref="event.home({id:{{event.id}}})").
+						#[.fa.fa-info-circle]
+						Plus d'informations
+			.alert.alert-info(ng-if="!calendar.joined.length") Vous ne participez à aucun évènement actuellement.
+		//- Creation d'un évenement
+		.calendar--create(ng-if="calendar.type == 'association' && calendar.rights == 'edit'", ng-show="calendar.isSet(3)")
+			create-event(asso="calendar.id")
+
+	.calendar--loader(ng-show="!calendar.loaded")
+		i.fa.fa-spin.fa-refresh
+		.loader--info Chargement du calendrier

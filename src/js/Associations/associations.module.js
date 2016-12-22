@@ -1,16 +1,16 @@
 'use strict';
 
+require('../Components/Timeline/Timeline');
+require('../Components/Calendar');
+require('../Components/UserSummary');
+
 var associations = require('angular').module('caritathelp.associations', [
-	'ui.router',
-	'caritathelp.service.template'
+	'caritathelp.component.user_summary',
+	'caritathelp.component.timeline',
+	'caritathelp.component.calendar'
 ]);
 
-require('../Providers/Template');
-require('../services');
-require('../components/calendar');
-
-associations.config(function ($stateProvider, $urlRouterProvider, TemplateProvider) {
-	$urlRouterProvider.otherwise('/login');
+associations.config(function ($stateProvider, TemplateProvider) {
 	var Template = TemplateProvider.$get();
 
 	$stateProvider
@@ -23,14 +23,14 @@ associations.config(function ($stateProvider, $urlRouterProvider, TemplateProvid
 		.state('associations.directory', {
 			url: '',
 			templateUrl: Template.partial('Associations/directory'),
-			controller: require('./Modules/directory.controller'),
+			controller: require('./directory.controller'),
 			controllerAs: 'directory',
 			authenticate: true
 		})
 		.state('associations.create', {
 			url: '/creer',
 			templateUrl: Template.partial('Associations/create'),
-			controller: require('./Modules/creation.controller'),
+			controller: require('./creation.controller'),
 			controllerAS: 'create',
 			authenticate: true
 		})
@@ -62,7 +62,7 @@ associations.config(function ($stateProvider, $urlRouterProvider, TemplateProvid
 		.state('association.settings', {
 			url: '/parametres',
 			templateUrl: Template.view('Associations/settings'),
-			controller: require('./Settings/settings.controller'),
+			controller: require('./settings.controller'),
 			controllerAs: 'settings',
 			abstract: true,
 			authenticate: true
@@ -94,5 +94,5 @@ associations.config(function ($stateProvider, $urlRouterProvider, TemplateProvid
 		});
 });
 
-module.export = associations;
+module.exports = associations;
 

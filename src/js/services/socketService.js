@@ -7,7 +7,7 @@ module.exports = ['$websocket', 'dataService', '_', function ($websocket, dataSe
 	ws.onOpen(function () {
 		ws.send({
 			token: 'token',
-			user_uid: headers.uid /* eslint camelcase: "off" */
+			user_uid: headers.uid
 		});
 	});
 

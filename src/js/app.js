@@ -63,10 +63,10 @@ app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProv
 	localStorageServiceProvider.setPrefix('caritathelp').setNotify(true, true);
 	var Template = TemplateProvider.$get();
 
-	$urlRouterProvider.otherwise('/login');
+	$urlRouterProvider.otherwise('/connexion');
 	$stateProvider
 		.state('login', {
-			url: '/login',
+			url: '/connexion',
 			templateUrl: Template.view('login')
 		})
 		.state('home', {
@@ -75,7 +75,7 @@ app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProv
 			authenticate: true
 		})
 		.state('register', {
-			url: '/register',
+			url: '/inscription',
 			templateUrl: Template.view('register')
 		})
 	;

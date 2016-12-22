@@ -8,28 +8,13 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 	var modal = ModalService;
 	vm.notifications = [];
 
-	//WEBSOCKET !!
-	var ws = $websocket('ws://ws.staging.caritathelp.me');
-	var headers = dataService.getHeaders();
-	ws.onOpen(function () {
-		ws.send({token: 'token', user_uid: headers.uid}); /* eslint camelcase: "off" */
+	$scope.$watch(function () {return usc.user();}, function (value) {
+		if (value) {
+			vm.user = usc.user();
+			getNotifications();
+			connectWebsocket();
+		}
 	});
-	ws.onMessage(function (response) {
-		var message = JSON.parse(response.data);
-		console.log('Notif!', message);
-		vm.notifications.push(message);
-	});
-
-	$scope.$watch(function () {return usc.user();}, function () {vm.user = usc.user();}, true);
-
-	//Get previous notifcations
-	DataVolunteers.notifications()
-		.then(function (response) {
-			vm.notifications = response.data.response;
-			console.table(vm.notifications);
-		}, function () {
-			// vm.logout();
-		});
 
 	vm.logout = function () {
 		dsc.logout();
@@ -71,4 +56,26 @@ module.exports = ['$scope', '$state', 'dataService', 'userService', 'ModalServic
 			}
 		});
 	};
+
+	function connectWebsocket() {
+		var ws = $websocket('ws://ws.staging.caritathelp.me');
+		var headers = dataService.getHeaders();
+		ws.onOpen(function () {
+			ws.send({token: 'token', user_uid: headers.uid}); /* eslint camelcase: "off" */
+			console.log('websocket connected');
+		});
+		ws.onMessage(function (response) {
+			var message = JSON.parse(response.data);
+			console.log('Notif!', message);
+			vm.notifications.push(message);
+		});
+	}
+
+	function getNotifications() {
+		DataVolunteers.notifications()
+			.then(function (response) {
+				vm.notifications = response.data.response;
+				console.table(vm.notifications);
+			});
+	}
 }];

@@ -1,18 +1,17 @@
 'use strict';
 
 require('../Providers/Template');
+require('../components/calendar');
+require('../components/user_summary');
 
 var volunteers = require('angular').module('caritathelp.volunteers', [
 	'ui.router',
 	'caritathelp.service.template'
 ]);
 
-require('../services');
-require('../directives');
 
 volunteers.config(function ($stateProvider, $urlRouterProvider, TemplateProvider) {
 	var Template = TemplateProvider.$get();
-	$urlRouterProvider.otherwise('/login');
 
 	$stateProvider
 		.state('profil', {
@@ -70,4 +69,4 @@ volunteers.config(function ($stateProvider, $urlRouterProvider, TemplateProvider
 	;
 });
 
-module.export = volunteers;
+module.exports = volunteers;

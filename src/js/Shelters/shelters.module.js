@@ -23,4 +23,4 @@ shelters.config(function ($stateProvider, $urlRouterProvider, TemplateProvider) 
 		});
 });
 
-module.export = shelters;
+module.exports = shelters;

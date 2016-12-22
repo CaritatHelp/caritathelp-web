@@ -7,7 +7,7 @@ var associations = require('angular').module('caritathelp.associations', [
 
 require('../Providers/Template');
 require('../services');
-require('../directives');
+require('../components/calendar');
 
 associations.config(function ($stateProvider, $urlRouterProvider, TemplateProvider) {
 	$urlRouterProvider.otherwise('/login');
@@ -94,5 +94,5 @@ associations.config(function ($stateProvider, $urlRouterProvider, TemplateProvid
 		});
 });
 
-module.export = associations;
+module.exports = associations;
 

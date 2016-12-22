@@ -22,6 +22,7 @@ var app = angular.module('caritathelp', [
 	'ui.bootstrap',
 	'ui.router',
 	'naif.base64',
+	'caritathelp.authentication',
 	'caritathelp.volunteers',
 	'caritathelp.associations',
 	'caritathelp.events',
@@ -34,57 +35,41 @@ app.factory('_', ['$window', function ($window) {
 }]);
 app.constant('API_URL', 'http://staging.caritathelp.me/');
 
+require('./Authentication/authentication.module');
+require('./Volunteers/volunteers.module');
 require('./Associations/associations.module');
 require('./Events/events.module');
 require('./Shelters/shelters.module');
-require('./Volunteers/volunteers.module');
 require('./Inbox/inbox.module');
 require('./Search/search.module');
 require('./Providers/Template');
+
 require('./services');
-require('./directives');
 
 // Composants réutilisables
-require('./components/login_box');
-require('./components/register_box');
-require('./components/navbar');
-require('./components/user_summary');
-require('./components/user_actions');
-require('./components/friends_list');
-require('./components/assos_list');
-require('./components/timeline');
-require('./components/news');
-require('./components/comment');
-require('./components/calendar');
-require('./components/event_create');
-require('./components/shelters_list');
+// require('./components/login_box');
+// require('./components/register_box');
+// require('./components/navbar');
+// require('./components/user_summary');
+// require('./components/timeline');
 
-app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProvider, TemplateProvider) {
+// require('./components/user_actions');
+// require('./components/friends_list');
+// require('./components/assos_list');
+// require('./components/news');
+// require('./components/comment');
+// require('./components/calendar');
+// require('./components/event_create');
+// require('./components/shelters_list');
+
+app.config(function (localStorageServiceProvider) {
 	localStorageServiceProvider.setPrefix('caritathelp').setNotify(true, true);
-	var Template = TemplateProvider.$get();
-
-	$urlRouterProvider.otherwise('/connexion');
-	$stateProvider
-		.state('login', {
-			url: '/connexion',
-			templateUrl: Template.view('login')
-		})
-		.state('home', {
-			url: '/home',
-			templateUrl: Template.view('home'),
-			authenticate: true
-		})
-		.state('register', {
-			url: '/inscription',
-			templateUrl: Template.view('register')
-		})
-	;
 });
 
 app.run(function ($rootScope, $state, userService) {
 	$rootScope.$on('$stateChangeStart', function (event, toState) {
 		if (toState.authenticate && !userService.user()) {
-			$state.transitionTo('login');
+			$state.transitionTo('connexion');
 			event.preventDefault();
 		} else if (!toState.authenticate && userService.user()) {
 			$state.transitionTo('home');

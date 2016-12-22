@@ -33,4 +33,4 @@ function ($log, localStorageService, dataService, DataVolunteers, _) {
 	return user;
 }]);
 
-module.export = user;
+module.exports = user;

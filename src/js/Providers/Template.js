@@ -15,6 +15,10 @@ template.provider('Template', [function TemplateProvider() {
 
 		modal: function (name) {
 			return 'modal/' + name + '.html';
+		},
+
+		component: function (name) {
+			return 'component/' + name + '.html';
 		}
 	};
 
@@ -23,4 +27,4 @@ template.provider('Template', [function TemplateProvider() {
 	};
 }]);
 
-module.export = template;
+module.exports = template;

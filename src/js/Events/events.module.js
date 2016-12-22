@@ -63,5 +63,5 @@ events.config(function ($stateProvider, $urlRouterProvider, TemplateProvider) {
 		});
 });
 
-module.export = events;
+module.exports = events;
 

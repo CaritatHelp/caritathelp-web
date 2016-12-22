@@ -94,7 +94,7 @@ module.exports = ['$http', 'API_URL', function ($http, API_URL) {
 	};
 	_this.register = function (mail, password, firstname, lastname, birthday, gender) {
 		var parameters = {
-			mail: mail,
+			email: mail,
 			password: password,
 			firstname: firstname,
 			lastname: lastname,

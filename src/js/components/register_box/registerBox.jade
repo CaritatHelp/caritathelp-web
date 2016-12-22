@@ -7,7 +7,7 @@
 		ng-submit="registerForm.$valid && register.register()"
 		)
 		//- Messages d'erreur
-		.alert.alert-danger(
+		.ch-form_message.--error(
 			role="alert",
 			ng-show="register.error",
 			ng-bind-html="register.errorMessage")
@@ -114,16 +114,16 @@
 			.ch-form_input-group
 				span.ch-form_addition.--prefix
 					i.fa.fa-calendar
-				select#selectDay.ch-form_select(name="selectDay", ng-model="register.day", required="")
+				select#selectDay.ch-form_select(name="selectDay", ng-model="register.day", required="", style="width:33%")
 					option(disabled="", selected="", hidden="", value="") Jour
 					- var i = 1
 					while i < 32
 						option(value="#{i}")= i++
-				select#selectMonth.ch-form_select(name="selectMonth", ng-model="register.month", required="")
+				select#selectMonth.ch-form_select(name="selectMonth", ng-model="register.month", required="", style="width:33%")
 					option(disabled="", selected="", hidden="", value="") Mois
 					each month, i in months
 						option(value="#{(i+1)}") #{month}
-				select#selectYear.ch-form_select(name="selectYear", ng-model="register.year", required="")
+				select#selectYear.ch-form_select(name="selectYear", ng-model="register.year", required="", style="width:33%")
 					option(disabled="", selected="", hidden="", value="") Année
 					- var i = 2015
 					while i > 1904
@@ -134,10 +134,10 @@
 		//- Sexe
 		fieldset#userGender.ch-form_row
 			label.ch-form_label(for="inputGender") Sexe
-			.ch-form_button#inputGenderMan
+			.ch-form_button#inputGenderMan(style="width:40%")
 				input.ch-form_button-input(type="radio", name="radioGender", id="radioMan", value="homme", ng-model="register.gender", required="")
 				label.ch-form_button-element(for="radioMan") Homme
-			.ch-form_button#inputGenderWoman
+			.ch-form_button#inputGenderWoman(style="width:40%")
 				input.ch-form_button-input(type="radio", name="radioGender", id="radioWoman", value="femme", ng-model="register.gender")
 				label.ch-form_button-element(for="radioWoman") Femme
 

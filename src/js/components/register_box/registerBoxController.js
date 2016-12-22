@@ -51,12 +51,12 @@ module.exports = ['dataService', 'userService', '$state', function (dataService,
 		dsc.register(_this.mail, _this.password, _this.firstname, _this.lastname, _this.birthday, _this.gender)
 			.then(function (response) {
 				if (response.data.status === 200) {
-					usc.connect(data.response);
+					usc.connect(response.data.response);
 					$state.transitionTo('home');
 				} else {
 					//Erreur serveur
 					_this.error = true;
-					_this.errorMessage = data.message;
+					_this.errorMessage = response.data.message;
 				}
 			}, function () {
 				//erreur client

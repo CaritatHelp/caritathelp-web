@@ -40,7 +40,7 @@
 					.ch-event_status(ng-if="event.rights == 'admin'") Vous êtes administrateur de cet évènement
 					.ch-event_status(ng-if="event.rights == 'host'") Vous êtes le créateur de cet évènement
 					.ch-event_status(ng-if="event.rights == 'member'") Vous participez à cet évènement
-					.ch-event_status(ng-if="event.rights") Vous ne participez pas à cet évènement
+					.ch-event_status(ng-if="!event.rights") Vous ne participez pas à cet évènement
 					a.ch-btn.--secondary(ui-sref="event.home({id:{{event.id}}})").
 						#[.fa.fa-info-circle]
 						Plus d'informations
@@ -62,7 +62,7 @@
 					.ch-event_status(ng-if="event.rights == 'admin'") Vous êtes administrateur de cet évènement
 					.ch-event_status(ng-if="event.rights == 'host'") Vous êtes le créateur de cet évènement
 					.ch-event_status(ng-if="event.rights == 'member'") Vous participez à cet évènement
-					.ch-event_status(ng-if="event.rights") Vous ne participez pas à cet évènement
+					.ch-event_status(ng-if="!event.rights") Vous ne participez pas à cet évènement
 					a.ch-btn.--secondary(ui-sref="event.home({id:{{event.id}}})").
 						#[.fa.fa-info-circle]
 						Plus d'informations

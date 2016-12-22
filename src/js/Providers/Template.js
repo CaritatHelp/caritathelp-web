@@ -2,7 +2,7 @@
 
 var template = require('angular').module('caritathelp.service.template', []);
 
-template.provider('Template', [function TemplateProvider() {
+template.provider('Template', [function () {
 	var provider = {
 
 		view: function (name) {

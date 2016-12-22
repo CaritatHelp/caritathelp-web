@@ -57,7 +57,7 @@ module.exports = ['dataService', function (dataService) {
 		return data.get('associations/' + id + '/news');
 	};
 
-	//Membership
+	// Membership
 	this.join = function (id) {
 		return data.post('membership/join', {assoc_id: id});
 	};

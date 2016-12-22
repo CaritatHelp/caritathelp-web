@@ -33,7 +33,6 @@ module.exports = ['dataService', function (dataService) {
 		return data.get('news/' + id + '/comments');
 	};
 
-
 	this.postComment = function (news_id, content) {
 		var parameters = {new_id: news_id, content: content};
 		return data.post('comments', parameters);

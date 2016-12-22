@@ -1,3 +1,4 @@
+/* eslint-disable */
 describe('[LoginController]', function () {
 	beforeEach(module('caritathelp'));
 

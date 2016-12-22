@@ -52,7 +52,7 @@ module.exports = ['dataService', function (dataService) {
 		return data.remove('events/' + id);
 	};
 
-	//Guests
+	// Guests
 	this.join = function (id) {
 		return data.post('guests/join', {event_id: id});
 	};

@@ -1,3 +1,4 @@
+/* eslint-disable */
 describe('[RegisterController]', function () {
 	beforeEach(module('caritathelp'));
 

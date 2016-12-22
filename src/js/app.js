@@ -28,13 +28,15 @@ var app = angular.module('caritathelp', [
 	'caritathelp.associations',
 	'caritathelp.events',
 	'caritathelp.shelters',
-	'caritathelp.inbox'
+	'caritathelp.inbox',
+	'caritathelp.search'
 ]);
 app.factory('_', ['$window', function ($window) {
 	return $window._;
 }]);
 app.constant('API_URL', 'http://staging.caritathelp.me/');
 
+require('./Providers/Template');
 require('./Authentication/authentication.module');
 require('./Volunteers/volunteers.module');
 require('./Associations/associations.module');
@@ -42,7 +44,6 @@ require('./Events/events.module');
 require('./Shelters/shelters.module');
 require('./Inbox/inbox.module');
 require('./Search/search.module');
-require('./Providers/Template');
 
 require('./services');
 

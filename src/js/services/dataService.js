@@ -1,6 +1,5 @@
 'use strict';
 
-/* max-lines: "off" */
 module.exports = ['$http', 'API_URL', function ($http, API_URL) {
 	var _this = {};
 	var headers = {};
@@ -74,14 +73,14 @@ module.exports = ['$http', 'API_URL', function ($http, API_URL) {
 		return headers;
 	};
 
-/*Implémenté:
+/* Implémenté:
 *
 * /assocs /comments /events /friendship /guests /login /logout /news /volunteers
 *  /messages /pictures /shelters
 *
 */
 
-//Login - Logout - Register (POSTVolunteer)
+// Login - Logout - Register (POSTVolunteer)
 	_this.login = function (mail, password) {
 		return $http.post(API_URL + 'auth/sign_in', {
 			email: mail,
@@ -104,12 +103,12 @@ module.exports = ['$http', 'API_URL', function ($http, API_URL) {
 		return $http.post(API_URL + 'auth', parameters);
 	};
 
-//Recherche
+// Recherche
 	_this.search = function (research) {
 		return get('search', {research: research});
 	};
 
-//Pictures
+// Pictures
 	_this.postPicture = function (file, filename, original) {
 		return $http({
 			url: API_URL + 'pictures',

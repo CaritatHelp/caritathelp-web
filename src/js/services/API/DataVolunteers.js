@@ -45,7 +45,7 @@ module.exports = ['dataService', function (dataService) {
 		return data.get('volunteers/friend_requests');
 	};
 
-	//Friendship
+	// Friendship
 	this.add = function (id) {
 		return data.post('friendship/add', {volunteer_id: id});
 	};
@@ -62,5 +62,5 @@ module.exports = ['dataService', function (dataService) {
 
 	this.read = function (id) {
 		return data.put('notifications/' + id + '/read');
-	}
+	};
 }];

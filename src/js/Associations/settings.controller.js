@@ -1,17 +1,17 @@
 'use strict';
 
 module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations', 'DataShelters',
-function ($state, $stateParams, dataService, DataAssociations, DataShelters) {
-	var vm = this;
-	var dsc = dataService;
-	var associations = DataAssociations;
-	var shelters = DataShelters;
-	vm.apiurl = dataService.getApiUrl();
+	function ($state, $stateParams, dataService, DataAssociations, DataShelters) {
+		var vm = this;
+		var dsc = dataService;
+		var associations = DataAssociations;
+		var shelters = DataShelters;
+		vm.apiurl = dataService.getApiUrl();
 
-	vm.tab = 1;
-	vm.adding = false;
+		vm.tab = 1;
+		vm.adding = false;
 
-	associations.get($stateParams.id)
+		associations.get($stateParams.id)
 		.then(function (response) {
 			vm.asso = response.data.response;
 			associations.members($stateParams.id)
@@ -32,9 +32,9 @@ function ($state, $stateParams, dataService, DataAssociations, DataShelters) {
 				});
 		});
 
-	vm.updateAsso = function () {
-		vm.updating = true;
-		associations.update(vm.asso.id, vm.asso.name, vm.asso.description, vm.asso.birthday, vm.asso.city, null, null)
+		vm.updateAsso = function () {
+			vm.updating = true;
+			associations.update(vm.asso.id, vm.asso.name, vm.asso.description, vm.asso.birthday, vm.asso.city, null, null)
 			.then(function () {
 				vm.success = 'Votre association a bien été modifiée';
 			}, function (response) {
@@ -47,11 +47,11 @@ function ($state, $stateParams, dataService, DataAssociations, DataShelters) {
 					});
 				vm.updating = false;
 			});
-	};
+		};
 
-	vm.updatePicture = function () {
-		vm.updating = true;
-		dsc.postPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename, true)
+		vm.updatePicture = function () {
+			vm.updating = true;
+			dsc.postPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename, true)
 			.then(function () {
 				vm.success = 'L\'image a bien été mise à jour';
 				associations.mainPicture(vm.asso.id)
@@ -64,17 +64,17 @@ function ($state, $stateParams, dataService, DataAssociations, DataShelters) {
 			.finally(function () {
 				vm.updating = false;
 			});
-	};
+		};
 
-	vm.deleteAsso = function () {
-		associations.delete(vm.asso.id)
+		vm.deleteAsso = function () {
+			associations.delete(vm.asso.id)
 			.then(function () {
 				$state.transitionTo('home');
 			});
-	};
+		};
 
-	vm.promoteUser = function (userId) {
-		associations.rights(userId, vm.asso.id, 'admin')
+		vm.promoteUser = function (userId) {
+			associations.rights(userId, vm.asso.id, 'admin')
 			.then(function () {
 				vm.success = 'Le membre a bien été promu';
 			}, function (response) {
@@ -86,10 +86,10 @@ function ($state, $stateParams, dataService, DataAssociations, DataShelters) {
 						vm.asso.members = response.data.response;
 					});
 			});
-	};
+		};
 
-	vm.demoteUser = function (userId) {
-		associations.rights(userId, vm.asso.id, 'member')
+		vm.demoteUser = function (userId) {
+			associations.rights(userId, vm.asso.id, 'member')
 			.then(function () {
 				vm.success = 'Le membre a bien été rétrogradé';
 			}, function (response) {
@@ -101,10 +101,10 @@ function ($state, $stateParams, dataService, DataAssociations, DataShelters) {
 						vm.asso.members = response.data.response;
 					});
 			});
-	};
+		};
 
-	vm.kickUser = function (userId) {
-		associations.kick(userId, vm.asso.id)
+		vm.kickUser = function (userId) {
+			associations.kick(userId, vm.asso.id)
 			.then(function () {
 				vm.success = 'Le membre a bien été expulsé';
 			}, function (response) {
@@ -116,10 +116,10 @@ function ($state, $stateParams, dataService, DataAssociations, DataShelters) {
 						vm.asso.members = response.data.response;
 					});
 			});
-	};
+		};
 
-	vm.replyDemand = function (notifId, answer, index) {
-		associations.replyDemand(notifId, answer)
+		vm.replyDemand = function (notifId, answer, index) {
+			associations.replyDemand(notifId, answer)
 			.then(function () {
 				vm.asso.waiting.splice(index, 1);
 				vm.success = 'La demande a bien été traitée';
@@ -132,11 +132,11 @@ function ($state, $stateParams, dataService, DataAssociations, DataShelters) {
 						vm.asso.members = response.data.response;
 					});
 			});
-	};
+		};
 
-	vm.addShelter = function () {
-		vm.creating = true;
-		shelters.create(vm.asso.id, vm.shelter.name, vm.shelter.address, vm.shelter.zipcode, vm.shelter.city, vm.shelter.total_places, vm.shelter.free_places, vm.shelter.description)
+		vm.addShelter = function () {
+			vm.creating = true;
+			shelters.create(vm.asso.id, vm.shelter.name, vm.shelter.address, vm.shelter.zipcode, vm.shelter.city, vm.shelter.total_places, vm.shelter.free_places, vm.shelter.description)
 			.then(function (response) {
 				$state.transitionTo('shelter', {id: response.data.response.id});
 			}, function (response) {
@@ -146,14 +146,14 @@ function ($state, $stateParams, dataService, DataAssociations, DataShelters) {
 				vm.creating = false;
 				vm.adding = false;
 			});
-	};
+		};
 
-	vm.setTab = function (activeTab) {
-		vm.success = false;
-		vm.error = false;
-		vm.tab = activeTab;
-	};
-	vm.isSet = function (tab) {
-		return vm.tab === tab;
-	};
-}];
+		vm.setTab = function (activeTab) {
+			vm.success = false;
+			vm.error = false;
+			vm.tab = activeTab;
+		};
+		vm.isSet = function (tab) {
+			return vm.tab === tab;
+		};
+	}];

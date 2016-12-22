@@ -10,7 +10,7 @@ module.exports = ['localStorageService', 'dataService', 'DataVolunteers', functi
 		dsc.setHeaders(ls.get('headers'));
 	}
 
-	//Sauvegarde des données de l'utilisateur
+	// Sauvegarde des données de l'utilisateur
 	function fillUser(datas) {
 		user = {};
 		user.id = datas.id;
@@ -34,13 +34,13 @@ module.exports = ['localStorageService', 'dataService', 'DataVolunteers', functi
 			return (user) ? user : false;
 		},
 		connect: function (datas, headers) {
-			//Sauvegarde du token
+			// Sauvegarde du token
 			dsc.setHeaders(headers);
 			ls.set('headers', headers);
 
-			//sauvegarde de l'user
+			// sauvegarde de l'user
 			user = fillUser(datas);
-			//Récupération des assos et amis de l'user
+			// Récupération des assos et amis de l'user
 			volunteers.friends(datas.id, datas.token)
 				.then(function (response) {
 					user.friends = response.data.response;
@@ -57,7 +57,7 @@ module.exports = ['localStorageService', 'dataService', 'DataVolunteers', functi
 					ls.set('currentUser', user);
 				});
 
-			//Variable connected pour les checks (pas forcément utile mais osef)
+			// Variable connected pour les checks (pas forcément utile mais osef)
 			ls.set('connected', true);
 			console.log('User connected: ' + headers.uid);
 		},
@@ -65,7 +65,7 @@ module.exports = ['localStorageService', 'dataService', 'DataVolunteers', functi
 			user = null;
 			dsc.setHeaders(null);
 
-			//On retire les cookies du localhost
+			// On retire les cookies du localhost
 			ls.remove('headers');
 			ls.remove('currentUser');
 			ls.remove('connected');

@@ -9,7 +9,7 @@ module.exports = ['dataService', function (dataService) {
 		return data.get('chatrooms/' + id);
 	};
 	this.create = function (volunteers) {
-		return data.post('chatrooms', {'volunteers': volunteers});
+		return data.post('chatrooms', {volunteers: volunteers});
 	};
 	this.members = function (id) {
 		return data.get('chatrooms/' + id + '/volunteers');
@@ -26,5 +26,4 @@ module.exports = ['dataService', function (dataService) {
 	this.leave = function (id) {
 		return data.remove('chatrooms/' + id + '/leave');
 	};
-
 }];

@@ -1,35 +1,35 @@
 'use strict';
 module.exports = ['dataService', 'userService', 'DataVolunteers', 'DataAssociations', 'DataEvents',
-function (dataService, userService, DataVolunteers, DataAssociations, DataEvents) {
-	var vm = this;
-	var usc = userService;
-	var dsc = dataService;
-	var volunteers = DataVolunteers;
-	var associations = DataAssociations;
-	var events = DataEvents;
+	function (dataService, userService, DataVolunteers, DataAssociations, DataEvents) {
+		var vm = this;
+		var usc = userService;
+		var dsc = dataService;
+		var volunteers = DataVolunteers;
+		var associations = DataAssociations;
+		var events = DataEvents;
 
-	vm.user = usc.user();
-	vm.tab = 1;
-	vm.invited = {};
-	vm.apiurl = volunteers.apiurl;
+		vm.user = usc.user();
+		vm.tab = 1;
+		vm.invited = {};
+		vm.apiurl = volunteers.apiurl;
 
-	associations.invites()
+		associations.invites()
 		.then(function (response) {
 			vm.invited.assos = response.data.response;
 		});
-	events.invites()
+		events.invites()
 		.then(function (response) {
 			vm.invited.events = response.data.response;
 		});
-	volunteers.pending()
+		volunteers.pending()
 		.then(function (response) {
 			vm.invited.friends = response.data.response;
 		});
 
-	vm.updateVolunteer = function () {
-		//mail, password, firstname, lastname, birthday, gender
-		vm.updating = true;
-		volunteers.update(vm.user.mail, vm.password, vm.user.firstname, vm.user.lastname, null)
+		vm.updateVolunteer = function () {
+		// mail, password, firstname, lastname, birthday, gender
+			vm.updating = true;
+			volunteers.update(vm.user.mail, vm.password, vm.user.firstname, vm.user.lastname, null)
 			.then(function () {
 				vm.success = true;
 				vm.successMessage = 'Votre profil a bien été modifié';
@@ -40,11 +40,11 @@ function (dataService, userService, DataVolunteers, DataAssociations, DataEvents
 			.finally(function () {
 				vm.updating = false;
 			});
-	};
+		};
 
-	vm.updatePicture = function () {
-		vm.updating = true;
-		dsc.postPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename)
+		vm.updatePicture = function () {
+			vm.updating = true;
+			dsc.postPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename)
 			.then(function () {
 				volunteers.mainPicture(vm.user.id)
 					.then(function (response) {
@@ -55,10 +55,10 @@ function (dataService, userService, DataVolunteers, DataAssociations, DataEvents
 			.finally(function () {
 				vm.updating = false;
 			});
-	};
+		};
 
-	vm.answerAsso = function (notifId, acceptance, index) {
-		associations.replyInvite(notifId, acceptance)
+		vm.answerAsso = function (notifId, acceptance, index) {
+			associations.replyInvite(notifId, acceptance)
 			.then(function () {
 				vm.invited.assos.splice(index, 1);
 				vm.success = true;
@@ -66,10 +66,10 @@ function (dataService, userService, DataVolunteers, DataAssociations, DataEvents
 			}, function (response) {
 				vm.error = response.data.message;
 			});
-	};
+		};
 
-	vm.answerEvent = function (notifId, acceptance, index) {
-		events.replyInvite(notifId, acceptance)
+		vm.answerEvent = function (notifId, acceptance, index) {
+			events.replyInvite(notifId, acceptance)
 			.then(function () {
 				vm.invited.events.splice(index, 1);
 				vm.success = true;
@@ -77,10 +77,10 @@ function (dataService, userService, DataVolunteers, DataAssociations, DataEvents
 			}, function (response) {
 				vm.error = response.data.message;
 			});
-	};
+		};
 
-	vm.answerFriend = function (notifId, acceptance, index) {
-		volunteers.reply(notifId, acceptance)
+		vm.answerFriend = function (notifId, acceptance, index) {
+			volunteers.reply(notifId, acceptance)
 			.then(function () {
 				vm.invited.friends.splice(index, 1);
 				vm.success = true;
@@ -88,20 +88,20 @@ function (dataService, userService, DataVolunteers, DataAssociations, DataEvents
 			}, function (response) {
 				vm.error = response.data.message;
 			});
-	};
+		};
 
-	vm.popupBirthdate = {
-		opened: false
-	};
+		vm.popupBirthdate = {
+			opened: false
+		};
 
-	vm.openBirthdate = function () {
-		vm.popupBirthdate.opened = true;
-	};
+		vm.openBirthdate = function () {
+			vm.popupBirthdate.opened = true;
+		};
 
-	vm.setTab = function (activeTab) {
-		vm.tab = activeTab;
-	};
-	vm.isSet = function (tab) {
-		return vm.tab === tab;
-	};
-}];
+		vm.setTab = function (activeTab) {
+			vm.tab = activeTab;
+		};
+		vm.isSet = function (tab) {
+			return vm.tab === tab;
+		};
+	}];

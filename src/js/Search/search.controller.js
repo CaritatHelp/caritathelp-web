@@ -13,7 +13,7 @@ module.exports = ['dataService', '$stateParams', function (dataService, $statePa
 		.then(function (response) {
 			vm.result = response.data.response;
 			vm.loaded = true;
-			if (!vm.result.length) {
+			if (vm.result.length === 0) {
 				vm.error = 'Pas de résultats';
 			}
 		});

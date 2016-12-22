@@ -11,7 +11,7 @@ module.exports = require('angular').module('caritathelp.component.auth.login', [
 			var dsc = dataService;
 			var usc = userService;
 
-			//variables d'erreur locales
+			// variables d'erreur locales
 			vm.error = false;
 			vm.errorMessage = '';
 
@@ -20,7 +20,6 @@ module.exports = require('angular').module('caritathelp.component.auth.login', [
 					return false;
 				}
 				return !(vm.password === undefined || vm.password === '');
-
 			}
 
 			vm.login = function () {
@@ -30,20 +29,20 @@ module.exports = require('angular').module('caritathelp.component.auth.login', [
 					return;
 				}
 				vm.connecting = true;
-				//Requete de login
+				// Requete de login
 				dsc.login(vm.mail, vm.password)
 					.success(function (data, status, headers) {
-						//On remplit le service USC
+						// On remplit le service USC
 						usc.connect(data.response, {
 							'access-token': headers('access-token'),
 							uid: headers('uid'),
 							client: headers('client')
 						});
-						//redirection vers la page d'accueil
+						// redirection vers la page d'accueil
 						$location.path('/home');
 					})
 					.error(function () {
-						//erreur client
+						// erreur client
 						vm.error = 'true';
 						vm.errorMessage = 'Impossible de joindre le serveur, veuillez réessayer dans quelques minutes.';
 						vm.error = 'true';

@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService',
 	function ($state, $stateParams, DataEvents, dataService) {
 

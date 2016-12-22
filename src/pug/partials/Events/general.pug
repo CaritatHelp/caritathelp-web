@@ -1,0 +1,77 @@
+.card
+	h2.ch-text.--mega Paramètres de l'évènement
+	form.ch-form(
+		novalidate="",
+		name="updateForm",
+		ng-submit="updateForm.$valid && settings.updateEvent()"
+		)
+		//- Messages d'erreur
+		.alert.alert-danger(
+			role="alert",
+			ng-show="settings.error",
+			ng-bind-html="settings.errorMessage")
+
+		fieldset.ch-form_row
+			label.ch-form_label(for="inputTitle") Titre
+			input.ch-form_text(
+				type="text",
+				name="inputTitle",
+				placeholder="Titre",
+				ng-model="settings.event.title"
+				)
+
+		fieldset.ch-form_row
+			label.ch-form_label(for="inputDescription") Description
+			textarea.ch-form_text(
+				name="inputDescription",
+				placeholder="Description",
+				ng-model="settings.event.description",
+				)
+
+		fieldset.ch-form_row
+			label.ch-form_label(for="inputLocation") Location
+			input.ch-form_text(
+				type="text",
+				name="inputLocation",
+				placeholder="Location",
+				ng-model="settings.event.place"
+				)
+
+		fieldset.ch-form_row
+			label(for="inputBeginEvent") Début
+			.ch-form_input-group.--button-input
+				input.ch-form_text.--button-input(
+				type="text",
+				ng-model="settings.event.begin",
+				uib-datepicker-popup="dd/MM/yyyy",
+				is-open="create.popupBegin.opened",
+				datepickerOptions="dateOptions",
+				close-text="Fermer"
+				)
+				button.ch-btn.--button-input.--tertiary(
+					type="button",
+					ng-click="create.openBegin()"
+					)
+					i.fa.fa-calendar
+
+		fieldset.ch-form_row
+			label(for="inputEndEvent") Fin
+			.ch-form_input-group.--button-input
+				input.ch-form_text.--button-input(
+					type="text",
+					ng-model="settings.event.end",
+					uib-datepicker-popup="dd/MM/yyyy",
+					is-open="create.popupEnd.opened",
+					datepickerOptions="dateOptions",
+					close-text="Fermer"
+					)
+				button.ch-btn.--button-input.--tertiary(
+					type="button",
+					ng-click="create.openEnd()"
+					)
+					i.fa.fa-calendar
+
+		.pull-right
+			button.ch-btn(type="submit", ng-disabled="settings.updating").
+				#[i.fa.fa-spin.fa-spinner(ng-show="setting.updating")]
+				Enregistrer

@@ -57,7 +57,6 @@ require('./components/news');
 require('./components/comment');
 require('./components/calendar');
 require('./components/event_create');
-require('./components/event_settings');
 require('./components/shelters_list');
 
 app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProvider, TemplateProvider) {

@@ -32,9 +32,33 @@ events.config(function ($stateProvider, $urlRouterProvider, TemplateProvider) {
 			templateUrl: Template.view('Events/guests'),
 			authenticate: true
 		})
+
 		.state('event.settings', {
-			url: '/settings',
+			url: '/parametres',
 			templateUrl: Template.view('Events/settings'),
+			controller: require('./Settings/settings.controller'),
+			controllerAs: 'settings',
+			abstract: true,
+			authenticate: true
+		})
+		.state('event.settings.general', {
+			url: '',
+			templateUrl: Template.partial('Events/general'),
+			authenticate: true
+		})
+		.state('event.settings.picture', {
+			url: '/avatar',
+			templateUrl: Template.partial('Events/picture'),
+			authenticate: true
+		})
+		.state('event.settings.guests', {
+			url: '/participants',
+			templateUrl: Template.partial('Events/guests'),
+			authenticate: true
+		})
+		.state('event.settings.delete', {
+			url: '/suppression',
+			templateUrl: Template.partial('Events/delete'),
 			authenticate: true
 		});
 });

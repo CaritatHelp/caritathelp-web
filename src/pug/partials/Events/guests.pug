@@ -1,0 +1,53 @@
+.card
+	h2.ch-text.--mega Gestion des participants
+	.card
+		h6 Demandes en attente
+		table.table.table-striped.table-max.event--table(ng-if="settings.event.waiting.length")
+			thead
+				tr
+					th Nom
+					th Action
+			tbody
+				tr(ng-repeat="waiter in settings.event.waiting")
+					td
+						a(ui-sref="profil.home({id:{{waiter.id}}})").
+							#[img(ng-src="{{settings.apiurl + waiter.thumb_path}}")]
+							{{waiter.firstname}} {{waiter.lastname}}
+					td
+						btn.ch-btn.btn-success(title="Accepter la demande", ng-click="settings.replyDemand(waiter.notif_id, true, $index)")
+							i.fa.fa-check
+						btn.ch-btn.--fail(title="Refuser la demande", ng-click="settings.replyDemand(waiter.notif_id, false, $index)")
+							i.fa.fa-times
+		.alert.alert-info(ng-if="!settings.event.waiting.length") Aucune demande en attente
+	.card
+		h6 Invitations en cours
+		table.table.table-striped.event--table.table-max(ng-if="settings.event.invited.length")
+			tr(ng-repeat="invite in settings.event.invited")
+				td
+					a(ui-sref="profil.home({id:{{invite.id}}})").
+						#[img(ng-src="{{settings.apiurl + invite.thumb_path}}")]
+						{{invite.firstname}} {{invite.lastname}}
+		.alert.alert-info(ng-if="!settings.event.invited.length") Aucune invitation en attente
+
+	.card
+		h6 Participants
+		table.table.table-striped.table-max.event--table
+			thead
+				tr
+					th Nom
+					th Status
+					th Action
+			tbody
+				tr(ng-repeat="guest in settings.event.guests")
+					td
+						a(ui-sref="profil.home({id:{{guest.id}}})").
+							#[img.ch-avatar(ng-src="{{settings.apiurl + guest.thumb_path}}")]
+							{{guest.firstname}} {{guest.lastname}}
+					td.col-status {{guest.rights}}
+					td
+						button.ch-btn.--secondary(title="Rétrograder l'invité", ng-click="settings.demoteUser(guest.id)", ng-if="guest.rights == 'admin'")
+							i.fa.fa-thumbs-down
+						button.ch-btn.--tertiary(title="Promouvoir en admin", ng-click="settings.promoteUser(guest.id)", ng-if="guest.rights == 'member'")
+							i.fa.fa-thumbs-up
+						button.ch-btn.--fail(title="Expulser l'invité", ng-click="settings.kickUser(guest.id)", ng-if="guest.rights != 'host'")
+							i.fa.fa-times

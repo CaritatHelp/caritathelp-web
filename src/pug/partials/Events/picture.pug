@@ -1,0 +1,23 @@
+.card
+	h2.ch-text.--mega Photo de profil
+	div(ng-show="!settings.changePicture")
+		.alert.alert-info Cette photo est visible par tous les utilisateurs. Cliquez sur le bouton pour la changer.
+		img(ng-src="{{settings.apiurl + settings.event.thumb_path}}", alt="{{settings.event.title}}")
+		button.ch-btn(ng-click="settings.changePicture = true") Changer la photo
+	div(ng-show="settings.changePicture")
+		.progress(ng-show="settings.picture.progress >= 0")
+			div(style="width:{{settings.picture.progress}}%", ng-bind="settings.picture.progress + '%'")
+		form.ch-form(novalidate="", name="pictureForm")
+			fieldset.ch-form_row
+				input(
+					type="file",
+					ng-model="settings.picture",
+					base-sixty-four-input="",
+					name="uploadPicture",
+					required="",
+					accept="image/*"
+					)
+		button.ch-btn(ng-click="settings.updatePicture()", ng-disabled="settings.updating").
+			#[i.fa.fa-spin.fa-spinner(ng-show="setting.updating")]
+			Enregistrer
+		button.ch-btn.--fail(ng-click="settings.picture = null; settings.changePicture = false", ng-show="settings.picture") Annuler

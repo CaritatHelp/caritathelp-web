@@ -1,1 +1,24 @@
-event-settings.ch-grid(ng-if="vm.event.rights == 'host' || vm.event.rights == 'admin'")
+.ch-grid(ng-if="vm.event.rights == 'host' || vm.event.rights == 'admin'")
+	.ch-grid_col.--one-third_from-tablet
+		.card.ch-sidenav
+			h3.ch-sidenav_title.ch-text.--kilo.--bold Paramètres
+			a.ch-sidenav_link(ui-sref="event.settings.general", ui-sref-active="active").
+				#[i.fa.fa-home]
+				General
+			a.ch-sidenav_link(ui-sref="event.settings.picture", ui-sref-active="active").
+				#[i.fa.fa-eye]
+				Photo de profil
+			a.ch-sidenav_link(ui-sref="event.settings.guests", ui-sref-active="active").
+				#[i.fa.fa-users]
+				Participants
+			a.ch-sidenav_link(ui-sref="event.settings.delete", ui-sref-active="active").
+				#[i.fa.fa-times]
+				Supprimer
+
+	.ch-grid_col.--two-thirds_from-tablet
+		//- Messages d'erreur
+		.alert.alert-info(
+			role="alert",
+			ng-show="settings.success",
+			ng-bind-html="settings.successMessage")
+		ui-view

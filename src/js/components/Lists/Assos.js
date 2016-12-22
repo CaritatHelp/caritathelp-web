@@ -6,7 +6,7 @@ module.exports = require('angular').module('caritathelp.component.list.assos', [
 function ($stateParams, userService, DataVolunteers, Template) {
 	return {
 		controllerAs: 'list',
-		templateUrl: Template.component('Timeline/Lists/assos'),
+		templateUrl: Template.component('Lists/assos'),
 		bindToController: {
 			userId: '='
 		},

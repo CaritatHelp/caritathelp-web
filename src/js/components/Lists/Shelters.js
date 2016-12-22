@@ -6,7 +6,7 @@ module.exports = require('angular').module('caritathelp.component.list.shelters'
 function ($stateParams, DataAssociations, DataShelters, _, Template) {
 	return {
 		controllerAs: 'list',
-		templateUrl: Template.component('Timeline/Lists/shelters'),
+		templateUrl: Template.component('Lists/shelters'),
 		bindToController: {
 			assoId: '='
 		},

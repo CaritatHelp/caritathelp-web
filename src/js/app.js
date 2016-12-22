@@ -52,6 +52,7 @@ app.config(function (localStorageServiceProvider) {
 
 app.run(function ($rootScope, $state, userService) {
 	$rootScope.$on('$stateChangeStart', function (event, toState) {
+		console.log('change');
 		if (toState.authenticate && !userService.user()) {
 			$state.transitionTo('login');
 			event.preventDefault();

@@ -33,5 +33,5 @@ authentication.config(function ($stateProvider, $urlRouterProvider, TemplateProv
 		});
 });
 
-module.exports = authentication;
+module.export = authentication;
 

@@ -27,4 +27,4 @@ template.provider('Template', [function TemplateProvider() {
 	};
 }]);
 
-module.exports = template;
+module.export = template;

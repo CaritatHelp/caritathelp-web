@@ -94,5 +94,5 @@ associations.config(function ($stateProvider, $urlRouterProvider, TemplateProvid
 		});
 });
 
-module.exports = associations;
+module.export = associations;
 

@@ -22,5 +22,5 @@ inbox.config(function ($stateProvider, $urlRouterProvider, TemplateProvider) {
 		});
 });
 
-module.exports = inbox;
+module.export = inbox;
 

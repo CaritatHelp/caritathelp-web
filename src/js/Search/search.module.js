@@ -24,5 +24,5 @@ search.config(function ($stateProvider, $urlRouterProvider, TemplateProvider) {
 		});
 });
 
-module.exports = search;
+module.export = search;
 

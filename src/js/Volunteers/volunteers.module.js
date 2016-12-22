@@ -69,4 +69,4 @@ volunteers.config(function ($stateProvider, $urlRouterProvider, TemplateProvider
 	;
 });
 
-module.exports = volunteers;
+module.export = volunteers;

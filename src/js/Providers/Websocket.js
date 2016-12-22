@@ -35,4 +35,4 @@ websocket.factory('socketService', ['$websocket', 'dataService', '_', function (
 	return methods;
 }]);
 
-module.exports = websocket;
+module.export = websocket;

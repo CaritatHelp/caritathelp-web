@@ -28,7 +28,30 @@ block content
 			button.ch-btn.--pill.--secondary(ng-click="read(notif.id)")
 				i.fa.fa-check
 
-
+		//- Invitation asso
+		.notification--body.ch-text(ng-if="notif.notif_type === 'InviteAssoc'")
+			a(ui-sref="profil.home({id:notif.sender_id})") {{notif.sender_name}}
+			span vous a invité dans l'association
+			a(ui-sref="associations.home({id:notif.assoc_id})")
+				img.ch-avatar(ng-src="{{apiurl + notif.receiver_thumb_path}}", alt="{{notif.assoc_name}}")
+			a(ui-sref="associations.home({id:notif.assoc_id})") {{notif.assoc_name}}
+		.notification--actions(ng-if="notif.notif_type === 'InviteAssoc'")
+			button.ch-btn.--pill.--secondary(ng-click="answerAsso(notif.id, true)")
+				i.fa.fa-check
+			button.ch-btn.--pill.--fail(ng-click="answerAsso(notif.id, false)")
+				i.fa.fa-times
+		//- Invitation event
+		.notification--body.ch-text(ng-if="notif.notif_type === 'InviteGuest'")
+			a(ui-sref="profil.home({id:notif.sender_id})") {{notif.sender_name}}
+			span vous a invité à l'évènement
+			a(ui-sref="event.home({id:notif.event_id})")
+				img.ch-avatar(ng-src="{{apiurl + notif.receiver_thumb_path}}", alt="{{notif.event_name}}")
+			a(ui-sref="event.home({id:notif.event_id})") {{notif.event_name}}
+		.notification--actions(ng-if="notif.notif_type === 'InviteGuest'")
+			button.ch-btn.--pill.--secondary(ng-click="answerEvent(notif.id, true)")
+				i.fa.fa-check
+			button.ch-btn.--pill.--fail(ng-click="answerEvent(notif.id, false)")
+				i.fa.fa-times
 		//- Ajout en ami
 		.notification--body.ch-text(ng-if="notif.notif_type === 'AddFriend'")
 			a(ui-sref="profil.home({id:notif.sender_id})") {{notif.sender_name}}
@@ -38,33 +61,30 @@ block content
 				i.fa.fa-check
 			button.ch-btn.--pill.--fail(ng-click="answerFriend(notif.id, false)")
 				i.fa.fa-times
-		//- Invitation event
+
+		//- Rejoint event
 		.notification--body.ch-text(ng-if="notif.notif_type === 'JoinEvent'")
 			a(ui-sref="profil.home({id:notif.sender_id})") {{notif.sender_name}}
-			span vous a invité à l'évènement
+			span participe à votre'évènement
 			a(ui-sref="event.home({id:notif.event_id})")
 				img.ch-avatar(ng-src="{{apiurl + notif.receiver_thumb_path}}", alt="{{notif.event_name}}")
 			a(ui-sref="event.home({id:notif.event_id})") {{notif.event_name}}
 		.notification--actions(ng-if="notif.notif_type === 'JoinEvent'")
-			button.ch-btn.--pill.--secondary(ng-click="answerEvent(notif.id, true)")
+			button.ch-btn.--pill.--secondary(ng-click="read(notif.id)")
 				i.fa.fa-check
-			button.ch-btn.--pill.--fail(ng-click="answerEvent(notif.id, false)")
-				i.fa.fa-times
-		//- Invitation asso
+		//- Rejoint asso
 		.notification--body.ch-text(ng-if="notif.notif_type === 'JoinAssoc'")
 			a(ui-sref="profil.home({id:notif.sender_id})") {{notif.sender_name}}
-			span vous a dans l'association
+			span a rejoint votre association
 			a(ui-sref="association.home({id:notif.assoc_id})")
 				img.ch-avatar(ng-src="{{apiurl + notif.receiver_thumb_path}}", alt="{{notif.assoc_name}}")
 			a(ui-sref="association.home({id:notif.assoc_id})") {{notif.assoc_name}}
 		.notification--actions(ng-if="notif.notif_type === 'JoinAssoc'")
-			button.ch-btn.--pill.--secondary(ng-click="answerAsso(notif.id, true)")
+			button.ch-btn.--pill.--secondary(ng-click="read(notif.id)")
 				i.fa.fa-check
-			button.ch-btn.--pill.--fail(ng-click="answerAsso(notif.id, false)")
-				i.fa.fa-times
 
 		//- Default notif
-		.notification--body(ng-if="notif.notif_type !== 'AddFriend' && notif.notif_type !== 'Emergency' && notif.notif_type !== 'NewMember' && notif.notif_type !== 'JoinAssoc' && notif.notif_type !== 'JoinEvent'") {{notif}}
+		.notification--body(ng-if="notif.notif_type !== 'AddFriend' && notif.notif_type !== 'Emergency' && notif.notif_type !== 'NewMember' && notif.notif_type !== 'JoinAssoc' && notif.notif_type !== 'JoinEvent' && notif.notif_type !== 'InviteGuest' && notif.notif_type !== 'InviteAssoc' ") {{notif}}
 		.notification--actions(ng-if="false")
 			button.ch-btn(ng-click="answerFriend(notif.id, true)")
 				i.fa.fa-check

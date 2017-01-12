@@ -2,8 +2,8 @@
 
 module.exports = require('angular').module('caritathelp.component.navbar', [
 ])
-.directive('navbar', ['$state', 'dataService', 'userService', 'ModalService', 'DataVolunteers', '$websocket', 'Template',
-	function ($state, dataService, userService, ModalService, DataVolunteers, $websocket, Template) {
+.directive('navbar', ['$state', 'dataService', 'userService', 'ModalService', 'DataVolunteers', 'DataAssociations', 'DataEvents', '$websocket', 'Template',
+	function ($state, dataService, userService, ModalService, DataVolunteers, DataAssociations, DataEvents, $websocket, Template) {
 		return {
 			controllerAs: 'nav',
 			templateUrl: Template.component('navbar'),
@@ -44,18 +44,31 @@ module.exports = require('angular').module('caritathelp.component.navbar', [
 							$scope.apiurl = dsc.getApiUrl();
 
 							$scope.answerFriend = function (notifId, acceptance) {
-								DataVolunteers.reply(notifId, acceptance)
-								.then(function () {
-									$scope.read(notifId);
-								});
+								DataVolunteers.reply(notifId, acceptance).then(dismiss);
+							};
+							$scope.answerAsso = function (notifId, acceptance) {
+								DataAssociations.replyInvite(notifId, acceptance).then(dismiss);
+							};
+							$scope.answerEvent = function (notifId, acceptance) {
+								DataEvents.replyInvite(notifId, acceptance).then(dismiss);
 							};
 
 							$scope.read = function (notifId) {
 								DataVolunteers.read(notifId);
-							// $scope.notifs = _.reject($scope.notifs, function (el) {return el.id === notifId;});
-								vm.notifications = $scope.notifs;
+								getNotifications();
+								dismiss();
 							};
+
+							function dismiss() {
+								DataVolunteers.notifications()
+								.then(function (response) {
+									vm.notifications = response.data.response;
+									close();
+								});
+							}
+
 							this.dismiss = function () {
+								getNotifications();
 								close();
 							};
 						}

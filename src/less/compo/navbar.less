@@ -37,11 +37,19 @@
 	padding: 0 1em;
 	font-size: 1.8rem;
 	color: @navbar-text;
+	position: relative;
 	.fa {
 		padding: 0 .5em;
 		font-size: 1.5em;
 	}
 	&:focus, &:active, &:hover, &.active {color: @navbar-hover;}
+	sup.fa {
+		position: absolute;
+		padding: 0;
+		font-size: 1em;
+		color: red;
+		right: 1.5em;
+	}
 }
 .ch-navbar_user {
 	display: flex;

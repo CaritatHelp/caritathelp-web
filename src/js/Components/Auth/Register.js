@@ -58,7 +58,11 @@ module.exports = require('angular').module('caritathelp.component.auth.register'
 				dsc.register(vm.mail, vm.password, vm.firstname, vm.lastname, vm.birthday, vm.gender)
 					.then(function (response) {
 						if (response.data.status === 200) {
-							usc.connect(response.data.response);
+							usc.connect(response.data.response, {
+								'access-token': response.headers('access-token'),
+								uid: response.headers('uid'),
+								client: response.headers('client')
+							});
 							$state.transitionTo('home');
 						} else {
 							// Erreur serveur

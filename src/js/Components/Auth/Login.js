@@ -31,17 +31,16 @@ module.exports = require('angular').module('caritathelp.component.auth.login', [
 				vm.connecting = true;
 				// Requete de login
 				dsc.login(vm.mail, vm.password)
-					.success(function (data, status, headers) {
+					.then(function (response) {
 						// On remplit le service USC
-						usc.connect(data.response, {
-							'access-token': headers('access-token'),
-							uid: headers('uid'),
-							client: headers('client')
+						usc.connect(response.data.response, {
+							'access-token': response.headers('access-token'),
+							uid: response.headers('uid'),
+							client: response.headers('client')
 						});
 						// redirection vers la page d'accueil
 						$location.path('/home');
-					})
-					.error(function () {
+					}, function () {
 						// erreur client
 						vm.error = 'true';
 						vm.errorMessage = 'Impossible de joindre le serveur, veuillez réessayer dans quelques minutes.';

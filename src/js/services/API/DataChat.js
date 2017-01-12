@@ -8,8 +8,8 @@ module.exports = ['dataService', function (dataService) {
 	this.get = function (id) {
 		return data.get('chatrooms/' + id);
 	};
-	this.create = function (volunteers) {
-		return data.post('chatrooms', {volunteers: volunteers});
+	this.create = function (volunteers, name) {
+		return data.post('chatrooms', {volunteers: volunteers, name: name});
 	};
 	this.members = function (id) {
 		return data.get('chatrooms/' + id + '/volunteers');

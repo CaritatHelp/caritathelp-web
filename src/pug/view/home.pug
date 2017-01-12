@@ -2,8 +2,12 @@
 	.ch-grid_col.--one-third_from-tablet
 		user-summary
 		.action
-			a(ui-sref="profil.settings.general").
+			a(ui-sref="profil.settings.general({id:{{user.id}}})").
 				#[i.fa.fa-pencil]
 				Modifier profil
+		.action
+			a(ui-sref="associations.directory").
+				#[i.fa.fa-home]
+				Rejoindre une association
 	.ch-grid_col.--two-thirds_from-tablet
 		timeline

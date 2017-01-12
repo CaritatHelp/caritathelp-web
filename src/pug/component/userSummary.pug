@@ -1,4 +1,4 @@
-.card.summary.no-padding
+.card.summary.no-padding(ng-show="sum.loaded")
 	.summary--cover(style="background-color:green")
 	a.summary--picture(ui-sref="profil.home({id: sum.user.id})")
 		img.picture(ng-src="{{sum.user.picture}}", alt="{{sum.user.firstname}} {{sum.user.lastname}}")
@@ -13,3 +13,8 @@
 		a.stat(ui-sref="profil.assos({id: sum.user.id})").
 			Assos
 			#[h5.nb {{sum.user.assos.length}}]
+.card.summary.no-padding(ng-show="!sum.loaded")
+	.summary--cover(style="background-color:green")
+	.profil--loader
+		i.fa.fa-spin.fa-refresh
+		.loader--info Chargement

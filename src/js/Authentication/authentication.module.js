@@ -28,6 +28,9 @@ authentication.config(function ($stateProvider, $urlRouterProvider, TemplateProv
 		.state('home', {
 			url: '/home',
 			templateUrl: Template.view('home'),
+			controller: ['userService', '$scope', function (userService, $scope) {
+				$scope.user = userService.user();
+			}],
 			authenticate: true
 		})
 		.state('register', {

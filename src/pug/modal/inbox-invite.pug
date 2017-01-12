@@ -6,14 +6,25 @@ block header
 		i.fa.fa-times
 
 block content
-	section.friend(ng-repeat="friend in friends")
-		a(ui-sref="profil.home({id:friend.id})")
-			img(ng-src="{{apiurl + friend.thumb_path}}", alt="{{friend.firstname}} {{friend.lastname}}")
-		a(ui-sref="profil.home({id:friend.id})").friend--name {{friend.firstname}} {{friend.lastname}}
-		button.ch-btn(ng-click="addFriend(friend.id)", id="invite-{{friend.id}}") Inviter
+	.ch-form
+		.ch-form_row
+			label.ch-form_label.--bold(for="conversationName") Nommez votre conversation
+			input.ch-form_text(
+				type="text",
+				name="conversationName",
+				ng-model="creator.name"
+			)
+		.ch-form_row
+			label.ch-form_label(for="conversationFriends") Invitez vos amis
+		section.friend(ng-repeat="friend in friends")
+			a(ui-sref="profil.home({id:friend.id})")
+				img(ng-src="{{apiurl + friend.thumb_path}}", alt="{{friend.firstname}} {{friend.lastname}}")
+			a(ui-sref="profil.home({id:friend.id})").friend--name {{friend.firstname}} {{friend.lastname}}
+			button.ch-btn(ng-click="addFriend(friend.id)", id="invite-{{friend.id}}", ng-show="!friend.selected") Inviter
+			button.ch-btn(ng-show="friend.selected", disabled) Invité
 
 block footer
 	.ch-modal_footer-info
 	.ch-modal_footer-actions
-		button.ch-btn(ng-click="confirmCreation()") Valider
+		button.ch-btn(ng-click="confirmCreation(creator.name)") Valider
 		button.ch-btn.--fail(ng-click="dismiss()") Fermer

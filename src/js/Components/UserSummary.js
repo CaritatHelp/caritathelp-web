@@ -16,6 +16,7 @@ module.exports = require('angular').module('caritathelp.component.user_summary',
 				var usc = userService;
 				vm.user = {};
 				var id;
+				vm.loaded = false;
 
 				if (vm.userId) {
 					id = vm.userId;
@@ -34,6 +35,7 @@ module.exports = require('angular').module('caritathelp.component.user_summary',
 					vm.plink = 'profil.home({id:" + vm.user.id + "})';
 					vm.flink = 'profil.friends({id:' + vm.user.id + '})';
 					vm.alink = 'profil.assos({id:' + vm.user.id + '})';
+					vm.loaded = true;
 				}
 
 				function getUser(id) {
@@ -41,6 +43,7 @@ module.exports = require('angular').module('caritathelp.component.user_summary',
 					.then(function (response) {
 						vm.user = response.data.response;
 						vm.user.picture = volunteers.apiurl + response.data.response.thumb_path;
+						vm.loaded = true;
 						volunteers.friends(id)
 							.then(function (response) {
 								vm.user.friends = response.data.response;

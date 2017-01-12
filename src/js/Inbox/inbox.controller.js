@@ -70,7 +70,7 @@ module.exports = ['$state', '$stateParams', 'userService', 'ModalService', 'Data
 				templateUrl: 'modal/inbox-invite.html',
 				controller: function (close, dataService, $scope) {
 					$scope.apiurl = vm.apiurl;
-					volunteers.all()
+					volunteers.friends(vm.current.id)
 					.then(function (response) {
 						$scope.friends = response.data.response;
 					});
@@ -79,11 +79,19 @@ module.exports = ['$state', '$stateParams', 'userService', 'ModalService', 'Data
 						vm.creator = [];
 						close();
 					};
+
 					$scope.addFriend = function (friendId) {
+						$scope.friends.forEach(function (user) {
+							if (user.id === friendId) {
+								user.selected = true;
+							}
+							return user;
+						});
 						vm.creator.push(friendId);
 					};
-					$scope.confirmCreation = function () {
-						chat.create(vm.creator)
+
+					$scope.confirmCreation = function (name) {
+						chat.create(vm.creator, name)
 						.then(function (response) {
 							vm.active = response.data.response;
 							vm.chatrooms.unshift(response.data.response);

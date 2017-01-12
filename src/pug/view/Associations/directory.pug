@@ -1,11 +1,11 @@
 .ch-grid
 	.ch-grid_col.--one-third_from-tablet
 		user-summary
-		.action
+		.action(ng-show="'associations.directory' | isState")
 			a(ui-sref="associations.create").
 				#[i.fa.fa-plus]
 				Créer une association
-		.action
+		.action(ng-show="'associations.create' | isState")
 			a(ui-sref="associations.directory").
 				#[i.fa.fa-list]
 				Revenir à la liste

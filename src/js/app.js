@@ -34,7 +34,7 @@ var app = angular.module('caritathelp', [
 app.factory('_', ['$window', function ($window) {
 	return $window._;
 }]);
-app.constant('API_URL', 'http://staging.caritathelp.me/');
+app.constant('API_URL', 'https://staging.caritathelp.me/');
 
 require('./Providers/Template');
 require('./Authentication/authentication.module');

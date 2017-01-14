@@ -76,7 +76,7 @@ module.exports = require('angular').module('caritathelp.component.navbar', [
 				};
 
 				function connectWebsocket() {
-					var ws = $websocket('ws://ws.staging.caritathelp.me');
+					var ws = $websocket('wss://ws.staging.caritathelp.me');
 					var headers = dataService.getHeaders();
 					ws.onOpen(function () {
 						ws.send({token: 'token', user_uid: headers.uid});

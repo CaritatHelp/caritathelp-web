@@ -3,7 +3,7 @@
 var websocket = require('angular').module('caritathelp.service.websocket', []);
 
 websocket.factory('socketService', ['$websocket', 'dataService', '_', function ($websocket, dataService, _) {
-	var ws = $websocket('ws://ws.staging.caritathelp.me');
+	var ws = $websocket('wss://ws.staging.caritathelp.me');
 	var headers = dataService.getHeaders();
 	var notifications = [];
 

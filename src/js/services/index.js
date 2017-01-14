@@ -4,7 +4,6 @@ var app = require('angular').module('caritathelp');
 
 app.factory('dataService', require('./dataService'));
 app.factory('userService', require('./userService'));
-// app.factory('socketService', require('./socketService'));
 
 app.service('DataVolunteers', require('./API/DataVolunteers'));
 app.service('DataAssociations', require('./API/DataAssociations'));

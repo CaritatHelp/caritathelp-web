@@ -1,31 +1,34 @@
 'use strict';
 
-module.exports = ['$state', '$stateParams', 'userService', 'ModalService', 'DataVolunteers', 'DataChat',
-	function ($state, $stateParams, userService, ModalService, DataVolunteers, DataChat) {
+module.exports = ['$state', '$stateParams', 'socketService', 'userService', 'ModalService', 'DataVolunteers', 'DataChat',
+	function ($state, $stateParams, socketService, userService, ModalService, DataVolunteers, DataChat) {
 		var vm = this;
 		var usc = userService;
 		var volunteers = DataVolunteers;
 		var modal = ModalService;
 		var chat = DataChat;
+		vm.notif = socketService.messages;
 
 		vm.loaded = false;
-		vm.chatrooms = {};
 		vm.active = false;
+		vm.chatrooms = {};
 		vm.current = usc.user();
 		vm.apiurl = volunteers.apiurl;
 
 		chat.all()
-		.then(function (response) {
-			vm.chatrooms = response.data.response;
-			vm.loaded = true;
-		});
+			.then(function (response) {
+				vm.chatrooms = response.data.response;
+				vm.loaded = true;
+			});
 
 		vm.setChatroom = function (conv) {
+			vm.loaded = false;
 			chat.get(conv.id)
-			.then(function (response) {
-				vm.messages = response.data.response;
-				vm.active = conv;
-			});
+				.then(function (response) {
+					vm.messages = response.data.response;
+					vm.active = conv;
+					vm.loaded = true;
+				});
 		};
 		vm.createChatroom = function () {
 			vm.creator = [];
@@ -33,35 +36,36 @@ module.exports = ['$state', '$stateParams', 'userService', 'ModalService', 'Data
 			vm.openInvite();
 		};
 		vm.leaveChatroom = function () {
+			vm.loaded = false;
 			chat.leave(vm.active.id)
-			.then(function () {
-				vm.active = null;
-			})
-			.finally(function () {
-				chat.all()
-					.then(function (response) {
-						vm.chatrooms = response.data.response;
-						vm.loaded = true;
-					});
-			});
+				.then(function () {
+					vm.active = null;
+				})
+				.finally(function () {
+					chat.all()
+						.then(function (response) {
+							vm.chatrooms = response.data.response;
+							vm.loaded = true;
+						});
+				});
 		};
 
 		vm.changeTitle = function () {
 			chat.name(vm.active.id, vm.active.name)
-			.then(function (response) {
-				vm.setChatroom(response.data.response);
-				vm.active = vm.active.id;
-				vm.editing = false;
-			});
+				.then(function (response) {
+					vm.setChatroom(response.data.response);
+					vm.active = vm.active.id;
+					vm.editing = false;
+				});
 		};
 
 		vm.sendMessage = function () {
 			if (vm.message !== '') {
 				chat.send(vm.active.id, vm.message)
-				.then(function (response) {
-					vm.messages.push(response.data.response);
-					vm.message = '';
-				});
+					.then(function (response) {
+						vm.messages.push(response.data.response);
+						vm.message = '';
+					});
 			}
 		};
 
@@ -71,9 +75,9 @@ module.exports = ['$state', '$stateParams', 'userService', 'ModalService', 'Data
 				controller: function (close, dataService, $scope) {
 					$scope.apiurl = vm.apiurl;
 					volunteers.friends(vm.current.id)
-					.then(function (response) {
-						$scope.friends = response.data.response;
-					});
+						.then(function (response) {
+							$scope.friends = response.data.response;
+						});
 
 					$scope.dismiss = function () {
 						vm.creator = [];
@@ -92,10 +96,10 @@ module.exports = ['$state', '$stateParams', 'userService', 'ModalService', 'Data
 
 					$scope.confirmCreation = function (name) {
 						chat.create(vm.creator, name)
-						.then(function (response) {
-							vm.active = response.data.response;
-							vm.chatrooms.unshift(response.data.response);
-						});
+							.then(function (response) {
+								vm.active = response.data.response;
+								vm.chatrooms.unshift(response.data.response);
+							});
 						close();
 					};
 				}

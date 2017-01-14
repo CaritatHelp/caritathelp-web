@@ -1,7 +1,8 @@
 'use strict';
 
 var inbox = require('angular').module('caritathelp.inbox', [
-	'caritathelp.service.template'
+	'caritathelp.service.template',
+	'caritathelp.service.websocket'
 ]);
 
 inbox.config(function ($stateProvider, TemplateProvider) {

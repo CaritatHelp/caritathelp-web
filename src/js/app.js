@@ -23,6 +23,7 @@ var app = angular.module('caritathelp', [
 	'ui.router',
 	'naif.base64',
 	'caritathelp.service.template',
+	'caritathelp.service.websocket',
 	'caritathelp.authentication',
 	'caritathelp.volunteers',
 	'caritathelp.associations',
@@ -37,6 +38,7 @@ app.factory('_', ['$window', function ($window) {
 app.constant('API_URL', 'https://staging.caritathelp.me/');
 
 require('./Providers/Template');
+require('./Providers/Websocket');
 require('./Authentication/authentication.module');
 require('./Volunteers/volunteers.module');
 require('./Associations/associations.module');

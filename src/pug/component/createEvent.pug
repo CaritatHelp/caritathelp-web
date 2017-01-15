@@ -31,43 +31,41 @@ form.ch-form(
 			p(ng-message="required") Ce champs est requis
 	fieldset.ch-form_row
 		label.ch-form_label(for="inputPlaceEvent") Location
-		input.ch-form_text(
-			type="text",
-			name="inputPlaceEvent",
-			ng-model="create.place"
-			)
+		input.ch-form_text(type="text", name="inputPlaceEvent", ng-model="create.place")
 	fieldset.ch-form_row
 		label.ch-form_label(for="inputBeginEvent") Début
 		.ch-form_input-group.--button-input
 			input.ch-form_text.--button-input(
 				type="text",
+				name="inputBeginEvent",
 				uib-datepicker-popup="dd/MM/yyyy",
 				ng-model="create.begin",
 				is-open="create.popupBegin.opened",
 				datepickerOptions="dateOptions",
-				close-text="Fermer"
-				)
-			button.ch-btn.--button-input.--tertiary(
-				type="button",
-				ng-click="create.openBegin()"
-				)
+				close-text="Fermer",
+				required=""
+			)
+			button.ch-btn.--button-input.--tertiary(type="button", ng-click="create.openBegin()")
 				i.fa.fa-calendar
+		.ch-form_message.--error(ng-messages="createForm.inputBeginEvent.$error" ng-show="(createForm.$submitted && createForm.inputBeginEvent.$invalid)")
+			p(ng-message="required") Ce champs est requis
 	fieldset.ch-form_row
 		label.ch-form_label(for="inputEndEvent") Fin
 		.ch-form_input-group.--button-input
 			input.ch-form_text.--button-input(
 				type="text",
+				name="inputEndEvent",
 				uib-datepicker-popup="dd/MM/yyyy",
 				ng-model="create.end",
 				is-open="create.popupEnd.opened",
 				datepickerOptions="dateOptions",
-				close-text="Fermer"
+				close-text="Fermer",
+				required=""
 			)
-			button.ch-btn.--button-input.--tertiary(
-				type="button",
-				ng-click="create.openEnd()"
-				)
+			button.ch-btn.--button-input.--tertiary(type="button", ng-click="create.openEnd()")
 				i.fa.fa-calendar
+		.ch-form_message.--error(ng-messages="createForm.inputEndEvent.$error" ng-show="(createForm.$submitted && createForm.inputEndEvent.$invalid)")
+			p(ng-message="required") Ce champs est requis
 	.clearfix
 	fieldset.ch-form_row
 		button.ch-btn(type="submit", style="float:right") Enregistrer

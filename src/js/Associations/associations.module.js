@@ -31,7 +31,7 @@ associations.config(function ($stateProvider, TemplateProvider) {
 			url: '/creer',
 			templateUrl: Template.partial('Associations/create'),
 			controller: require('./creation.controller'),
-			controllerAS: 'create',
+			controllerAs: 'create',
 			authenticate: true
 		})
 

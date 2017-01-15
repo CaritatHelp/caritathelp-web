@@ -3,12 +3,11 @@
 module.exports = ['$state', 'DataAssociations', function ($state, DataAssociations) {
 	var vm = this;
 	var associations = DataAssociations;
-
 	vm.error = false;
 	vm.errorMessage = '';
 
 	vm.createAsso = function () {
-		vm.date = new Date();
+		console.log('ehllo');
 		// Parametres: nom description birthday city latitude longitude
 		associations.create(vm.name, vm.description, null, vm.city, null, null)
 			.then(function (response) {

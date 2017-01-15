@@ -25,15 +25,15 @@
 				.card.listing(ng-show="search.result.length && search.loaded", ng-repeat="res in search.result | filter:search.test:strict")
 					.friend(ng-if="res.result_type == 'volunteer'")
 						a(ui-sref="profil.home({id: {{res.id}}})", title="{{res.name}}")
-							img(ng-src="{{res.apiurl + res.thumb_path}}", alt="{{res.name}}", class="img-circle")
+							img(ng-src="{{search.apiurl + res.thumb_path}}", alt="{{res.name}}", class="ch-avatar")
 						a.name(ui-sref="profil.home({id: {{res.id}}})") {{res.name}}
 					.association(ng-if="res.result_type == 'assoc'")
 						a(ui-sref="association.home({id: {{res.id}}})", title="{{res.name}}")
-							img(ng-src="{{res.apiurl + res.thumb_path}}", alt="{{res.name}}", class="img-circle")
+							img(ng-src="{{search.apiurl + res.thumb_path}}", alt="{{res.name}}", class="ch-avatar")
 						a.name(ui-sref="association.home({id: {{res.id}}})") {{res.name}}
 					.event(ng-if="res.result_type == 'event'")
 						a(ui-sref="event.home({id: {{res.id}}})", title="{{res.name}}")
-							img(ng-src="{{res.apiurl + res.thumb_path}}", alt="{{res.name}}", class="img-circle")
+							img(ng-src="{{search.apiurl + res.thumb_path}}", alt="{{res.name}}", class="ch-avatar")
 						a.name(ui-sref="event.home({id: {{res.id}}})") {{res.name}}
 				.card.listing(ng-show="search.error && search.loaded") {{search.error}}
 				.card(ng-show="!search.loaded")

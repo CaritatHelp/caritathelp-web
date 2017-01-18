@@ -144,8 +144,12 @@ module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService',
 		};
 
 		vm.raiseEmergency = function () {
+			vm.updating = true;
+			console.log('test');
 			events.emergency($stateParams.id, vm.emergency.zone).then(function(response) {
 				vm.notified = response.data.response;
+			}).finally(function() {
+				//vm.updating = false;
 			});
 		}
 	}];

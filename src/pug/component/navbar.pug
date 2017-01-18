@@ -36,6 +36,6 @@ nav.ch-navbar(ng-if="nav.isConnected()")
 			a.ch-navbar_item(ng-click="nav.openNotifications()")
 				i.fa.fa-bell(ng-class="{'fa-spin': nav.new}")
 				sup.fa.fa-circle(ng-show="nav.notification.length > 0 || nav.notifications.length > 0")
-			a(ui-sref="home")
+			a(ui-sref="profil.home({id:{{nav.user.id}}})")
 				img.ch-avatar(ng-src="{{nav.user.picture}}", alt="{{nav.user.firstname}} {{nav.user.lastname}}")
 	pre {{ nav.test }}

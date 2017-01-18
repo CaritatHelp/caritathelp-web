@@ -1,21 +1,14 @@
 .timeline(ng-show="timeline.loaded")
 	.card
-		form.ch-form#postNews(
-			novalidate="",
-			name="postNews",
-			ng-submit="timeline.postNews()"
-			)
+		form.ch-form#postNews(novalidate="", name="postNews", ng-submit="timeline.postNews()")
 			.ch-form_input-group.--button-input
-				input.ch-form_text.--button-input(
-					type="text",
-					placeholder="Publier un message",
-					ng-model="timeline.newNews",
-					required
-				)
+				input.ch-form_text.--button-input(type="text", placeholder="Publier un message", ng-model="timeline.newNews", required="")
 				button.ch-btn.--button-input(type="submit")
 					i.fa.fa-play
 	section.news(ng-repeat="actu in timeline.news | orderBy: '-created_at'")
 		news(news-id="actu.id")
+	.card(ng-show="timeline.news.length < 1")
+		span Le fil d'actualité est vide, postez un message !
 .timeline--loader(ng-show="!timeline.loaded")
 	.fa.fa-spin.fa-refresh
 	.loader--info Chargement du fil d'actualité

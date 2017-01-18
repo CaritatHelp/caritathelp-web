@@ -8,7 +8,7 @@
 					#[a(ui-sref="association.home({id: vm.event.assoc_id})") {{vm.event.assoc_name}}]
 
 		//-Bloc d'informations latéral
-		.rights.alert(ng-class="vm.rights.class") {{vm.rights.message}}
+		.card.rights.alert(ng-class="vm.rights.class") {{vm.rights.message}}
 		//- Actions possibles pour l'utilisateur
 		.event-actions
 			//-Rejoindre l'event
@@ -38,4 +38,6 @@
 					Quitter l'évènement
 		.alert.alert-danger(ng-if="vm.error", ng-bind-html="vm.error")
 	.ch-grid_col.--two-thirds_from-tablet
-		timeline(tl-type="'event'")
+		timeline(tl-type="'event'", ng-if="vm.event.rights")
+		.card(ng-if="!vm.event.rights")
+			p Vous devez participer à cet évènement pour afficher son fil d'actualités.

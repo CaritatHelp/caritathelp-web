@@ -25,11 +25,7 @@ module.exports = require('angular').module('caritathelp.component.timeline', [
 				vm.currentUser = usc.user();
 				vm.loaded = false;
 			// Sauvegarde du type de timeline
-				if (vm.tlType) {
-					vm.type = vm.tlType;
-				}	else {
-					vm.type = 'home';
-				}
+				vm.type = vm.tlType ? vm.tlType : 'home';
 
 			// Récupération de la liste des news
 				if (vm.type === 'volunteer') {

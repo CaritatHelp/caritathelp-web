@@ -1,4 +1,4 @@
-.card.listing
+.card.listing(ng-if="list.assos.length > 0")
 	h4.ch-text.--kilo.--bold Associsson
 	.association(ng-repeat="asso in list.assos")
 		a(ui-sref="association.home({id:{{asso.id}}})", title="{{asso.name}}")

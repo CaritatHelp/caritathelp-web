@@ -44,13 +44,11 @@ module.exports = ['dataService', 'userService', 'DataVolunteers', 'DataAssociati
 
 		vm.updatePicture = function () {
 			vm.updating = true;
-			dsc.postPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename)
-			.then(function () {
-				volunteers.mainPicture(vm.user.id)
-					.then(function (response) {
-						vm.user.picture = volunteers.apiurl + response.data.thumb_path;
-						usc.setPicture(vm.user.picture);
-					});
+			dsc.postPicture(vm.picture, vm.picture.filename, vm.picture.filename)
+			.then(function (response) {
+				vm.user.picture = volunteers.apiurl + response.data.response.thumb_path;
+				usc.setPicture(vm.user.picture);
+				$state.reload();
 			})
 			.finally(function () {
 				vm.updating = false;

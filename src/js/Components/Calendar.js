@@ -38,14 +38,12 @@ module.exports = require('angular').module('caritathelp.component.calendar', [
 					vm.type = 'volunteer';
 					vm.id = $stateParams.id ? $stateParams.id : vm.currentUser.id;
 				// Tous les events existants
-					events.all()
-					.then(function (response) {
+					events.all().then(function (response) {
 						vm.events = response.data.response;
 						vm.loaded++;
 					});
 				// Events rejoints par l'user
-					volunteers.events(vm.id)
-					.then(function (response) {
+					volunteers.events(vm.id).then(function (response) {
 						vm.joined = response.data.response;
 						vm.loaded++;
 					});
@@ -53,8 +51,7 @@ module.exports = require('angular').module('caritathelp.component.calendar', [
 					vm.tab = 2;
 					vm.type = 'association';
 					vm.id = $stateParams.id;
-					associations.get(vm.id)
-					.then(function (response) {
+					associations.get(vm.id).then(function (response) {
 						if (response.data.response.rights === 'owner' || response.data.response.rights === 'admin') {
 							vm.rights = 'edit';
 						} else {
@@ -62,8 +59,7 @@ module.exports = require('angular').module('caritathelp.component.calendar', [
 						}
 					});
 				// Events créés par l'asso
-					associations.events(vm.id)
-					.then(function (response) {
+					associations.events(vm.id).then(function (response) {
 						vm.events = response.data.response;
 						vm.loaded = true;
 					});

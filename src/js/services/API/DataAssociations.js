@@ -56,6 +56,9 @@ module.exports = ['dataService', function (dataService) {
 	this.news = function (id) {
 		return data.get('associations/' + id + '/news');
 	};
+	this.invitable = function (id) {
+		return data.get('associations/' + id + '/invitable_volunteers');
+	};
 
 	// Membership
 	this.join = function (id) {

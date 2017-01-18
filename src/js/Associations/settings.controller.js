@@ -7,6 +7,7 @@ module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations', '
 		var associations = DataAssociations;
 		var shelters = DataShelters;
 		vm.apiurl = dataService.getApiUrl();
+		vm.apiurl2 = 'http://staging.caritathelp.me';
 
 		vm.tab = 1;
 		vm.adding = false;
@@ -41,23 +42,20 @@ module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations', '
 				vm.error = response.data.message;
 			})
 			.finally(function () {
-				associations.get($stateParams.id)
-					.then(function (response) {
-						vm.asso = response.data.response;
-					});
+				associations.get($stateParams.id).then(function (response) {
+					vm.asso = response.data.response;
+				});
 				vm.updating = false;
 			});
 		};
 
 		vm.updatePicture = function () {
 			vm.updating = true;
-			dsc.postPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename, true)
-			.then(function () {
+			dsc.postAssoPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename, vm.asso.id)
+			.then(function (response) {
 				vm.success = 'L\'image a bien été mise à jour';
-				associations.mainPicture(vm.asso.id)
-					.then(function (response) {
-						vm.asso.thumb_path = response.data.response.thumb_path;
-					});
+				vm.asso.thumb_path = response.data.response.thumb_path;
+				$state.reload();
 			}, function (response) {
 				vm.error = response.data.message;
 			})
@@ -146,6 +144,10 @@ module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations', '
 				vm.creating = false;
 				vm.adding = false;
 			});
+		};
+		vm.disableShelterCreation = function () {
+			vm.adding = false;
+			vm.addShelterForm.$setPristine();
 		};
 
 		vm.setTab = function (activeTab) {

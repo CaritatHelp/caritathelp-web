@@ -49,13 +49,11 @@ module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService',
 
 		vm.updatePicture = function () {
 			vm.updating = true;
-			dsc.postPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename, true)
-			.then(function () {
+			dsc.postEventPicture(vm.picture.base64, vm.picture.filename, vm.picture.filename, vm.event.id)
+			.then(function (response) {
 				vm.success = 'L\'image a bien été mise à jour';
-				events.mainPicture(vm.event.id)
-					.then(function (response) {
-						vm.event.thumb_path = response.data.thumb_path;
-					});
+				vm.event.thumb_path = response.data.response.thumb_path;
+				$state.reload();
 			}, function (response) {
 				vm.addError(response.data.message);
 			})

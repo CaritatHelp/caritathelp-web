@@ -1,4 +1,4 @@
-.card.listing
+.card.listing(ng-if="friendlist.friends.length > 0")
 	h4.ch-text.--kilo.--bold Amis
 	.friend(ng-repeat="friend in friendlist.friends")
 		a(ui-sref="profil.home({id: {{friend.id}}})", title="{{friend.firstname}} {{friend.lastname}}")

@@ -18,7 +18,7 @@ block content
 			label.ch-form_label(for="conversationFriends") Invitez vos amis
 		section.friend(ng-repeat="friend in friends")
 			a(ui-sref="profil.home({id:friend.id})")
-				img(ng-src="{{apiurl + friend.thumb_path}}", alt="{{friend.firstname}} {{friend.lastname}}")
+				img.ch-avatar(ng-src="{{apiurl + friend.thumb_path}}", alt="{{friend.firstname}} {{friend.lastname}}")
 			a(ui-sref="profil.home({id:friend.id})").friend--name {{friend.firstname}} {{friend.lastname}}
 			button.ch-btn(ng-click="addFriend(friend.id)", id="invite-{{friend.id}}", ng-show="!friend.selected") Inviter
 			button.ch-btn(ng-show="friend.selected", disabled) Invité

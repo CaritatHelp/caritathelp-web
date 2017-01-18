@@ -51,6 +51,9 @@ module.exports = ['dataService', function (dataService) {
 	this.delete = function (id) {
 		return data.remove('events/' + id);
 	};
+	this.invitable = function (id) {
+		return data.get('events/' + id + '/invitable_volunteers');
+	};
 
 	// Guests
 	this.join = function (id) {

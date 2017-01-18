@@ -5,7 +5,7 @@
 			.ch-text {{vm.asso.description}}
 
 		//-Bloc d'informations latéral
-		.rights.alert(ng-class="vm.rights.class") {{vm.rights.message}}
+		.card.rights.alert(ng-class="vm.rights.class") {{vm.rights.message}}
 		//- Actions possibles pour l'utilisateur
 		.asso-actions
 			//- Rejoindre l'association
@@ -25,4 +25,6 @@
 					Quitter l'association
 	.ch-grid_col.--two-thirds_from-tablet
 		//- Timeline de l'association
-		timeline(tl-type="'association'")
+		timeline(tl-type="'association'", ng-if="vm.asso.rights")
+		.card(ng-if="!vm.asso.rights")
+			p Vous devez être membre de cette association pour afficher son fil d'actualités.

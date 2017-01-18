@@ -7,7 +7,7 @@
 	div(ng-show="settings.changePicture")
 		.progress(ng-show="settings.picture.progress >= 0")
 			div(style="width:{{settings.picture.progress}}%", ng-bind="settings.picture.progress + '%'")
-		form.ch-form(novalidate="", name="pictureForm")
+		form.ch-form(novalidate="", name="pictureForm", ng-submit="settings.updatePicture()")
 			fieldset.ch-form_row
 				input(
 					type="file",
@@ -17,7 +17,8 @@
 					required="",
 					accept="image/*"
 				)
-		button.ch-btn(ng-click="settings.updatePicture()", ng-disabled="settings.updating").
-			#[i.fa.fa-spin.fa-spinner(ng-show="settings.updating")]
-			Enregistrer
-		button.ch-btn.--fail(ng-click="settings.picture = null; settings.changePicture = false", ng-show="settings.picture") Annuler
+			fieldset.pull-right
+				button.ch-btn.--fail(ng-click="settings.picture = null; settings.changePicture = false", ng-show="settings.picture") Annuler
+				button.ch-btn(type="submit", ng-disabled="settings.updating").
+					#[i.fa.fa-spin.fa-spinner(ng-show="settings.updating")]
+					Enregistrer

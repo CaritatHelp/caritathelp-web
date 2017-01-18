@@ -83,7 +83,9 @@ module.exports = ['$state', '$stateParams', 'userService', 'ModalService', 'Data
 			modal.showModal({
 				templateUrl: 'modal/event-invite.html',
 				controller: function (close, $scope, DataEvents) {
-					this.members = vm.current.friends;
+					events.invitable(vm.event.id).then(function (response) {
+						$scope.members = response.data.response;
+					});
 					$scope.apiurl = vm.apiurl;
 					this.dismiss = function () {
 						close();

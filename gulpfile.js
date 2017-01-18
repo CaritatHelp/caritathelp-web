@@ -13,23 +13,31 @@ var source = require('vinyl-source-stream');
 gulp.task('pug', function () {
 	gulp.src(['src/pug/**/*.pug'])
 		.pipe(g.plumber({
-			errorHandler: function (error) {
-				console.log(error.message);
-				this.emit('end');
-			}
+			errorHandler: function (error) {console.log(error.message);this.emit('end');}
 		}))
 		.pipe(g.pug({pretty: true}))
 		.pipe(gulp.dest('public/'))
 		.pipe(browserSync.reload({stream: true}));
 	gulp.src(['src/pug/view/**/*.pug'])
 		.pipe(g.plumber({
-			errorHandler: function (error) {
-				console.log(error.message);
-				this.emit('end');
-			}
+			errorHandler: function (error) {console.log(error.message);this.emit('end');}
 		}))
 		.pipe(g.pug({pretty: true}))
 		.pipe(gulp.dest('public/view/'))
+		.pipe(browserSync.reload({stream: true}));
+	gulp.src(['src/pug/partials/**/*.pug'])
+		.pipe(g.plumber({
+			errorHandler: function (error) {console.log(error.message);this.emit('end');}
+		}))
+		.pipe(g.pug({pretty: true}))
+		.pipe(gulp.dest('public/partials/'))
+		.pipe(browserSync.reload({stream: true}));
+	gulp.src(['src/pug/component/**/*.pug'])
+		.pipe(g.plumber({
+			errorHandler: function (error) {console.log(error.message);this.emit('end');}
+		}))
+		.pipe(g.pug({pretty: true}))
+		.pipe(gulp.dest('public/component/'))
 		.pipe(browserSync.reload({stream: true}));
 });
 

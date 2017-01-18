@@ -113,7 +113,7 @@ module.exports = ['$http', 'API_URL', function ($http, API_URL) {
 		return $http({
 			url: API_URL + 'pictures',
 			method: 'POST',
-			headers: Object.assign(headers, {'Content-Type': 'application/x-www-form-urlencoded'}),
+			headers: headers,
 			data: {
 				file: file,
 				filename: filename,
@@ -131,8 +131,8 @@ module.exports = ['$http', 'API_URL', function ($http, API_URL) {
 				file: file,
 				filename: filename,
 				original_filename: original,
-				assoc_id: assoc_id,
-				is_main: true
+				is_main: true,
+				assoc_id: assoc_id
 			}
 		});
 	};
@@ -145,8 +145,8 @@ module.exports = ['$http', 'API_URL', function ($http, API_URL) {
 				file: file,
 				filename: filename,
 				original_filename: original,
-				event_id: event_id,
-				is_main: true
+				is_main: true,
+				event_id: event_id
 			}
 		});
 	};

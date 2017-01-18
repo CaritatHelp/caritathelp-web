@@ -1,4 +1,4 @@
-.card.listing
+.card.listing(ng-if="list.shelters.length > 0")
 	h4.ch-text.--kilo.--bold Autres centres
 	.association(ng-repeat="shelter in list.shelters")
 		a(ui-sref="shelter({id:{{shelter.id}}})", title="{{shelter.name}}")

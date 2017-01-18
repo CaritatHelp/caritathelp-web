@@ -1,7 +1,7 @@
 //- Gestion des centres
 .card
 	h2.ch-text.--mega Gestions des centres
-	.card(ng-show="!settings.adding")
+	.card(ng-show="!settings.adding", ng-if="settings.asso.shelters.length > 0")
 		h4.ch-text.--mega Liste des centres
 		table.--first-emphasis(ng-if="settings.asso.shelters.length")
 			thead
@@ -19,14 +19,13 @@
 					td {{ shelter.address }}, {{ shelter.zipcode }} {{ shelter.city }}
 					td {{ shelter.total_places }}
 					td {{ shelter.free_places }}
-	.pull-right(ng-show="!settings.adding")
-		button.ch-btn(ng-click="settings.adding = true") Ajouter un centre
+	.card(ng-if="settings.asso.shelters.length < 1", ng-show="!settings.adding")
+		h2.ch-text.--kilo Cette association n'a aucun centre associé.
+
+	div(ng-show="!settings.adding")
+		button.ch-btn.pull-right(ng-click="settings.adding = true") Ajouter un centre
 	.card(ng-show="settings.adding")
-		form.ch-form(
-			novalidate="",
-			name="addShelter",
-			ng-submit="addShelter.$valid && settings.addShelter()"
-			)
+		form.ch-form(novalidate="", name="addShelterFormForm", ng-submit="addShelterForm.$valid && settings.addShelter()")
 
 			fieldset.ch-form_row
 				label.ch-form_label(for="inputName") Nom
@@ -37,7 +36,7 @@
 					ng-model="settings.shelter.name"
 					required=""
 					)
-			.ch-form_message.--error(ng-messages="addShelter.inputName.$error", ng-show="addShelter.$submitted && addShelter.inputName.$invalid")
+			.ch-form_message.--error(ng-messages="addShelterForm.inputName.$error", ng-show="addShelterForm.$submitted && addShelterForm.inputName.$invalid")
 				p(ng-message="required") Ce champs est requis
 
 			fieldset.ch-form_row
@@ -49,7 +48,7 @@
 					ng-model="settings.shelter.address"
 					required=""
 					)
-			.ch-form_message.--error(ng-messages="addShelter.inputAddress.$error", ng-show="addShelter.$submitted && addShelter.inputAddress.$invalid")
+			.ch-form_message.--error(ng-messages="addShelterForm.inputAddress.$error", ng-show="addShelterForm.$submitted && addShelterForm.inputAddress.$invalid")
 				p(ng-message="required") Ce champs est requis
 
 			fieldset.ch-form_row
@@ -61,7 +60,7 @@
 					ng-model="settings.shelter.city"
 					required=""
 					)
-			.ch-form_message.--error(ng-messages="addShelter.inputCity.$error", ng-show="addShelter.$submitted && addShelter.inputCity.$invalid")
+			.ch-form_message.--error(ng-messages="addShelterForm.inputCity.$error", ng-show="addShelterForm.$submitted && addShelterForm.inputCity.$invalid")
 				p(ng-message="required") Ce champs est requis
 
 			fieldset.ch-form_row
@@ -73,7 +72,7 @@
 					ng-model="settings.shelter.zipcode"
 					required=""
 					)
-			.ch-form_message.--error(ng-messages="addShelter.inputZipcode.$error", ng-show="addShelter.$submitted && addShelter.inputZipcode.$invalid")
+			.ch-form_message.--error(ng-messages="addShelterForm.inputZipcode.$error", ng-show="addShelterForm.$submitted && addShelterForm.inputZipcode.$invalid")
 				p(ng-message="required") Ce champs est requis
 
 			fieldset.ch-form_row
@@ -85,7 +84,7 @@
 					ng-model="settings.shelter.total_places"
 					required=""
 					)
-			.ch-form_message.--error(ng-messages="addShelter.inputTotal.$error", ng-show="addShelter.$submitted && addShelter.inputTotal.$invalid")
+			.ch-form_message.--error(ng-messages="addShelterForm.inputTotal.$error", ng-show="addShelterForm.$submitted && addShelterForm.inputTotal.$invalid")
 				p(ng-message="required") Ce champs est requis
 
 			fieldset.ch-form_row
@@ -97,19 +96,15 @@
 					ng-model="settings.shelter.free_places"
 					required=""
 					)
-			.ch-form_message.--error(ng-messages="addShelter.inputOccupied.$error", ng-show="addShelter.$submitted && addShelter.inputOccupied.$invalid")
+			.ch-form_message.--error(ng-messages="addShelterForm.inputOccupied.$error", ng-show="addShelterForm.$submitted && addShelterForm.inputOccupied.$invalid")
 				p(ng-message="required") Ce champs est requis
 
 			fieldset.ch-form_row
 				label.ch-form_label(for="inputDescription") Description
-				textarea.ch-form_text(
-					id="inputDescription",
-					placeholder="Description",
-					ng-model="settings.shelter.description"
-					)
+				textarea.ch-form_text(id="inputDescription", placeholder="Description", ng-model="settings.shelter.description")
 
 			.pull-right
-				button.ch-btn.--fail(ng-click="settings.adding = false") Annuler
+				button.ch-btn.--fail(ng-click="settings.disableShelterCreation()") Annuler
 				button.ch-btn(type="submit", ng-disabled="settings.creating").
 					#[i.fa.fa-spin.fa-spinner(ng-show="settings.creating")]
 					Enregistrer

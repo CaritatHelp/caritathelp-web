@@ -15,14 +15,14 @@ block content
 			#[a(ui-sref="profil.home({id:notif.sender_id})") {{notif.event_name}}]
 			est en état d'urgence
 		.notification--action(ng-if="notif.notif_type === 'Emergency'")
-			a.ch-btn(ui-sref="event.home({id:notif.sender_id})") Voir l'évènement
-		//- Accepte urgence
-		.notification--body.ch-text(ng-if="notif.notif_type === 'AcceptedEmergency'")
+			a.ch-btn(ui-sref="event.home({id:notif.sender_id})", ng-click="read(notif.id)") Voir l'évènement
+		//- Useless notif urgence acceptée
+		//- .notification--body.ch-text(ng-if="notif.notif_type === 'AcceptedEmergency'")
 			a(ui-sref="profil.home({id:notif.sender_id})") {{notif.sender_name}}
 			span a accepté l'urgence de l'évènement
 			a(ui-sref="event.home({id:notif.event_id})") {{notif.event_name}}
-		.notification--action(ng-if="notif.notif_type === 'AcceptedEmergency'")
-			a.ch-btn(ui-sref="event.home({id:notif.event_id})") Voir l'évènement
+		//- .notification--action(ng-if="notif.notif_type === 'AcceptedEmergency'")
+			a.ch-btn(ui-sref="event.home({id:notif.event_id})", ng-click="read(notif.id)") Voir l'évènement
 
 		//- Nouveau membre
 		.notification--body.ch-text(ng-if="notif.notif_type === 'NewMember'")

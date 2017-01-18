@@ -42,6 +42,11 @@ events.config(function ($stateProvider, TemplateProvider) {
 			templateUrl: Template.partial('Events/general'),
 			authenticate: true
 		})
+		.state('event.settings.emergency', {
+			url: '/urgence',
+			templateUrl: Template.partial('Events/emergency'),
+			authenticate: true
+		})
 		.state('event.settings.picture', {
 			url: '/avatar',
 			templateUrl: Template.partial('Events/picture'),

@@ -1,0 +1,48 @@
+.card
+	h2.ch-text.--mega Lancer une urgence
+	p.ch-text Sélectionner la zone géographique où lancer l'urgence.
+
+	form.ch-form(
+		novalidate="",
+		name="emergencyForm",
+		ng-submit="emergencyForm.$valid && settings.raiseEmergency()"
+		)
+		//- Messages d'erreur
+		.alert.alert-danger(
+			role="alert",
+			ng-show="settings.error",
+			ng-bind-html="settings.errorMessage")
+
+		fieldset.ch-form_row
+			label.ch-form_label(for="inputDescription") Zone de l'urgence
+			select.ch-form_select(
+				name="inputZone",
+				placeholder="Zone de notification en kilomètres",
+				ng-model="settings.emergency.zone",
+				required=""
+			)
+				option(value="1") 1 km
+				option(value="2") 2 km
+				option(value="3") 3 km
+				option(value="5") 5 km
+				option(value="10") 10 km
+				option(value="20") 20 km
+				option(value="30") 30 km
+				option(value="50") 50 km
+				option(value="100") 100 km
+
+		fieldset.ch-form_row
+			button.pull-right.ch-btn.--tertiary(type="submit", ng-disabled="settings.updating").
+				#[i.fa.fa-spin.fa-spinner(ng-show="setting.updating")]
+				Lancer l'urgence
+.card(ng-show="settings.notified")
+	h2.ch-text.--mega Alerte envoyée !
+	.card(ng-if="!settings.notified.length")
+		.ch-text Aucun volontaire notifié, essayez une distance plus grande.
+	.card(ng-if="settings.notified.length", ng-repeat="notify in settings.notified")
+		.notification(style="justify-content:space-between;")
+			a(ui-sref="profil.home({id:{{notify.id}}})").
+				#[img.ch-avatar(ng-src="{{settings.apiurl + notify.thumb_path}}")]
+			.notification--body.ch-text
+				a(ui-sref="profil.home({id:{{notify.id}}})") {{notify.firstname}} {{notify.lastname}}
+				span notifié !

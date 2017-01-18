@@ -94,4 +94,9 @@ module.exports = ['dataService', function (dataService) {
 	this.waiting = function (id) {
 		return data.get('guests/waiting', {event_id: id});
 	};
+
+	//Emergencies
+	this.emergency = function (id, zone) {
+		return data.post('events/' + id + '/raise_emergency', {zone: zone});
+	}
 }];

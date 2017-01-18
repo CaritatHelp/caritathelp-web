@@ -7,6 +7,7 @@ module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService',
 		var events = DataEvents;
 		vm.tab = 1;
 		vm.apiurl = events.apiurl;
+		vm.emergency = {};
 
 		if ($stateParams.id) {
 			events.get($stateParams.id)
@@ -141,4 +142,10 @@ module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService',
 		vm.isSet = function (tab) {
 			return vm.tab === tab;
 		};
+
+		vm.raiseEmergency = function () {
+			events.emergency($stateParams.id, vm.emergency.zone).then(function(response) {
+				vm.notified = response.data.response;
+			});
+		}
 	}];

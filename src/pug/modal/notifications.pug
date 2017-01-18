@@ -16,6 +16,13 @@ block content
 			est en état d'urgence
 		.notification--action(ng-if="notif.notif_type === 'Emergency'")
 			a.ch-btn(ui-sref="event.home({id:notif.sender_id})") Voir l'évènement
+		//- Accepte urgence
+		.notification--body.ch-text(ng-if="notif.notif_type === 'AcceptedEmergency'")
+			a(ui-sref="profil.home({id:notif.sender_id})") {{notif.sender_name}}
+			span a accepté l'urgence de l'évènement
+			a(ui-sref="event.home({id:notif.event_id})") {{notif.event_name}}
+		.notification--action(ng-if="notif.notif_type === 'AcceptedEmergency'")
+			a.ch-btn(ui-sref="event.home({id:notif.event_id})") Voir l'évènement
 
 		//- Nouveau membre
 		.notification--body.ch-text(ng-if="notif.notif_type === 'NewMember'")
@@ -74,7 +81,7 @@ block content
 				i.fa.fa-check
 
 		//- Default notif
-		.notification--body(ng-if="notif.notif_type !== 'AddFriend' && notif.notif_type !== 'Emergency' && notif.notif_type !== 'NewMember' && notif.notif_type !== 'JoinAssoc' && notif.notif_type !== 'JoinEvent' && notif.notif_type !== 'InviteGuest' && notif.notif_type !== 'InviteMember' ") {{notif}}
+		.notification--body(ng-if="notif.notif_type !== 'AddFriend' && notif.notif_type !== 'Emergency' && notif.notif_type !== 'NewMember' && notif.notif_type !== 'JoinAssoc' && notif.notif_type !== 'JoinEvent' && notif.notif_type !== 'InviteGuest' && notif.notif_type !== 'InviteMember' && notif.notif_type !== 'AcceptedEmergency'") {{notif}}
 		.notification--actions(ng-if="false")
 			button.ch-btn(ng-click="answerFriend(notif.id, true)")
 				i.fa.fa-check

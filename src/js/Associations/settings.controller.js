@@ -38,6 +38,7 @@ module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations', '
 			associations.update(vm.asso.id, vm.asso.name, vm.asso.description, vm.asso.birthday, vm.asso.city, null, null)
 			.then(function () {
 				vm.success = 'Votre association a bien été modifiée';
+				$state.reload();
 			}, function (response) {
 				vm.error = response.data.message;
 			})

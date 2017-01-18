@@ -72,7 +72,7 @@ module.exports = ['dataService', function (dataService) {
 		return data.post('guests/reply_invite', parameters);
 	};
 	this.leave = function (id) {
-		return data.remove('guests/leave', {event_id: id});
+		return data.remove('guests/leave?event_id=' + id);
 	};
 	this.rights = function (volunteer_id, event_id, rights) {
 		var parameters = {
@@ -83,21 +83,13 @@ module.exports = ['dataService', function (dataService) {
 		return data.put('guests/upgrade', parameters);
 	};
 	this.kick = function (volunteer_id, event_id) {
-		var parameters = {
-			event_id: event_id,
-			volunteer_id: volunteer_id
-		};
-		return data.remove('guests/kick', parameters);
+		return data.remove('guests/kick?event_id=' + event_id + '&volunteer_id=' +volunteer_id);
 	};
 	this.invited = function (id) {
 		return data.get('guests/invited', {event_id: id});
 	};
 	this.uninvite = function (volunteer_id, event_id) {
-		var parameters = {
-			event_id: event_id,
-			volunteer_id: volunteer_id
-		};
-		return data.remove('guests/uninvite', parameters);
+		return data.remove('guests/uninvite?event_id=' + event_id + '&volunteer_id=' +volunteer_id);
 	};
 	this.waiting = function (id) {
 		return data.get('guests/waiting', {event_id: id});

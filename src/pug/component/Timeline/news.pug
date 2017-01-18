@@ -26,14 +26,15 @@
 			img.ch-avatar.--small(ng-src="{{vmnews.current.picture}}", alt="{{vmnews.current.firstname}} {{vmnews.current.lastname}}")
 		form.ch-form#postComment(
 			novalidate="",
-			name="postComment",
-			ng-submit="vmnews.postComment()"
+			name="postCommentForm",
+			ng-submit="postCommentForm.$valid && vmnews.postComment()"
 		)
 			.ch-form_input-group.--button-input
 				input.ch-form_text.--button-input(
 					type="text",
 					placeholder="Poster un commentaire",
-					ng-model="vmnews.newComment"
+					ng-model="vmnews.newComment",
+					required=""
 				)
 				button.ch-btn.--button-input.--tertiary
 					i.fa.fa-play

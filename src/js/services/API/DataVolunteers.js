@@ -54,7 +54,7 @@ module.exports = ['dataService', function (dataService) {
 		return data.post('friendship/reply', parameters);
 	};
 	this.remove = function (id) {
-		return data.remove('friendship/remove', {volunteer_id: id});
+		return data.remove('friendship/remove?volunteer_id=' + id);
 	};
 	this.pending = function () {
 		return data.get('friendship/received_invitations');

@@ -7,7 +7,6 @@ module.exports = ['$state', 'DataAssociations', function ($state, DataAssociatio
 	vm.errorMessage = '';
 
 	vm.createAsso = function () {
-		console.log('ehllo');
 		// Parametres: nom description birthday city latitude longitude
 		associations.create(vm.name, vm.description, null, vm.city, null, null)
 			.then(function (response) {

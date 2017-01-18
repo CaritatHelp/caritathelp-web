@@ -25,7 +25,6 @@ module.exports = ['localStorageService', 'dataService', 'DataVolunteers', functi
 		user.allowgps = datas.allowgps;
 		user.notifications = datas.notifications;
 		user.picture = dsc.getApiUrl() + datas.thumb_path;
-		console.log(user.picture);
 		return user;
 	}
 

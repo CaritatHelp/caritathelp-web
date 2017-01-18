@@ -33,11 +33,11 @@
 					.ch-event_title.ch-text.--bold {{event.title}}
 					.ch-event_host.ch-text.--secondary Organisé par <a ui-sref="association.home({id:{{event.assoc_id}}})">{{event.assoc_name}}</a>
 				section.ch-text
-					span <strong>Du</strong> {{event.begin | date: "dd/MM à HH:mm"}} <strong>au</strong>  {{event.end | date: "dd/MM à HH:mm"}}
+					span <strong>Du</strong> {{event.begin | date: "dd/MM à HH:mm"}} <span ng-if="event.end"><strong>au</strong>  {{event.end | date: "dd/MM à HH:mm"}}</span>
 					br
 					span <strong>Lieu:</strong> {{event.place ? event.place : 'Inconnu'}}
 					br
-					span {{event.nb_guest}} participants, dont <strong>{{event.nb_friends_members}}</strong> amis
+					span {{event.nb_guest}} participant(s), dont <strong>{{event.nb_friends_members}}</strong> amis
 				footer
 					.ch-event_status(ng-if="event.rights == 'admin'") Vous êtes administrateur de cet évènement
 					.ch-event_status(ng-if="event.rights == 'host'") Vous êtes le créateur de cet évènement
@@ -57,11 +57,11 @@
 					.ch-event_title.ch-text.--bold {{event.title}}
 					.ch-event_host.ch-text.--secondary Organisé par <a ui-sref="association.home({id:{{event.assoc_id}}})">{{event.assoc_name}}</a>
 				section
-					span <strong>Du</strong> {{event.begin | date: "dd/MM à HH:mm"}} <strong>au</strong>  {{event.end | date: "dd/MM à HH:mm"}}
+					span <strong>Du</strong> {{event.begin | date: "dd/MM à HH:mm"}} <span ng-if="event.end"><strong>au</strong>  {{event.end | date: "dd/MM à HH:mm"}}</span>
 					br
 					span <strong>Lieu:</strong> {{event.place ? event.place : 'Inconnu'}}
 					br
-					span {{event.nb_guest}} participants, dont <strong>{{event.nb_friends_members}}</strong> amis
+					span {{event.nb_guest}} participant(s), dont <strong>{{event.nb_friends_members}}</strong> amis
 				footer
 					.ch-event_status(ng-if="event.rights == 'admin'") Vous êtes administrateur de cet évènement
 					.ch-event_status(ng-if="event.rights == 'host'") Vous êtes le créateur de cet évènement

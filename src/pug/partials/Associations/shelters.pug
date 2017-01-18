@@ -1,6 +1,7 @@
 //- Gestion des centres
 .card
 	h2.ch-text.--mega Gestions des centres
+	.card(ng-show="error") {{ error }}
 	.card(ng-show="!settings.adding", ng-if="settings.asso.shelters.length > 0")
 		h4.ch-text.--mega Liste des centres
 		table.--first-emphasis(ng-if="settings.asso.shelters.length")
@@ -25,7 +26,7 @@
 	div(ng-show="!settings.adding")
 		button.ch-btn.pull-right(ng-click="settings.adding = true") Ajouter un centre
 	.card(ng-show="settings.adding")
-		form.ch-form(novalidate="", name="addShelterFormForm", ng-submit="addShelterForm.$valid && settings.addShelter()")
+		form.ch-form(novalidate="", name="addShelterForm", ng-submit="addShelterForm.$valid && settings.addShelter()")
 
 			fieldset.ch-form_row
 				label.ch-form_label(for="inputName") Nom

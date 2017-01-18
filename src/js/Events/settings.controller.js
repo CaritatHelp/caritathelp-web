@@ -1,10 +1,11 @@
 'use strict';
 
-module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService',
-	function ($state, $stateParams, DataEvents, dataService) {
+module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService', 'userService',
+	function ($state, $stateParams, DataEvents, dataService, userService) {
 		var vm = this;
 		var dsc = dataService;
 		var events = DataEvents;
+		vm.current = userService.user();
 		vm.tab = 1;
 		vm.apiurl = events.apiurl;
 		vm.emergency = {};
@@ -145,7 +146,6 @@ module.exports = ['$state', '$stateParams', 'DataEvents', 'dataService',
 
 		vm.raiseEmergency = function () {
 			vm.updating = true;
-			console.log('test');
 			events.emergency($stateParams.id, vm.emergency.zone).then(function(response) {
 				vm.notified = response.data.response;
 			}).finally(function() {

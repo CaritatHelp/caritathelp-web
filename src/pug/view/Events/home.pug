@@ -12,13 +12,12 @@
 		//- Actions possibles pour l'utilisateur
 		.event-actions
 			//-Rejoindre l'event
-			.action(ng-if="vm.event.rights == 'members'")
-				a(ng-click="vm.joinEvent()").
-					#[i.fa.fa-check]
-					Vous participez à cet évenement
+			.action(ng-if="vm.event.rights == 'members'").
+				#[i.fa.fa-check]
+				Vous participez à cet évenement
 			//- Invité
 			.action(ng-if="vm.event.rights == 'invited'")
-				a(ng-click="vm.joinEvent()").
+				a(ui-sref="profil.settings.invites({id: vm.current.id})").
 					#[i.fa.fa-check]
 					Vous avez été invité à cet évenement
 			//- Non membre

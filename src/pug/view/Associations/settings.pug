@@ -20,12 +20,12 @@
 
 	.ch-grid_col.--two-thirds_from-tablet
 		//- Messages de succes
-		.alert.alert-success(
+		.card.alert.alert-success(
 			role="alert",
 			ng-show="settings.success",
 			ng-bind-html="settings.success")
 		//- Messages d'erreur
-		.alert.alert-danger(
+		.card.alert.alert-danger(
 			role="alert",
 			ng-show="settings.error",
 			ng-bind-html="settings.error")

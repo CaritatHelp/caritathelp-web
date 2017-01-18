@@ -137,18 +137,20 @@ module.exports = ['$state', '$stateParams', 'dataService', 'DataAssociations', '
 			vm.creating = true;
 			shelters.create(vm.asso.id, vm.shelter.name, vm.shelter.address, vm.shelter.zipcode, vm.shelter.city, vm.shelter.total_places, vm.shelter.free_places, vm.shelter.description)
 			.then(function (response) {
-				$state.transitionTo('shelter', {id: response.data.response.id});
+				if (response.data.status == 200) {
+					$state.transitionTo('shelter', {id: response.data.response.id});
+					vm.adding = false;
+				} else {
+					vm.error = response.data.message;
+				}
+				vm.creating = false;
 			}, function (response) {
 				vm.error = response.data.message;
-			})
-			.finally(function () {
-				vm.creating = false;
-				vm.adding = false;
 			});
 		};
 		vm.disableShelterCreation = function () {
 			vm.adding = false;
-			vm.addShelterForm.$setPristine();
+			addShelterForm.$setUntouched();
 		};
 
 		vm.setTab = function (activeTab) {

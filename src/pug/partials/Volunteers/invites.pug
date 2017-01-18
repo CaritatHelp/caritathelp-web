@@ -6,10 +6,6 @@
 			//- Invitation dans une asso
 			.invite--asso(ng-repeat="asso in settings.invited.assos")
 				.invite--text
-					//- .invite--from
-					//- 	a(ui-sref="profil.home({id:{{asso.id}}})").
-					//- 		#[img(ng-src="{{settings.apiurl + asso.thumb_path}}")]
-					//- 		{{asso.name}}
 					.invite--description Vous avez été invité à rejoindre l'association
 					.invite--to
 						a(ui-sref="association.home({id:{{asso.id}}})").
@@ -24,10 +20,6 @@
 			//- Invitation dans un event
 			.invite--event(ng-repeat="event in settings.invited.events")
 				.invite--text
-					//- .invite--from
-					//- 	a(ui-sref="profil.home({id:{{event.id}}})").
-					//- 		#[img(ng-src="{{settings.apiurl + event.thumb_path}}")]
-					//- 		{{event.title}}
 					.invite--description Vous avez été invité à participer à l'évènement
 					.invite--to
 						a(ui-sref="event.home({id:{{event.id}}})").
@@ -54,4 +46,4 @@
 						i.fa.fa-times
 
 		//- Empty
-		.alert.alert-info(ng-if="!settings.invited.length") Vous n'avez pas d'invitations récentes
+		.alert.alert-info(ng-if="!settings.invited.assos.length && !settings.invited.events.length && !settings.invited.friends.length") Vous n'avez pas d'invitations récentes

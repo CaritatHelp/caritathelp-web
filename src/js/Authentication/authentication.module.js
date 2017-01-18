@@ -16,7 +16,7 @@ var authentication = require('angular').module('caritathelp.authentication', [
 	'caritathelp.validator.compare_to'
 ]);
 
-authentication.config(function ($stateProvider, $urlRouterProvider, TemplateProvider) {
+authentication.config(['$stateProvider', '$urlRouterProvider', 'TemplateProvider', function ($stateProvider, $urlRouterProvider, TemplateProvider) {
 	$urlRouterProvider.otherwise('/connexion');
 	var Template = TemplateProvider.$get();
 
@@ -37,6 +37,6 @@ authentication.config(function ($stateProvider, $urlRouterProvider, TemplateProv
 			url: '/inscription',
 			templateUrl: Template.view('register')
 		});
-});
+}]);
 
 module.exports = authentication;

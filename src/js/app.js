@@ -49,12 +49,12 @@ require('./Search/search.module');
 
 require('./services');
 
-app.config(function (localStorageServiceProvider) {
+app.config(['localStorageServiceProvider', function (localStorageServiceProvider) {
 	localStorageServiceProvider.setPrefix('caritathelp').setNotify(true, true);
-});
+}]);
 
-app.run(function ($rootScope, $state, userService) {
-	$rootScope.$on('$stateChangeStart', function (event, toState) {
+app.run(['$rootScope', '$state', 'userService', function ($rootScope, $state, userService) {
+	$rootScope.$on('$stateChangeStart', ['event', 'toState', function (event, toState) {
 		if (toState.authenticate && !userService.user()) {
 			$state.transitionTo('login');
 			event.preventDefault();
@@ -62,5 +62,5 @@ app.run(function ($rootScope, $state, userService) {
 			$state.transitionTo('home');
 			event.preventDefault();
 		}
-	});
-});
+	}]);
+}]);

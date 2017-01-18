@@ -5,7 +5,7 @@ var inbox = require('angular').module('caritathelp.inbox', [
 	'caritathelp.service.websocket'
 ]);
 
-inbox.config(function ($stateProvider, TemplateProvider) {
+inbox.config(['$stateProvider', 'TemplateProvider', function ($stateProvider, TemplateProvider) {
 	var Template = TemplateProvider.$get();
 
 	$stateProvider
@@ -16,7 +16,7 @@ inbox.config(function ($stateProvider, TemplateProvider) {
 			controllerAs: 'inbox',
 			authenticate: true
 		});
-});
+}]);
 
 module.exports = inbox;
 

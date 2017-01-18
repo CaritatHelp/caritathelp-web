@@ -7,7 +7,7 @@ module.exports = require('angular').module('caritathelp.component.navbar', [
 		return {
 			controllerAs: 'nav',
 			templateUrl: Template.component('navbar'),
-			controller: function ($scope) {
+			controller: ['$scope', function ($scope) {
 				var vm = this;
 				var dsc = dataService;
 				var usc = userService;
@@ -38,7 +38,7 @@ module.exports = require('angular').module('caritathelp.component.navbar', [
 					modal.showModal({
 						templateUrl: 'modal/notifications.html',
 						controllerAs: 'modal',
-						controller: function (close, $scope, DataVolunteers) {
+						controller: ['close', '$scope', function (close, $scope) {
 							$scope.notifs = vm.notifications.concat(vm.notification);
 							$scope.apiurl = dsc.getApiUrl();
 
@@ -70,7 +70,7 @@ module.exports = require('angular').module('caritathelp.component.navbar', [
 								getNotifications();
 								close();
 							};
-						}
+						}]
 					});
 				};
 
@@ -81,6 +81,6 @@ module.exports = require('angular').module('caritathelp.component.navbar', [
 						vm.notifications = response.data.response;
 					});
 				}
-			}
+			}]
 		};
 	}]);

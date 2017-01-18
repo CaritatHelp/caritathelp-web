@@ -18,7 +18,7 @@ var volunteers = require('angular').module('caritathelp.volunteers', [
 	'caritathelp.validator.compare_to'
 ]);
 
-volunteers.config(function ($stateProvider, TemplateProvider) {
+volunteers.config(['$stateProvider', 'TemplateProvider', function ($stateProvider, TemplateProvider) {
 	var Template = TemplateProvider.$get();
 
 	$stateProvider
@@ -75,6 +75,6 @@ volunteers.config(function ($stateProvider, TemplateProvider) {
 			authenticate: true
 		})
 	;
-});
+}]);
 
 module.exports = volunteers;

@@ -9,6 +9,7 @@ var browserSync = require('browser-sync');
 var browserify = require('browserify');
 var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
+var ngAnnotate = require('gulp-ng-annotate');
 
 gulp.task('pug', function () {
 	gulp.src(['src/pug/**/*.pug'])
@@ -93,6 +94,7 @@ gulp.task('scripts', ['browserify'], function () {
 				this.emit('end');
 			}
 		}))
+		.pipe(ngAnnotate())
 		.pipe(g.rename({suffix: '.min'}))
 		.pipe(g.uglify())
 		.pipe(gulp.dest('public/js/'))
@@ -119,7 +121,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('build', function () {
-	runSequence(['styles', 'browserify', 'pug', 'copy']);
+	runSequence(['styles', 'scripts', 'pug', 'copy']);
 });
 
 gulp.task('reload', function () {
@@ -137,7 +139,7 @@ gulp.task('serve', function () {
 gulp.task('watch', function () {
 	gulp.watch('src/less/**/*.less', ['styles']);
 	gulp.watch('src/pug/**/*.pug', ['pug']);
-	gulp.watch('src/js/**/*.js', ['browserify']);
+	gulp.watch('src/js/**/*.js', ['scripts']);
 	gulp.watch('src/js/**/*.tpl.html', ['copy']);
 	gulp.watch(['src/**/*.html', 'src/fonts/**/*', 'src/img/**/*', 'src/libs/**/*'], ['copy']);
 });

@@ -82,7 +82,7 @@ module.exports = ['$state', '$stateParams', 'userService', 'ModalService', 'Data
 		vm.openInvite = function () {
 			modal.showModal({
 				templateUrl: 'modal/event-invite.html',
-				controller: function (close, $scope, DataEvents) {
+				controller: ['close', '$scope', 'DataEvents', function (close, $scope, DataEvents) {
 					events.invitable(vm.event.id).then(function (response) {
 						$scope.members = response.data.response;
 					});
@@ -94,7 +94,7 @@ module.exports = ['$state', '$stateParams', 'userService', 'ModalService', 'Data
 						DataEvents.invite(friendId, vm.event.id);
 						close();
 					};
-				},
+				}],
 				controllerAs: 'modal'
 			});
 		};

@@ -72,7 +72,7 @@ module.exports = ['$state', '$stateParams', 'socketService', 'userService', 'Mod
 		vm.openInvite = function () {
 			modal.showModal({
 				templateUrl: 'modal/inbox-invite.html',
-				controller: function (close, dataService, $scope) {
+				controller: ['close', 'dataService', '$scope', function (close, dataService, $scope) {
 					$scope.apiurl = vm.apiurl;
 					volunteers.friends(vm.current.id)
 						.then(function (response) {
@@ -102,7 +102,7 @@ module.exports = ['$state', '$stateParams', 'socketService', 'userService', 'Mod
 							});
 						close();
 					};
-				}
+				}]
 			});
 		};
 	}];

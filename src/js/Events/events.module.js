@@ -6,7 +6,7 @@ var events = require('angular').module('caritathelp.events', [
 	'caritathelp.component.timeline'
 ]);
 
-events.config(function ($stateProvider, TemplateProvider) {
+events.config(['$stateProvider', 'TemplateProvider', function ($stateProvider, TemplateProvider) {
 	var Template = TemplateProvider.$get();
 
 	$stateProvider
@@ -62,7 +62,7 @@ events.config(function ($stateProvider, TemplateProvider) {
 			templateUrl: Template.partial('Events/delete'),
 			authenticate: true
 		});
-});
+}]);
 
 module.exports = events;
 

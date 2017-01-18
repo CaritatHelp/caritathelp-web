@@ -10,7 +10,7 @@ var associations = require('angular').module('caritathelp.associations', [
 	'caritathelp.component.calendar'
 ]);
 
-associations.config(function ($stateProvider, TemplateProvider) {
+associations.config(['$stateProvider', 'TemplateProvider', function ($stateProvider, TemplateProvider) {
 	var Template = TemplateProvider.$get();
 
 	$stateProvider
@@ -92,7 +92,7 @@ associations.config(function ($stateProvider, TemplateProvider) {
 			templateUrl: Template.partial('Associations/delete'),
 			authenticate: true
 		});
-});
+}]);
 
 module.exports = associations;
 

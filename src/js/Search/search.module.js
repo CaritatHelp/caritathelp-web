@@ -3,7 +3,7 @@
 var search = require('angular').module('caritathelp.search', [
 ]);
 
-search.config(function ($stateProvider, TemplateProvider) {
+search.config(['$stateProvider', 'TemplateProvider', function ($stateProvider, TemplateProvider) {
 	var Template = TemplateProvider.$get();
 
 	$stateProvider
@@ -14,7 +14,7 @@ search.config(function ($stateProvider, TemplateProvider) {
 			controllerAs: 'search',
 			authenticate: true
 		});
-});
+}]);
 
 module.exports = search;
 

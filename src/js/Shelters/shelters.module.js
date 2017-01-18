@@ -6,7 +6,7 @@ var shelters = require('angular').module('caritathelp.shelters', [
 	'caritathelp.component.list.shelters'
 ]);
 
-shelters.config(function ($stateProvider, TemplateProvider) {
+shelters.config(['$stateProvider', 'TemplateProvider', function ($stateProvider, TemplateProvider) {
 	var Template = TemplateProvider.$get();
 
 	$stateProvider
@@ -17,6 +17,6 @@ shelters.config(function ($stateProvider, TemplateProvider) {
 			controllerAs: 'vm',
 			authenticate: true
 		});
-});
+}]);
 
 module.exports = shelters;

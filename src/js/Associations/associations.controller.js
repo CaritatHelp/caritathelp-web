@@ -88,7 +88,7 @@ module.exports = ['$state', '$stateParams', 'userService', 'ModalService', 'Data
 		vm.openInvite = function () {
 			modal.showModal({
 				templateUrl: 'modal/asso-invite.html',
-				controller: function (close, $scope, DataAssociations) {
+				controller: ['close', '$scope', 'DataAssociations', function (close, $scope, DataAssociations) {
 					associations.invitable(vm.asso.id).then(function (response) {
 						$scope.friends = response.data.response;
 					});
@@ -100,7 +100,7 @@ module.exports = ['$state', '$stateParams', 'userService', 'ModalService', 'Data
 						DataAssociations.invite(friendId, vm.asso.id);
 						close();
 					};
-				}
+				}]
 			});
 		};
 	}];

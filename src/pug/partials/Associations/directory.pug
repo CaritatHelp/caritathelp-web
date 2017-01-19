@@ -36,7 +36,7 @@
 		.loader--info Chargement
 //-Liste de toutes les assos moins celles dont l'user est membre
 .card
-	.no-asso(ng-show="directory.loaded.list", ng-if="directory.loaded.list.length")
+	.no-asso(ng-show="directory.loaded.list", ng-if="directory.assos.length")
 		h2.ch-text.--mega Toutes les associations
 		table.--highlight.--first-emphasis
 			thead
@@ -55,7 +55,7 @@
 					td(ng-if="assoc.nb_members && assoc.nb_friends_members == 0") {{assoc.nb_members}} #[i.fa.fa-users]
 					td(ng-if="assoc.nb_members && assoc.nb_friends_members == 1") {{assoc.nb_members}} #[i.fa.fa-users] ({{assoc.nb_friends_members}} ami)
 					td(ng-if="assoc.nb_members && assoc.nb_friends_members > 1") {{assoc.nb_members}} #[i.fa.fa-users] ({{assoc.nb_friends_members}} amis)
-	.no-asso(ng-show="directory.loaded.list", ng-if="!directory.loaded.list.length")
+	.no-asso(ng-show="directory.loaded.list", ng-if="!directory.assos.length")
 		section.
 			Aucune association disponible ! <br> Vous êtes membre de toutes les associations existantes, vous pouvez en créer une nouvelle !
 	.assolist--loader(ng-show="!directory.loaded.list")
